@@ -9,7 +9,7 @@ colors {
 	Dark-Selected: #464E56;
 	Dark-Border: #364453;
 	
-	Light-Gray: #DBDBDB; /* Text label, Border */
+	Light-Gray: @border-color; /* Text label, Border */
 	
 	Label-Font: @text-color; /* Label Text */
 	Field-Color: #4A4A4A;
@@ -26,8 +26,19 @@ colors {
 
 @body-bg: #FFF;
 @body-bg-inverse: #DDD;
+
+/* TODO setup borders for colors */
+@border-color : #DBDBDB;
+@border-width : 1px;
+@border-style : solid;
+
+@field-border-width: 0 @border-width 0 0;
+
 @text-color : #777777;
 @border-color : @text-color;
+@field-bg : #FFF;
+@field-color: @text-color;
+@field-addon-bg: @field-bg;
 
 @brand-primary: #428bca;
 @brand-success: #5cb85c;
@@ -103,6 +114,7 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 .form-control {
 	box-shadow: none;
 	border-radius: 2px;
+	background-color: @field-bg;
 }
 
 .form-control:focus {
@@ -120,11 +132,12 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 .bts-select, .bts-select ~ .input-group-addon,
 .svy-calendar, .svy-calendar ~ .input-group-addon,
 .bts-calendar input, .bts-calendar input ~ .input-group-addon {
-	border: 0;
-	border-bottom: 1px solid #DBDBDB;
+	border-style: @border-style;
+	border-color: @border-color;
+	border-width: @border-width;
 	border-radius: 0;
 	box-shadow: none;
-	color: @text-color;
+	color: @field-color;
 	font-size: 14px;
 	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	   -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -134,7 +147,7 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 }
 
 .input-group.date .input-group-addon {
-	background-color: inherit;
+	background-color: @field-addon-bg;
 }
 
 .svy-field:focus,
@@ -153,7 +166,7 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 fieldset[disabled] .form-control {
 	background-color: inherit;
 	opacity: 0.6;
-	border-color: #DBDBDB;
+	border-color: @border-color;
 }
 
 /* Checkbox */
@@ -240,10 +253,10 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 
 /* Input Groups *
 .input-group .input-group-addon {
-	background-color: inherit;
+	background-color: @field-addon-bg;
 	border-radius: 0;
 	border-width: 0;
-	border-color: #DBDBDB;
+	border-color: @border-color;
 	border-bottom-width: 1px;
 	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	   -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -275,7 +288,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-calendar input,
 .bts-calendar input,
 .table .input-group .input-group-addon {
-	background-color: #FFF;
+	background-color: @field-addon-bg;
 }
 */
 
@@ -297,13 +310,13 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 /* Combobox */
 .svy-combobox .ui-select-toggle {
     border: 0;
-    border-bottom: 1px solid #DBDBDB;
+    border-bottom: 1px solid @border-color;
     border-radius: 0;
     box-shadow: none;
 }
 
 .svy-combobox .ui-select-toggle:hover {
-    background-color: inherit;
+    background-color: @field-addon-bg;
     border-color: @main-color;
 }
 
@@ -353,8 +366,8 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bts-select option:focus,
 .bts-select option:hover,
 .bts-select option:active {
-	background-color: #E9720B !important;
-	background: #E9720B !important;
+	background-color: @main-color !important;
+	background: @main-color !important;
 	outline: none;
 }
 
@@ -509,7 +522,7 @@ data-servoyextra-fontawesome > div {
 /* Input Group Bootstrap Extra */
 .bts-extra-navbar .form-control,
 .bts-extra-input-group .form-control {
-	border: 1px solid #DBDBDB;
+	border: 1px solid @border-color;
 }
 
 .bts-extra-navbar .form-control:focus,
@@ -551,8 +564,8 @@ data-servoyextra-fontawesome > div {
 }
 
 .ui-grid-row .ui-grid-cell {
-	border-color: #DBDBDB;
 	border-bottom: 1px solid #DBDBDB;
+	border-color: @border-color;
 }
 
 .ui-grid-row div.ui-grid-cell > * {
@@ -562,7 +575,7 @@ data-servoyextra-fontawesome > div {
 
 /* Selected Row */
 .ui-grid-row.ui-grid-row-selected div.ui-grid-cell {
-	background-color: #E9720B !important;
+	background-color: @main-color !important;
 }
 
 .ui-grid-cell .svy-field, 
@@ -620,7 +633,7 @@ data-servoyextra-fontawesome > div {
 .svy-table  td,
 .bts-table  th,
 .bts-table  td {
-	border-color: #DBDBDB;
+	border-color: @border-color;
 }
 
 .ui-grid-header-cell,
@@ -696,7 +709,7 @@ data-servoyextra-fontawesome > div {
 .yuimenubaritemlabel-disabled:hover,
 .yuimenuitemlabel-disabled:hover,
 .yuimenuitemlabel-disabled:focus {
-	color: #DBDBDB;
+	color: @border-color;
 }
 
 /* Scrollbar Style */
@@ -709,14 +722,14 @@ data-servoyextra-fontawesome > div {
 ::-webkit-scrollbar-track {
 	border-radius: 0px;
 	background: #FFF;
-	border: 0px solid #DBDBDB;
+	border: 0px solid @border-color;
 	border-top: 0;
 	border-bottom: 0;
 }
 
 ::-webkit-scrollbar-thumb {
 	border-radius: 10px;
-	background: #DBDBDB;
+	background: @border-color;
 }
 ::-webkit-scrollbar-thumb:window-inactive {
 	background: #F8F8F8;
