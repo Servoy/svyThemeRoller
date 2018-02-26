@@ -28,23 +28,37 @@ colors {
 @body-bg-inverse: #DDD;
 
 /* TODO setup borders for colors */
+/* Borders */
 @border-color : #DBDBDB;
 @border-width : 1px;
 @border-style : solid;
 
 @field-border-width: 0 @border-width 0 0;
 
+/* Colors for labels and inputs */
 @text-color : #777777;
-@border-color : @text-color;
 @field-bg : #FFF;
+@field-disabled-bg : @field-bg;
 @field-color: @text-color;
 @field-addon-bg: @field-bg;
 
+/* Tables */
+@table-border-width: 0;
+@table-header-bg: inherit;
+@table-header-font-style: normal;
+@table-header-text-transform: uppercase;
+
+/* Brand colors applicable to labels and buttons */
 @brand-primary: #428bca;
 @brand-success: #5cb85c;
 @brand-info:    #5bc0de;
 @brand-warning: #f0ad4e;
 @brand-danger:  #d9534f;
+
+/* margin sizing applicable to margins and padding */
+@box-size-10 : 10px;
+@box-size-20 : 20px;
+@box-size-30 : 30px;
 
 /* FIXME how to add a theme to dropdown and other items not in form : Calendar Dialog, Dropdown etc..*/
 
@@ -71,6 +85,61 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 
 .full-height {
 	height: 100%;
+}
+
+/* Margins, to be used on rows to separate lines */
+/* To be used on a tab/tabless panel when nesting responsive form. Is used to indent the nested form with the container form */
+.margin-reset {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.margin-top-10 {
+	margin-top: @box-size-10;
+}
+
+.margin-top-20 {
+	margin-top: @box-size-20;
+}
+
+.margin-top-30 {
+	margin-top: @box-size-30;
+}
+
+.margin-bottom-10 {
+	margin-bottom: @box-size-10;
+}
+
+.margin-bottom-20 {
+	margin-bottom: @box-size-20;
+}
+
+.margin-bottom-30 {
+	margin-bottom: @box-size-30;
+}
+
+.margin-right-10 {
+	margin-right: @box-size-10;
+}
+
+.margin-right-20 {
+	margin-right: @box-size-20;
+}
+
+.margin-right-30 {
+	margin-right: @box-size-30;
+}
+
+.margin-left-10 {
+	margin-left: @box-size-10;
+}
+
+.margin-left-20 {
+	margin-left: @box-size-20;
+}
+
+.margin-left-30 {
+	margin-left: @box-size-30;
 }
 
 /* Button */
@@ -164,7 +233,7 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 .form-control[disabled], 
 .form-control[readonly], 
 fieldset[disabled] .form-control {
-	background-color: inherit;
+	background-color: @field-disabled-bg;
 	opacity: 0.6;
 	border-color: @border-color;
 }
@@ -381,7 +450,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-tabpanel > .nav-tabs > li > a,
 .bts-tabpanel,
 .bts-tabpanel > .nav-tabs > li > a {
-	background-color:#F8F8F8;
+	background-color: @body-bg-inverse;
 	color: @text-color;
 }
 
@@ -423,7 +492,7 @@ data-servoyextra-fontawesome > div {
 
 /* Sidenav Servoy Extra */
 .svy-sidenav {
-	background-color: #18222C;
+	background-color: @main-color-inverse;
 	color: #FFF;
 	border: 0;
 }
@@ -445,7 +514,7 @@ data-servoyextra-fontawesome > div {
 }
 
 .svy-sidenav-dropdown {
-	background-color: #18222C;
+	background-color: @main-color-inverse;
 }
 
 .svy-sidenav-dropdown {
@@ -495,7 +564,7 @@ data-servoyextra-fontawesome > div {
 
 .svy-navitem-selected {
 	color: inherit;
-	background-color: #464E56;
+	background-color: @main-color-inverse-light;
 }
 
 .svy-navitem-selected.sn-level-1 {
@@ -511,7 +580,7 @@ data-servoyextra-fontawesome > div {
 .svy-sidenav-dropdown.sn-level-2:hover,
 .svy-sidenav-dropdown.sn-level-3:hover,
 .svy-sidenav-dropdown.sn-level-4:hover {
-	background-color: #464E56;	
+	background-color: @main-color-inverse-light;	
 }
 
 /* Navbar Bootstrap Extra */
@@ -544,13 +613,14 @@ data-servoyextra-fontawesome > div {
 
 /* Default Table */
 .ui-grid {
-	/*border: 0; */
+	/*border: 0; TODO fix this*/
+	/*border: @table-border-width @border-style @border-color;*/
 }
 
 .ui-grid-header-cell {
-	text-transform: uppercase;
-	border: 0;
-	font-weight: 100;
+	text-transform: @table-header-text-transform;
+	border-width: @table-border-width;
+	font-style: @table-header-font-style;
 /*	font-size: 12px; */
 }
 
@@ -559,12 +629,12 @@ data-servoyextra-fontawesome > div {
 .ui-grid-header-cell,
 .ui-grid-row:nth-child(even) .ui-grid-cell,
 .ui-grid-row:nth-child(odd) .ui-grid-cell {
-	background: #FFF;
+	background: #FFF; /* TODO should be inherit !? */
 	color: @text-color;
 }
 
 .ui-grid-row .ui-grid-cell {
-	border-bottom: 1px solid #DBDBDB;
+	border-bottom: @border-width @border-style @border-color;
 	border-color: @border-color;
 }
 
@@ -619,14 +689,19 @@ data-servoyextra-fontawesome > div {
 .ui-grid-row-selected .ui-grid-cell .bts-calendar input {
 	outline: @main-color;
 	background-color: @main-color;
-	color: #FFF;
+	color: #FFF; /* TODO define inverse color for selected */
 }
 
 /* Servoy Bootstrap/Extra Table */
+.svy-table,
+.bts-table {
+	border: @table-border-width @border-style @border-color;
+}
+
 .table-bootstrapcomponent-selected,
 .table-servoyextra-selected {
 	background-color: @main-color;
-	color: #FFF;
+	color: #FFF; /* TODO define inverse color for selected */
 }
 
 .svy-table  th,
@@ -636,13 +711,22 @@ data-servoyextra-fontawesome > div {
 	border-color: @border-color;
 }
 
+.svy-table thead,
+.bts-table thead,
+.ui-grid-header-cell {
+	background-color: @table-header-bg;
+	border-style: @border-style;
+	border-color: @border-color;
+	border-width: @table-border-width;
+}
+
 .ui-grid-header-cell,
 .svy-table th,
 .bts-table th,
 .table > thead > tr > th {
-	text-transform: uppercase;
-	border: 0;
-	font-weight: 100;
+	border-width: @table-border-width;
+	text-transform: @table-header-text-transform;
+	font-weight: @table-header-font-style;
 /*	font-size: 12px; */
 }
 
@@ -653,8 +737,8 @@ data-servoyextra-fontawesome > div {
 
 .ag-table .ag-header {
 	color: @text-color;
-	text-transform: uppercase;
-	font-weight: 100;
+	text-transform: @table-header-text-transform;
+	font-weight: @table-header-font-style;
 }
 
 .ag-table .ag-row-selected {
@@ -722,7 +806,7 @@ data-servoyextra-fontawesome > div {
 ::-webkit-scrollbar-track {
 	border-radius: 0px;
 	background: #FFF;
-	border: 0px solid @border-color;
+	border: @table-border-width @border-style @border-color;
 	border-top: 0;
 	border-bottom: 0;
 }
@@ -879,6 +963,42 @@ data-servoyextra-fontawesome > div {
     top: 25px;
     left: 160px;
 }
+
+/* Typography */
+
+.text-primary,
+.label-primary, 
+.btn.text-primary {
+	color: @brand-primary;	
+}
+
+.text-success,
+.label-success, 
+.btn.text-success {
+	color: @brand-success;	
+}
+
+.text-info,
+.label-info, 
+.btn.text-info {
+	color: @brand-info;	
+}
+
+.text-warning,
+.label-warning, 
+.btn.text-warning {
+	color: @brand-warning;	
+}
+
+.text-danger,
+.label-danger, 
+.btn.text-danger {
+	color: @brand-danger;	
+}
+
+/* Buttons */
+
+/* Container styles */
 
 .content-panel {
 	border-radius: 4px;
