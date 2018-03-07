@@ -143,6 +143,7 @@ TODO enable form bgs !?
   box-shadow: none;
 }
 .svy-field,
+.svy-password,
 .svy-textarea,
 .bts-textarea,
 .svy-textfield,
@@ -167,6 +168,7 @@ TODO enable form bgs !?
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 .svy-field,
+.svy-password,
 .svy-textarea,
 .bts-textarea,
 .svy-textfield,
@@ -197,6 +199,7 @@ TODO enable form bgs !?
 	background-color: @field-addon-bg;
 } */
 .svy-field:focus,
+.svy-password:focus,
 .svy-textarea:focus,
 .bts-textarea:focus,
 .svy-textfield:focus,
@@ -289,7 +292,8 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bts-radiogroup input[type=radio]:checked + span:before {
   content: "\e165";
 }
-/* Calendar Field *
+/* Calendar Field */
+/*
 .bts-calendar input {
 	border: 0;
 }
@@ -581,6 +585,7 @@ data-servoyextra-fontawesome > div {
   background-color: #e9720b !important;
 }
 .ui-grid-cell .svy-field,
+.ui-grid-cell .svy-password,
 .ui-grid-cell .svy-textarea,
 .ui-grid-cell .bts-textarea,
 .ui-grid-cell .svy-textfield,
@@ -606,6 +611,7 @@ data-servoyextra-fontawesome > div {
   color: #FFF;
 }
 .ui-grid-row-selected .ui-grid-cell .svy-field,
+.ui-grid-row-selected .ui-grid-cell .svy-password,
 .ui-grid-row-selected .ui-grid-cell .svy-textarea,
 .ui-grid-row-selected .ui-grid-cell .bts-textarea,
 .ui-grid-row-selected .ui-grid-cell .svy-textfield,
@@ -633,6 +639,7 @@ data-servoyextra-fontawesome > div {
   background-color: inherit;
 }
 .ui-grid-row-selected .ui-grid-cell .svy-field:focus,
+.ui-grid-row-selected .ui-grid-cell .svy-password:focus,
 .ui-grid-row-selected .ui-grid-cell .svy-textarea:focus,
 .ui-grid-row-selected .ui-grid-cell .bts-textarea:focus,
 .ui-grid-row-selected .ui-grid-cell .svy-textfield:focus,
