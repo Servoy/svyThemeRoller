@@ -1,14 +1,12 @@
 /* main theme color; should be primary ? */
-/* lighten(@main-color, 28%); #F9DB89 */
-/* EB8C39 */
 /* TODO setup borders for colors */
 /* Borders */
 /* Colors for labels and inputs */
 /* Fields */
-/* #4A4A4A */
 /* Windows */
 /* Tables */
 /* Brand colors applicable to labels and buttons */
+/* TODO setup light/dark for brand colors */
 /* margin sizing applicable to margins and padding */
 /* FIXME how to add a theme to dropdown and other items not in form : Calendar Dialog, Dropdown etc..*/
 /* 12 Grid margin reset */
@@ -106,8 +104,8 @@ TODO enable form bgs !?
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline-color: #f58c32;
-  border-color: #f58c32;
+  outline-color: #94bade;
+  border-color: #94bade;
 }
 /* Label */
 .svy-label,
@@ -126,9 +124,17 @@ TODO enable form bgs !?
 .label-info,
 .label-warning,
 .label-danger {
-  color: #FFF;
   text-align: center;
   border-radius: 2px;
+}
+.label-success {
+  background: #3d8b3d;
+  color: #FFF;
+  /* TODO: use inverse */
+}
+.label-success.inverse {
+  background: #d8eed8;
+  color: #3d8b3d;
 }
 /* Fields */
 .form-control {
@@ -138,8 +144,8 @@ TODO enable form bgs !?
 }
 .form-control:focus {
   outline: 1px;
-  outline-color: #f58c32;
-  border-color: #f58c32;
+  outline-color: #94bade;
+  border-color: #94bade;
   box-shadow: none;
 }
 .svy-field,
@@ -157,6 +163,10 @@ TODO enable form bgs !?
 .svy-calendar ~ .input-group-addon,
 .bts-calendar input,
 .bts-calendar input ~ .input-group-addon {
+  border-style: solid;
+  border-color: #dbdbdb;
+  border-width: 0 0 1px 0;
+  border-radius: 0;
   box-shadow: none;
   color: #777777;
   font-size: 14px;
@@ -166,36 +176,9 @@ TODO enable form bgs !?
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
-.svy-field,
-.svy-textarea,
-.bts-textarea,
-.svy-textfield,
-.bts-textbox,
-.svy-typeahead,
-.bts-typeahead,
-.bts-select,
-.bts-select ~ .input-group-addon,
-.svy-calendar,
-.svy-calendar ~ .input-group-addon,
-.bts-calendar input,
-.bts-calendar input ~ .input-group-addon {
-  border-style: solid;
-  border-color: #dbdbdb;
-  border-width: 0 0 1px 0;
-  border-radius: 0;
-}
-.bts-select,
-.bts-select ~ .input-group-addon,
-.svy-calendar,
-.svy-calendar ~ .input-group-addon,
-.bts-calendar input,
-.bts-calendar input ~ .input-group-addon {
+.input-group.date .input-group-addon {
   background-color: #ffffff;
 }
-/*
-.input-group.date .input-group-addon {
-	background-color: @field-addon-bg;
-} */
 .svy-field:focus,
 .svy-textarea:focus,
 .bts-textarea:focus,
@@ -211,7 +194,7 @@ TODO enable form bgs !?
 .svy-calendar:focus ~ .input-group-addon,
 .bts-calendar input:focus,
 .bts-calendar input:focus ~ .input-group-addon {
-  border-color: #e9720b;
+  border-color: #397cb9;
 }
 .form-control[disabled],
 .form-control[readonly],
@@ -315,7 +298,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-combobox:focus ~ .input-group-addon, .bts-select:focus ~ .input-group-addon,
 .svy-calendar:focus ~ .input-group-addon, .bts-calendar:focus ~ .input-group-addon, 
 .bts-calendar input:focus ~ .input-group-addon  {
-	border-color: @main-color;
+	border-color: @primary-color;
 }
 
 .svy-field:focus ~ .input-group-addon,
@@ -325,7 +308,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-combobox:focus ~ .input-group-addon, .bts-select:focus ~ .input-group-addon,
 .svy-calendar:focus ~ .input-group-addon, .bts-calendar:focus ~ .input-group-addon, 
 .bts-calendar input:focus ~ .input-group-addon  {
-	border-color: @main-color;
+	border-color: @primary-color;
 }
 
 .svy-calendar input,
@@ -336,28 +319,26 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 */
 /* Calendar Picker */
 .bootstrap-datetimepicker-widget a {
-  color: #f58c32;
+  color: #94bade;
 }
 .bootstrap-datetimepicker-widget table td.today {
-  color: #e9720b;
+  color: #397cb9;
 }
 .bootstrap-datetimepicker-widget table td.active,
 .bootstrap-datetimepicker-widget table td.active:hover {
-  background-color: #e9720b;
+  background-color: #397cb9;
   color: #FFF;
 }
 /* Combobox */
 .svy-combobox .ui-select-toggle {
   border: 0;
-  border-style: solid;
-  border-color: #dbdbdb;
-  border-width: 0 0 1px 0;
+  border-bottom: 1px solid #dbdbdb;
   border-radius: 0;
   box-shadow: none;
 }
 .svy-combobox .ui-select-toggle:hover {
   background-color: #ffffff;
-  border-color: #e9720b;
+  border-color: #397cb9;
 }
 .svy-combobox input {
   border: 0;
@@ -367,12 +348,10 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-combobox input:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
-  border-style: solid;
-  border-color: #f58c32;
-  border-width: 0 0 1px 0;
+  border-bottom: 1px solid #94bade;
 }
 .svy-combobox.ui-select-bootstrap .ui-select-choices-row.active > span {
-  background-color: #e9720b;
+  background-color: #397cb9;
 }
 /* Dropdown field */
 .dropdown-menu > li > a {
@@ -381,7 +360,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  background-color: #e9720b;
+  background-color: #397cb9;
 }
 /* Bootstrap Select  
 .bts-select {
@@ -396,13 +375,13 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bts-select option:focus,
 .bts-select option:hover,
 .bts-select option:active {
-  background-color: #e9720b !important;
-  background: #e9720b !important;
+  background-color: #397cb9 !important;
+  background: #397cb9 !important;
   outline: none;
 }
 /* Select2Tokenizer Servoy Extra */
 .svy-select2-autotokenizer-dropdown .select2-results__option.select2-results__option--highlighted {
-  background-color: #e9720b;
+  background-color: #397cb9;
 }
 /* TabPanel */
 .svy-tabpanel,
@@ -423,7 +402,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-tabpanel > .nav > li.active a,
 .bts-tabpanel > .nav > li.active,
 .bts-tabpanel > .nav > li.active a {
-  background-color: #e9720b;
+  background-color: #397cb9;
   color: #FFF;
   border: 0;
   border-radius: 0;
@@ -449,15 +428,15 @@ data-servoyextra-fontawesome > div {
 */
 /* Sidenav Servoy Extra */
 .svy-sidenav {
-  background-color: #18222c;
-  color: #FFF;
+  background-color: #152e44;
+  color: #ffffff;
   border: 0;
 }
 .svy-sidenav-menu,
 .svy-sidenav-collapse-icon {
   font-size: 12px;
   line-height: 36px;
-  color: #FFF;
+  color: #ffffff;
 }
 .svy-sidenav-divider {
   line-height: 0px;
@@ -467,7 +446,7 @@ data-servoyextra-fontawesome > div {
   font-size: 12px;
 }
 .svy-sidenav-dropdown {
-  background-color: #18222c;
+  background-color: #152e44;
 }
 .svy-sidenav-dropdown {
   font-weight: initial;
@@ -509,10 +488,10 @@ data-servoyextra-fontawesome > div {
 }*/
 .svy-navitem-selected {
   color: inherit;
-  background-color: #464e56;
+  background-color: #21486b;
 }
 .svy-navitem-selected.sn-level-1 {
-  border-left: 5px solid #e9720b;
+  border-left: 5px solid #397cb9;
 }
 .svy-sidenav-dropdown.sn-level-1:not(.svy-navitem-selected) {
   padding-left: 5px;
@@ -523,7 +502,7 @@ data-servoyextra-fontawesome > div {
 .svy-sidenav-dropdown.sn-level-2:hover,
 .svy-sidenav-dropdown.sn-level-3:hover,
 .svy-sidenav-dropdown.sn-level-4:hover {
-  background-color: #464e56;
+  background-color: #27557f;
 }
 /* Navbar Bootstrap Extra */
 .navbar {
@@ -537,8 +516,8 @@ data-servoyextra-fontawesome > div {
 .bts-extra-navbar .form-control:focus,
 .bts-extra-input-group .form-control:focus {
   outline: 1px;
-  outline-color: #f58c32;
-  border-color: #f58c32;
+  outline-color: #94bade;
+  border-color: #94bade;
 }
 .bts-extra-input-group .form-control:first-child {
   border-top-left-radius: 2px;
@@ -562,11 +541,17 @@ data-servoyextra-fontawesome > div {
 .ui-grid-header,
 .ui-grid-top-panel,
 .ui-grid-header-cell,
-.ui-grid-row:nth-child(even) .ui-grid-cell,
+.ui-grid-row:nth-child(even) .ui-grid-cell {
+  background: #94bade;
+  color: #777777;
+}
 .ui-grid-row:nth-child(odd) .ui-grid-cell {
   background: #FFF;
   /* TODO should be inherit !? */
   color: #777777;
+}
+.ui-grid-row:HOVER {
+  background: #94bade;
 }
 .ui-grid-row .ui-grid-cell {
   border-bottom: 1px solid #dbdbdb;
@@ -578,7 +563,7 @@ data-servoyextra-fontawesome > div {
 }
 /* Selected Row */
 .ui-grid-row.ui-grid-row-selected div.ui-grid-cell {
-  background-color: #e9720b !important;
+  background-color: #397cb9 !important;
 }
 .ui-grid-cell .svy-field,
 .ui-grid-cell .svy-textarea,
@@ -619,44 +604,9 @@ data-servoyextra-fontawesome > div {
 .ui-grid-row-selected .ui-grid-cell .svy-calendar,
 .ui-grid-row-selected .ui-grid-cell .bts-calendar,
 .ui-grid-row-selected .ui-grid-cell .bts-calendar input {
-  outline: #e9720b;
-  background-color: inherit;
-  color: #FFF;
-  /* TODO define inverse color for selected */
-}
-.ui-grid-row-selected .ui-grid-cell .bts-select,
-.bts-select ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .svy-calendar,
-.svy-calendar ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-calendar input,
-.bts-calendar input ~ .input-group-addon {
-  background-color: inherit;
-}
-.ui-grid-row-selected .ui-grid-cell .svy-field:focus,
-.ui-grid-row-selected .ui-grid-cell .svy-textarea:focus,
-.ui-grid-row-selected .ui-grid-cell .bts-textarea:focus,
-.ui-grid-row-selected .ui-grid-cell .svy-textfield:focus,
-.ui-grid-row-selected .ui-grid-cell .bts-textbox:focus,
-.ui-grid-row-selected .ui-grid-cell .svy-typeahead:focus,
-.ui-grid-row-selected .ui-grid-cell .bts-typeahead:focus,
-.ui-grid-row-selected .ui-grid-cell .svy-combobox:focus,
-.ui-grid-row-selected .ui-grid-cell .svy-combobox:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-select:focus,
-.ui-grid-row-selected .ui-grid-cell .bts-select:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .svy-calendar:focus,
-.ui-grid-row-selected .ui-grid-cell .svy-calendar:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-calendar input:focus,
-.ui-grid-row-selected .ui-grid-cell .bts-calendar input:focus ~ .input-group-addon {
-  /* background-color: @field-bg;
-	color: @field-color;
-	border-radius: 0;*/
-}
-.ui-grid-row-selected .ui-grid-cell .svy-combobox:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-select:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .svy-calendar:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-calendar input:focus ~ .input-group-addon {
-  /* background-color: @field-addon-bg;
-	color: @field-color; */
+  outline: #397cb9;
+  background-color: #397cb9;
+  color: #ffffff;
 }
 /* Servoy Bootstrap/Extra Table */
 .svy-table,
@@ -665,9 +615,8 @@ data-servoyextra-fontawesome > div {
 }
 .table-bootstrapcomponent-selected,
 .table-servoyextra-selected {
-  background-color: #e9720b;
-  color: #FFF;
-  /* TODO define inverse color for selected */
+  background-color: #27557f;
+  color: #ffffff;
 }
 .svy-table th,
 .svy-table td,
@@ -692,6 +641,12 @@ data-servoyextra-fontawesome > div {
   font-weight: normal;
   /*	font-size: 12px; */
 }
+.table > tbody > tr:nth-child(even) {
+  background-color: #f5f9fc;
+}
+.table > tbody > tr:hover {
+  background-color: #94bade;
+}
 /* AG Grid Table */
 .ag-table {
   color: #777777;
@@ -702,7 +657,7 @@ data-servoyextra-fontawesome > div {
   font-weight: normal;
 }
 .ag-table .ag-row-selected {
-  background-color: #e9720b;
+  background-color: #397cb9;
   color: #FFF;
 }
 /* Popup */
@@ -721,7 +676,7 @@ data-servoyextra-fontawesome > div {
 .yuimenuitemlabel:hover,
 .yuimenuitemlabel-selected,
 .yuimenuitemlabel-selected:hover {
-  background-color: #e9720b;
+  background-color: #397cb9;
 }
 .yuimenubaritemlabel:focus,
 .yuimenubaritemlabel:hover,
@@ -739,7 +694,7 @@ data-servoyextra-fontawesome > div {
 .yuimenuitemlabel-selected:hover,
 .yuimenuitemlabel-selected:focus,
 .yuimenuitemlabel-selected:visited {
-  background-color: #e9720b;
+  background-color: #397cb9;
   color: #FFF;
   text-decoration: inherit;
 }
@@ -777,8 +732,8 @@ data-servoyextra-fontawesome > div {
   margin-bottom: 15px;
 }
 .simple-collapsible-toggle {
-  color: #e9720b;
-  border-bottom: 1px solid #e9720b;
+  color: #397cb9;
+  border-bottom: 1px solid #397cb9;
 }
 .simple-collapsible-content > *:first-child {
   margin-top: 15px;
@@ -787,11 +742,11 @@ data-servoyextra-fontawesome > div {
   margin-bottom: 15px;
 }
 .simple-collapsible-content {
-  border-bottom: 1px solid #e9720b;
+  border-bottom: 1px solid #397cb9;
 }
 .simple-collapsible-toggle .svy-label,
 .simple-collapsible-toggle .bts-label {
-  color: #e9720b;
+  color: #397cb9;
   font-size: 18px;
 }
 /* Inline Groups */
@@ -801,7 +756,7 @@ data-servoyextra-fontawesome > div {
 }
 /* Style the flex footer if used on a form with theme servoy */
  > .flexlayout > .flex-footer {
-  background-color: #e9720b;
+  background-color: #397cb9;
   color: #FFF;
   height: 80px;
 }
@@ -814,7 +769,7 @@ data-servoyextra-fontawesome > div {
  *************************************************************************************/
 .header-bar {
   border-top: 12px solid #EB8C39;
-  background-color: #e9720b;
+  background-color: #397cb9;
   color: white;
   padding: 30px 0;
   font-size: 24px;
@@ -841,7 +796,32 @@ data-servoyextra-fontawesome > div {
   background-color: #dddddd;
 }
 .bg-primary {
-  background-color: #428bca;
+  background: #397cb9;
+  color: #ffffff;
+}
+.bg-primary-light {
+  background: #94bade;
+  color: #464e56;
+}
+.bg-primary-lighter {
+  background: #bbd3ea;
+  color: #464e56;
+}
+.bg-primary-lightest {
+  background: #f5f9fc;
+  color: #464e56;
+}
+.bg-primary-dark {
+  background: #27557f;
+  color: #ffffff;
+}
+.bg-primary-darker {
+  background: #21486b;
+  color: #ffffff;
+}
+.bg-primary-darkest {
+  background: #152e44;
+  color: #ffffff;
 }
 .bg-success {
   background-color: #5cb85c;
@@ -860,30 +840,34 @@ data-servoyextra-fontawesome > div {
   font-weight: bold;
 }
 .hr {
-  border: 0 solid #dbdbdb;
+  border: 0 solid #DDD;
   border-bottom-width: 1px;
 }
 /* Labels */
 .label_header_0 {
-  background: #F8F8F8;
-  color: #e9720b;
-  font-size: 24px;
-  padding-left: 30px;
+  background: #f5f9fc;
+  color: #777777;
+  font-size: 20px;
+  padding-left: 20px;
   text-transform: uppercase;
 }
 .label_header_1 {
-  color: #f58c32;
-  background: #FFF;
-  border-bottom: 1px solid #f58c32;
-  font-size: 24px;
-  font-weight: 100;
+  background: #bbd3ea;
+  color: #777777;
+  font-size: 18px;
+  padding-left: 10px;
 }
-.label_header_2,
+.label_header_2 {
+  background: #94bade;
+  color: #777777;
+  font-size: 16px;
+  padding-left: 0px;
+}
 .label_header_3 {
-  background: #e9720b;
-  color: white;
-  font-weight: 100;
-  border-radius: 25px;
+  background: #397cb9;
+  color: #ffffff;
+  font-size: 16px;
+  padding-left: 0px;
 }
 .label_header_0,
 .label_header_1,
@@ -912,17 +896,12 @@ data-servoyextra-fontawesome > div {
   left: 160px;
 }
 /* Typography */
-.bts-label.text-center {
-  display: block;
-  white-space: initial;
-}
 .text-primary,
 .label-primary,
 .btn.text-primary {
   color: #428bca;
 }
 .text-success,
-.label-success,
 .btn.text-success {
   color: #5cb85c;
 }
@@ -965,8 +944,18 @@ data-servoyextra-fontawesome > div {
 /* Container styles */
 .content-panel {
   border-radius: 4px;
-  border: 2px solid #e9720b;
+  border: 2px solid #397cb9;
   padding: 30px 15px;
   border-bottom-width: 30px;
   min-width: 640px;
+}
+.border-top {
+  border-top-color: #dbdbdb;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+.border-right {
+  border-right-color: #dbdbdb;
+  border-right-width: 1px;
+  border-right-style: solid;
 }
