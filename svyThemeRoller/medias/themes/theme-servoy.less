@@ -1,11 +1,17 @@
 /* main theme color; should be primary ? */
-@main-color: #E9720B;
-@main-color-light: lighten(@main-color, 10%); /* lighten(@main-color, 28%); #F9DB89 */
-@main-color-dark: darken(@main-color, 15%); /* EB8C39 */
+@primary-color: #397cb9;
 
-@main-color-inverse: #18222C;
-@main-color-inverse-light: #464E56;
-@main-color-inverse-dark: #364453;
+@primary-color-light: lighten(@primary-color, 25%);
+@primary-color-light-1: lighten(@primary-color, 35%);
+@primary-color-light-2: lighten(@primary-color, 50%);
+
+@primary-color-dark: darken(@primary-color, 15%);
+@primary-color-dark-1: darken(@primary-color, 20%);
+@primary-color-dark-2: darken(@primary-color, 30%);
+
+@primary-color-inverse: #FFF;
+@primary-color-inverse-light: #464E56;
+@primary-color-inverse-dark: #FFF;
 
 @body-bg: #FFF;
 @body-bg-inverse: #DDD;
@@ -23,7 +29,7 @@
 /* Fields */
 @field-bg : #FFF;
 @field-disabled-bg : @field-bg;
-@field-color: @text-color;  /* #4A4A4A */
+@field-color: @text-color;
 @field-addon-bg: @field-bg;
 @field-border-width: 0 0 @border-width 0;
 
@@ -41,7 +47,17 @@
 
 /* Brand colors applicable to labels and buttons */
 @brand-primary: #428bca;
+
 @brand-success: #5cb85c;
+@brand-success-light: lighten(@brand-success, 25%);
+@brand-success-light-1: lighten(@brand-success, 35%);
+@brand-success-light-2: lighten(@brand-success, 50%);
+
+@brand-success-dark: darken(@brand-success, 15%);
+@brand-success-dark-1: darken(@brand-success, 20%);
+@brand-success-dark-2: darken(@brand-success, 30%);
+
+/* TODO setup light/dark for brand colors */
 @brand-info:    #5bc0de;
 @brand-warning: #f0ad4e;
 @brand-danger:  #d9534f;
@@ -168,8 +184,8 @@ TODO enable form bgs !?
 .btn:focus, .btn:active:focus, 
 .btn.active:focus, .btn.focus, 
 .btn:active.focus, .btn.active.focus {
-	outline-color: @main-color-light;
-	border-color: @main-color-light;
+	outline-color: @primary-color-light;
+	border-color: @primary-color-light;
 }
 
 /* Label */
@@ -190,11 +206,19 @@ TODO enable form bgs !?
 .label-info, 
 .label-warning,
 .label-danger {
-	color: #FFF;
 	text-align: center;
 	border-radius: 2px;
 }
-
+.label-success {
+	background: @brand-success-dark;
+	color: #FFF; /* TODO: use inverse */
+	
+}
+.label-success.inverse {
+	background: @brand-success-light-1;
+	color: @brand-success-dark-1;
+	
+}
 /* Fields */
 .form-control {
 	box-shadow: none;
@@ -204,8 +228,8 @@ TODO enable form bgs !?
 
 .form-control:focus {
 	outline: 1px;
-	outline-color: @main-color-light;
-	border-color: @main-color-light;
+	outline-color: @primary-color-light;
+	border-color: @primary-color-light;
 	box-shadow: none;
 }
 
@@ -217,6 +241,10 @@ TODO enable form bgs !?
 .bts-select, .bts-select ~ .input-group-addon,
 .svy-calendar, .svy-calendar ~ .input-group-addon,
 .bts-calendar input, .bts-calendar input ~ .input-group-addon {
+	border-style: @border-style;
+	border-color: @border-color;
+	border-width: @field-border-width;
+	border-radius: 0;
 	box-shadow: none;
 	color: @field-color;
 	font-size: 14px;
@@ -227,31 +255,9 @@ TODO enable form bgs !?
   	        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-
-.svy-field,
-.svy-textarea, .bts-textarea,
-.svy-textfield, .bts-textbox,
-.svy-typeahead, .bts-typeahead,
-.bts-select, .bts-select ~ .input-group-addon,
-.svy-calendar, .svy-calendar ~ .input-group-addon,
-.bts-calendar input, .bts-calendar input ~ .input-group-addon {
-	border-style: @border-style;
-	border-color: @border-color;
-	border-width: @field-border-width;
-	border-radius: 0;
-}
-
-.bts-select, .bts-select ~ .input-group-addon,
-.svy-calendar, .svy-calendar ~ .input-group-addon,
-.bts-calendar input, .bts-calendar input ~ .input-group-addon  {
-	background-color: @field-addon-bg;
-}
-
-
-/*
 .input-group.date .input-group-addon {
 	background-color: @field-addon-bg;
-} */
+}
 
 .svy-field:focus,
 .svy-textarea:focus, .bts-textarea:focus,
@@ -261,7 +267,7 @@ TODO enable form bgs !?
 .bts-select:focus, .bts-select:focus ~ .input-group-addon,
 .svy-calendar:focus, .svy-calendar:focus ~ .input-group-addon,
 .bts-calendar input:focus, .bts-calendar input:focus ~ .input-group-addon  {
-	border-color: @main-color;
+	border-color: @primary-color;
 }
 
 .form-control[disabled], 
@@ -375,7 +381,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-combobox:focus ~ .input-group-addon, .bts-select:focus ~ .input-group-addon,
 .svy-calendar:focus ~ .input-group-addon, .bts-calendar:focus ~ .input-group-addon, 
 .bts-calendar input:focus ~ .input-group-addon  {
-	border-color: @main-color;
+	border-color: @primary-color;
 }
 
 .svy-field:focus ~ .input-group-addon,
@@ -385,7 +391,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-combobox:focus ~ .input-group-addon, .bts-select:focus ~ .input-group-addon,
 .svy-calendar:focus ~ .input-group-addon, .bts-calendar:focus ~ .input-group-addon, 
 .bts-calendar input:focus ~ .input-group-addon  {
-	border-color: @main-color;
+	border-color: @primary-color;
 }
 
 .svy-calendar input,
@@ -397,32 +403,30 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 
 /* Calendar Picker */
 .bootstrap-datetimepicker-widget a {
-	color: @main-color-light;
+	color: @primary-color-light;
 }
 
 .bootstrap-datetimepicker-widget table td.today {
-	color: @main-color;
+	color: @primary-color;
 }
 
 .bootstrap-datetimepicker-widget table td.active, 
 .bootstrap-datetimepicker-widget table td.active:hover {
-	background-color: @main-color;
+	background-color: @primary-color;
 	color: #FFF;
 }
 
 /* Combobox */
 .svy-combobox .ui-select-toggle {
     border: 0;
-    border-style: @border-style;
-	border-color: @border-color;
-	border-width: @field-border-width;
+    border-bottom: 1px solid @border-color;
     border-radius: 0;
     box-shadow: none;
 }
 
 .svy-combobox .ui-select-toggle:hover {
     background-color: @field-addon-bg;
-    border-color: @main-color;
+    border-color: @primary-color;
 }
 
 .svy-combobox input {
@@ -434,13 +438,11 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-combobox input:focus {
 	-webkit-box-shadow: none;
     box-shadow: none;
-    border-style: @border-style;
-	border-color: @main-color-light;
-	border-width: @field-border-width;
+    border-bottom: 1px solid @primary-color-light;
 }
 
 .svy-combobox.ui-select-bootstrap .ui-select-choices-row.active>span {
-	background-color: @main-color;
+	background-color: @primary-color;
 }
 
 
@@ -452,7 +454,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .dropdown-menu > .active > a, 
 .dropdown-menu > .active > a:hover, 
 .dropdown-menu > .active > a:focus {
-	background-color: @main-color;
+	background-color: @primary-color;
 }
 
 /* Bootstrap Select  
@@ -473,14 +475,14 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bts-select option:focus,
 .bts-select option:hover,
 .bts-select option:active {
-	background-color: @main-color !important;
-	background: @main-color !important;
+	background-color: @primary-color !important;
+	background: @primary-color !important;
 	outline: none;
 }
 
 /* Select2Tokenizer Servoy Extra */
 .svy-select2-autotokenizer-dropdown .select2-results__option.select2-results__option--highlighted {
-	background-color: @main-color;
+	background-color: @primary-color;
 }
 
 /* TabPanel */
@@ -505,7 +507,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-tabpanel > .nav > li.active a,
 .bts-tabpanel > .nav > li.active,
 .bts-tabpanel > .nav > li.active a {
-	background-color: @main-color;
+	background-color: @primary-color;
 	color: #FFF;
 	border: 0;
 	border-radius: 0;
@@ -534,8 +536,8 @@ data-servoyextra-fontawesome > div {
 
 /* Sidenav Servoy Extra */
 .svy-sidenav {
-	background-color: @main-color-inverse;
-	color: #FFF;
+	background-color: @primary-color-dark-2;
+	color: @primary-color-inverse;
 	border: 0;
 }
 
@@ -543,7 +545,7 @@ data-servoyextra-fontawesome > div {
 .svy-sidenav-collapse-icon {
 	font-size: 12px;
 	line-height: 36px;
-	color: #FFF;
+	color: @primary-color-inverse;
 }
 
 .svy-sidenav-divider {
@@ -556,7 +558,7 @@ data-servoyextra-fontawesome > div {
 }
 
 .svy-sidenav-dropdown {
-	background-color: @main-color-inverse;
+	background-color: @primary-color-dark-2;
 }
 
 .svy-sidenav-dropdown {
@@ -606,11 +608,11 @@ data-servoyextra-fontawesome > div {
 
 .svy-navitem-selected {
 	color: inherit;
-	background-color: @main-color-inverse-light;
+	background-color: @primary-color-dark-1;
 }
 
 .svy-navitem-selected.sn-level-1 {
-	border-left: 5px solid @main-color;
+	border-left: 5px solid @primary-color;
 }
 
 .svy-sidenav-dropdown.sn-level-1:not(.svy-navitem-selected) {
@@ -622,7 +624,7 @@ data-servoyextra-fontawesome > div {
 .svy-sidenav-dropdown.sn-level-2:hover,
 .svy-sidenav-dropdown.sn-level-3:hover,
 .svy-sidenav-dropdown.sn-level-4:hover {
-	background-color: @main-color-inverse-light;	
+	background-color: @primary-color-dark;	
 }
 
 /* Navbar Bootstrap Extra */
@@ -639,8 +641,8 @@ data-servoyextra-fontawesome > div {
 .bts-extra-navbar .form-control:focus,
 .bts-extra-input-group .form-control:focus {
     outline: 1px;
-    outline-color: @main-color-light;
-    border-color: @main-color-light;
+    outline-color: @primary-color-light;
+    border-color: @primary-color-light;
 }
 
 .bts-extra-input-group .form-control:first-child {
@@ -669,12 +671,19 @@ data-servoyextra-fontawesome > div {
 .ui-grid-header,
 .ui-grid-top-panel,
 .ui-grid-header-cell,
-.ui-grid-row:nth-child(even) .ui-grid-cell,
+.ui-grid-row:nth-child(even) .ui-grid-cell
+{
+	background: @primary-color-light;
+	color: @text-color;
+}
 .ui-grid-row:nth-child(odd) .ui-grid-cell {
 	background: #FFF; /* TODO should be inherit !? */
 	color: @text-color;
 }
-
+.ui-grid-row:HOVER
+{
+	background: @primary-color-light;
+}
 .ui-grid-row .ui-grid-cell {
 	border-bottom: @border-width @border-style @border-color;
 	border-color: @border-color;
@@ -687,7 +696,7 @@ data-servoyextra-fontawesome > div {
 
 /* Selected Row */
 .ui-grid-row.ui-grid-row-selected div.ui-grid-cell {
-	background-color: @main-color !important;
+	background-color: @primary-color !important;
 }
 
 .ui-grid-cell .svy-field, 
@@ -729,43 +738,9 @@ data-servoyextra-fontawesome > div {
 .ui-grid-row-selected .ui-grid-cell .svy-calendar, 
 .ui-grid-row-selected .ui-grid-cell .bts-calendar, 
 .ui-grid-row-selected .ui-grid-cell .bts-calendar input {
-	outline: @main-color;
-	background-color: inherit;
-	color: #FFF; /* TODO define inverse color for selected */
-}
-
-.ui-grid-row-selected .ui-grid-cell .bts-select, .bts-select ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .svy-calendar, .svy-calendar ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-calendar input, .bts-calendar input ~ .input-group-addon  {
-	background-color: inherit;
-}
-
-.ui-grid-row-selected .ui-grid-cell .svy-field:focus,
-.ui-grid-row-selected .ui-grid-cell .svy-textarea:focus, 
-.ui-grid-row-selected .ui-grid-cell .bts-textarea:focus,
-.ui-grid-row-selected .ui-grid-cell .svy-textfield:focus, 
-.ui-grid-row-selected .ui-grid-cell .bts-textbox:focus,
-.ui-grid-row-selected .ui-grid-cell .svy-typeahead:focus, 
-.ui-grid-row-selected .ui-grid-cell .bts-typeahead:focus,
-.ui-grid-row-selected .ui-grid-cell .svy-combobox:focus, 
-.ui-grid-row-selected .ui-grid-cell .svy-combobox:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-select:focus, 
-.ui-grid-row-selected .ui-grid-cell .bts-select:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .svy-calendar:focus, 
-.ui-grid-row-selected .ui-grid-cell .svy-calendar:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-calendar input:focus, 
-.ui-grid-row-selected .ui-grid-cell .bts-calendar input:focus ~ .input-group-addon  {
-	/* background-color: @field-bg;
-	color: @field-color;
-	border-radius: 0;*/
-}
-
-.ui-grid-row-selected .ui-grid-cell .svy-combobox:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-select:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .svy-calendar:focus ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-calendar input:focus ~ .input-group-addon  {
-	/* background-color: @field-addon-bg;
-	color: @field-color; */
+	outline: @primary-color;
+	background-color: @primary-color;
+	color: @primary-color-inverse;
 }
 
 /* Servoy Bootstrap/Extra Table */
@@ -776,8 +751,8 @@ data-servoyextra-fontawesome > div {
 
 .table-bootstrapcomponent-selected,
 .table-servoyextra-selected {
-	background-color: @main-color;
-	color: #FFF; /* TODO define inverse color for selected */
+	background-color: @primary-color-dark;
+	color: @primary-color-inverse;
 }
 
 .svy-table  th,
@@ -806,6 +781,15 @@ data-servoyextra-fontawesome > div {
 /*	font-size: 12px; */
 }
 
+.table > tbody > tr:nth-child(even)
+{
+	background-color: @primary-color-light-2;
+}
+.table > tbody > tr:hover
+{
+	background-color: @primary-color-light;
+}
+
 /* AG Grid Table */
 .ag-table {
 	color: @text-color;
@@ -818,7 +802,7 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-table .ag-row-selected {
-	background-color: @main-color;
+	background-color: @primary-color;
 	color: #FFF;
 }
 
@@ -840,7 +824,7 @@ data-servoyextra-fontawesome > div {
 .yuimenuitemlabel:hover,
 .yuimenuitemlabel-selected,
 .yuimenuitemlabel-selected:hover {
-	background-color: @main-color;
+	background-color: @primary-color;
 }
 
 .yuimenubaritemlabel:focus,
@@ -860,7 +844,7 @@ data-servoyextra-fontawesome > div {
 .yuimenuitemlabel-selected:hover,
 .yuimenuitemlabel-selected:focus,  
 .yuimenuitemlabel-selected:visited {
-	background-color: @main-color;
+	background-color: @primary-color;
     color: #FFF;
     text-decoration: inherit;
 }
@@ -905,8 +889,8 @@ data-servoyextra-fontawesome > div {
 }
 
 .simple-collapsible-toggle {
-	color: @main-color;
-	border-bottom: 1px solid @main-color;
+	color: @primary-color;
+	border-bottom: 1px solid @primary-color;
 }
 
 .simple-collapsible-content > *:first-child {
@@ -918,12 +902,12 @@ data-servoyextra-fontawesome > div {
 }
 
 .simple-collapsible-content {
-	border-bottom: 1px solid @main-color;
+	border-bottom: 1px solid @primary-color;
 }
 
 .simple-collapsible-toggle .svy-label,
 .simple-collapsible-toggle .bts-label {
-	color: @main-color;
+	color: @primary-color;
 	font-size: 18px;
 }
 
@@ -935,7 +919,7 @@ data-servoyextra-fontawesome > div {
 
 /* Style the flex footer if used on a form with theme servoy */
 > .flexlayout > .flex-footer {
-	background-color: @main-color;
+	background-color: @primary-color;
 	color: #FFF;
 	height: 80px;
 }
@@ -950,7 +934,7 @@ data-servoyextra-fontawesome > div {
  *************************************************************************************/
 .header-bar {
 	border-top: 12px solid #EB8C39;
-	background-color: @main-color;
+	background-color: @primary-color;
 	color: white;
 	padding: 30px 0;
 	font-size: 24px;
@@ -983,8 +967,40 @@ data-servoyextra-fontawesome > div {
 	background-color: @body-bg-inverse;
 }
 
-.bg-primary {
-	background-color: @brand-primary;
+.bg-primary
+{
+	background: @primary-color;
+	color: @primary-color-inverse;
+}
+.bg-primary-light
+{
+	background: @primary-color-light;
+	color: @primary-color-inverse-light;
+}
+.bg-primary-lighter
+{
+	background: @primary-color-light-1;
+	color: @primary-color-inverse-light;
+}
+.bg-primary-lightest
+{
+	background: @primary-color-light-2;
+	color: @primary-color-inverse-light;
+}
+.bg-primary-dark
+{
+	background: @primary-color-dark;
+	color: @primary-color-inverse-dark;
+}
+.bg-primary-darker
+{
+	background: @primary-color-dark-1;
+	color: @primary-color-inverse-dark;
+}
+.bg-primary-darkest
+{
+	background: @primary-color-dark-2;
+	color: @primary-color-inverse-dark;
 }
 
 .bg-success {
@@ -1009,33 +1025,37 @@ data-servoyextra-fontawesome > div {
 }
 
 .hr {
-	border : 0 solid @border-color;
+	border : 0 solid #DDD;
 	border-bottom-width: 1px;
 }
 
 /* Labels */
 .label_header_0 {
-	background: #F8F8F8;
-	color: @main-color;
-	font-size: 24px;
-	padding-left: 30px;
+	background: @primary-color-light-2;
+	color: @text-color;
+	font-size: 20px;
+	padding-left: 20px;
 	text-transform: uppercase;
 }
 
 .label_header_1 {
-	color: @main-color-light;
-	background: #FFF;
-	border-bottom: 1px solid @main-color-light;
-	font-size: 24px;
-	font-weight: 100;
+	background: @primary-color-light-1;
+	color: @text-color;
+	font-size: 18px;
+	padding-left: 10px;
 }
 
-.label_header_2,
+.label_header_2 {
+	background: @primary-color-light;
+	color: @text-color;
+	font-size: 16px;
+	padding-left: 0px;
+}
 .label_header_3 {
-	background: @main-color;
-	color: white;
-	font-weight: 100;
-	border-radius: 25px;
+	background: @primary-color;
+	color: @primary-color-inverse;
+	font-size: 16px;
+	padding-left: 0px;
 }
 
 .label_header_0,
@@ -1070,10 +1090,6 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Typography */
-.bts-label.text-center {
-	display: block;
-	white-space: initial;
-}
 
 .text-primary,
 .label-primary, 
@@ -1082,7 +1098,6 @@ data-servoyextra-fontawesome > div {
 }
 
 .text-success,
-.label-success, 
 .btn.text-success {
 	color: @brand-success;	
 }
@@ -1136,8 +1151,21 @@ data-servoyextra-fontawesome > div {
 
 .content-panel {
 	border-radius: 4px;
-	border: 2px solid @main-color;
+	border: 2px solid @primary-color;
 	padding: 30px 15px;
 	border-bottom-width: 30px;
 	min-width: 640px;
+}
+
+.border-top
+{
+	border-top-color: @border-color;
+	border-top-width: @border-width;
+	border-top-style: @border-style;
+}
+.border-right
+{
+	border-right-color: @border-color;
+	border-right-width: @border-width;
+	border-right-style: @border-style;
 }
