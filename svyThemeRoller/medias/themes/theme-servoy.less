@@ -1,43 +1,56 @@
 /* main theme color; should be primary ? */
-@main-color: #E9720B;
-@main-color-light: lighten(@main-color, 10%); /* lighten(@main-color, 28%); #F9DB89 */
-@main-color-dark: darken(@main-color, 15%); /* EB8C39 */
+@main-color: #E9720B;							/* Main color */
+@main-color-light: lighten(@main-color, 10%); 	/* Main color light lighten(@main-color, 28%); #F9DB89 */
+@main-color-dark: darken(@main-color, 15%); 	/* Main color dark EB8C39 */
+@main-color-text: #FFF;							/* Main color text*/
 
-@main-color-inverse: #18222C;
-@main-color-inverse-light: #464E56;
-@main-color-inverse-dark: #364453;
+@main-color-inverse: #18222C;					/* Main color inverse */
+@main-color-inverse-light: #464E56;				/* Main color light inverse */
+@main-color-inverse-dark: #364453;				/* Main color dark inverse */
+@main-color-text-inverse: #E9720B;				/* Main color text inverse */
 
-@body-bg: #FFF;
-@body-bg-inverse: #DDD;
+@body-bg: #FFF;									/* Bogy bg */
+@body-bg-inverse: #DDD;							/* Body bg inverse */
 
 /* TODO setup borders for colors */
 /* Borders */
-@border-color : #DBDBDB;
-@border-width : 1px;
-@border-style : solid;
+@border-color : #DBDBDB; 						/* Border color */
+@border-width : 1px; 							/* Border width */
+@border-style : solid;							/* Border style */
+@border-radius: 2px;							/* Border radius */
 
 /* Colors for labels and inputs */
-@text-color : #777777;
-@text-color-inverse: @text-color;
+@text-color : #777777;							/* Text color */
+@text-color-inverse: @text-color;				/* Text color inverse */
 
 /* Fields */
-@field-bg : #FFF;
-@field-disabled-bg : @field-bg;
-@field-color: @text-color;  /* #4A4A4A */
-@field-addon-bg: @field-bg;
-@field-border-width: 0 0 @border-width 0;
+@field-bg : #FFF;								/* Field bg */
+@field-disabled-bg : @field-bg;					/* Field disabled bg */
+@field-color: @text-color;  					/* Field color #4A4A4A */
+@field-addon-bg: @field-bg;						/* Field addon bg */
+@field-border-width: 1px 1px @border-width 1px;		/* Field width */
+
+/* Tabs */
+@tab-bg: @body-bg-inverse;
+@tab-text-color: @text-color;
+@tab-border: 0;
+@tab-border-radius: 0;
+
+@tab-active-bg: @main-color;
+@tab-active-text-color: @main-color-text;
+@tab-active-border: 0;
 
 /* Windows */
-@window-header-bg : @body-bg-inverse;
-@window-body-bg: @body-bg;
-@window-footer-bg: @body-bg;
-@window-header-color: @text-color-inverse;
+@window-header-bg : @body-bg-inverse;			/* Window header bg */
+@window-body-bg: @body-bg;						/* Window body bg */
+@window-footer-bg: @body-bg;					/* Window footer bg */
+@window-header-color: @text-color-inverse;		/* Window header color */
 
 /* Tables */
-@table-border-width: 0;
-@table-header-bg: inherit;
-@table-header-font-style: normal;
-@table-header-text-transform: uppercase;
+@table-border-width: 0;							/* Table boder width */
+@table-header-bg: inherit;						/* Table header bg */
+@table-header-font-style: normal;				/* Table header font style */
+@table-header-text-transform: uppercase;		/* Table header text transform */
 
 /* Brand colors applicable to labels and buttons */
 @brand-primary: #428bca;
@@ -46,13 +59,10 @@
 @brand-warning: #f0ad4e;
 @brand-danger:  #d9534f;
 
-/* margin sizing applicable to margins and padding */
+/* Margin sizing applicable to margins and padding */
 @box-size-10 : 10px;
 @box-size-20 : 20px;
 @box-size-30 : 30px;
-
-/* FIXME how to add a theme to dropdown and other items not in form : Calendar Dialog, Dropdown etc..*/
-
 
 /* 12 Grid margin reset */
 div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="col-sm-"]):not([class^="col-md-"]):not([class^="col-lg-"]) > .row {
@@ -78,13 +88,13 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 	height: 100%;
 }
 
-/* Margins, to be used on rows to separate lines */
 /* To be used on a tab/tabless panel when nesting responsive form. Is used to indent the nested form with the container form */
 .margin-reset {
 	margin-left: -15px;
 	margin-right: -15px;
 }
 
+/* Margins, to be used on rows to separate lines */
 .margin-top-10 {
 	margin-top: @box-size-10;
 }
@@ -134,8 +144,7 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 }
 
 /* Forms */
-/* 
-TODO enable form bgs !?
+/* TODO enable form bgs !?
 .svy-form {
 	background-color: @body-bg;
 }
@@ -143,6 +152,7 @@ TODO enable form bgs !?
 .svy-form-inverse {
 	background-color: @body-bg-inverse;
 }
+*/
 
 /* Dialogs */
 .svy-dialog .svy-header {
@@ -162,7 +172,7 @@ TODO enable form bgs !?
 .svy-button,
 .bts-button,
 .btn {
-	border-radius: 2px;
+	border-radius: @border-radius;
 }
 
 .btn:focus, .btn:active:focus, 
@@ -180,25 +190,10 @@ TODO enable form bgs !?
 	/* font-size: 12px; */
 }
 
-.btn-success,
-.btn-info,
-.btn-warning,
-.btn-danger {
-	color: #FFF;
-}
-.label-success,
-.label-info, 
-.label-warning,
-.label-danger {
-	color: #FFF;
-	text-align: center;
-	border-radius: 2px;
-}
-
 /* Fields */
 .form-control {
 	box-shadow: none;
-	border-radius: 2px;
+	border-radius: @border-radius;
 	background-color: @field-bg;
 }
 
@@ -239,6 +234,12 @@ TODO enable form bgs !?
 	border-color: @border-color;
 	border-width: @field-border-width;
 	border-radius: 0;
+}
+
+.input-group-addon:last-child,
+.svy-calendar ~ .input-group-addon,
+.bts-calendar input ~ .input-group-addon {
+	border-left: 0;
 }
 
 .bts-select, .bts-select ~ .input-group-addon,
@@ -409,7 +410,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bootstrap-datetimepicker-widget table td.active, 
 .bootstrap-datetimepicker-widget table td.active:hover {
 	background-color: @main-color;
-	color: #FFF;
+	color: @main-color-text;
 }
 
 /* Combobox */
@@ -486,31 +487,24 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 }
 
 /* TabPanel */
-.svy-tabpanel,
+.svy-tabpanel > .nav-tabs,
+.bts-tabpanel > .nav-tabs {
+	border: 0;
+	background-color: @tab-bg;
+}
+
+.svy-tabpanel > .nav-tabs > li,
+.bts-tabpanel > .nav-tabs > li {
+	margin-bottom: 0;
+}
+
 .svy-tabpanel > .nav-tabs > li > a,
-.bts-tabpanel,
 .bts-tabpanel > .nav-tabs > li > a {
-	background-color: @body-bg-inverse;
-	color: @text-color;
-}
-
-.svy-tabpanel .nav-tabs,
-.bts-tabpanel .nav-tabs {
-	border: 0;
-}
-
-.svy-tabpanel > .nav > li > a {
+	background-color: @tab-bg;
+	color: @tab-text-color;
 	padding: 8px 15px;
-}
-
-.svy-tabpanel > .nav > li.active,
-.svy-tabpanel > .nav > li.active a,
-.bts-tabpanel > .nav > li.active,
-.bts-tabpanel > .nav > li.active a {
-	background-color: @main-color;
-	color: #FFF;
-	border: 0;
-	border-radius: 0;
+	border: @tab-border;
+	border-radius: @tab-border-radius;
 }
 
 .svy-tabpanel .nav-tabs > li > a,
@@ -521,8 +515,19 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bts-tabpanel .nav-tabs > li.active > a, 
 .bts-tabpanel .nav-tabs > li.active > a:hover, 
 .bts-tabpanel .nav-tabs > li.active > a:focus {
-	border: 0;
-	border-radius: 0;
+	/* border: @tab-border;
+	border-radius: @tab-border-radius; */
+}
+
+.svy-tabpanel > .nav-tabs > li.active > a, 
+.svy-tabpanel > .nav-tabs > li.active > a:hover, 
+.svy-tabpanel > .nav-tabs > li.active > a:focus,
+.bts-tabpanel > .nav-tabs > li.active > a, 
+.bts-tabpanel > .nav-tabs > li.active > a:hover, 
+.bts-tabpanel > .nav-tabs > li.active > a:focus {
+	background-color: @tab-active-bg;
+	color: @tab-active-text-color;
+	border: @tab-active-border;
 }
 
 /* Font Awesome *
@@ -738,9 +743,9 @@ data-servoyextra-fontawesome > div {
 	color: #FFF; /* TODO define inverse color for selected */
 }
 
-.ui-grid-row-selected .ui-grid-cell .bts-select, .bts-select ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .svy-calendar, .svy-calendar ~ .input-group-addon,
-.ui-grid-row-selected .ui-grid-cell .bts-calendar input, .bts-calendar input ~ .input-group-addon  {
+.ui-grid-row-selected .ui-grid-cell .bts-select, .ui-grid-row-selected .ui-grid-cell .bts-select ~ .input-group-addon,
+.ui-grid-row-selected .ui-grid-cell .svy-calendar, .ui-grid-row-selected .ui-grid-cell .svy-calendar ~ .input-group-addon,
+.ui-grid-row-selected .ui-grid-cell .bts-calendar input, .ui-grid-row-selected .ui-grid-cell .bts-calendar input ~ .input-group-addon  {
 	background-color: inherit;
 }
 
@@ -831,7 +836,7 @@ data-servoyextra-fontawesome > div {
 .yuimenu {
 	padding: 0;
 	background: #FFF;
-    border-radius: 2px;
+    border-radius: @border-radius;
 }
 
 .yuimenuitemlabel {
@@ -866,7 +871,7 @@ data-servoyextra-fontawesome > div {
 .yuimenuitemlabel-selected:focus,  
 .yuimenuitemlabel-selected:visited {
 	background-color: @main-color;
-    color: #FFF;
+    color: @main-color-text;
     text-decoration: inherit;
 }
 
@@ -941,42 +946,13 @@ data-servoyextra-fontawesome > div {
 /* Style the flex footer if used on a form with theme servoy */
 > .flexlayout > .flex-footer {
 	background-color: @main-color;
-	color: #FFF;
+	color: @main-color-text;
 	height: 80px;
 }
 
 > .flexlayout > .flex-footer .svy-label,
 > .flexlayout > .flex-footer .bts-label {
-	color: #FFF;
-}
-
-/************************************************************************************
- Class Templates Top Bar 
- *************************************************************************************/
-.header-bar {
-	border-top: 12px solid #EB8C39;
-	background-color: @main-color;
-	color: white;
-	padding: 30px 0;
-	font-size: 24px;
-	text-transform: uppercase;
-}
-
-.header-bar {
-	/* height: initial !important; TODO what is this for, to center the text of a navbar ? */
-	
-}
-
-.header-bar .bts-label,
-.header-bar .svy-label {
-	color: #FFF;
-}
-
-.header-title {
-    text-align: center;
-    float: left;
-    width: calc(100% - 98px);
-    font-size: 24px;
+	color: @main-color-text;
 }
 
 /* Background colors */
@@ -1013,11 +989,6 @@ data-servoyextra-fontawesome > div {
 	font-weight: bold;
 }
 
-.hr {
-	border : 0 solid @border-color;
-	border-bottom-width: 1px;
-}
-
 /* Labels */
 .label_header_0 {
 	background: #F8F8F8;
@@ -1029,7 +1000,7 @@ data-servoyextra-fontawesome > div {
 
 .label_header_1 {
 	color: @main-color-light;
-	background: #FFF;
+	background: @main-color-text;
 	border-bottom: 1px solid @main-color-light;
 	font-size: 24px;
 	font-weight: 100;
@@ -1037,6 +1008,7 @@ data-servoyextra-fontawesome > div {
 
 .label_header_2,
 .label_header_3 {
+	padding-left: 6px;
 	background: @main-color;
 	color: white;
 	font-weight: 100;
@@ -1054,6 +1026,11 @@ data-servoyextra-fontawesome > div {
 .svy-layoutcontainer > * > .label_header_1,
 .svy-layoutcontainer > * > .label_header_2 {
 	margin: 15px 0;
+}
+
+.svy-layoutcontainer > * > .label_header_2 {
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 
 .svy-layoutcontainer > * > .label_header_0,
@@ -1075,6 +1052,28 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Typography */
+.label-primary
+.label-success,
+.label-info, 
+.label-warning,
+.label-danger {
+	color: #FFF;
+	text-align: center;
+	border-radius: 2px;
+}
+
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+	color: #FFF;
+}
+
+.text-center {
+	text-align: center;
+}
+
 .bts-label.text-center {
 	display: block;
 	white-space: initial;
@@ -1137,12 +1136,47 @@ data-servoyextra-fontawesome > div {
 	background-color: @brand-danger;
 }
 
-/* Container styles */
 
+/************************************************************************************
+ Class Templates Top Bar 
+ *************************************************************************************/
+.header-bar {
+	border-top: 12px solid @main-color-light;
+	background-color: @main-color;
+	color: white;
+	padding: 30px 0;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+
+.header-bar {
+	/* height: initial !important; TODO what is this for, to center the text of a navbar ? */
+	
+}
+
+.header-bar .bts-label,
+.header-bar .svy-label {
+	color: #FFF;
+}
+
+.header-title {
+    text-align: center;
+    float: left;
+    width: calc(100% - 98px);
+    font-size: 24px;
+}
+
+/* Container styles */
 .content-panel {
 	border-radius: 4px;
 	border: 2px solid @main-color;
 	padding: 30px 15px;
 	border-bottom-width: 30px;
 	min-width: 640px;
+}
+
+/* Shapes */
+.hr {
+	border : 0 solid @border-color;
+	border-bottom-width: 1px;
 }

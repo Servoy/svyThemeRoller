@@ -1,16 +1,42 @@
 /* main theme color; should be primary ? */
-/* lighten(@main-color, 28%); #F9DB89 */
-/* EB8C39 */
+/* Main color */
+/* Main color light lighten(@main-color, 28%); #F9DB89 */
+/* Main color dark EB8C39 */
+/* Main color text*/
+/* Main color inverse */
+/* Main color light inverse */
+/* Main color dark inverse */
+/* Main color text inverse */
+/* Bogy bg */
+/* Body bg inverse */
 /* TODO setup borders for colors */
 /* Borders */
+/* Border color */
+/* Border width */
+/* Border style */
+/* Border radius */
 /* Colors for labels and inputs */
+/* Text color */
+/* Text color inverse */
 /* Fields */
-/* #4A4A4A */
+/* Field bg */
+/* Field disabled bg */
+/* Field color #4A4A4A */
+/* Field addon bg */
+/* Field width */
+/* Tabs */
 /* Windows */
+/* Window header bg */
+/* Window body bg */
+/* Window footer bg */
+/* Window header color */
 /* Tables */
+/* Table boder width */
+/* Table header bg */
+/* Table header font style */
+/* Table header text transform */
 /* Brand colors applicable to labels and buttons */
-/* margin sizing applicable to margins and padding */
-/* FIXME how to add a theme to dropdown and other items not in form : Calendar Dialog, Dropdown etc..*/
+/* Margin sizing applicable to margins and padding */
 /* 12 Grid margin reset */
 div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="col-sm-"]):not([class^="col-md-"]):not([class^="col-lg-"]) > .row {
   margin-right: 0;
@@ -30,12 +56,12 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 .full-height {
   height: 100%;
 }
-/* Margins, to be used on rows to separate lines */
 /* To be used on a tab/tabless panel when nesting responsive form. Is used to indent the nested form with the container form */
 .margin-reset {
   margin-left: -15px;
   margin-right: -15px;
 }
+/* Margins, to be used on rows to separate lines */
 .margin-top-10 {
   margin-top: 10px;
 }
@@ -73,8 +99,7 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
   margin-left: 30px;
 }
 /* Forms */
-/* 
-TODO enable form bgs !?
+/* TODO enable form bgs !?
 .svy-form {
 	background-color: @body-bg;
 }
@@ -82,7 +107,7 @@ TODO enable form bgs !?
 .svy-form-inverse {
 	background-color: @body-bg-inverse;
 }
-
+*/
 /* Dialogs */
 .svy-dialog .svy-header {
   background: #dddddd;
@@ -115,20 +140,6 @@ TODO enable form bgs !?
   color: #777777;
   font-weight: 100;
   /* font-size: 12px; */
-}
-.btn-success,
-.btn-info,
-.btn-warning,
-.btn-danger {
-  color: #FFF;
-}
-.label-success,
-.label-info,
-.label-warning,
-.label-danger {
-  color: #FFF;
-  text-align: center;
-  border-radius: 2px;
 }
 /* Fields */
 .form-control {
@@ -183,8 +194,13 @@ TODO enable form bgs !?
 .bts-calendar input ~ .input-group-addon {
   border-style: solid;
   border-color: #dbdbdb;
-  border-width: 0 0 1px 0;
+  border-width: 1px 1px 1px 1px;
   border-radius: 0;
+}
+.input-group-addon:last-child,
+.svy-calendar ~ .input-group-addon,
+.bts-calendar input ~ .input-group-addon {
+  border-left: 0;
 }
 .bts-select,
 .bts-select ~ .input-group-addon,
@@ -348,14 +364,14 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bootstrap-datetimepicker-widget table td.active,
 .bootstrap-datetimepicker-widget table td.active:hover {
   background-color: #e9720b;
-  color: #FFF;
+  color: #ffffff;
 }
 /* Combobox */
 .svy-combobox .ui-select-toggle {
   border: 0;
   border-style: solid;
   border-color: #dbdbdb;
-  border-width: 0 0 1px 0;
+  border-width: 1px 1px 1px 1px;
   border-radius: 0;
   box-shadow: none;
 }
@@ -373,7 +389,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
   box-shadow: none;
   border-style: solid;
   border-color: #f58c32;
-  border-width: 0 0 1px 0;
+  border-width: 1px 1px 1px 1px;
 }
 .svy-combobox.ui-select-bootstrap .ui-select-choices-row.active > span {
   background-color: #e9720b;
@@ -409,26 +425,20 @@ fieldset[disabled] input[type="checkbox"] + span:before {
   background-color: #e9720b;
 }
 /* TabPanel */
-.svy-tabpanel,
+.svy-tabpanel > .nav-tabs,
+.bts-tabpanel > .nav-tabs {
+  border: 0;
+  background-color: #dddddd;
+}
+.svy-tabpanel > .nav-tabs > li,
+.bts-tabpanel > .nav-tabs > li {
+  margin-bottom: 0;
+}
 .svy-tabpanel > .nav-tabs > li > a,
-.bts-tabpanel,
 .bts-tabpanel > .nav-tabs > li > a {
   background-color: #dddddd;
   color: #777777;
-}
-.svy-tabpanel .nav-tabs,
-.bts-tabpanel .nav-tabs {
-  border: 0;
-}
-.svy-tabpanel > .nav > li > a {
   padding: 8px 15px;
-}
-.svy-tabpanel > .nav > li.active,
-.svy-tabpanel > .nav > li.active a,
-.bts-tabpanel > .nav > li.active,
-.bts-tabpanel > .nav > li.active a {
-  background-color: #e9720b;
-  color: #FFF;
   border: 0;
   border-radius: 0;
 }
@@ -440,8 +450,18 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bts-tabpanel .nav-tabs > li.active > a,
 .bts-tabpanel .nav-tabs > li.active > a:hover,
 .bts-tabpanel .nav-tabs > li.active > a:focus {
+  /* border: @tab-border;
+	border-radius: @tab-border-radius; */
+}
+.svy-tabpanel > .nav-tabs > li.active > a,
+.svy-tabpanel > .nav-tabs > li.active > a:hover,
+.svy-tabpanel > .nav-tabs > li.active > a:focus,
+.bts-tabpanel > .nav-tabs > li.active > a,
+.bts-tabpanel > .nav-tabs > li.active > a:hover,
+.bts-tabpanel > .nav-tabs > li.active > a:focus {
+  background-color: #e9720b;
+  color: #ffffff;
   border: 0;
-  border-radius: 0;
 }
 /* Font Awesome *
 data-servoyextra-fontawesome > div {
@@ -631,11 +651,11 @@ data-servoyextra-fontawesome > div {
   /* TODO define inverse color for selected */
 }
 .ui-grid-row-selected .ui-grid-cell .bts-select,
-.bts-select ~ .input-group-addon,
+.ui-grid-row-selected .ui-grid-cell .bts-select ~ .input-group-addon,
 .ui-grid-row-selected .ui-grid-cell .svy-calendar,
-.svy-calendar ~ .input-group-addon,
+.ui-grid-row-selected .ui-grid-cell .svy-calendar ~ .input-group-addon,
 .ui-grid-row-selected .ui-grid-cell .bts-calendar input,
-.bts-calendar input ~ .input-group-addon {
+.ui-grid-row-selected .ui-grid-cell .bts-calendar input ~ .input-group-addon {
   background-color: inherit;
 }
 .ui-grid-row-selected .ui-grid-cell .svy-field:focus,
@@ -747,7 +767,7 @@ data-servoyextra-fontawesome > div {
 .yuimenuitemlabel-selected:focus,
 .yuimenuitemlabel-selected:visited {
   background-color: #e9720b;
-  color: #FFF;
+  color: #ffffff;
   text-decoration: inherit;
 }
 .yuimenubaritemlabel-disabled:focus,
@@ -809,36 +829,12 @@ data-servoyextra-fontawesome > div {
 /* Style the flex footer if used on a form with theme servoy */
  > .flexlayout > .flex-footer {
   background-color: #e9720b;
-  color: #FFF;
+  color: #ffffff;
   height: 80px;
 }
  > .flexlayout > .flex-footer .svy-label,
  > .flexlayout > .flex-footer .bts-label {
-  color: #FFF;
-}
-/************************************************************************************
- Class Templates Top Bar 
- *************************************************************************************/
-.header-bar {
-  border-top: 12px solid #EB8C39;
-  background-color: #e9720b;
-  color: white;
-  padding: 30px 0;
-  font-size: 24px;
-  text-transform: uppercase;
-}
-.header-bar {
-  /* height: initial !important; TODO what is this for, to center the text of a navbar ? */
-}
-.header-bar .bts-label,
-.header-bar .svy-label {
-  color: #FFF;
-}
-.header-title {
-  text-align: center;
-  float: left;
-  width: calc(2%);
-  font-size: 24px;
+  color: #ffffff;
 }
 /* Background colors */
 .bg {
@@ -866,10 +862,6 @@ data-servoyextra-fontawesome > div {
 .font-weight-bold {
   font-weight: bold;
 }
-.hr {
-  border: 0 solid #dbdbdb;
-  border-bottom-width: 1px;
-}
 /* Labels */
 .label_header_0 {
   background: #F8F8F8;
@@ -880,13 +872,14 @@ data-servoyextra-fontawesome > div {
 }
 .label_header_1 {
   color: #f58c32;
-  background: #FFF;
+  background: #ffffff;
   border-bottom: 1px solid #f58c32;
   font-size: 24px;
   font-weight: 100;
 }
 .label_header_2,
 .label_header_3 {
+  padding-left: 6px;
   background: #e9720b;
   color: white;
   font-weight: 100;
@@ -902,6 +895,10 @@ data-servoyextra-fontawesome > div {
 .svy-layoutcontainer > * > .label_header_1,
 .svy-layoutcontainer > * > .label_header_2 {
   margin: 15px 0;
+}
+.svy-layoutcontainer > * > .label_header_2 {
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 .svy-layoutcontainer > * > .label_header_0,
 .svy-layoutcontainer > * > .label_header_3 {
@@ -919,6 +916,24 @@ data-servoyextra-fontawesome > div {
   left: 160px;
 }
 /* Typography */
+.label-primary .label-success,
+.label-info,
+.label-warning,
+.label-danger {
+  color: #FFF;
+  text-align: center;
+  border-radius: 2px;
+}
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+  color: #FFF;
+}
+.text-center {
+  text-align: center;
+}
 .bts-label.text-center {
   display: block;
   white-space: initial;
@@ -969,6 +984,30 @@ data-servoyextra-fontawesome > div {
 .form-danger {
   background-color: #d9534f;
 }
+/************************************************************************************
+ Class Templates Top Bar 
+ *************************************************************************************/
+.header-bar {
+  border-top: 12px solid #f58c32;
+  background-color: #e9720b;
+  color: white;
+  padding: 30px 0;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.header-bar {
+  /* height: initial !important; TODO what is this for, to center the text of a navbar ? */
+}
+.header-bar .bts-label,
+.header-bar .svy-label {
+  color: #FFF;
+}
+.header-title {
+  text-align: center;
+  float: left;
+  width: calc(2%);
+  font-size: 24px;
+}
 /* Container styles */
 .content-panel {
   border-radius: 4px;
@@ -976,4 +1015,9 @@ data-servoyextra-fontawesome > div {
   padding: 30px 15px;
   border-bottom-width: 30px;
   min-width: 640px;
+}
+/* Shapes */
+.hr {
+  border: 0 solid #dbdbdb;
+  border-bottom-width: 1px;
 }

@@ -34,7 +34,7 @@ function initLessJS (useInProduction) {
 	
 	if (!useInProduction && !application.isInDeveloper()) {
 		log.error("On a production environment is discouraged to compile your .less file directly from the Browser since it may reduce the startup time of your solution.\
-				 For a production environment you may consider to compile your .less files into CSS files and reference them from your solution media as standard styleSheet.");
+				   For a production environment you may consider to compile your .less files into CSS files and reference them from your solution media as standard styleSheet.");
 		return false;
 	} else {
 		log.info("Init less.js");
