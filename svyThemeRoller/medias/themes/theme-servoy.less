@@ -1,14 +1,22 @@
-/* main theme color; should be primary ? */
+/* main theme color; should be called primary ? */
 @main-color: #E9720B;							/* Main color */
+@main-color-inverse: #FFF;						/* Main color inverse */
 @main-color-light: lighten(@main-color, 10%); 	/* Main color light lighten(@main-color, 28%); #F9DB89 */
 @main-color-dark: darken(@main-color, 15%); 	/* Main color dark EB8C39 */
-@main-color-text: #FFF;							/* Main color text*/
 
-@main-color-inverse: #18222C;					/* Main color inverse */
-@main-color-inverse-light: #464E56;				/* Main color light inverse */
-@main-color-inverse-dark: #364453;				/* Main color dark inverse */
-@main-color-text-inverse: #E9720B;				/* Main color text inverse */
+@secondary-color: #18222C;						/* Secondary color */
+@secondary-color-inverse: #FFF;					/* Secondary color inverse */
+@secondary-color-light: #464E56;				/* Secondary color light*/
+@secondary-color-dark: #364453;					/* Secondary color dark*/
 
+
+/* Sidenav colors */
+@sidenav-color: @secondary-color;
+@sidenav-text-color: @secondary-color-inverse;
+@sidenav-selected-color: @secondary-color-light;
+@sidenav-selected-text-color: @sidenav-text-color;
+
+/* Body bg */
 @body-bg: #FFF;									/* Bogy bg */
 @body-bg-inverse: #DDD;							/* Body bg inverse */
 
@@ -37,7 +45,7 @@
 @tab-border-radius: 0;
 
 @tab-active-bg: @main-color;
-@tab-active-text-color: @main-color-text;
+@tab-active-text-color: @main-color-inverse;
 @tab-active-border: 0;
 
 /* Windows */
@@ -410,7 +418,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bootstrap-datetimepicker-widget table td.active, 
 .bootstrap-datetimepicker-widget table td.active:hover {
 	background-color: @main-color;
-	color: @main-color-text;
+	color: @main-color-inverse;
 }
 
 /* Combobox */
@@ -541,8 +549,8 @@ data-servoyextra-fontawesome > div {
 
 /* Sidenav Servoy Extra */
 .svy-sidenav {
-	background-color: @main-color-inverse;
-	color: #FFF;
+	background-color: @sidenav-color;
+	color: @sidenav-text-color;
 	border: 0;
 }
 
@@ -550,7 +558,7 @@ data-servoyextra-fontawesome > div {
 .svy-sidenav-collapse-icon {
 	font-size: 12px;
 	line-height: 36px;
-	color: #FFF;
+	color: @sidenav-text-color;
 }
 
 .svy-sidenav-divider {
@@ -563,7 +571,8 @@ data-servoyextra-fontawesome > div {
 }
 
 .svy-sidenav-dropdown {
-	background-color: @main-color-inverse;
+	background-color: @sidenav-color;
+	color: @sidenav-text-color;
 }
 
 .svy-sidenav-dropdown {
@@ -612,8 +621,9 @@ data-servoyextra-fontawesome > div {
 }*/
 
 .svy-navitem-selected {
-	color: inherit;
-	background-color: @main-color-inverse-light;
+	/* TODO inverse the column when selected */
+	color: @sidenav-selected-text-color;
+	background-color: @sidenav-selected-color;
 }
 
 .svy-navitem-selected.sn-level-1 {
@@ -629,7 +639,9 @@ data-servoyextra-fontawesome > div {
 .svy-sidenav-dropdown.sn-level-2:hover,
 .svy-sidenav-dropdown.sn-level-3:hover,
 .svy-sidenav-dropdown.sn-level-4:hover {
-	background-color: @main-color-inverse-light;	
+	/* TODO inverse the column when selected ! */
+	color: @sidenav-selected-text-color;
+	background-color: @sidenav-selected-color;
 }
 
 /* Navbar Bootstrap Extra */
@@ -871,7 +883,7 @@ data-servoyextra-fontawesome > div {
 .yuimenuitemlabel-selected:focus,  
 .yuimenuitemlabel-selected:visited {
 	background-color: @main-color;
-    color: @main-color-text;
+    color: @main-color-inverse;
     text-decoration: inherit;
 }
 
@@ -946,13 +958,13 @@ data-servoyextra-fontawesome > div {
 /* Style the flex footer if used on a form with theme servoy */
 > .flexlayout > .flex-footer {
 	background-color: @main-color;
-	color: @main-color-text;
+	color: @main-color-inverse;
 	height: 80px;
 }
 
 > .flexlayout > .flex-footer .svy-label,
 > .flexlayout > .flex-footer .bts-label {
-	color: @main-color-text;
+	color: @main-color-inverse;
 }
 
 /* Background colors */
@@ -1000,7 +1012,7 @@ data-servoyextra-fontawesome > div {
 
 .label_header_1 {
 	color: @main-color-light;
-	background: @main-color-text;
+	background: @main-color-inverse;
 	border-bottom: 1px solid @main-color-light;
 	font-size: 24px;
 	font-weight: 100;

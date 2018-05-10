@@ -1,12 +1,14 @@
-/* main theme color; should be primary ? */
+/* main theme color; should be called primary ? */
 /* Main color */
+/* Main color inverse */
 /* Main color light lighten(@main-color, 28%); #F9DB89 */
 /* Main color dark EB8C39 */
-/* Main color text*/
-/* Main color inverse */
-/* Main color light inverse */
-/* Main color dark inverse */
-/* Main color text inverse */
+/* Secondary color */
+/* Secondary color inverse */
+/* Secondary color light*/
+/* Secondary color dark*/
+/* Sidenav colors */
+/* Body bg */
 /* Bogy bg */
 /* Body bg inverse */
 /* TODO setup borders for colors */
@@ -474,14 +476,14 @@ data-servoyextra-fontawesome > div {
 /* Sidenav Servoy Extra */
 .svy-sidenav {
   background-color: #18222c;
-  color: #FFF;
+  color: #ffffff;
   border: 0;
 }
 .svy-sidenav-menu,
 .svy-sidenav-collapse-icon {
   font-size: 12px;
   line-height: 36px;
-  color: #FFF;
+  color: #ffffff;
 }
 .svy-sidenav-divider {
   line-height: 0px;
@@ -492,6 +494,7 @@ data-servoyextra-fontawesome > div {
 }
 .svy-sidenav-dropdown {
   background-color: #18222c;
+  color: #ffffff;
 }
 .svy-sidenav-dropdown {
   font-weight: initial;
@@ -532,7 +535,8 @@ data-servoyextra-fontawesome > div {
 	padding-left: 60px;
 }*/
 .svy-navitem-selected {
-  color: inherit;
+  /* TODO inverse the column when selected */
+  color: #ffffff;
   background-color: #464e56;
 }
 .svy-navitem-selected.sn-level-1 {
@@ -547,6 +551,8 @@ data-servoyextra-fontawesome > div {
 .svy-sidenav-dropdown.sn-level-2:hover,
 .svy-sidenav-dropdown.sn-level-3:hover,
 .svy-sidenav-dropdown.sn-level-4:hover {
+  /* TODO inverse the column when selected ! */
+  color: #ffffff;
   background-color: #464e56;
 }
 /* Navbar Bootstrap Extra */
