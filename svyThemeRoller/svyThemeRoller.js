@@ -144,3 +144,35 @@ function addCSSFileDependancy(mediaFileName) {
 	plugins.ngclientutils.contributedTags.push(lessCSSTag);
 	return true;
 }
+
+/**
+ * Add a JS file reference to the NGClient
+ * 
+ * @public 
+ * @param {String} mediaFileName
+ * 
+ * @return {Boolean}
+ *
+ * @properties={typeid:24,uuid:"3F437617-48FE-4799-95E1-D66BD5224F9B"}
+ */
+function addJSFileDependancy(mediaFileName) {
+	if (!scopes.svySystem.isNGClient()) {
+		log.error("This feature can be used in NGClient only");
+		return false;
+	}
+	
+	if (!solutionModel.getMedia(mediaFileName)) {
+		log.error("Cannot find the .js file " + mediaFileName);
+		return false;
+	}
+	
+	var lessCSSTag = {
+		tagName: "script",
+		attrs: [{
+			name: "src",
+			value: "resources/fs/" + application.getSolutionName() + "/" + mediaFileName
+		}]
+	};
+	plugins.ngclientutils.contributedTags.push(lessCSSTag);
+	return true;
+}
