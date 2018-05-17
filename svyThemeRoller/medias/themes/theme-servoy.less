@@ -96,6 +96,18 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 	height: 100%;
 }
 
+.no-border {
+	border-style: none;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.no-margin {
+	margin: 0;
+}
+
 /* To be used on a tab/tabless panel when nesting responsive form. Is used to indent the nested form with the container form */
 .margin-reset {
 	margin-left: -15px;
@@ -733,7 +745,7 @@ data-servoyextra-fontawesome > div {
 
 .ui-grid-row-selected div.ui-grid-cell .svy-label,
 .ui-grid-row-selected div.ui-grid-cell .bts-label {
-	color: #FFF;
+	color: @main-color-inverse;
 }
 
 .ui-grid-row-selected .ui-grid-cell .svy-field,
@@ -752,7 +764,7 @@ data-servoyextra-fontawesome > div {
 .ui-grid-row-selected .ui-grid-cell .bts-calendar input {
 	outline: @main-color;
 	background-color: inherit;
-	color: #FFF; /* TODO define inverse color for selected */
+	color: @main-color-inverse; /* inverse color for selected */
 }
 
 .ui-grid-row-selected .ui-grid-cell .bts-select, .ui-grid-row-selected .ui-grid-cell .bts-select ~ .input-group-addon,
@@ -799,7 +811,7 @@ data-servoyextra-fontawesome > div {
 .table-bootstrapcomponent-selected,
 .table-servoyextra-selected {
 	background-color: @main-color;
-	color: #FFF; /* TODO define inverse color for selected */
+	color: @main-color-inverse; /* inverse color for selected */
 }
 
 .svy-table  th,
@@ -841,7 +853,21 @@ data-servoyextra-fontawesome > div {
 
 .ag-table .ag-row-selected {
 	background-color: @main-color;
-	color: #FFF;
+	color: @main-color-inverse;
+}
+
+.ag-table .ag-cell-inline-editing input {
+	color: @field-color;
+}
+
+/* AG Grid side panel */
+.ag-table .ag-tool-panel > .ag-side-buttons > button {
+}
+
+.ag-table .ag-tool-panel > .ag-side-buttons> button:before {
+    content: "\f0c9";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
 }
 
 /* Popup */
@@ -1064,6 +1090,14 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Typography */
+.text-center {
+	text-align: center;
+}
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+
 .label-primary
 .label-success,
 .label-info, 
@@ -1080,10 +1114,6 @@ data-servoyextra-fontawesome > div {
 .btn-warning,
 .btn-danger {
 	color: #FFF;
-}
-
-.text-center {
-	text-align: center;
 }
 
 .bts-label.text-center {
@@ -1122,6 +1152,9 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Buttons */
+.btn-round {
+	border-radius: 50px;
+}
 
 /* Fields */
 .form-default {
