@@ -10,11 +10,13 @@
 @secondary-color-dark: #364453;					/* Secondary color dark*/
 
 
-/* Sidenav colors */
+/* Sidenav */
 @sidenav-color: @secondary-color;
 @sidenav-text-color: @secondary-color-inverse;
 @sidenav-selected-color: @secondary-color-light;
 @sidenav-selected-text-color: @sidenav-text-color;
+@sidenav-selected-border-color: @main-color;
+@sidenav-selected-border-width: 0px 0px 0px 0px; /* Border for selected top-level item top|right|bottom|left */
 
 /* Body bg */
 @body-bg: #FFF;									/* Bogy bg */
@@ -34,9 +36,17 @@
 /* Fields */
 @field-bg : #FFF;								/* Field bg */
 @field-disabled-bg : @field-bg;					/* Field disabled bg */
-@field-color: @text-color;  					/* Field color #4A4A4A */
+@field-color: @text-color;  							/* Field color #4A4A4A */
 @field-addon-bg: @field-bg;						/* Field addon bg */
 @field-border-width: 1px 1px @border-width 1px;		/* Field width */
+@field-check-color: @brand-info;				/* Check and Radio Color */
+
+/* Navbar */
+@navbar-bg: @main-color;
+@navbar-bg-highlighted: @main-color;
+@navbar-text-color: @main-color-inverse;
+@navbar-dropdown-bg: @navbar-bg;
+@navbar-dropdown-text-color: @navbar-text-color;
 
 /* Tabs */
 @tab-bg: @body-bg-inverse;
@@ -62,10 +72,41 @@
 
 /* Brand colors applicable to labels and buttons */
 @brand-primary: #428bca;
+@brand-tertiary: #E8E6E6;
 @brand-success: #5cb85c;
 @brand-info:    #5bc0de;
 @brand-warning: #f0ad4e;
 @brand-danger:  #d9534f;
+
+/* TODO this one is not applicable to theme roller, what can i do about it ? */
+@text-tertiary: #999997;
+
+/* Brand colors applicable to labels and buttons */
+@brand-primary-inverse: #FFF;
+@brand-tertiary-inverse: @text-color;
+@brand-success-inverse: #FFF;
+@brand-info-inverse:    #FFF;
+@brand-warning-inverse: #FFF;
+@brand-danger-inverse:  #FFF;
+
+/* Brand colors applicable to hovers of labels and buttons */
+@brand-primary-highlighted: 	#ff9800;
+@brand-tertiary-highlighted: 	darken(@brand-tertiary, 5%);
+@brand-success-highlighted: 	darken(@brand-success, 5%);
+@brand-info-highlighted:   		darken(@brand-info, 5%);
+@brand-warning-highlighted: 	darken(@brand-warning, 5%);
+@brand-danger-highlighted:  	darken(@brand-danger, 5%);
+
+/* Brand colors applicable to hovers of labels and buttons */
+@brand-primary-highlighted-inverse: #FFF;
+@brand-tertiary-highlighted-inverse: @text-color;
+@brand-success-highlighted-inverse: #FFF;
+@brand-info-highlighted-inverse:    #FFF;
+@brand-warning-highlighted-inverse: #FFF;
+@brand-danger-highlighted-inverse:  #FFF;
+
+/* Validations */
+@form-required-label-suffix : "";
 
 /* Margin sizing applicable to margins and padding */
 @box-size-10 : 10px;
@@ -100,12 +141,26 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 	border-style: none;
 }
 
+.border-default {
+	border-color: @border-color;
+	border-width: @border-width;
+	border-style: @border-style;
+	border-radius: @border-radius;
+}
+
 .no-padding {
 	padding: 0;
 }
 
 .no-margin {
 	margin: 0;
+}
+
+/* Reset Header Margins */
+h1, .h1, h2, .h2, h3, .h3,
+h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* To be used on a tab/tabless panel when nesting responsive form. Is used to indent the nested form with the container form */
@@ -115,6 +170,18 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 }
 
 /* Margins, to be used on rows to separate lines */
+.margin-10 {
+	margin: @box-size-10;
+}
+
+.margin-20 {
+	margin: @box-size-20;
+}
+
+.margin-30 {
+	margin: @box-size-30;
+}
+
 .margin-top-10 {
 	margin-top: @box-size-10;
 }
@@ -161,6 +228,86 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 
 .margin-left-30 {
 	margin-left: @box-size-30;
+}
+
+/* paddings, to be used on rows to separate lines */
+.padding-10 {
+	padding: @box-size-10;
+}
+
+.padding-20 {
+	padding: @box-size-20;
+}
+
+.padding-30 {
+	padding: @box-size-30;
+}
+
+.padding-top-10 {
+	padding-top: @box-size-10;
+}
+
+.padding-top-20 {
+	padding-top: @box-size-20;
+}
+
+.padding-top-30 {
+	padding-top: @box-size-30;
+}
+
+.padding-bottom-10 {
+	padding-bottom: @box-size-10;
+}
+
+.padding-bottom-20 {
+	padding-bottom: @box-size-20;
+}
+
+.padding-bottom-30 {
+	padding-bottom: @box-size-30;
+}
+
+.padding-right-10 {
+	padding-right: @box-size-10;
+}
+
+.padding-right-20 {
+	padding-right: @box-size-20;
+}
+
+.padding-right-30 {
+	padding-right: @box-size-30;
+}
+
+.padding-left-10 {
+	padding-left: @box-size-10;
+}
+
+.padding-left-20 {
+	padding-left: @box-size-20;
+}
+
+.padding-left-30 {
+	padding-left: @box-size-30;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.clickable-hover {
+	cursor: pointer;
+	transition:border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+}
+
+.clickable-hover:hover {
+	background: fade(@main-color, 20%);
+	border-radius: 4px;
+}
+
+/* TODO does make sense ? */
+.border-radius {
+	border-radius: @border-radius;
 }
 
 /* Forms */
@@ -325,6 +472,7 @@ fieldset[disabled] .form-control {
   	display: inline-block;
   	font-family: 'Glyphicons Halflings';
   	letter-spacing: 5px;
+  	color: @field-check-color;
 }
 
 input[type="radio"][disabled] + span, 
@@ -582,6 +730,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 	content: "\f14a";
 }
 
+
 /* Badge */
 .btn-filter .badge {
     background-color: @main-color;
@@ -720,7 +869,9 @@ data-servoyextra-fontawesome > div {
 }
 
 .svy-navitem-selected.sn-level-1 {
-	border-left: 5px solid @main-color;
+	border-style: solid;
+	border-color: @sidenav-selected-border-color;
+	border-width: @sidenav-selected-border-width;
 }
 
 .svy-sidenav-dropdown.sn-level-1:not(.svy-navitem-selected) {
@@ -740,6 +891,46 @@ data-servoyextra-fontawesome > div {
 /* Navbar Bootstrap Extra */
 .navbar {
 	border-radius: 0;
+}
+
+.bts-extra-navbar.navbar-default {
+	background-color: @navbar-bg;
+	color: @navbar-text-color;
+	margin-bottom: 0;
+	border: 0;
+}
+
+.bts-extra-navbar.navbar-default .navbar-nav > li > a,
+.bts-extra-navbar.navbar-default .navbar-nav > .active > a, 
+.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:hover, 
+.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus {
+	background-color: @navbar-bg;
+	color: @navbar-text-color;
+}
+
+.bts-extra-navbar.navbar-default .dropdown-menu,
+.bts-extra-navbar.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+	background-color: @navbar-bg;
+	color: @navbar-text-color;
+}
+
+.bts-extra-navbar.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, 
+.bts-extra-navbar.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+	background-color: @navbar-bg-highlighted;
+}
+
+.bts-extra-navbar.navbar-default .navbar-toggle {
+	background-color: @navbar-bg;
+	color: @navbar-text-color;
+}
+
+.bts-extra-navbar.navbar-default .navbar-toggle:hover, 
+.bts-extra-navbar.navbar-default .navbar-toggle:focus {
+	background-color: @navbar-bg-highlighted;
+}
+
+.bts-extra-navbar.navbar-default .navbar-toggle .icon-bar {
+	background-color: @navbar-text-color;
 }
 
 /* Input Group Bootstrap Extra */
@@ -1123,7 +1314,7 @@ data-servoyextra-fontawesome > div {
 /* Inline Groups */
 .inline-group > .inline-group-left,
 .inline-group > .inline-group-right  {
-	line-height: 34px;
+	min-height: 34px;
 }
 
 /* Style the flex footer if used on a form with theme servoy */
@@ -1149,22 +1340,64 @@ data-servoyextra-fontawesome > div {
 
 .bg-primary {
 	background-color: @brand-primary;
+	color: @brand-primary-inverse;
+}
+
+.bg-tertiary {
+	background-color: @brand-tertiary;
+	color: @brand-tertiary-inverse;
 }
 
 .bg-success {
 	background-color: @brand-success;
+	color: @brand-success-inverse;
 }
 
 .bg-info {
 	background-color: @brand-info;
+	color: @brand-info-inverse;
 }
 
 .bg-warning {
 	background-color: @brand-warning;
+	color: @brand-warning-inverse;
 }
 
 .bg-danger {
 	background-color: @brand-danger;
+	color: @brand-danger-inverse;
+}
+
+
+/* Overrule background-variant */
+a.bg-primary:hover {
+	background-color: @brand-primary-highlighted;
+	color: @brand-primary-highlighted-inverse;
+}
+
+a.bg-tertiary:hover {
+	background-color: @brand-tertiary-highlighted;
+	color: @brand-tertiary-highlighted-inverse;
+}
+
+a.bg-success:hover {
+	background-color: @brand-success-highlighted;
+	color: @brand-success-highlighted-inverse;
+}
+
+a.bg-info:hover {
+	background-color: @brand-info-highlighted;
+	color: @brand-info-highlighted-inverse;
+}
+
+a.bg-warning:hover {
+	background-color: @brand-warning-highlighted;
+	color: @brand-warning-highlighted-inverse;
+}
+
+a.bg-danger:hover {
+	background-color: @brand-danger-highlighted;
+	color: @brand-danger-highlighted-inverse;
 }
 
 /* Fonts */
@@ -1243,25 +1476,175 @@ data-servoyextra-fontawesome > div {
 	text-transform: uppercase;
 }
 
-.label-primary
+.label-primary,
+.label-tertiary,
 .label-success,
 .label-info, 
 .label-warning,
 .label-danger {
-	color: #FFF;
+	color: #FFF; /* TODO remove icon */
 	text-align: center;
-	border-radius: 2px;
+	border-radius: @border-radius;
 }
 
-.btn-primary,
-.btn-success,
-.btn-info,
-.btn-warning,
+.btn-primary {
+	background-color: @brand-primary;
+	color: @brand-primary-inverse;
+	border-color: @brand-primary;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, 
+.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+	background-color: @brand-primary-highlighted;
+	color: @brand-primary-highlighted-inverse;
+	outline-color: @brand-primary;
+}
+
+.btn-primary.disabled, .btn-primary[disabled], 
+fieldset[disabled] .btn-primary, .btn-primary.disabled:hover,
+.btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, 
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, 
+fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, 
+.btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus, 
+.btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] 
+.btn-primary:active, .btn-primary.disabled.active, 
+.btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+	background-color: @brand-primary;
+	border-color: @brand-primary;
+}
+
+.btn-tertiary {
+	background-color: @brand-tertiary;
+	color: @brand-tertiary-inverse;
+	border-color: @brand-tertiary;
+}
+
+.btn-tertiary:hover, .btn-tertiary:focus, .btn-tertiary.focus, 
+.btn-tertiary:active, .btn-tertiary.active, .open > .dropdown-toggle.btn-tertiary {
+	background-color: @brand-tertiary-highlighted;
+	color: @brand-tertiary-highlighted-inverse;
+	outline-color: @brand-tertiary;
+}
+
+.btn-tertiary.disabled, .btn-tertiary[disabled], 
+fieldset[disabled] .btn-tertiary, .btn-tertiary.disabled:hover,
+.btn-tertiary[disabled]:hover, fieldset[disabled] .btn-tertiary:hover, 
+.btn-tertiary.disabled:focus, .btn-tertiary[disabled]:focus, 
+fieldset[disabled] .btn-tertiary:focus, .btn-tertiary.disabled.focus, 
+.btn-tertiary[disabled].focus, fieldset[disabled] .btn-tertiary.focus, 
+.btn-tertiary.disabled:active, .btn-tertiary[disabled]:active, fieldset[disabled] 
+.btn-tertiary:active, .btn-tertiary.disabled.active, 
+.btn-tertiary[disabled].active, fieldset[disabled] .btn-tertiary.active {
+	background-color: @brand-tertiary;
+	border-color: @brand-tertiary;
+}
+
+.btn-success {
+	background-color: @brand-success;
+	color: @brand-success-inverse;
+	border-color: @brand-success;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success.focus, 
+.btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+	background-color: @brand-success-highlighted;
+	color: @brand-success-highlighted-inverse;
+	outline-color: @brand-success;
+}
+
+.btn-success.disabled, .btn-success[disabled], 
+fieldset[disabled] .btn-success, .btn-success.disabled:hover,
+.btn-success[disabled]:hover, fieldset[disabled] .btn-success:hover, 
+.btn-success.disabled:focus, .btn-success[disabled]:focus, 
+fieldset[disabled] .btn-success:focus, .btn-success.disabled.focus, 
+.btn-success[disabled].focus, fieldset[disabled] .btn-success.focus, 
+.btn-success.disabled:active, .btn-success[disabled]:active, fieldset[disabled] 
+.btn-success:active, .btn-success.disabled.active, 
+.btn-success[disabled].active, fieldset[disabled] .btn-success.active {
+	background-color: @brand-success;
+	border-color: @brand-success;
+}
+
+.btn-info {
+	background-color: @brand-info;
+	color: @brand-info-inverse;
+	border-color: @brand-info;
+}
+
+.btn-info:hover, .btn-info:focus, .btn-info.focus, 
+.btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info {
+	background-color: @brand-info-highlighted;
+	color: @brand-info-highlighted-inverse;
+	outline-color: @brand-info;
+}
+
+.btn-info.disabled, .btn-info[disabled], 
+fieldset[disabled] .btn-info, .btn-info.disabled:hover,
+.btn-info[disabled]:hover, fieldset[disabled] .btn-info:hover, 
+.btn-info.disabled:focus, .btn-info[disabled]:focus, 
+fieldset[disabled] .btn-info:focus, .btn-info.disabled.focus, 
+.btn-info[disabled].focus, fieldset[disabled] .btn-info.focus, 
+.btn-info.disabled:active, .btn-info[disabled]:active, fieldset[disabled] 
+.btn-info:active, .btn-info.disabled.active, 
+.btn-info[disabled].active, fieldset[disabled] .btn-info.active {
+	background-color: @brand-info;
+	border-color: @brand-info;
+}
+
+.btn-warning {
+	background-color: @brand-warning;
+	color: @brand-warning-inverse;
+	border-color: @brand-warning;
+}
+
+.btn-warning:hover, .btn-warning:focus, .btn-warning.focus, 
+.btn-warning:active, .btn-warning.active, .open > .dropdown-toggle.btn-warning {
+	background-color: @brand-warning-highlighted;
+	color: @brand-warning-highlighted-inverse;
+	outline-color: @brand-warning;
+}
+
+.btn-warning.disabled, .btn-warning[disabled], 
+fieldset[disabled] .btn-warning, .btn-warning.disabled:hover,
+.btn-warning[disabled]:hover, fieldset[disabled] .btn-warning:hover, 
+.btn-warning.disabled:focus, .btn-warning[disabled]:focus, 
+fieldset[disabled] .btn-warning:focus, .btn-warning.disabled.focus, 
+.btn-warning[disabled].focus, fieldset[disabled] .btn-warning.focus, 
+.btn-warning.disabled:active, .btn-warning[disabled]:active, fieldset[disabled] 
+.btn-warning:active, .btn-warning.disabled.active, 
+.btn-warning[disabled].active, fieldset[disabled] .btn-warning.active {
+	background-color: @brand-warning;
+	border-color: @brand-warning;
+}
+
 .btn-danger {
-	color: #FFF;
+	background-color: @brand-danger;
+	color: @brand-danger-inverse;
+	border-color: @brand-danger;
 }
 
-.bts-label.text-center {
+.btn-danger:hover, .btn-danger:focus, .btn-danger.focus, 
+.btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
+	background-color: @brand-danger-highlighted;
+	color: @brand-danger-highlighted-inverse;
+	outline-color: @brand-danger;
+}
+
+.btn-danger.disabled, .btn-danger[disabled], 
+fieldset[disabled] .btn-danger, .btn-danger.disabled:hover,
+.btn-danger[disabled]:hover, fieldset[disabled] .btn-danger:hover, 
+.btn-danger.disabled:focus, .btn-danger[disabled]:focus, 
+fieldset[disabled] .btn-danger:focus, .btn-danger.disabled.focus, 
+.btn-danger[disabled].focus, fieldset[disabled] .btn-danger.focus, 
+.btn-danger.disabled:active, .btn-danger[disabled]:active, fieldset[disabled] 
+.btn-danger:active, .btn-danger.disabled.active, 
+.btn-danger[disabled].active, fieldset[disabled] .btn-danger.active {
+	background-color: @brand-danger;
+	border-color: @brand-danger;
+}
+
+.bts-label.text-center,
+.bts-datalabel.text-center {
 	display: block;
 	white-space: initial;
 }
@@ -1270,6 +1653,12 @@ data-servoyextra-fontawesome > div {
 .label-primary, 
 .btn.text-primary {
 	color: @brand-primary;	
+}
+
+.text-tertiary,
+.label-tertiary, 
+.btn.text-tertiary {
+	color: @text-tertiary;	
 }
 
 .text-success,
@@ -1310,6 +1699,10 @@ data-servoyextra-fontawesome > div {
 	background-color: @brand-primary;
 }
 
+.form-tertiary {
+	background-color: @brand-tertiary;
+}
+
 .form-success {
 	background-color: @brand-success;
 }
@@ -1325,7 +1718,105 @@ data-servoyextra-fontawesome > div {
 .form-danger {
 	background-color: @brand-danger;
 }
+/************************************************************************************
+* Component Style Classes
+************************************************************************************/
 
+
+.svy-checkgroup.check-horizontal label,
+.svy-radiogroup.check-horizontal label,
+.bts-radiogroup.check-horizontal label,
+.svy-checkgroup.radio-horizontal label,
+.svy-radiogroup.radio-horizontal label,
+.bts-radiogroup.radio-horizontal label {
+	display: inline;
+}
+
+.svy-checkgroup.radio-horizontal.check-spacing-10 label,
+.svy-radiogroup.radio-horizontal.check-spacing-10 label,
+.bts-radiogroup.radio-horizontal.check-spacing-10 label,
+.svy-checkgroup.radio-horizontal.radio-spacing-10 label,
+.svy-radiogroup.radio-horizontal.radio-spacing-10 label,
+.bts-radiogroup.radio-horizontal.radio-spacing-10 label {
+	margin-right: @box-size-10;
+}
+
+.svy-checkgroup.radio-horizontal.check-spacing-20 label,
+.svy-radiogroup.radio-horizontal.check-spacing-20 label,
+.bts-radiogroup.radio-horizontal.check-spacing-20 label,
+.svy-checkgroup.radio-horizontal.radio-spacing-20 label,
+.svy-radiogroup.radio-horizontal.radio-spacing-20 label,
+.bts-radiogroup.radio-horizontal.radio-spacing-20 label {
+	margin-right: @box-size-20;
+}
+
+.svy-checkgroup.radio-horizontal.check-spacing-30 label,
+.svy-radiogroup.radio-horizontal.check-spacing-30 label,
+.bts-radiogroup.radio-horizontal.check-spacing-30 label,
+.svy-checkgroup.radio-horizontal.radio-spacing-30 label,
+.svy-radiogroup.radio-horizontal.radio-spacing-30 label,
+.bts-radiogroup.radio-horizontal.radio-spacing-30 label {
+	margin-right: @box-size-30;
+}
+
+.svy-checkgroup.radio-horizontal.check-spacing-10 label:last-child,
+.svy-radiogroup.radio-horizontal.check-spacing-10 label:last-child,
+.bts-radiogroup.radio-horizontal.check-spacing-10 label:last-child,
+.svy-checkgroup.radio-horizontal.radio-spacing-10 label:last-child,
+.svy-radiogroup.radio-horizontal.radio-spacing-10 label:last-child,
+.bts-radiogroup.radio-horizontal.radio-spacing-10 label:last-child,
+.svy-checkgroup.radio-horizontal.check-spacing-20 label:last-child,
+.svy-radiogroup.radio-horizontal.check-spacing-20 label:last-child,
+.bts-radiogroup.radio-horizontal.check-spacing-20 label:last-child,
+.svy-checkgroup.radio-horizontal.radio-spacing-20 label:last-child,
+.svy-radiogroup.radio-horizontal.radio-spacing-20 label:last-child,
+.bts-radiogroup.radio-horizontal.radio-spacing-20 label:last-child,
+.svy-checkgroup.radio-horizontal.check-spacing-30 label:last-child,
+.svy-radiogroup.radio-horizontal.check-spacing-30 label:last-child,
+.bts-radiogroup.radio-horizontal.check-spacing-30 label:last-child,
+.svy-checkgroup.radio-horizontal.radio-spacing-30 label:last-child,
+.svy-radiogroup.radio-horizontal.radio-spacing-30 label:last-child,
+.bts-radiogroup.radio-horizontal.radio-spacing-30 label:last-child {
+	margin-right: 0;
+}
+
+/************************************************************************************
+ Validations
+ *************************************************************************************/
+
+.form-required {
+	
+}
+
+.svy-label.form-required:after,
+.bts-label.form-required:after,
+.form-required .svy-label:after,
+.form-required .bts-label:after {
+	content: @form-required-label-suffix;
+	margin-left: 2px;
+}
+
+.svy-field.form-invalid, .svy-password.form-invalid, 
+.svy-textarea.form-invalid, .bts-textarea.form-invalid, 
+.svy-textfield.form-invalid, .bts-textbox.form-invalid, 
+.svy-typeahead.form-invalid, .bts-typeahead.form-invalid, 
+.bts-select.form-invalid, .bts-select.form-invalid ~ .input-group-addon, 
+.svy-calendar.form-invalid, .svy-calendar.form-invalid ~ .input-group-addon, 
+.bts-calendar input.form-invalid, .bts-calendar input.form-invalid ~ .input-group-addon {
+	border: 1px solid @brand-danger;
+	outline-color: @brand-danger;
+}
+
+.svy-check.form-invalid input[type=checkbox] + span:before, 
+.bts-check.form-invalid input[type=checkbox] + span:before, 
+.svy-checkgroup.form-invalid input[type=checkbox] + span:before, 
+.bts-radiogroup.form-invalid input[type=checkbox] + span:before {
+	color: @brand-danger
+}
+
+.inactive {
+	opacity: 0.6;
+}
 
 /************************************************************************************
  Class Templates Top Bar 
