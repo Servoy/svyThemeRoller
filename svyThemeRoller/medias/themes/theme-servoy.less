@@ -506,6 +506,12 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 	background-color: @main-color;
 }
 
+
+/* Badge */
+.btn-filter .badge {
+    background-color: @main-color;
+}
+
 /* TabPanel */
 .svy-tabpanel > .nav-tabs,
 .bts-tabpanel > .nav-tabs {
@@ -860,8 +866,71 @@ data-servoyextra-fontawesome > div {
 	color: @field-color;
 }
 
+.ag-table .ag-cell.font-icon {
+    padding: 0 8px;
+}
+
+
+/* AG Grid Tool Panel */
+
+.ag-tool-panel .ag-column-select-panel .ag-column-name-filter {
+	
+}
+
+.ag-tool-panel .ag-column-drop {
+    clear: both;
+    overflow: auto;
+    padding: 4px 0;
+    padding-bottom: 8px;
+}
+
+.ag-table .ag-column-drop.ag-column-drop-horizontal .ag-right-arrow {
+	padding: 0 4px;
+	display: none;
+}
+
+.ag-table .ag-column-drop.ag-column-drop-horizontal .ag-column-drop-cell .ag-column-drop-cell-button:after {
+    font-family: FontAwesome;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    content: "\f054";
+    vertical-align: middle;
+}
+
+.ag-tool-panel .ag-column-drop .ag-column-drop-cell {
+    padding-left: 10px;
+    /*line-height: 32px;*/
+    display: block;
+}
+
+.ag-table .ag-column-drop .ag-column-drop-cell-text,
+.ag-tool-panel .ag-column-drop .ag-column-drop-cell-text {
+    border: 1px @border-style @border-color;
+    padding: 4px 16px;
+    border-radius: @border-radius;
+}
+
+.ag-tool-panel .ag-column-drop .ag-column-drop-cell .ag-column-drop-cell-button {
+    float: initial;
+}
+
+.ag-column-drop-empty-message, .ag-column-drop .ag-column-drop-cell:last-child:after {
+    content: "Drop a column";
+    border: 1px dashed @border-color;
+    color: @text-color;
+    border-radius: @border-radius;
+    padding: 4px 16px;
+    display: inline-block;
+    line-height: 20px;
+}
+
 /* AG Grid side panel */
 .ag-table .ag-tool-panel > .ag-side-buttons > button {
+	webkit-appearance:none;
+	-webkit-appearance: none;
+    background: none;
+    border: none;
 }
 
 .ag-table .ag-tool-panel > .ag-side-buttons> button:before {
@@ -869,6 +938,7 @@ data-servoyextra-fontawesome > div {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
 }
+
 
 /* Popup */
 .yuimenu {
