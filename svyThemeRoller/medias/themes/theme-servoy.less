@@ -506,6 +506,81 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 	background-color: @main-color;
 }
 
+.svy-select2-autotokenizer .select2-container--default .select2-selection--multiple {
+   	background-color: @field-bg;
+   	color: @field-color;
+    border-style: @border-style;
+	border-color: @border-color;
+	border-width: @field-border-width;
+	border-radius: 0;
+    cursor: text;
+}
+
+.svy-select2-autotokenizer .select2-container--default.select2-container--focus .select2-selection--multiple {
+	outline: 1px;
+	outline-color: @main-color-light;
+	border-color: @main-color-light;
+	box-shadow: none;
+}
+
+.svy-select2-autotokenizer .select2-container .select2-selection--multiple .select2-selection__rendered {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2px 5px;
+}
+
+.svy-select2-autotokenizer-dropdown .svy-select2-autotokenizer.select2-sm .svy-select2-autotokenizer-container .select2-selection__choice, .svy-select2-autotokenizer.select2-sm .svy-select2-autotokenizer-container .select2-search--inline .select2-search__field {
+    margin-bottom: 5px;
+}
+
+.svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #76BB29;
+    border: 0px solid #d8d8d8;
+    border-radius: 30px;
+    cursor: default;
+    margin-right: 10px;
+    margin-top: 5px;
+    padding: 1px 15px 1px 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #4A4A4A;
+    cursor: pointer;
+    font-weight: normal;
+    margin-right: 5px;
+    font-size: 0px;
+}
+
+.svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:before {
+	font-family: "FontAwesome";
+	content: "\F15A";
+	color: #ffffff;
+}
+
+.svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover:before {
+	font-family: "FontAwesome";
+	content: "\F159";
+	/* color: #ffffff; */
+}
+
+.svy-select2-autotokenizer-dropdown .select2-results__option[aria-selected=true] {
+	background-color: @main-color;
+	color: @main-color-inverse;
+}
+
+.svy-select2-autotokenizer-dropdown .select2-results__option[aria-selected]:before {
+	font-family: "FontAwesome";
+	content: "\f096";
+	margin-right: 5px;
+}
+
+.svy-select2-autotokenizer-dropdown .select2-results__option[aria-selected=true]:before {
+	content: "\f14a";
+}
 
 /* Badge */
 .btn-filter .badge {
