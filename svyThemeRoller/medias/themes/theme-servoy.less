@@ -9,14 +9,23 @@
 @secondary-color-light: #464E56;				/* Secondary color light*/
 @secondary-color-dark: #364453;					/* Secondary color dark*/
 
+/* Font Sizes */
+@font-size-h1 :3.6rem;
+@font-size-h2 : 3.0rem;
+@font-size-h3 : 2.4rem;
+@font-size-h4 : 1.8rem;
+@font-size-h5 : 1.4rem;
+@font-size-h6 : 1.2rem;
 
-/* Sidenav */
-@sidenav-color: @secondary-color;
-@sidenav-text-color: @secondary-color-inverse;
-@sidenav-selected-color: @secondary-color-light;
-@sidenav-selected-text-color: @sidenav-text-color;
-@sidenav-selected-border-color: @main-color;
-@sidenav-selected-border-width: 0px 0px 0px 0px; /* Border for selected top-level item top|right|bottom|left */
+/*
+@font-size-h1 : 36px;
+@font-size-h2 : 30px;
+@font-size-h3 : 24px;
+@font-size-h4 : 18px;
+@font-size-h5 : 14px;
+@font-size-h6 : 12px;
+*/
+
 
 /* Body bg */
 @body-bg: #FFF;									/* Bogy bg */
@@ -30,33 +39,51 @@
 @border-radius: 2px;							/* Border radius */
 
 /* Colors for labels and inputs */
+@text-font-size: @font-size-h5;
 @text-color : #777777;							/* Text color */
 @text-color-inverse: @text-color;				/* Text color inverse */
+@text-color-default: #333;
+@text-color-default-inverse: #333;
 
 /* Fields */
+@field-font-size: @text-font-size;
 @field-bg : #FFF;								/* Field bg */
 @field-disabled-bg : @field-bg;					/* Field disabled bg */
-@field-color: @text-color;  							/* Field color #4A4A4A */
+@field-color: @text-color;  					/* Field color #4A4A4A */
 @field-addon-bg: @field-bg;						/* Field addon bg */
 @field-border-width: 1px 1px @border-width 1px;		/* Field width */
 @field-check-color: @brand-info;				/* Check and Radio Color */
 
+/* TODO icons */
+
+/* Sidenav */
+@sidenav-color: @secondary-color;
+@sidenav-text-color: @secondary-color-inverse;
+@sidenav-text-font-size: @font-size-h6;
+@sidenav-selected-color: @secondary-color-light;
+@sidenav-selected-text-color: @sidenav-text-color;
+@sidenav-selected-border-color: @main-color;
+@sidenav-selected-border-width: 0px 0px 0px 0px; /* Border for selected top-level item top|right|bottom|left */
+
 /* Navbar */
-@navbar-bg: @main-color;
+@navbar-bg: #f8f8f8;
 @navbar-bg-highlighted: @main-color;
-@navbar-text-color: @main-color-inverse;
+@navbar-text-color: @text-color;
 @navbar-dropdown-bg: @navbar-bg;
 @navbar-dropdown-text-color: @navbar-text-color;
 
 /* Tabs */
 @tab-bg: @body-bg-inverse;
 @tab-text-color: @text-color;
-@tab-border: 0;
+@tab-text-transform: uppercase;
+@tab-border-color: @body-bg;
+@tab-border-width: 0;
 @tab-border-radius: 0;
 
 @tab-active-bg: @main-color;
 @tab-active-text-color: @main-color-inverse;
-@tab-active-border: 0;
+@tab-active-border-color: @main-color;
+@tab-active-border-width: 0;
 
 /* Windows */
 @window-header-bg : @body-bg-inverse;			/* Window header bg */
@@ -120,6 +147,10 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 }
 
 /* General Style */
+*, body {
+	font-size: @text-font-size;
+}
+
 :focus {
 	outline: none;
 }
@@ -135,6 +166,14 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 
 .full-height {
 	height: 100%;
+}
+
+.width-auto {
+	width: auto;
+}
+
+.width-auto-important {
+	width: auto !important;
 }
 
 .no-border {
@@ -161,6 +200,30 @@ h1, .h1, h2, .h2, h3, .h3,
 h4, .h4, h5, .h5, h6, .h6 {
     margin-top: 0;
     margin-bottom: 0;
+}
+
+h1, .h1 {
+  font-size: @font-size-h1;
+}
+
+h2, .h2 {
+  font-size: @font-size-h2;
+}
+
+h3, .h3 {
+  font-size: @font-size-h3;
+}
+
+h4, .h4 {
+  font-size: @font-size-h4;
+}
+
+h5, .h5 {
+  font-size: @font-size-h5;
+}
+
+h6, .h6 {
+  font-size: @font-size-h6;
 }
 
 /* To be used on a tab/tabless panel when nesting responsive form. Is used to indent the nested form with the container form */
@@ -305,6 +368,11 @@ h4, .h4, h5, .h5, h6, .h6 {
 	border-radius: 4px;
 }
 
+.clickable[disabled],
+.clickable-hover[disabled] {
+	cursor: not-allowed;
+}
+
 /* TODO does make sense ? */
 .border-radius {
 	border-radius: @border-radius;
@@ -357,6 +425,19 @@ h4, .h4, h5, .h5, h6, .h6 {
 	/* font-size: 12px; */
 }
 
+.svy-label[disabled],
+.bts-label[disabled],
+.svy-fa[disabled]  {
+	opacity: 0.6;
+}
+
+.svy-label.full-size,
+.bts-label.full-size,
+.svy-label.full-width,
+.bts-label.full-width {
+	display: block;
+}
+
 /* Fields */
 .form-control {
 	box-shadow: none;
@@ -381,7 +462,7 @@ h4, .h4, h5, .h5, h6, .h6 {
 .bts-calendar input, .bts-calendar input ~ .input-group-addon {
 	box-shadow: none;
 	color: @field-color;
-	font-size: 14px;
+	font-size: @field-font-size;
 	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	   -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	    -ms-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -752,8 +833,11 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bts-tabpanel > .nav-tabs > li > a {
 	background-color: @tab-bg;
 	color: @tab-text-color;
+	text-transform: @tab-text-transform;
 	padding: 8px 15px;
-	border: @tab-border;
+	border-style: solid;
+	border-color: @tab-border-color;
+	border-width: @tab-border-width;
 	border-radius: @tab-border-radius;
 }
 
@@ -777,9 +861,9 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bts-tabpanel > .nav-tabs > li.active > a:focus {
 	background-color: @tab-active-bg;
 	color: @tab-active-text-color;
-	border-color: @main-color;
 	border-style: solid;
-	border-width: 0 0 2px 0;
+	border-color: @tab-active-border-color;
+	border-width: @tab-active-border-width;
 }
 
 /* Tab Tertiary */
@@ -835,7 +919,7 @@ data-servoyextra-fontawesome > div {
 }
 
 .svy-sidenav-item {
-	font-size: 12px;
+	font-size: @sidenav-text-font-size;
 }
 
 .svy-sidenav-dropdown {
@@ -959,6 +1043,35 @@ data-servoyextra-fontawesome > div {
 	background-color: @navbar-text-color;
 }
 
+/* Navbar static */
+/* TODO should be moved into the Navbar itself */
+@media (max-width: 768px) {
+	.bts-extra-navbar.navbar-fixed .navbar-header {
+		float: left;
+	}
+
+	.bts-extra-navbar.navbar-fixed .navbar-nav {
+	    float: left;
+   		margin: 0;
+	}
+
+	.bts-extra-navbar.navbar-fixed .navbar-right {
+    	float: right !important;
+   		margin-right: -15px;
+	}
+	
+	.bts-extra-navbar.navbar-fixed .navbar-nav > li {
+    	float: left;
+	}
+	
+	.bts-extra-navbar.navbar-fixed .navbar-nav > li > a {
+    	padding-top: 15px;
+   		padding-bottom: 15px;
+	}
+}
+
+   
+
 /* Input Group Bootstrap Extra */
 .bts-extra-navbar .form-control,
 .bts-extra-input-group .form-control {
@@ -1038,7 +1151,7 @@ data-servoyextra-fontawesome > div {
 
 .ui-grid-cell .svy-label,
 .ui-grid-cell .bts-label {
-	font-size: 14px;
+	font-size: @text-font-size;
 }
 
 .ui-grid-row-selected div.ui-grid-cell .svy-label,
@@ -1358,10 +1471,12 @@ data-servoyextra-fontawesome > div {
 /* Background colors */
 .bg {
 	background-color: @body-bg;
+	color: @text-color-default;
 }
 
 .bg-inverse {
 	background-color: @body-bg-inverse;
+	color: @text-color-default-inverse;
 }
 
 .bg-main {
@@ -1524,8 +1639,16 @@ a.bg-danger:hover {
 	border-color: @brand-primary;
 }
 
+/* TODO this is strange, do we really need a no-focus class ? */
+/* TODO this is strange, shall i replicate for all other brand colors ? */
+.btn-primary.no-focus:focus, .btn-primary.no-focus.focus {
+	background-color: @brand-primary;
+	color: @brand-primary-inverse;
+}
+
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, 
-.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary,
+.btn-primary.no-focus:hover, .btn-primary.no-focus.focus:hover {
 	background-color: @brand-primary-highlighted;
 	color: @brand-primary-highlighted-inverse;
 	outline-color: @brand-primary;
@@ -1702,6 +1825,11 @@ fieldset[disabled] .btn-danger:focus, .btn-danger.disabled.focus,
 .label-info, 
 .btn.text-info {
 	color: @brand-info;	
+}
+
+.text-underline,
+.label-underline {
+	text-decoration: underline;
 }
 
 .text-warning,
