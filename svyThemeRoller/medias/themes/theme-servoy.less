@@ -777,7 +777,33 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .bts-tabpanel > .nav-tabs > li.active > a:focus {
 	background-color: @tab-active-bg;
 	color: @tab-active-text-color;
-	border: @tab-active-border;
+	border-color: @main-color;
+	border-style: solid;
+	border-width: 0 0 2px 0;
+}
+
+/* Tab Tertiary */
+.svy-tabpanel.bg-tertiary > .nav-tabs,
+.bts-tabpanel.bg-tertiary > .nav-tabs {
+	background-color: @brand-tertiary;
+	background-color: @brand-tertiary-inverse;
+}
+
+.svy-tabpanel.bg-tertiary > .nav-tabs > li > a,
+.bts-tabpanel.bg-tertiary > .nav-tabs > li > a {
+	background-color: @brand-tertiary;
+	background-color: @brand-tertiary-inverse;
+}
+
+.svy-tabpanel.bg-tertiary > .nav-tabs > li.active > a, 
+.svy-tabpanel.bg-tertiary > .nav-tabs > li.active > a:hover, 
+.svy-tabpanel.bg-tertiary > .nav-tabs > li.active > a:focus,
+.bts-tabpanel.bg-tertiary > .nav-tabs > li.active > a, 
+.bts-tabpanel.bg-tertiary > .nav-tabs > li.active > a:hover, 
+.bts-tabpanel.bg-tertiary > .nav-tabs > li.active > a:focus {
+	background-color: @brand-tertiary;
+	background-color: @brand-tertiary-inverse;
+	border-color: @main-color;
 }
 
 /* Font Awesome *
@@ -1336,6 +1362,11 @@ data-servoyextra-fontawesome > div {
 
 .bg-inverse {
 	background-color: @body-bg-inverse;
+}
+
+.bg-main {
+	background-color: @main-color;
+	color: @main-color-inverse;
 }
 
 .bg-primary {
