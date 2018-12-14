@@ -1699,6 +1699,7 @@ a.bg-danger:hover {
 	border-radius: @border-radius;
 }
 
+/* Buttons */
 .btn-primary {
 	background-color: @brand-primary;
 	color: @brand-primary-inverse;
@@ -1863,6 +1864,166 @@ fieldset[disabled] .btn-danger:focus, .btn-danger.disabled.focus,
 	border-color: @brand-danger;
 }
 
+/* Buttons Outline */
+
+.btn-outline-primary {
+	background-color: @brand-primary-inverse;
+	color: @brand-primary;
+	border-color: @brand-primary;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary.focus, 
+.btn-outline-primary:active, .btn-outline-primary.active, .open > .dropdown-toggle.btn-outline-primary,
+.btn-outline-primary.no-focus:hover, .btn-outline-primary.no-focus.focus:hover {
+	background-color: @brand-primary-highlighted;
+	color: @brand-primary-highlighted-inverse;
+	outline-color: @brand-primary;
+}
+
+.btn-outline-primary.disabled, .btn-outline-primary[disabled], 
+fieldset[disabled] .btn-outline-primary, .btn-outline-primary.disabled:hover,
+.btn-outline-primary[disabled]:hover, fieldset[disabled] .btn-outline-primary:hover, 
+.btn-outline-primary.disabled:focus, .btn-outline-primary[disabled]:focus, 
+fieldset[disabled] .btn-outline-primary:focus, .btn-outline-primary.disabled.focus, 
+.btn-outline-primary[disabled].focus, fieldset[disabled] .btn-outline-primary.focus, 
+.btn-outline-primary.disabled:active, .btn-outline-primary[disabled]:active, fieldset[disabled] 
+.btn-outline-primary:active, .btn-outline-primary.disabled.active, 
+.btn-outline-primary[disabled].active, fieldset[disabled] .btn-outline-primary.active {
+	background-color: @brand-primary-inverse;
+	border-color: @brand-primary;
+}
+
+.btn-outline-tertiary {
+	background-color: @brand-tertiary-inverse;
+	color: @brand-tertiary;
+	border-color: @brand-tertiary;
+}
+
+.btn-outline-tertiary:hover, .btn-outline-tertiary:focus, .btn-outline-tertiary.focus, 
+.btn-outline-tertiary:active, .btn-outline-tertiary.active, .open > .dropdown-toggle.btn-outline-tertiary {
+	background-color: @brand-tertiary-highlighted;
+	color: @brand-tertiary-highlighted-inverse;
+	outline-color: @brand-tertiary;
+}
+
+.btn-outline-tertiary.disabled, .btn-outline-tertiary[disabled], 
+fieldset[disabled] .btn-outline-tertiary, .btn-outline-tertiary.disabled:hover,
+.btn-outline-tertiary[disabled]:hover, fieldset[disabled] .btn-outline-tertiary:hover, 
+.btn-outline-tertiary.disabled:focus, .btn-outline-tertiary[disabled]:focus, 
+fieldset[disabled] .btn-outline-tertiary:focus, .btn-outline-tertiary.disabled.focus, 
+.btn-outline-tertiary[disabled].focus, fieldset[disabled] .btn-outline-tertiary.focus, 
+.btn-outline-tertiary.disabled:active, .btn-outline-tertiary[disabled]:active, fieldset[disabled] 
+.btn-outline-tertiary:active, .btn-outline-tertiary.disabled.active, 
+.btn-outline-tertiary[disabled].active, fieldset[disabled] .btn-outline-tertiary.active {
+	background-color: @brand-tertiary-inverse;
+	border-color: @brand-tertiary;
+}
+
+.btn-outline-success {
+	background-color: @brand-success-inverse;
+	color: @brand-success;
+	border-color: @brand-success;
+}
+
+.btn-outline-success:hover, .btn-outline-success:focus, .btn-outline-success.focus, 
+.btn-outline-success:active, .btn-outline-success.active, .open > .dropdown-toggle.btn-outline-success {
+	background-color: @brand-success-highlighted;
+	color: @brand-success-highlighted-inverse;
+	outline-color: @brand-success;
+}
+
+.btn-outline-success.disabled, .btn-outline-success[disabled], 
+fieldset[disabled] .btn-outline-success, .btn-outline-success.disabled:hover,
+.btn-outline-success[disabled]:hover, fieldset[disabled] .btn-outline-success:hover, 
+.btn-outline-success.disabled:focus, .btn-outline-success[disabled]:focus, 
+fieldset[disabled] .btn-outline-success:focus, .btn-outline-success.disabled.focus, 
+.btn-outline-success[disabled].focus, fieldset[disabled] .btn-outline-success.focus, 
+.btn-outline-success.disabled:active, .btn-outline-success[disabled]:active, fieldset[disabled] 
+.btn-outline-success:active, .btn-outline-success.disabled.active, 
+.btn-outline-success[disabled].active, fieldset[disabled] .btn-outline-success.active {
+	background-color: @brand-success-inverse;
+	border-color: @brand-success;
+}
+
+.btn-outline-info {
+	background-color: @brand-info-inverse;
+	color: @brand-info;
+	border-color: @brand-info;
+}
+
+.btn-outline-info:hover, .btn-outline-info:focus, .btn-outline-info.focus, 
+.btn-outline-info:active, .btn-outline-info.active, .open > .dropdown-toggle.btn-outline-info {
+	background-color: @brand-info-highlighted;
+	color: @brand-info-highlighted-inverse;
+	outline-color: @brand-info;
+}
+
+.btn-outline-info.disabled, .btn-outline-info[disabled], 
+fieldset[disabled] .btn-outline-info, .btn-outline-info.disabled:hover,
+.btn-outline-info[disabled]:hover, fieldset[disabled] .btn-outline-info:hover, 
+.btn-outline-info.disabled:focus, .btn-outline-info[disabled]:focus, 
+fieldset[disabled] .btn-outline-info:focus, .btn-outline-info.disabled.focus, 
+.btn-outline-info[disabled].focus, fieldset[disabled] .btn-outline-info.focus, 
+.btn-outline-info.disabled:active, .btn-outline-info[disabled]:active, fieldset[disabled] 
+.btn-outline-info:active, .btn-outline-info.disabled.active, 
+.btn-outline-info[disabled].active, fieldset[disabled] .btn-outline-info.active {
+	background-color: @brand-info-inverse;
+	border-color: @brand-info;
+}
+
+.btn-outline-warning {
+	background-color: @brand-warning-inverse;
+	color: @brand-warning;
+	border-color: @brand-warning;
+}
+
+.btn-outline-warning:hover, .btn-outline-warning:focus, .btn-outline-warning.focus, 
+.btn-outline-warning:active, .btn-outline-warning.active, .open > .dropdown-toggle.btn-outline-warning {
+	background-color: @brand-warning-highlighted;
+	color: @brand-warning-highlighted-inverse;
+	outline-color: @brand-warning;
+}
+
+.btn-outline-warning.disabled, .btn-outline-warning[disabled], 
+fieldset[disabled] .btn-outline-warning, .btn-outline-warning.disabled:hover,
+.btn-outline-warning[disabled]:hover, fieldset[disabled] .btn-outline-warning:hover, 
+.btn-outline-warning.disabled:focus, .btn-outline-warning[disabled]:focus, 
+fieldset[disabled] .btn-outline-warning:focus, .btn-outline-warning.disabled.focus, 
+.btn-outline-warning[disabled].focus, fieldset[disabled] .btn-outline-warning.focus, 
+.btn-outline-warning.disabled:active, .btn-outline-warning[disabled]:active, fieldset[disabled] 
+.btn-outline-warning:active, .btn-outline-warning.disabled.active, 
+.btn-outline-warning[disabled].active, fieldset[disabled] .btn-outline-warning.active {
+	background-color: @brand-warning-inverse;
+	border-color: @brand-warning;
+}
+
+.btn-outline-danger {
+	background-color: @brand-danger-inverse;
+	color: @brand-danger;
+	border-color: @brand-danger;
+}
+
+.btn-outline-danger:hover, .btn-outline-danger:focus, .btn-outline-danger.focus, 
+.btn-outline-danger:active, .btn-outline-danger.active, .open > .dropdown-toggle.btn-outline-danger {
+	background-color: @brand-danger-highlighted;
+	color: @brand-danger-highlighted-inverse;
+	outline-color: @brand-danger;
+}
+
+.btn-outline-danger.disabled, .btn-outline-danger[disabled], 
+fieldset[disabled] .btn-outline-danger, .btn-outline-danger.disabled:hover,
+.btn-outline-danger[disabled]:hover, fieldset[disabled] .btn-outline-danger:hover, 
+.btn-outline-danger.disabled:focus, .btn-outline-danger[disabled]:focus, 
+fieldset[disabled] .btn-outline-danger:focus, .btn-outline-danger.disabled.focus, 
+.btn-outline-danger[disabled].focus, fieldset[disabled] .btn-outline-danger.focus, 
+.btn-outline-danger.disabled:active, .btn-outline-danger[disabled]:active, fieldset[disabled] 
+.btn-outline-danger:active, .btn-outline-danger.disabled.active, 
+.btn-outline-danger[disabled].active, fieldset[disabled] .btn-outline-danger.active {
+	background-color: @brand-danger-inverse;
+	border-color: @brand-danger;
+}
+
+/* Labels */
 .bts-label.text-center,
 .bts-datalabel.text-center {
 	display: block;
