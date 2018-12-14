@@ -980,8 +980,10 @@ data-servoyextra-fontawesome > div {
 	border-width: @sidenav-selected-border-width;
 }
 
-.svy-sidenav-dropdown.sn-level-1:not(.svy-navitem-selected) {
-	padding-left: 5px; /* align non selected items with the selected item */
+.svy-sidenav-dropdown.sn-level-1:not(.svy-navitem-selected) when not(@sidenav-selected-border-width = 0) {
+	padding: @sidenav-selected-border-width; /* align non selected items with the selected item */
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 .svy-sidenav-item:hover,
