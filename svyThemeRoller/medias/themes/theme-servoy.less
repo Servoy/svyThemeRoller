@@ -66,11 +66,17 @@
 @sidenav-selected-border-width: 0px 0px 0px 0px; /* Border for selected top-level item top|right|bottom|left */
 
 /* Navbar */
-@navbar-bg: #f8f8f8;
-@navbar-bg-highlighted: @main-color;
-@navbar-text-color: @text-color;
+@navbar-bg: @main-color;								/* #f8f8f8; */
+@navbar-bg-highlighted: @main-color-dark; 				/* @main-color; */
+@navbar-text-color: @main-color-inverse;				/* @text-color; */
 @navbar-dropdown-bg: @navbar-bg;
 @navbar-dropdown-text-color: @navbar-text-color;
+@navbar-active-bg: @navbar-bg;
+@navbar-active-text-color: @navbar-text-color;
+@navbar-active-border-color:  @main-color-inverse;
+@navbar-active-border-width: 0;
+
+
 
 /* Tabs */
 @tab-bg: @body-bg-inverse;
@@ -1000,12 +1006,26 @@ data-servoyextra-fontawesome > div {
 	border: 0;
 }
 
+.bts-extra-navbar.navbar-default .navbar-brand {
+	color: @navbar-text-color;
+}
+
 .bts-extra-navbar.navbar-default .navbar-nav > li > a,
 .bts-extra-navbar.navbar-default .navbar-nav > .active > a, 
 .bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:hover, 
 .bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus {
 	background-color: @navbar-bg;
 	color: @navbar-text-color;
+}
+
+.bts-extra-navbar.navbar-default .navbar-nav > .active > a, 
+.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:hover, 
+.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus {
+	background-color: @navbar-active-bg;
+	color: @navbar-active-text-color;
+	border-color: @navbar-active-border-color;
+	border-width: @navbar-active-border-width;
+	border-style: solid;
 }
 
 .bts-extra-navbar.navbar-default .dropdown-menu,
@@ -1441,9 +1461,24 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Inline Groups */
-.inline-group > .inline-group-left,
-.inline-group > .inline-group-right  {
+.inline-group.input-group-xs > .inline-group-left,
+.inline-group.input-group-xs > .inline-group-right  {
+	min-height: 22px;
+}
+
+.inline-group.input-group-sm > .inline-group-left,
+.inline-group.input-group-sm > .inline-group-right  {
+	min-height: 30px;
+}
+
+.inline-group.input-group-md > .inline-group-left,
+.inline-group.input-group-md > .inline-group-right  {
 	min-height: 34px;
+}
+
+.inline-group.input-group-lg > .inline-group-left,
+.inline-group.input-group-lg > .inline-group-right  {
+	min-height: 44px;
 }
 
 /* Style the flex footer if used on a form with theme servoy */
