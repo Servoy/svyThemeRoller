@@ -1617,7 +1617,11 @@ a.bg-danger:hover {
 	font-weight: bold;
 }
 
-/* Labels */
+/************************************************************************************
+* Default styles
+************************************************************************************/
+
+/* Title Labels, can i deprecate these classes ? */
 .label_header_0 {
 	background: #F8F8F8;
 	color: @main-color;
@@ -1679,15 +1683,33 @@ a.bg-danger:hover {
     left: 160px;
 }
 
-/* Typography */
+/************************************************************************************
+* Typography
+*
+* text-center, text-uppercase, text-center, text-underline, label-underline
+* label-primary|tertiary|success|info|warning|danger  
+* text-primary|tertiary|success|info|warning|danger	  
+************************************************************************************/
 .text-center {
 	text-align: center;
+}
+
+.bts-label.text-center,
+.bts-datalabel.text-center {
+	display: block; 		/* To center text on a responsive label i should show the label as block */
+	white-space: initial;
 }
 
 .text-uppercase {
 	text-transform: uppercase;
 }
 
+.text-underline,
+.label-underline {
+	text-decoration: underline;
+}
+
+/* TODO where is this used ? can i remove it ? */
 .label-primary,
 .label-tertiary,
 .label-success,
@@ -1699,7 +1721,48 @@ a.bg-danger:hover {
 	border-radius: @border-radius;
 }
 
-/* Buttons */
+/* Label Colors */
+.text-primary,
+.label-primary, 
+.btn.text-primary {
+	color: @brand-primary;	
+}
+
+.text-tertiary,
+.label-tertiary, 
+.btn.text-tertiary {
+	color: @text-tertiary;	
+}
+
+.text-success,
+.label-success, 
+.btn.text-success {
+	color: @brand-success;	
+}
+
+.text-info,
+.label-info, 
+.btn.text-info {
+	color: @brand-info;	
+}
+
+.text-warning,
+.label-warning, 
+.btn.text-warning {
+	color: @brand-warning;	
+}
+
+.text-danger,
+.label-danger, 
+.btn.text-danger {
+	color: @brand-danger;	
+}
+
+/************************************************************************************
+* Buttons Style Classes
+*
+* btn-primary|tertiary|success|warning|danger|info|default
+************************************************************************************/
 .btn-primary {
 	background-color: @brand-primary;
 	color: @brand-primary-inverse;
@@ -1864,8 +1927,11 @@ fieldset[disabled] .btn-danger:focus, .btn-danger.disabled.focus,
 	border-color: @brand-danger;
 }
 
-/* Buttons Outline */
-
+/************************************************************************************
+* Button Outline Style Classes
+*
+* btn-outline-primary|tertiary|success|warning|danger|info|default
+************************************************************************************/
 .btn-outline-primary {
 	background-color: @brand-primary-inverse;
 	color: @brand-primary;
@@ -2023,55 +2089,32 @@ fieldset[disabled] .btn-outline-danger:focus, .btn-outline-danger.disabled.focus
 	border-color: @brand-danger;
 }
 
-/* Labels */
-.bts-label.text-center,
-.bts-datalabel.text-center {
-	display: block;
-	white-space: initial;
+.btn-outline-default {
+	background-color: transparent;
+	color: inherit;
 }
 
-.text-primary,
-.label-primary, 
-.btn.text-primary {
-	color: @brand-primary;	
+.btn-outline-default:hover, .btn-outline-default:focus, .btn-outline-default.focus, 
+.btn-outline-default:active, .btn-outline-default.active, .open > .dropdown-toggle.btn-outline-default {
+	background-color: transparent;
+	color: inherit;
+	opacity: 0.8;
 }
 
-.text-tertiary,
-.label-tertiary, 
-.btn.text-tertiary {
-	color: @text-tertiary;	
+.btn-outline-default.disabled, .btn-outline-default[disabled], 
+fieldset[disabled] .btn-outline-default, .btn-outline-default.disabled:hover,
+.btn-outline-default[disabled]:hover, fieldset[disabled] .btn-outline-default:hover, 
+.btn-outline-default.disabled:focus, .btn-outline-default[disabled]:focus, 
+fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.focus, 
+.btn-outline-default[disabled].focus, fieldset[disabled] .btn-outline-default.focus, 
+.btn-outline-default.disabled:active, .btn-outline-default[disabled]:active, fieldset[disabled] 
+.btn-outline-default:active, .btn-outline-default.disabled.active, 
+.btn-outline-default[disabled].active, fieldset[disabled] .btn-outline-default.active {
+	background-color: transparent;
+	opacity: 0.6;
 }
 
-.text-success,
-.label-success, 
-.btn.text-success {
-	color: @brand-success;	
-}
-
-.text-info,
-.label-info, 
-.btn.text-info {
-	color: @brand-info;	
-}
-
-.text-underline,
-.label-underline {
-	text-decoration: underline;
-}
-
-.text-warning,
-.label-warning, 
-.btn.text-warning {
-	color: @brand-warning;	
-}
-
-.text-danger,
-.label-danger, 
-.btn.text-danger {
-	color: @brand-danger;	
-}
-
-/* Buttons */
+/* Special Buttons */
 .btn-round {
 	border-radius: 50px;
 }
