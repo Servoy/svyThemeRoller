@@ -184,6 +184,7 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 
 .no-border {
 	border-style: none;
+	border-width: 0;
 }
 
 .border-default {
@@ -358,6 +359,36 @@ h6, .h6 {
 
 .padding-left-30 {
 	padding-left: @box-size-30;
+}
+
+.border-class {
+	border-style: @border-style;
+	border-color: @border-color;
+}
+
+.border {
+	.border-class();
+	border-width: @border-width;
+}
+
+.border-top {
+	.border-class();
+	border-top-width: @border-width;
+}
+
+.border-bottom {
+	.border-class();
+	border-bottom-width: @border-width;
+}
+
+.border-left {
+	.border-class();
+	border-left-width: @border-width;
+}
+
+.border-right {
+	.border-class();
+	border-right-width: @border-width;
 }
 
 .clickable {
@@ -980,6 +1011,7 @@ data-servoyextra-fontawesome > div {
 	border-width: @sidenav-selected-border-width;
 }
 
+/* When sidenav selected item has border, compensate non-selected items with paddings. */
 .svy-sidenav-dropdown.sn-level-1:not(.svy-navitem-selected) when not(@sidenav-selected-border-width = 0) {
 	padding: @sidenav-selected-border-width; /* align non selected items with the selected item */
 	padding-top: 0;
@@ -1015,14 +1047,21 @@ data-servoyextra-fontawesome > div {
 .bts-extra-navbar.navbar-default .navbar-nav > li > a,
 .bts-extra-navbar.navbar-default .navbar-nav > .active > a, 
 .bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:hover, 
-.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus {
+.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus,
+.bts-extra-navbar.navbar-default .navbar-nav > .open > a, 
+.bts-extra-navbar.navbar-default .navbar-nav > .open > a:hover, 
+.bts-extra-navbar.navbar-default .navbar-nav > .open > a:focus
+ {
 	background-color: @navbar-bg;
 	color: @navbar-text-color;
 }
 
 .bts-extra-navbar.navbar-default .navbar-nav > .active > a, 
 .bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:hover, 
-.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus {
+.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus,
+.bts-extra-navbar.navbar-default .navbar-nav > .active.open > a, 
+.bts-extra-navbar.navbar-default .navbar-nav > .active.open > a:hover, 
+.bts-extra-navbar.navbar-default .navbar-nav > .active.open > a:focus {
 	background-color: @navbar-active-bg;
 	color: @navbar-active-text-color;
 	border-color: @navbar-active-border-color;
