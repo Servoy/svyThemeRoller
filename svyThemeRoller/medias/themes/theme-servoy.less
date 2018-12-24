@@ -66,11 +66,17 @@
 @sidenav-selected-border-width: 0px 0px 0px 0px; /* Border for selected top-level item top|right|bottom|left */
 
 /* Navbar */
-@navbar-bg: #f8f8f8;
-@navbar-bg-highlighted: @main-color;
-@navbar-text-color: @text-color;
+@navbar-bg: @main-color;								/* #f8f8f8; */
+@navbar-bg-highlighted: @main-color-dark; 				/* @main-color; */
+@navbar-text-color: @main-color-inverse;				/* @text-color; */
 @navbar-dropdown-bg: @navbar-bg;
 @navbar-dropdown-text-color: @navbar-text-color;
+@navbar-active-bg: @navbar-bg;
+@navbar-active-text-color: @navbar-text-color;
+@navbar-active-border-color:  @main-color-inverse;
+@navbar-active-border-width: 0;
+
+
 
 /* Tabs */
 @tab-bg: @body-bg-inverse;
@@ -178,6 +184,7 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 
 .no-border {
 	border-style: none;
+	border-width: 0;
 }
 
 .border-default {
@@ -352,6 +359,36 @@ h6, .h6 {
 
 .padding-left-30 {
 	padding-left: @box-size-30;
+}
+
+.border-class {
+	border-style: @border-style;
+	border-color: @border-color;
+}
+
+.border {
+	.border-class();
+	border-width: @border-width;
+}
+
+.border-top {
+	.border-class();
+	border-top-width: @border-width;
+}
+
+.border-bottom {
+	.border-class();
+	border-bottom-width: @border-width;
+}
+
+.border-left {
+	.border-class();
+	border-left-width: @border-width;
+}
+
+.border-right {
+	.border-class();
+	border-right-width: @border-width;
 }
 
 .clickable {
@@ -841,28 +878,43 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 	border-radius: @tab-border-radius;
 }
 
-.svy-tabpanel .nav-tabs > li > a,
-.svy-tabpanel .nav-tabs > li.active > a, 
-.svy-tabpanel .nav-tabs > li.active > a:hover, 
-.svy-tabpanel .nav-tabs > li.active > a:focus,
-.bts-tabpanel .nav-tabs > li > a,
-.bts-tabpanel .nav-tabs > li.active > a, 
-.bts-tabpanel .nav-tabs > li.active > a:hover, 
-.bts-tabpanel .nav-tabs > li.active > a:focus {
-	/* border: @tab-border;
-	border-radius: @tab-border-radius; */
-}
-
 .svy-tabpanel > .nav-tabs > li.active > a, 
 .svy-tabpanel > .nav-tabs > li.active > a:hover, 
 .svy-tabpanel > .nav-tabs > li.active > a:focus,
 .bts-tabpanel > .nav-tabs > li.active > a, 
 .bts-tabpanel > .nav-tabs > li.active > a:hover, 
 .bts-tabpanel > .nav-tabs > li.active > a:focus {
+	/* border: @tab-border;
+	border-radius: @tab-border-radius; */
 	background-color: @tab-active-bg;
 	color: @tab-active-text-color;
+	border-style: solid;
 	border-color: @tab-active-border-color;
 	border-width: @tab-active-border-width;
+}
+
+/* Tab Tertiary */
+.svy-tabpanel.bg-tertiary > .nav-tabs,
+.bts-tabpanel.bg-tertiary > .nav-tabs {
+	background-color: @brand-tertiary;
+	background-color: @brand-tertiary-inverse;
+}
+
+.svy-tabpanel.bg-tertiary > .nav-tabs > li > a,
+.bts-tabpanel.bg-tertiary > .nav-tabs > li > a {
+	background-color: @brand-tertiary;
+	background-color: @brand-tertiary-inverse;
+}
+
+.svy-tabpanel.bg-tertiary > .nav-tabs > li.active > a, 
+.svy-tabpanel.bg-tertiary > .nav-tabs > li.active > a:hover, 
+.svy-tabpanel.bg-tertiary > .nav-tabs > li.active > a:focus,
+.bts-tabpanel.bg-tertiary > .nav-tabs > li.active > a, 
+.bts-tabpanel.bg-tertiary > .nav-tabs > li.active > a:hover, 
+.bts-tabpanel.bg-tertiary > .nav-tabs > li.active > a:focus {
+	background-color: @brand-tertiary;
+	background-color: @brand-tertiary-inverse;
+	border-color: @main-color;
 }
 
 /* Font Awesome *
@@ -959,8 +1011,11 @@ data-servoyextra-fontawesome > div {
 	border-width: @sidenav-selected-border-width;
 }
 
-.svy-sidenav-dropdown.sn-level-1:not(.svy-navitem-selected) {
-	padding-left: 5px; /* align non selected items with the selected item */
+/* When sidenav selected item has border, compensate non-selected items with paddings. */
+.svy-sidenav-dropdown.sn-level-1:not(.svy-navitem-selected) when not(@sidenav-selected-border-width = 0) {
+	padding: @sidenav-selected-border-width; /* align non selected items with the selected item */
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 .svy-sidenav-item:hover,
@@ -985,12 +1040,33 @@ data-servoyextra-fontawesome > div {
 	border: 0;
 }
 
+.bts-extra-navbar.navbar-default .navbar-brand {
+	color: @navbar-text-color;
+}
+
 .bts-extra-navbar.navbar-default .navbar-nav > li > a,
 .bts-extra-navbar.navbar-default .navbar-nav > .active > a, 
 .bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:hover, 
-.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus {
+.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus,
+.bts-extra-navbar.navbar-default .navbar-nav > .open > a, 
+.bts-extra-navbar.navbar-default .navbar-nav > .open > a:hover, 
+.bts-extra-navbar.navbar-default .navbar-nav > .open > a:focus
+ {
 	background-color: @navbar-bg;
 	color: @navbar-text-color;
+}
+
+.bts-extra-navbar.navbar-default .navbar-nav > .active > a, 
+.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:hover, 
+.bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus,
+.bts-extra-navbar.navbar-default .navbar-nav > .active.open > a, 
+.bts-extra-navbar.navbar-default .navbar-nav > .active.open > a:hover, 
+.bts-extra-navbar.navbar-default .navbar-nav > .active.open > a:focus {
+	background-color: @navbar-active-bg;
+	color: @navbar-active-text-color;
+	border-color: @navbar-active-border-color;
+	border-width: @navbar-active-border-width;
+	border-style: solid;
 }
 
 .bts-extra-navbar.navbar-default .dropdown-menu,
@@ -1572,9 +1648,24 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Inline Groups */
-.inline-group > .inline-group-left,
-.inline-group > .inline-group-right  {
+.inline-group.input-group-xs > .inline-group-left,
+.inline-group.input-group-xs > .inline-group-right  {
+	min-height: 22px;
+}
+
+.inline-group.input-group-sm > .inline-group-left,
+.inline-group.input-group-sm > .inline-group-right  {
+	min-height: 30px;
+}
+
+.inline-group.input-group-md > .inline-group-left,
+.inline-group.input-group-md > .inline-group-right  {
 	min-height: 34px;
+}
+
+.inline-group.input-group-lg > .inline-group-left,
+.inline-group.input-group-lg > .inline-group-right  {
+	min-height: 44px;
 }
 
 /* Style the flex footer if used on a form with theme servoy */
@@ -1598,6 +1689,11 @@ data-servoyextra-fontawesome > div {
 .bg-inverse {
 	background-color: @body-bg-inverse;
 	color: @text-color-default-inverse;
+}
+
+.bg-main {
+	background-color: @main-color;
+	color: @main-color-inverse;
 }
 
 .bg-primary {
@@ -1667,7 +1763,11 @@ a.bg-danger:hover {
 	font-weight: bold;
 }
 
-/* Labels */
+/************************************************************************************
+* Default styles
+************************************************************************************/
+
+/* Title Labels, can i deprecate these classes ? */
 .label_header_0 {
 	background: #F8F8F8;
 	color: @main-color;
@@ -1729,15 +1829,33 @@ a.bg-danger:hover {
     left: 160px;
 }
 
-/* Typography */
+/************************************************************************************
+* Typography
+*
+* text-center, text-uppercase, text-center, text-underline, label-underline
+* label-primary|tertiary|success|info|warning|danger  
+* text-primary|tertiary|success|info|warning|danger	  
+************************************************************************************/
 .text-center {
 	text-align: center;
+}
+
+.bts-label.text-center,
+.bts-datalabel.text-center {
+	display: block; 		/* To center text on a responsive label i should show the label as block */
+	white-space: initial;
 }
 
 .text-uppercase {
 	text-transform: uppercase;
 }
 
+.text-underline,
+.label-underline {
+	text-decoration: underline;
+}
+
+/* TODO where is this used ? can i remove it ? */
 .label-primary,
 .label-tertiary,
 .label-success,
@@ -1749,6 +1867,48 @@ a.bg-danger:hover {
 	border-radius: @border-radius;
 }
 
+/* Label Colors */
+.text-primary,
+.label-primary, 
+.btn.text-primary {
+	color: @brand-primary;	
+}
+
+.text-tertiary,
+.label-tertiary, 
+.btn.text-tertiary {
+	color: @text-tertiary;	
+}
+
+.text-success,
+.label-success, 
+.btn.text-success {
+	color: @brand-success;	
+}
+
+.text-info,
+.label-info, 
+.btn.text-info {
+	color: @brand-info;	
+}
+
+.text-warning,
+.label-warning, 
+.btn.text-warning {
+	color: @brand-warning;	
+}
+
+.text-danger,
+.label-danger, 
+.btn.text-danger {
+	color: @brand-danger;	
+}
+
+/************************************************************************************
+* Buttons Style Classes
+*
+* btn-primary|tertiary|success|warning|danger|info|default
+************************************************************************************/
 .btn-primary {
 	background-color: @brand-primary;
 	color: @brand-primary-inverse;
@@ -1913,54 +2073,194 @@ fieldset[disabled] .btn-danger:focus, .btn-danger.disabled.focus,
 	border-color: @brand-danger;
 }
 
-.bts-label.text-center,
-.bts-datalabel.text-center {
-	display: block;
-	white-space: initial;
+/************************************************************************************
+* Button Outline Style Classes
+*
+* btn-outline-primary|tertiary|success|warning|danger|info|default
+************************************************************************************/
+.btn-outline-primary {
+	background-color: @brand-primary-inverse;
+	color: @brand-primary;
+	border-color: @brand-primary;
 }
 
-.text-primary,
-.label-primary, 
-.btn.text-primary {
-	color: @brand-primary;	
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary.focus, 
+.btn-outline-primary:active, .btn-outline-primary.active, .open > .dropdown-toggle.btn-outline-primary,
+.btn-outline-primary.no-focus:hover, .btn-outline-primary.no-focus.focus:hover {
+	background-color: @brand-primary-highlighted;
+	color: @brand-primary-highlighted-inverse;
+	outline-color: @brand-primary;
 }
 
-.text-tertiary,
-.label-tertiary, 
-.btn.text-tertiary {
-	color: @text-tertiary;	
+.btn-outline-primary.disabled, .btn-outline-primary[disabled], 
+fieldset[disabled] .btn-outline-primary, .btn-outline-primary.disabled:hover,
+.btn-outline-primary[disabled]:hover, fieldset[disabled] .btn-outline-primary:hover, 
+.btn-outline-primary.disabled:focus, .btn-outline-primary[disabled]:focus, 
+fieldset[disabled] .btn-outline-primary:focus, .btn-outline-primary.disabled.focus, 
+.btn-outline-primary[disabled].focus, fieldset[disabled] .btn-outline-primary.focus, 
+.btn-outline-primary.disabled:active, .btn-outline-primary[disabled]:active, fieldset[disabled] 
+.btn-outline-primary:active, .btn-outline-primary.disabled.active, 
+.btn-outline-primary[disabled].active, fieldset[disabled] .btn-outline-primary.active {
+	background-color: @brand-primary-inverse;
+	border-color: @brand-primary;
 }
 
-.text-success,
-.label-success, 
-.btn.text-success {
-	color: @brand-success;	
+.btn-outline-tertiary {
+	background-color: @brand-tertiary-inverse;
+	color: @brand-tertiary;
+	border-color: @brand-tertiary;
 }
 
-.text-info,
-.label-info, 
-.btn.text-info {
-	color: @brand-info;	
+.btn-outline-tertiary:hover, .btn-outline-tertiary:focus, .btn-outline-tertiary.focus, 
+.btn-outline-tertiary:active, .btn-outline-tertiary.active, .open > .dropdown-toggle.btn-outline-tertiary {
+	background-color: @brand-tertiary-highlighted;
+	color: @brand-tertiary-highlighted-inverse;
+	outline-color: @brand-tertiary;
 }
 
-.text-underline,
-.label-underline {
-	text-decoration: underline;
+.btn-outline-tertiary.disabled, .btn-outline-tertiary[disabled], 
+fieldset[disabled] .btn-outline-tertiary, .btn-outline-tertiary.disabled:hover,
+.btn-outline-tertiary[disabled]:hover, fieldset[disabled] .btn-outline-tertiary:hover, 
+.btn-outline-tertiary.disabled:focus, .btn-outline-tertiary[disabled]:focus, 
+fieldset[disabled] .btn-outline-tertiary:focus, .btn-outline-tertiary.disabled.focus, 
+.btn-outline-tertiary[disabled].focus, fieldset[disabled] .btn-outline-tertiary.focus, 
+.btn-outline-tertiary.disabled:active, .btn-outline-tertiary[disabled]:active, fieldset[disabled] 
+.btn-outline-tertiary:active, .btn-outline-tertiary.disabled.active, 
+.btn-outline-tertiary[disabled].active, fieldset[disabled] .btn-outline-tertiary.active {
+	background-color: @brand-tertiary-inverse;
+	border-color: @brand-tertiary;
 }
 
-.text-warning,
-.label-warning, 
-.btn.text-warning {
-	color: @brand-warning;	
+.btn-outline-success {
+	background-color: @brand-success-inverse;
+	color: @brand-success;
+	border-color: @brand-success;
 }
 
-.text-danger,
-.label-danger, 
-.btn.text-danger {
-	color: @brand-danger;	
+.btn-outline-success:hover, .btn-outline-success:focus, .btn-outline-success.focus, 
+.btn-outline-success:active, .btn-outline-success.active, .open > .dropdown-toggle.btn-outline-success {
+	background-color: @brand-success-highlighted;
+	color: @brand-success-highlighted-inverse;
+	outline-color: @brand-success;
 }
 
-/* Buttons */
+.btn-outline-success.disabled, .btn-outline-success[disabled], 
+fieldset[disabled] .btn-outline-success, .btn-outline-success.disabled:hover,
+.btn-outline-success[disabled]:hover, fieldset[disabled] .btn-outline-success:hover, 
+.btn-outline-success.disabled:focus, .btn-outline-success[disabled]:focus, 
+fieldset[disabled] .btn-outline-success:focus, .btn-outline-success.disabled.focus, 
+.btn-outline-success[disabled].focus, fieldset[disabled] .btn-outline-success.focus, 
+.btn-outline-success.disabled:active, .btn-outline-success[disabled]:active, fieldset[disabled] 
+.btn-outline-success:active, .btn-outline-success.disabled.active, 
+.btn-outline-success[disabled].active, fieldset[disabled] .btn-outline-success.active {
+	background-color: @brand-success-inverse;
+	border-color: @brand-success;
+}
+
+.btn-outline-info {
+	background-color: @brand-info-inverse;
+	color: @brand-info;
+	border-color: @brand-info;
+}
+
+.btn-outline-info:hover, .btn-outline-info:focus, .btn-outline-info.focus, 
+.btn-outline-info:active, .btn-outline-info.active, .open > .dropdown-toggle.btn-outline-info {
+	background-color: @brand-info-highlighted;
+	color: @brand-info-highlighted-inverse;
+	outline-color: @brand-info;
+}
+
+.btn-outline-info.disabled, .btn-outline-info[disabled], 
+fieldset[disabled] .btn-outline-info, .btn-outline-info.disabled:hover,
+.btn-outline-info[disabled]:hover, fieldset[disabled] .btn-outline-info:hover, 
+.btn-outline-info.disabled:focus, .btn-outline-info[disabled]:focus, 
+fieldset[disabled] .btn-outline-info:focus, .btn-outline-info.disabled.focus, 
+.btn-outline-info[disabled].focus, fieldset[disabled] .btn-outline-info.focus, 
+.btn-outline-info.disabled:active, .btn-outline-info[disabled]:active, fieldset[disabled] 
+.btn-outline-info:active, .btn-outline-info.disabled.active, 
+.btn-outline-info[disabled].active, fieldset[disabled] .btn-outline-info.active {
+	background-color: @brand-info-inverse;
+	border-color: @brand-info;
+}
+
+.btn-outline-warning {
+	background-color: @brand-warning-inverse;
+	color: @brand-warning;
+	border-color: @brand-warning;
+}
+
+.btn-outline-warning:hover, .btn-outline-warning:focus, .btn-outline-warning.focus, 
+.btn-outline-warning:active, .btn-outline-warning.active, .open > .dropdown-toggle.btn-outline-warning {
+	background-color: @brand-warning-highlighted;
+	color: @brand-warning-highlighted-inverse;
+	outline-color: @brand-warning;
+}
+
+.btn-outline-warning.disabled, .btn-outline-warning[disabled], 
+fieldset[disabled] .btn-outline-warning, .btn-outline-warning.disabled:hover,
+.btn-outline-warning[disabled]:hover, fieldset[disabled] .btn-outline-warning:hover, 
+.btn-outline-warning.disabled:focus, .btn-outline-warning[disabled]:focus, 
+fieldset[disabled] .btn-outline-warning:focus, .btn-outline-warning.disabled.focus, 
+.btn-outline-warning[disabled].focus, fieldset[disabled] .btn-outline-warning.focus, 
+.btn-outline-warning.disabled:active, .btn-outline-warning[disabled]:active, fieldset[disabled] 
+.btn-outline-warning:active, .btn-outline-warning.disabled.active, 
+.btn-outline-warning[disabled].active, fieldset[disabled] .btn-outline-warning.active {
+	background-color: @brand-warning-inverse;
+	border-color: @brand-warning;
+}
+
+.btn-outline-danger {
+	background-color: @brand-danger-inverse;
+	color: @brand-danger;
+	border-color: @brand-danger;
+}
+
+.btn-outline-danger:hover, .btn-outline-danger:focus, .btn-outline-danger.focus, 
+.btn-outline-danger:active, .btn-outline-danger.active, .open > .dropdown-toggle.btn-outline-danger {
+	background-color: @brand-danger-highlighted;
+	color: @brand-danger-highlighted-inverse;
+	outline-color: @brand-danger;
+}
+
+.btn-outline-danger.disabled, .btn-outline-danger[disabled], 
+fieldset[disabled] .btn-outline-danger, .btn-outline-danger.disabled:hover,
+.btn-outline-danger[disabled]:hover, fieldset[disabled] .btn-outline-danger:hover, 
+.btn-outline-danger.disabled:focus, .btn-outline-danger[disabled]:focus, 
+fieldset[disabled] .btn-outline-danger:focus, .btn-outline-danger.disabled.focus, 
+.btn-outline-danger[disabled].focus, fieldset[disabled] .btn-outline-danger.focus, 
+.btn-outline-danger.disabled:active, .btn-outline-danger[disabled]:active, fieldset[disabled] 
+.btn-outline-danger:active, .btn-outline-danger.disabled.active, 
+.btn-outline-danger[disabled].active, fieldset[disabled] .btn-outline-danger.active {
+	background-color: @brand-danger-inverse;
+	border-color: @brand-danger;
+}
+
+.btn-outline-default {
+	background-color: transparent;
+	color: inherit;
+}
+
+.btn-outline-default:hover, .btn-outline-default:focus, .btn-outline-default.focus, 
+.btn-outline-default:active, .btn-outline-default.active, .open > .dropdown-toggle.btn-outline-default {
+	background-color: transparent;
+	color: inherit;
+	opacity: 0.8;
+}
+
+.btn-outline-default.disabled, .btn-outline-default[disabled], 
+fieldset[disabled] .btn-outline-default, .btn-outline-default.disabled:hover,
+.btn-outline-default[disabled]:hover, fieldset[disabled] .btn-outline-default:hover, 
+.btn-outline-default.disabled:focus, .btn-outline-default[disabled]:focus, 
+fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.focus, 
+.btn-outline-default[disabled].focus, fieldset[disabled] .btn-outline-default.focus, 
+.btn-outline-default.disabled:active, .btn-outline-default[disabled]:active, fieldset[disabled] 
+.btn-outline-default:active, .btn-outline-default.disabled.active, 
+.btn-outline-default[disabled].active, fieldset[disabled] .btn-outline-default.active {
+	background-color: transparent;
+	opacity: 0.6;
+}
+
+/* Special Buttons */
 .btn-round {
 	border-radius: 50px;
 }
