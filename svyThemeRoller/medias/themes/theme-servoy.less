@@ -1295,6 +1295,22 @@ data-servoyextra-fontawesome > div {
 	border: @table-border-width @border-style @border-color;
 }
 
+data-servoyextra-table thead {
+	background-color: @table-header-bg;					/* Table header bg */
+	font-style: @table-header-font-style;				/* Table header font style */
+	text-transform: @table-header-text-transform;		/* Table header text transform */
+}
+
+data-servoyextra-table tbody tr:nth-child(even) {
+	background: @table-row-even-bg-color;
+	color: @table-row-even-text-color;
+}
+
+data-servoyextra-table tbody tr:nth-child(odd) {
+	background: @table-row-odd-bg-color;
+	color: @table-row-odd-text-color;
+}
+
 .table-bootstrapcomponent-selected,
 .table-servoyextra-selected {
 	background-color: @main-color;
