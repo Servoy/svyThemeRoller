@@ -51,7 +51,7 @@
 @field-disabled-bg : @field-bg;					/* Field disabled bg */
 @field-color: @text-color;  					/* Field color #4A4A4A */
 @field-addon-bg: @field-bg;						/* Field addon bg */
-@field-border-width: 1px 1px @border-width 1px;		/* Field width */
+@field-border-width: 1px 1px @border-width 1px;	/* Field width */
 @field-check-color: @brand-info;				/* Check and Radio Color */
 
 /* TODO icons */
@@ -1088,7 +1088,7 @@ data-servoyextra-fontawesome > div {
 .ui-grid-header-cell,
 .ui-grid-row:nth-child(even) .ui-grid-cell,
 .ui-grid-row:nth-child(odd) .ui-grid-cell {
-	background: #FFF; /* TODO should be inherit !? */
+	background: @body-bg; /* TODO should be inherit !? */
 	color: @text-color;
 }
 
@@ -1226,6 +1226,14 @@ data-servoyextra-fontawesome > div {
 /*	font-size: 12px; */
 }
 
+@ngtable-cell-value-line-height : 23px;
+
+@ngtable-row-group-bg: @body-bg;
+@ngtable-row-group-color: @text-color;
+@ngtable-row-group-bg-level-0: #F9F9F9;
+@ngtable-row-group-color-level-0: @main-color;
+@ngtable-row-group-cell-font-weight : bold;
+
 /* AG Grid Table */
 .ag-table {
 	color: @text-color;
@@ -1235,6 +1243,14 @@ data-servoyextra-fontawesome > div {
 	color: @text-color;
 	text-transform: @table-header-text-transform;
 	font-weight: @table-header-font-style;
+}
+
+.ag-table .ag-row-odd {
+
+}
+
+.ag-table .ag-row-even {
+	background-color: @body-bg;
 }
 
 .ag-table .ag-row-selected {
@@ -1250,26 +1266,121 @@ data-servoyextra-fontawesome > div {
     padding: 0 8px;
 }
 
+/* AG Theme Servoy */
+.ag-table.ag-theme-servoy .ag-body .ag-cell-value {
+	line-height: @ngtable-cell-value-line-height;
+}
+
+/* Grouped rows */
+.ag-table.ag-theme-servoy .ag-row-group{
+    color: @ngtable-row-group-color;
+    background-color: @ngtable-row-group-bg;
+}
+
+.ag-table.ag-theme-servoy .ag-row-group.ag-row-level-0 {
+    color: @ngtable-row-group-color-level-0;
+    background-color: @ngtable-row-group-bg-level-0;
+}
+
+.ag-table.ag-theme-servoy .ag-row-group > .ag-cell {
+	font-weight: @ngtable-row-group-cell-font-weight;
+}
 
 /* AG Grid Tool Panel */
 
-.ag-tool-panel .ag-column-select-panel .ag-column-name-filter {
+.ag-theme-servoy {
 	
 }
 
-.ag-tool-panel .ag-column-drop {
+/* AG Grid side panel Button */
+.ag-table .ag-tool-panel > .ag-side-buttons > button {
+	webkit-appearance:none;
+	-webkit-appearance: none;
+    background: none;
+    border: none;
+}
+
+.ag-table .ag-tool-panel > .ag-side-buttons > button:before {
+    content: "\f0c9";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+}
+
+.ag-table .ag-side-bar .ag-side-buttons .ag-side-button button {
+	background: transparent;
+    border: 0;
+    padding: 8px 0 8px 0;
+}
+
+.ag-table .ag-side-bar .ag-side-buttons .ag-selected button { 
+	background-color: #f6f6f6; /* TODO parametrize color */
+}
+
+/* AG Grid Side Tool panel */
+.ag-table.ag-theme-servoy .ag-column-panel .ag-pivot-mode-panel,
+.ag-table.ag-theme-servoy .ag-column-panel .ag-primary-cols-header-panel,
+.ag-table.ag-theme-servoy .ag-column-panel .ag-column-drop-vertical .ag-column-drop-list {
+	margin: 0 12px 8px 16px;
+	padding-bottom: 8px;
+	border-width: 0;
+	border-bottom-width: 1px;
+	border-color: @border-color;
+	border-style: solid;
+}
+
+.ag-table.ag-theme-servoy .ag-column-panel .ag-column-drop-vertical .ag-column-drop-icon {
+	margin-left: 16px;
+}
+
+.ag-table.ag-theme-servoy .ag-column-panel .ag-primary-cols-header-panel {
+	align-items: center;
+}
+
+.ag-table.ag-theme-servoy .ag-primary-cols-header-panel a {
+    margin-right: 4px;
+}
+
+.ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter {
+	width: 100%;
+	color: @field-color;
+	font-size: @field-font-size;
+	border-style: @border-style;
+	border-color: @border-color;
+	border-width: @field-border-width;
+}
+
+.ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter:focus {
+	border-color: @main-color;
+	outline: 1px;
+	outline-color: @main-color-light;
+	box-shadow: none;
+}
+
+.ag-table.ag-theme-servoy .ag-column-panel .ag-primary-cols-filter {
+
+}
+
+/*
+.ag-table.ag-theme-servoy .ag-table.ag-theme-servoy .ag-tool-panel .ag-column-drop {
     clear: both;
     overflow: auto;
     padding: 4px 0;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
+} */
+
+/* Ag Group Horizontal Panel Column Drop */
+.ag-table.ag-theme-servoy .ag-column-drop-horizontal > div:first-child {
+    float: left;
+    height: 100%;
+    line-height:32px;
 }
 
-.ag-table .ag-column-drop.ag-column-drop-horizontal .ag-right-arrow {
+.ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-right-arrow {
 	padding: 0 4px;
 	display: none;
 }
 
-.ag-table .ag-column-drop.ag-column-drop-horizontal .ag-column-drop-cell .ag-column-drop-cell-button:after {
+.ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-column-drop-cell .ag-column-drop-cell-button:after {
     font-family: FontAwesome;
     text-align: center;
     padding-left: 10px;
@@ -1278,47 +1389,82 @@ data-servoyextra-fontawesome > div {
     vertical-align: middle;
 }
 
-.ag-tool-panel .ag-column-drop .ag-column-drop-cell {
-    padding-left: 10px;
-    /*line-height: 32px;*/
-    display: block;
+.ag-table.ag-theme-servoy .ag-column-drop-horizontal  .ag-column-drag {
+    border: 1px @border-style @border-color;
+    padding: 4px 6px 4px 16px;
+    border-radius: @border-radius 0 0 @border-radius;
+    border-right: 0;
+    background-repeat: no-repeat;
+    background-position: 4px 6px !important;
 }
 
-.ag-table .ag-column-drop .ag-column-drop-cell-text,
-.ag-tool-panel .ag-column-drop .ag-column-drop-cell-text {
+.ag-table.ag-theme-servoy .ag-column-drop-horizontal  .ag-column-drop-cell-text {
     border: 1px @border-style @border-color;
+    border-left: 0;
     padding: 4px 16px;
+    padding-left: 0;
+    border-radius: 0 @border-radius @border-radius 0;
+}
+
+.ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-icon-group, 
+.ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-icon-pivot {
+	margin-right: 12px;
+}
+
+/*
+.ag-table.ag-theme-servoy .ag-tool-panel-wrapper .ag-column-drop .ag-column-drop-cell {
+    padding-left: 10px;
+    /*line-height: 32px;*
+    display: block;
+} */
+
+/* Ag-Grid Side Panel Column Drops */
+.ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-cell {
+	margin-top: 4px;
+	border: 1px @border-style @border-color;
+    padding: 4px 16px;
+    padding-left: 0;
     border-radius: @border-radius;
 }
 
-.ag-tool-panel .ag-column-drop .ag-column-drop-cell .ag-column-drop-cell-button {
-    float: initial;
+.ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-drag {
+	background-repeat: no-repeat;
+	background-position: 4px 6px !important;
 }
 
-.ag-column-drop-empty-message, .ag-column-drop .ag-column-drop-cell:last-child:after {
+.ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-cell .ag-column-drop-cell-button {
+	margin-top: 2px;
+}
+
+/*
+.ag-table.ag-theme-servoy .ag-tool-panel .ag-column-drop .ag-column-drop-cell .ag-column-drop-cell-button {
+    float: initial;
+} */
+
+.ag-table.ag-theme-servoy .ag-column-drop-empty-message, 
+.ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-column-drop-cell:last-child:after,
+.ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-list:after {
     content: "Drop a column";
     border: 1px dashed @border-color;
     color: @text-color;
     border-radius: @border-radius;
     padding: 4px 16px;
     display: inline-block;
-    line-height: 20px;
+	line-height: 20px;
 }
 
-/* AG Grid side panel */
-.ag-table .ag-tool-panel > .ag-side-buttons > button {
-	webkit-appearance:none;
-	-webkit-appearance: none;
-    background: none;
-    border: none;
+.ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-list:after {
+	width: 100%;
 }
 
-.ag-table .ag-tool-panel > .ag-side-buttons> button:before {
-    content: "\f0c9";
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
+.ag-table.ag-theme-servoy .ag-column-drop-empty-message {
+	margin: 0 12px 0 16px;
+	display: none; /* There is a bug in ag-grid not properly clean empty message when clearing groups */
 }
 
+.ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-list:after {
+	margin-top: 4px;
+}
 
 /* Popup */
 .yuimenu {
