@@ -76,8 +76,6 @@
 @navbar-active-border-color:  @main-color-inverse;
 @navbar-active-border-width: 0;
 
-
-
 /* Tabs */
 @tab-bg: @body-bg-inverse;
 @tab-text-color: @text-color;
@@ -102,6 +100,22 @@
 @table-header-bg: inherit;						/* Table header bg */
 @table-header-font-style: normal;				/* Table header font style */
 @table-header-text-transform: uppercase;		/* Table header text transform */
+
+@table-row-odd-bg-color: @body-bg;
+@table-row-odd-text-color: @text-color;
+@table-row-even-bg-color: @body-bg;
+@table-row-even-text-color: @text-color;
+@table-row-selected-bg-color: @main-color;
+@table-row-selected-text-color: @main-color-inverse;
+
+/* NG Table specific style */
+@ngtable-cell-value-line-height : 23px;
+
+@ngtable-row-group-bg: @body-bg;
+@ngtable-row-group-color: @text-color;
+@ngtable-row-group-bg-level-0: #F9F9F9;
+@ngtable-row-group-color-level-0: @main-color;
+@ngtable-row-group-cell-font-weight : bold;
 
 /* Brand colors applicable to labels and buttons */
 @brand-primary: #428bca;
@@ -1168,6 +1182,16 @@ data-servoyextra-fontawesome > div {
 	color: @text-color;
 }
 
+.ui-grid-row:nth-child(even) .ui-grid-cell {
+	background: @table-row-even-bg-color;
+	color: @table-row-even-text-color;
+}
+
+.ui-grid-row:nth-child(odd) .ui-grid-cell {
+	background: @table-row-odd-bg-color;
+	color: @table-row-odd-text-color;
+}
+
 .ui-grid-row .ui-grid-cell {
 	border-bottom: @border-width @border-style @border-color;
 	border-color: @border-color;
@@ -1180,7 +1204,8 @@ data-servoyextra-fontawesome > div {
 
 /* Selected Row */
 .ui-grid-row.ui-grid-row-selected div.ui-grid-cell {
-	background-color: @main-color !important;
+	background-color: @table-row-selected-bg-color !important;
+	color: @table-row-selected-text-color;
 }
 
 .ui-grid-cell .svy-field, 
@@ -1302,14 +1327,6 @@ data-servoyextra-fontawesome > div {
 /*	font-size: 12px; */
 }
 
-@ngtable-cell-value-line-height : 23px;
-
-@ngtable-row-group-bg: @body-bg;
-@ngtable-row-group-color: @text-color;
-@ngtable-row-group-bg-level-0: #F9F9F9;
-@ngtable-row-group-color-level-0: @main-color;
-@ngtable-row-group-cell-font-weight : bold;
-
 /* AG Grid Table */
 .ag-table {
 	color: @text-color;
@@ -1322,16 +1339,18 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-table .ag-row-odd {
-
+	background-color: @table-row-odd-bg-color;
+	color: @table-row-odd-text-color;
 }
 
 .ag-table .ag-row-even {
-	background-color: @body-bg;
+	background-color: @table-row-even-bg-color;
+	color: @table-row-even-text-color;
 }
 
 .ag-table .ag-row-selected {
-	background-color: @main-color;
-	color: @main-color-inverse;
+	background-color: @table-row-selected-bg-color;
+	color: @table-row-selected-text-color;
 }
 
 .ag-table .ag-cell-inline-editing input {
