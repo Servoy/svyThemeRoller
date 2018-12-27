@@ -96,7 +96,7 @@
 @window-header-color: @text-color-inverse;		/* Window header color */
 
 /* Tables */
-@table-border-width: 0;							/* Table boder width */
+@table-border-width: 0;							/* TODO Table boder width */
 @table-header-bg: inherit;						/* Table header bg */
 @table-header-font-style: normal;				/* Table header font style */
 @table-header-text-transform: uppercase;		/* Table header text transform */
@@ -107,6 +107,7 @@
 @table-row-even-text-color: @text-color;
 @table-row-selected-bg-color: @main-color;
 @table-row-selected-text-color: @main-color-inverse;
+@table-row-border-width: 1px;
 
 /* NG Table specific style */
 @ngtable-cell-value-line-height : 23px;
@@ -1193,7 +1194,7 @@ data-servoyextra-fontawesome > div {
 }
 
 .ui-grid-row .ui-grid-cell {
-	border-bottom: @border-width @border-style @border-color;
+	border-bottom: @table-row-border-width @border-style @border-color;
 	border-color: @border-color;
 }
 
@@ -1311,6 +1312,13 @@ data-servoyextra-table tbody tr:nth-child(odd) {
 	color: @table-row-odd-text-color;
 }
 
+.table > thead > tr > th, .table > tbody > tr > th, 
+.table > tfoot > tr > th, .table > thead > tr > td, 
+.table > tbody > tr > td, .table > tfoot > tr > td {
+	border-color: @border-color;
+	border-top-width: @table-row-border-width;
+}
+
 .table-bootstrapcomponent-selected,
 .table-servoyextra-selected {
 	background-color: @main-color;
@@ -1352,6 +1360,11 @@ data-servoyextra-table tbody tr:nth-child(odd) {
 	color: @text-color;
 	text-transform: @table-header-text-transform;
 	font-weight: @table-header-font-style;
+}
+
+.ag-table .ag-row {
+	border-bottom-width: @table-row-border-width;
+	border-color: @border-color;
 }
 
 .ag-table .ag-row-odd {
