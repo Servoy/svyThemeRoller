@@ -1302,12 +1302,12 @@ data-servoyextra-table thead {
 	text-transform: @table-header-text-transform;		/* Table header text transform */
 }
 
-data-servoyextra-table tbody tr:nth-child(even) {
+data-servoyextra-table tbody tr:nth-child(even):not(.table-servoyextra-selected) {
 	background: @table-row-even-bg-color;
 	color: @table-row-even-text-color;
 }
 
-data-servoyextra-table tbody tr:nth-child(odd) {
+data-servoyextra-table tbody tr:nth-child(odd):not(.table-servoyextra-selected) {
 	background: @table-row-odd-bg-color;
 	color: @table-row-odd-text-color;
 }
@@ -1321,8 +1321,8 @@ data-servoyextra-table tbody tr:nth-child(odd) {
 
 .table-bootstrapcomponent-selected,
 .table-servoyextra-selected {
-	background-color: @main-color;
-	color: @main-color-inverse; /* inverse color for selected */
+	background-color: @table-row-selected-bg-color;
+	color: @table-row-selected-text-color;
 }
 
 .svy-table  th,
