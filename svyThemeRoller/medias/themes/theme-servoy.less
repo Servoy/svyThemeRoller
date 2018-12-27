@@ -138,7 +138,7 @@
 @brand-danger-inverse:  #FFF;
 
 /* Brand colors applicable to hovers of labels and buttons */
-@brand-primary-highlighted: 	#ff9800;
+@brand-primary-highlighted: 	darken(@brand-primary, 5%);
 @brand-tertiary-highlighted: 	darken(@brand-tertiary, 5%);
 @brand-success-highlighted: 	darken(@brand-success, 5%);
 @brand-info-highlighted:   		darken(@brand-info, 5%);
@@ -1233,7 +1233,7 @@ data-servoyextra-fontawesome > div {
 
 .ui-grid-row-selected div.ui-grid-cell .svy-label,
 .ui-grid-row-selected div.ui-grid-cell .bts-label {
-	color: @main-color-inverse;
+	color: @table-row-selected-text-color;
 }
 
 .ui-grid-row-selected .ui-grid-cell .svy-field,
@@ -1252,7 +1252,7 @@ data-servoyextra-fontawesome > div {
 .ui-grid-row-selected .ui-grid-cell .bts-calendar input {
 	outline: @main-color;
 	background-color: inherit;
-	color: @main-color-inverse; /* inverse color for selected */
+	color: @table-row-selected-text-color;
 }
 
 .ui-grid-row-selected .ui-grid-cell .bts-select, .ui-grid-row-selected .ui-grid-cell .bts-select ~ .input-group-addon,
