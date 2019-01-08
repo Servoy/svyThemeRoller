@@ -197,26 +197,6 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 	width: auto !important;
 }
 
-.no-border {
-	border-style: none;
-	border-width: 0;
-}
-
-.border-default {
-	border-color: @border-color;
-	border-width: @border-width;
-	border-style: @border-style;
-	border-radius: @border-radius;
-}
-
-.no-padding {
-	padding: 0;
-}
-
-.no-margin {
-	margin: 0;
-}
-
 /* Reset Header Margins */
 h1, .h1, h2, .h2, h3, .h3,
 h4, .h4, h5, .h5, h6, .h6 {
@@ -255,6 +235,10 @@ h6, .h6 {
 }
 
 /* Margins, to be used on rows to separate lines */
+.no-margin {
+	margin: 0;
+}
+
 .margin-10 {
 	margin: @box-size-10;
 }
@@ -316,6 +300,10 @@ h6, .h6 {
 }
 
 /* paddings, to be used on rows to separate lines */
+.no-padding {
+	padding: 0;
+}
+
 .padding-10 {
 	padding: @box-size-10;
 }
@@ -381,9 +369,28 @@ h6, .h6 {
 	border-color: @border-color;
 }
 
+/* Border classes */
+
+/* TODO does it make sense to call a class border ? shall i use border-default instead ? */
 .border {
 	.border-class();
 	border-width: @border-width;
+}
+
+/* TODO does make sense ? */
+.border-radius {
+	border-radius: @border-radius;
+}
+
+.border-default {
+	.border-class();
+	border-width: @border-width;
+	border-radius: @border-radius; /* TODO does it make sense to use border radius in border-default ? shall i create a separate class border-radius instead ? */
+}
+
+.no-border {
+	border-style: none;
+	border-width: 0;
 }
 
 .border-top {
@@ -406,6 +413,7 @@ h6, .h6 {
 	border-right-width: @border-width;
 }
 
+/* Clickable cursors */
 .clickable {
 	cursor: pointer;
 }
@@ -423,11 +431,6 @@ h6, .h6 {
 .clickable[disabled],
 .clickable-hover[disabled] {
 	cursor: not-allowed;
-}
-
-/* TODO does make sense ? */
-.border-radius {
-	border-radius: @border-radius;
 }
 
 /* Forms */
@@ -1717,6 +1720,7 @@ data-servoyextra-table tbody tr:nth-child(odd):not(.table-servoyextra-selected) 
 }
 
 /* Style the flex footer if used on a form with theme servoy */
+/* TODO do i really need that ? */
 > .flexlayout > .flex-footer {
 	background-color: @main-color;
 	color: @main-color-inverse;
@@ -1806,10 +1810,6 @@ a.bg-danger:hover {
 	color: @brand-danger-highlighted-inverse;
 }
 
-/* Fonts */
-.font-weight-bold {
-	font-weight: bold;
-}
 
 /************************************************************************************
 * Default styles
@@ -1894,6 +1894,11 @@ a.bg-danger:hover {
 	white-space: initial;
 }
 
+/* Fonts */
+.font-weight-bold {
+	font-weight: bold;
+}
+
 .text-uppercase {
 	text-transform: uppercase;
 }
@@ -1910,7 +1915,7 @@ a.bg-danger:hover {
 .label-info, 
 .label-warning,
 .label-danger {
-	color: #FFF; /* TODO remove icon */
+	color: #FFF; /* TODO remove color */
 	text-align: center;
 	border-radius: @border-radius;
 }
