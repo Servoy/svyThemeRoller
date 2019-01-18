@@ -733,7 +733,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 }
 
 .svy-combobox input {
-	border: 0;
+	border-width: @field-border-width;
 	border-radius: 0;
 	box-shadow: none;
 }
@@ -1299,18 +1299,19 @@ data-servoyextra-fontawesome > div {
 	border: @table-border-width @border-style @border-color;
 }
 
-data-servoyextra-table thead {
+.bts-table thead,
+.svy-table thead {
 	background-color: @table-header-bg;					/* Table header bg */
 	font-style: @table-header-font-style;				/* Table header font style */
 	text-transform: @table-header-text-transform;		/* Table header text transform */
 }
 
-data-servoyextra-table tbody tr:nth-child(even):not(.table-servoyextra-selected) {
+.svy-table tbody tr:nth-child(even):not(.table-servoyextra-selected) {
 	background: @table-row-even-bg-color;
 	color: @table-row-even-text-color;
 }
 
-data-servoyextra-table tbody tr:nth-child(odd):not(.table-servoyextra-selected) {
+.svy-table tbody tr:nth-child(odd):not(.table-servoyextra-selected) {
 	background: @table-row-odd-bg-color;
 	color: @table-row-odd-text-color;
 }
