@@ -96,7 +96,7 @@ function addLESSFileDependancy(mediaFileName) {
 		tagName: "link",
 		attrs: [{
 			name: "href",
-			value: "resources/fs/" + application.getSolutionName() + "/" + mediaFileName
+			value: "resources/fs/" + application.getSolutionName() + "/" + mediaFileName + "?t=" + new Date().getTime()
 		},{
 			name: "rel",
 			value: "stylesheet/less"
@@ -133,9 +133,14 @@ function addCSSFileDependancy(mediaFileName) {
 	
 	var lessCSSTag = {
 		tagName: "link",
-		attrs: [{
+		attrs: [
+		{
+			name: "rel",
+			value: "stylesheet"
+		},
+		{
 			name: "href",
-			value: "resources/fs/" + application.getSolutionName() + "/" + mediaFileName
+			value: "resources/fs/" + application.getSolutionName() + "/" + mediaFileName + "?t=" + new Date().getTime()
 		},{
 			name: "type",
 			value: "text/css"
@@ -170,7 +175,7 @@ function addJSFileDependancy(mediaFileName) {
 		tagName: "script",
 		attrs: [{
 			name: "src",
-			value: "resources/fs/" + application.getSolutionName() + "/" + mediaFileName
+			value: "resources/fs/" + application.getSolutionName() + "/" + mediaFileName + "?t=" + new Date().getTime()
 		}]
 	};
 	plugins.ngclientutils.contributedTags.push(lessCSSTag);
