@@ -66,10 +66,23 @@
 @sidenav-color: @secondary-color;
 @sidenav-text-color: @secondary-color-inverse;
 @sidenav-text-font-size: @font-size-h6;
+@sidenav-border-width: 1px;
+@sidenav-border-color: @border-color;
 @sidenav-selected-color: @secondary-color-light;
 @sidenav-selected-text-color: @sidenav-text-color;
 @sidenav-selected-border-color: @main-color;
 @sidenav-selected-border-width: 0px 0px 0px 0px; /* Border for selected top-level item top|right|bottom|left */
+
+/* Sidenav Secondary color */
+@sidenav-secondary-color: @main-color;
+@sidenav-secondary-text-color: @main-color-inverse;
+@sidenav-secondary-text-font-size: @font-size-h6;
+@sidenav-secondary-border-width: 1px;
+@sidenav-secondary-border-color: @border-color;
+@sidenav-secondary-selected-color: @main-color-light;
+@sidenav-secondary-selected-text-color: @main-color-inverse;
+@sidenav-secondary-selected-border-color: @main-color-inverse;
+@sidenav-secondary-selected-border-width: 0px 0px 0px 5px; /* Border for selected top-level item top|right|bottom|left */
 
 /* Navbar */
 @navbar-bg: @main-color;								/* #f8f8f8; */
@@ -123,6 +136,11 @@
 @ngtable-row-group-bg-level-0: #F9F9F9;
 @ngtable-row-group-color-level-0: @main-color;
 @ngtable-row-group-cell-font-weight : bold;
+
+/* Breadcrumb specific style */
+@breadcrumb-bg: @body-bg;
+@breadcrumb-color: @main-color;
+@breadcrumb-selected-color: @text-color;
 
 /* Brand colors applicable to labels and buttons */
 @brand-primary: #428bca;
@@ -437,7 +455,6 @@ h6, .h6 {
 
 .clickable-hover:hover {
 	background: fade(@main-color, 20%);
-	border-radius: 4px;
 }
 
 .clickable[disabled],
@@ -488,7 +505,6 @@ h6, .h6 {
 .svy-label,
 .bts-label {
 	color: @text-color;
-	font-weight: 100;
 	/* font-size: 12px; */
 }
 
@@ -884,6 +900,19 @@ fieldset[disabled] input[type="checkbox"] + span:before {
     background-color: @main-color;
 }
 
+/* Breadcrumb */
+.bts-extra-breadcrumbs {
+	background-color: @breadcrumb-bg;	
+}
+
+.bts-extra-breadcrumbs a {
+	color: @breadcrumb-color;	
+}
+
+.bts-extra-breadcrumbs > .active {
+	color: @breadcrumb-selected-color;
+}
+
 /* TabPanel */
 .svy-tabpanel > .nav-tabs,
 .bts-tabpanel > .nav-tabs {
@@ -957,106 +986,131 @@ data-servoyextra-fontawesome > div {
 */
 
 /* Sidenav Servoy Extra */
-.svy-sidenav {
+
+#svy-sidenav();
+
+.svy-sidenav-secondary {
+	
+	@sidenav-color: @sidenav-secondary-color;
+	@sidenav-text-color: @sidenav-secondary-text-color;
+	@sidenav-text-font-size: @sidenav-secondary-text-font-size;
+	@sidenav-border-width: @sidenav-secondary-border-width;
+	@sidenav-border-color: @sidenav-secondary-border-color;
+	@sidenav-selected-color: @sidenav-secondary-selected-color;
+	@sidenav-selected-text-color: @sidenav-secondary-selected-text-color;
+	@sidenav-selected-border-color: @sidenav-secondary-selected-border-color;
+	@sidenav-selected-border-width: @sidenav-secondary-selected-border-width;
+	
+	#svy-sidenav();
+		
+	/* apply the style to .svy-sidenav */
 	background-color: @sidenav-color;
 	color: @sidenav-text-color;
-	border: 0;
+	border-width: @sidenav-border-width;
+	border-color: @sidenav-border-color;
 }
 
-.svy-sidenav-menu,
-.svy-sidenav-collapse-icon {
-	font-size: 12px;
-	line-height: 36px;
-	color: @sidenav-text-color;
-}
+#svy-sidenav {
 
-.svy-sidenav-divider {
-	line-height: 0px;
-	padding: 0;
-	margin: 0;
-}
-
-.svy-sidenav-item {
-	font-size: @sidenav-text-font-size;
-}
-
-.svy-sidenav-dropdown {
-	background-color: @sidenav-color;
-	color: @sidenav-text-color;
-}
-
-.svy-sidenav-dropdown {
-	font-weight: initial;
-}
-
-/* Override padding to obtain hover effect */
-.svy-sidenav-menu ul {
-    padding-left: 0px;
-}
-
-.svy-sidenav-item {
-	padding: 7px 15px 7px 20px;
-}
-
-.svy-sidenav-item.sn-level-2 {
-	padding-left: 40px;
-}
-
-.svy-sidenav-item.sn-level-3 {
-	padding-left: 60px;
-}
-
-.svy-sidenav-item.sn-level-4 {
-	padding-left: 80px;
-}
-
-/*
-.svy-sidenav-dropdown.sn-level-2 {
-	margin-left: -20px;
-	padding-left: 20px;
-}
-
-.svy-sidenav-item.sn-level-2 {
-	margin-right: 0;
-}
-
-.svy-sidenav-dropdown.sn-level-3 {
-	margin-left: -40px;
-	padding-left: 40px;
-}
-
-.svy-sidenav-dropdown.sn-level-4 {
-	margin-left: -60px;
-	padding-left: 60px;
-}*/
-
-.svy-navitem-selected {
-	/* TODO inverse the column when selected */
-	color: @sidenav-selected-text-color;
-	background-color: @sidenav-selected-color;
-}
-
-.svy-navitem-selected.sn-level-1 {
-	border-style: solid;
-	border-color: @sidenav-selected-border-color;
-	border-width: @sidenav-selected-border-width;
-}
-
-/* When sidenav selected item has border, compensate non-selected items with paddings. */
-.svy-sidenav-dropdown.sn-level-1:not(.svy-navitem-selected) when not(@sidenav-selected-border-width = 0) {
-	padding: @sidenav-selected-border-width; /* align non selected items with the selected item */
-	padding-top: 0;
-	padding-bottom: 0;
-}
-
-.svy-sidenav-item:hover,
-.svy-sidenav-item:hover > .svy-sidenav-collapse-icon,
-.svy-sidenav-dropdown.sn-level-2:hover,
-.svy-sidenav-dropdown.sn-level-3:hover,
-.svy-sidenav-dropdown.sn-level-4:hover {
-	/* TODO inverse the column when selected ! */
-	color: @sidenav-selected-text-color;
-	background-color: @sidenav-selected-color;
+	.svy-sidenav {
+		background-color: @sidenav-color;
+		color: @sidenav-text-color;
+		border-width: @sidenav-border-width;
+		border-color: @sidenav-border-color;
+	}
+	
+	.svy-sidenav-menu,
+	.svy-sidenav-collapse-icon {
+		font-size: 12px;
+		line-height: 36px;
+		color: @sidenav-text-color;
+	}
+	
+	.svy-sidenav-divider {
+		line-height: 0px;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.svy-sidenav-item {
+		font-size: @sidenav-text-font-size;
+	}
+	
+	.svy-sidenav-dropdown {
+		background-color: @sidenav-color;
+		color: @sidenav-text-color;
+		font-weight: initial;
+	}
+	
+	/* Override padding to obtain hover effect */
+	.svy-sidenav-menu ul {
+	    padding-left: 0px;
+	}
+	
+	.svy-sidenav-item {
+		padding: 7px 15px 7px 20px;
+	}
+	
+	.svy-sidenav-item.sn-level-2 {
+		padding-left: 40px;
+	}
+	
+	.svy-sidenav-item.sn-level-3 {
+		padding-left: 60px;
+	}
+	
+	.svy-sidenav-item.sn-level-4 {
+		padding-left: 80px;
+	}
+	
+	/*
+	.svy-sidenav-dropdown.sn-level-2 {
+		margin-left: -20px;
+		padding-left: 20px;
+	}
+	
+	.svy-sidenav-item.sn-level-2 {
+		margin-right: 0;
+	}
+	
+	.svy-sidenav-dropdown.sn-level-3 {
+		margin-left: -40px;
+		padding-left: 40px;
+	}
+	
+	.svy-sidenav-dropdown.sn-level-4 {
+		margin-left: -60px;
+		padding-left: 60px;
+	}*/
+	
+	.svy-navitem-selected {
+		/* TODO inverse the column when selected */
+		color: @sidenav-selected-text-color;
+		background-color: @sidenav-selected-color;
+	}
+	
+	.svy-navitem-selected.sn-level-1 {
+		border-style: solid;
+		border-color: @sidenav-selected-border-color;
+		border-width: @sidenav-selected-border-width;
+	}
+	
+	/* When sidenav selected item has border, compensate non-selected items with paddings. */
+	.svy-sidenav-dropdown.sn-level-1:not(.svy-navitem-selected) when not(@sidenav-selected-border-width = 0) {
+		padding: @sidenav-selected-border-width; /* align non selected items with the selected item */
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	
+	.svy-sidenav-item:hover,
+	.svy-sidenav-item:hover > .svy-sidenav-collapse-icon,
+	.svy-sidenav-dropdown.sn-level-2:hover,
+	.svy-sidenav-dropdown.sn-level-3:hover,
+	.svy-sidenav-dropdown.sn-level-4:hover {
+		/* TODO inverse the column when selected ! */
+		color: @sidenav-selected-text-color;
+		background-color: @sidenav-selected-color;
+	}
 }
 
 /* Navbar Bootstrap Extra */
