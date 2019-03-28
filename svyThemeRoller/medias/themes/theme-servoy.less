@@ -139,10 +139,14 @@
 @ngtable-row-group-cell-font-weight : bold;
 
 /* NG Table Panels */
-@table-side-panel-bg: @body-bg;
-@table-side-panel-text-color: @text-color;
 @table-menu-panel-bg: @body-bg;
 @table-menu-panel-text-color: @text-color;
+@table-side-panel-bg: #F9F9F9;
+@table-side-panel-text-color: @text-color;
+@table-side-button-bg: @body-bg;
+@table-side-button-text-color: @text-color;
+@table-side-button-selected-bg: #F9F9F9;
+@table-side-button-selected-text-color: @text-color;
 @table-search-field-height: 32px;
 
 /* Breadcrumb specific style */
@@ -1757,14 +1761,28 @@ data-servoyextra-fontawesome > div {
 
 /* AG Grid Theme Tool Panel & Side Bar */
 .ag-theme-servoy .ag-side-bar {
-	background-color: @table-menu-panel-bg;
-	color: @table-menu-panel-text-color;
+	background-color: @table-side-panel-bg;
+	color: @table-side-panel-text-color;
 	border-bottom: 1px solid @border-color;
     border-right: 1px solid @border-color;
     border-top: 1px solid @border-color;
 }
 
+.ag-theme-servoy .ag-side-bar .ag-side-buttons { 
+	background-color: @table-side-button-bg; /* TODO parametrize color */
+	color: @table-side-button-text-color;
+}
+
+.ag-theme-servoy .ag-side-bar .ag-side-buttons .ag-selected button { 
+	background-color: @table-side-button-selected-bg; /* TODO parametrize color */
+	color: @table-side-button-selected-text-color;
+}
+
 /* Ag Grid Theme Side Panel Filter */
+.ag-theme-servoy .ag-tool-panel-wrapper {
+	border-right: 1px solid @border-color;
+}
+
 .ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel {
 	width: 100%;
 }
@@ -1951,7 +1969,6 @@ data-servoyextra-fontawesome > div {
 	padding-top: 8px;
 	border-top: 1px solid @border-color;
 }
-
 
 .ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-cell {
 	margin-top: 4px;
