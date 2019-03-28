@@ -117,7 +117,8 @@
 /* Tables */
 @table-bg: inherit;
 @table-border-width: 0;							/* TODO Table boder width */
-@table-header-bg: @body-bg;						/* Table header bg */
+@table-header-bg: inherit;						/* Table header bg */
+@table-header-text-color: @text-color;						/* Table header bg */
 @table-header-font-style: normal;				/* Table header font style */
 @table-header-text-transform: uppercase;		/* Table header text transform */
 
@@ -1380,6 +1381,7 @@ data-servoyextra-fontawesome > div {
 
 .bts-table thead,
 .svy-table thead {
+	color: @table-header-text-color;
 	background-color: @table-header-bg;					/* Table header bg */
 	font-style: @table-header-font-style;				/* Table header font style */
 	text-transform: @table-header-text-transform;		/* Table header text transform */
@@ -1418,6 +1420,7 @@ data-servoyextra-fontawesome > div {
 .svy-table thead,
 .bts-table thead,
 .ui-grid-header-cell {
+	color: @table-header-text-color;
 	background-color: @table-header-bg;
 	border-style: @border-style;
 	border-color: @border-color;
@@ -1525,6 +1528,7 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-table.ag-theme-servoy .ag-header {
+	color: @table-header-text-color;
     background-color: @table-header-bg;
     border-bottom: 1px solid @border-color;
 }
@@ -1714,8 +1718,8 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-table.ag-theme-servoy .ag-menu .ag-menu-option-active {
-	background: @table-row-selected-bg-color;
-	color: @table-row-selected-text-color;
+	background: @body-bg;
+	color: @main-color;
 }
 
 // The Column Filter
