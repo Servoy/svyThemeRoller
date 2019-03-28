@@ -115,8 +115,9 @@
 @window-header-color: @text-color-inverse;		/* Window header color */
 
 /* Tables */
+@table-bg: inherit;
 @table-border-width: 0;							/* TODO Table boder width */
-@table-header-bg: inherit;						/* Table header bg */
+@table-header-bg: @body-bg;						/* Table header bg */
 @table-header-font-style: normal;				/* Table header font style */
 @table-header-text-transform: uppercase;		/* Table header text transform */
 
@@ -1425,6 +1426,7 @@ data-servoyextra-fontawesome > div {
 /* AG Grid Table */
 .ag-table {
 	color: @text-color;
+	background-color: @table-bg;
 }
 
 .ag-table .ag-header {
@@ -1434,6 +1436,8 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-table .ag-row {
+	border-style: solid;
+    border-width: 0;
 	border-bottom-width: @table-row-border-width;
 	border-color: @border-color;
 }
@@ -1461,12 +1465,131 @@ data-servoyextra-fontawesome > div {
     padding: 0 8px;
 }
 
-/* AG Theme Servoy */
+/* AG Grid Theme Servoy */
+.ag-table.ag-theme-servoy .ag-root {
+	border: 1px solid @border-color;
+}
+
+.ag-table.ag-theme-servoy .ag-header {
+    background-color: @table-header-bg;
+    border-bottom: 1px solid @border-color;
+}
+
+.ag-theme-servoy .ag-header-cell, 
+.ag-theme-servoy .ag-header-group-cell {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.ag-theme-servoy .ag-cell {
+    padding-left: 11px;
+    padding-right: 11px;
+}
+
+.ag-theme-servoy .ag-header-cell-label .ag-header-cell-text {
+	/*
+	overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+.ag-theme-servoy .ag-header-cell-label {
+    display: flex;
+    float: left;
+}
+
+.ag-theme-servoy .ag-header-cell-label span {
+}
+
+.ag-theme-servoy .ag-header-cell-label > span {
+	height: 100%;
+	float: left;
+}
+
+.ag-theme-servoy .ag-icon-menu {
+	height: 24px;
+}
+
 .ag-table.ag-theme-servoy .ag-body .ag-cell-value {
 	line-height: @ngtable-cell-value-line-height;
 }
 
-/* Grouped rows */
+/* Ag Grid Theme Filter bar */
+.ag-theme-servoy .ag-floating-filter-body {
+    float: left;
+    height: 100%;
+    margin-right: 0;
+    width: calc(100% - 28px);
+}
+
+.ag-theme-servoy .ag-floating-filter-button {
+    float: right;
+    line-height: 16px;
+    margin-top: 4px;
+}
+
+.ag-theme-servoy .ag-floating-filter-button button {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    height: 16px;
+    padding: 0;
+    width: 16px;
+}
+
+/* Ag Grid Theme Check icons */
+
+.ag-theme-servoy .ag-column-select-checkbox {
+	margin-right: 4px;
+}
+
+/*
+.ag-theme-servoy .ag-icon-checkbox-checked,
+.ag-theme-servoy .ag-icon-checkbox-checked:empty {
+	font-family: 'Glyphicons Halflings';
+  	letter-spacing: 5px;
+  	color: @field-check-color;
+	background: none;
+	line-height: 10px;
+    font-size: 12px;
+    height: auto;
+    width: auto;
+}
+
+.ag-theme-servoy .ag-icon-checkbox-checked:before {
+	content: "\e067";
+}
+
+.ag-theme-servoy .ag-icon-checkbox-unchecked {
+	font-family: 'Glyphicons Halflings';
+  	letter-spacing: 5px;
+  	color: @field-check-color;
+	background: none;
+	line-height: 10px;
+    font-size: 12px;
+    height: auto;
+    width: auto;
+}
+
+.ag-theme-servoy .ag-icon-checkbox-unchecked:before {
+	content: "\e157";
+}
+
+.ag-theme-servoy .ag-icon-checkbox-indeterminate {
+	font-family: 'Glyphicons Halflings';
+  	letter-spacing: 5px;
+  	color: @field-check-color;
+  	background: none;
+  	line-height: 10px;
+    font-size: 12px;
+    height: auto;
+    width: auto;
+}
+
+.ag-theme-servoy .ag-icon-checkbox-indeterminate:before {
+	content: "\e157";
+} */
+
+/* Ag Grid Theme Grouped rows */
 .ag-table.ag-theme-servoy .ag-row-group{
     color: @ngtable-row-group-color;
     background-color: @ngtable-row-group-bg;
@@ -1481,13 +1604,177 @@ data-servoyextra-fontawesome > div {
 	font-weight: @ngtable-row-group-cell-font-weight;
 }
 
-/* AG Grid Tool Panel */
+/* AG Grid Theme Column Menu */
 
-.ag-theme-servoy {
+.ag-table.ag-theme-servoy .ag-menu {
+	background-color: @table-header-bg;
+	border-radius: @border-radius;
+	border-color: @border-color;
+}
+
+.ag-table.ag-theme-servoy .ag-tab-header {
+	background-color: @brand-tertiary;
+}
+
+.ag-table.ag-theme-servoy .ag-tab-body {
+	padding: 8px 0;
+}
+
+.ag-table.ag-theme-servoy .ag-tab-header .ag-tab {
 	
 }
 
-/* AG Grid side panel Button */
+.ag-table.ag-theme-servoy .ag-tab-header .ag-tab.ag-tab-selected {
+	background-color: @table-header-bg;
+	border-color: @border-color;
+	border-bottom: 0px;
+}
+
+// The Column Menu List
+.ag-table.ag-theme-servoy .ag-tab-body .ag-menu-list {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.ag-table.ag-theme-servoy .ag-menu .ag-menu-option-active {
+	background: @table-row-selected-bg-color;
+	color: @table-row-selected-text-color;
+}
+
+// The Column Filter
+.ag-table.ag-theme-servoy .ag-filter-body-wrapper {
+	padding-bottom: 5px;
+}
+
+.ag-table.ag-theme-servoy .ag-filter .ag-filter-apply-panel {
+	border: 0;
+}
+
+.ag-table.ag-theme-servoy .ag-menu .ag-primary-cols-filter-wrapper {
+	margin-left: 4px;
+    margin-right: 0px;
+}
+
+// The Column List
+.ag-table.ag-theme-servoy .ag-menu .ag-primary-cols-header-panel {
+	height: auto;
+	align-items: center;
+	padding-bottom: 8px;
+	padding-top: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	/* padding-left: 0; */
+	border-color: @border-color;
+}
+
+.ag-table.ag-theme-servoy .ag-menu .ag-primary-cols-list-panel {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.ag-table.ag-theme-servoy .ag-column-select-panel .ag-column-tool-panel-column .ag-column-select-checkbox {
+	margin-left: 0;
+}
+
+
+/* AG Grid Theme Tool Panel & Side Bar */
+.ag-theme-servoy .ag-side-bar {
+	background-color: @brand-tertiary;
+	border-bottom: 1px solid @border-color;
+    border-right: 1px solid @border-color;
+    border-top: 1px solid @border-color;
+}
+
+/* Ag Grid Theme Side Panel Filter */
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel {
+	width: 100%;
+}
+
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel .ag-filter-toolpanel-header {
+    padding: 10px;
+}
+
+.ag-theme-servoy .ag-filter-panel .ag-header-cell-label {
+    display: flex;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid @border-color;
+}
+
+
+.ag-theme-servoy .ag-filter-panel .ag-header-cell-label .ag-header-cell-text {
+	overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ag-theme-servoy .ag-filter-toolpanel-body.ag-filter .ag-filter-air {
+	border-bottom: 1px solid @border-color;
+	padding-bottom: 10px;
+}
+
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel .ag-filter-body-wrapper > div:first-child > * {
+    margin-top: 10px;
+}
+
+.ag-table.ag-theme-servoy .ag-filter-filter,
+.ag-table.ag-theme-servoy .ag-filter-select {
+	margin: 4px 10px;
+    width: calc(100% - 20px);
+    height: 32px;
+}
+
+.ag-table.ag-theme-servoy .ag-filter-apply-panel {
+    display: flex;
+    justify-content: space-around;
+    padding: 4px;
+}
+
+.ag-table.ag-theme-servoy .ag-filter-apply-panel button {
+	webkit-appearance:none;
+	-webkit-appearance: none;
+    background: none;
+	border: none;
+	border: 1px solid #DBDBDB;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.ag-table.ag-theme-servoy .ag-filter-apply-panel button:first-child {
+	.btn-tertiary();
+}
+
+.ag-table.ag-theme-servoy .ag-filter-apply-panel button:last-child {
+	.btn-primary();
+}
+
+/* Ag Grid Theme Side Panel Columns */
+.ag-theme-servoy .ag-primary-cols-header-panel {
+	padding-top: 8px;
+}
+
+.ag-theme-servoy .ag-column-drag {
+	height: 12px;
+	background-position-y: 0 !important;
+}
+
+.ag-theme-servoy .ag-column-tool-panel-column {
+	align-items: center;
+	overflow: hidden;
+	margin-left: 10px;
+	min-height: 20px;
+}
+
+.ag-theme-servoy .ag-column-tool-panel-column .ag-column-select-checkbox > span {
+	display: flex;
+}
+
+.ag-theme-servoy .ag-column-tool-panel-column .ag-column-tool-panel-column-label {
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+
+/* AG Grid Side Panel Button */
 .ag-table .ag-tool-panel > .ag-side-buttons > button {
 	webkit-appearance:none;
 	-webkit-appearance: none;
@@ -1511,11 +1798,14 @@ data-servoyextra-fontawesome > div {
 	background-color: #f6f6f6; /* TODO parametrize color */
 }
 
-/* AG Grid Side Tool panel */
+/* AG Grid Theme Side Tool panel */
 .ag-table.ag-theme-servoy .ag-column-panel .ag-pivot-mode-panel,
 .ag-table.ag-theme-servoy .ag-column-panel .ag-primary-cols-header-panel,
 .ag-table.ag-theme-servoy .ag-column-panel .ag-column-drop-vertical .ag-column-drop-list {
-	margin: 0 12px 8px 16px;
+	/* margin: 0 12px 8px 16px; */
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 8px;
 	padding-bottom: 8px;
 	border-width: 0;
 	border-bottom-width: 1px;
@@ -1532,11 +1822,17 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-table.ag-theme-servoy .ag-primary-cols-header-panel a {
+	margin-left: 0;
     margin-right: 4px;
 }
 
+.ag-table.ag-theme-servoy .ag-menu select,
+.ag-table.ag-theme-servoy .ag-menu input,
+.ag-table.ag-theme-servoy .ag-side-bar select,
+.ag-table.ag-theme-servoy .ag-side-bar input,
 .ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter {
-	width: 100%;
+	/* width: 100%; */
+	padding-left: 4px;
 	color: @field-color;
 	font-size: @field-font-size;
 	border-style: @border-style;
@@ -1544,6 +1840,15 @@ data-servoyextra-fontawesome > div {
 	border-width: @field-border-width;
 }
 
+.ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter {
+	width: 100%;
+	height: 32px;
+}
+
+.ag-table.ag-theme-servoy .ag-menu select:focus,
+.ag-table.ag-theme-servoy .ag-menu input:focus,
+.ag-table.ag-theme-servoy .ag-side-bar select:focus,
+.ag-table.ag-theme-servoy .ag-side-bar input:focus,
 .ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter:focus {
 	border-color: @main-color;
 	outline: 1px;
@@ -1563,7 +1868,14 @@ data-servoyextra-fontawesome > div {
     padding-bottom: 4px;
 } */
 
-/* Ag Group Horizontal Panel Column Drop */
+/* Ag Group Theme Horizontal Panel Column Drop */
+.ag-theme-servoy .ag-column-drop-horizontal {
+	background-color: @table-header-bg;
+	border: 1px solid @border-color;
+	border-bottom: 0;
+	padding: 5px;
+}
+
 .ag-table.ag-theme-servoy .ag-column-drop-horizontal > div:first-child {
     float: left;
     height: 100%;
@@ -1613,7 +1925,7 @@ data-servoyextra-fontawesome > div {
     display: block;
 } */
 
-/* Ag-Grid Side Panel Column Drops */
+/* Ag-Grid Theme Side Panel Column Drops */
 .ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-cell {
 	margin-top: 4px;
 	border: 1px @border-style @border-color;
