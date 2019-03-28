@@ -138,6 +138,13 @@
 @ngtable-row-group-color-level-0: @main-color;
 @ngtable-row-group-cell-font-weight : bold;
 
+/* NG Table Panels */
+@table-side-panel-bg: @body-bg;
+@table-side-panel-text-color: @text-color;
+@table-menu-panel-bg: @body-bg;
+@table-menu-panel-text-color: @text-color;
+@table-search-field-height: 32px;
+
 /* Breadcrumb specific style */
 @breadcrumb-bg: @body-bg;
 @breadcrumb-color: @main-color;
@@ -1465,7 +1472,50 @@ data-servoyextra-fontawesome > div {
     padding: 0 8px;
 }
 
-/* AG Grid Theme Servoy */
+/* AG Grid Side Panel Button */
+.ag-table .ag-tool-panel > .ag-side-buttons > button {
+	webkit-appearance:none;
+	-webkit-appearance: none;
+    background: none;
+    border: none;
+}
+
+.ag-table .ag-tool-panel > .ag-side-buttons > button:before {
+    content: "\f0c9";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+}
+
+.ag-table .ag-side-bar .ag-side-buttons .ag-side-button button {
+	background: transparent;
+    border: 0;
+    padding: 8px 0 8px 0;
+}
+
+.ag-table .ag-side-bar .ag-side-buttons .ag-selected button { 
+	background-color: #f6f6f6; /* TODO parametrize color */
+}
+
+/*******************************************************************************************************************
+*
+* AG Grid Theme Servoy
+*
+* Body & Header
+* Header Filters
+* Checkbox & Input fields
+* Grouped Rows
+* Column Menu
+* 	Menu List
+* 	Filter
+* 	Column List
+* Side Panel
+* 	Filter
+* 	Columns
+* Horizontal Panel Drop
+* Side Panel Column Drop
+*
+*******************************************************************************************************************/
+
 .ag-table.ag-theme-servoy .ag-root {
 	border: 1px solid @border-color;
 }
@@ -1494,7 +1544,6 @@ data-servoyextra-fontawesome > div {
 
 .ag-theme-servoy .ag-header-cell-label {
     display: flex;
-    float: left;
 }
 
 .ag-theme-servoy .ag-header-cell-label span {
@@ -1502,7 +1551,6 @@ data-servoyextra-fontawesome > div {
 
 .ag-theme-servoy .ag-header-cell-label > span {
 	height: 100%;
-	float: left;
 }
 
 .ag-theme-servoy .ag-icon-menu {
@@ -1513,12 +1561,21 @@ data-servoyextra-fontawesome > div {
 	line-height: @ngtable-cell-value-line-height;
 }
 
-/* Ag Grid Theme Filter bar */
+/* Ag Grid Theme Header Filter bar */
 .ag-theme-servoy .ag-floating-filter-body {
     float: left;
     height: 100%;
     margin-right: 0;
     width: calc(100% - 28px);
+}
+
+.ag-theme-servoy .ag-floating-filter-body input {
+	padding-left: 4px;
+    .svy-field();
+}
+
+.ag-theme-servoy .ag-floating-filter-body input:focus {
+    .svy-field:focus();
 }
 
 .ag-theme-servoy .ag-floating-filter-button {
@@ -1537,7 +1594,6 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Ag Grid Theme Check icons */
-
 .ag-theme-servoy .ag-column-select-checkbox {
 	margin-right: 4px;
 }
@@ -1589,6 +1645,23 @@ data-servoyextra-fontawesome > div {
 	content: "\e157";
 } */
 
+/* Ag Grid Theme Input Fields */
+.ag-table.ag-theme-servoy .ag-menu input,
+.ag-table.ag-theme-servoy .ag-menu select,
+.ag-table.ag-theme-servoy .ag-side-bar input,
+.ag-table.ag-theme-servoy .ag-side-bar select {
+	padding-left: 4px;
+	.svy-field();
+}
+
+.ag-table.ag-theme-servoy .ag-menu input:focus,
+.ag-table.ag-theme-servoy .ag-menu select:focus,
+.ag-table.ag-theme-servoy .ag-side-bar input:focus,
+.ag-table.ag-theme-servoy .ag-side-bar select:focus {
+	padding-left: 4px;
+	.svy-field:focus();
+}
+
 /* Ag Grid Theme Grouped rows */
 .ag-table.ag-theme-servoy .ag-row-group{
     color: @ngtable-row-group-color;
@@ -1605,9 +1678,9 @@ data-servoyextra-fontawesome > div {
 }
 
 /* AG Grid Theme Column Menu */
-
 .ag-table.ag-theme-servoy .ag-menu {
-	background-color: @table-header-bg;
+	background-color: @table-menu-panel-bg;
+	color: @table-menu-panel-text-color;
 	border-radius: @border-radius;
 	border-color: @border-color;
 }
@@ -1655,6 +1728,11 @@ data-servoyextra-fontawesome > div {
     margin-right: 0px;
 }
 
+.ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter {
+	width: 100%;
+	height: @table-search-field-height;
+}
+
 // The Column List
 .ag-table.ag-theme-servoy .ag-menu .ag-primary-cols-header-panel {
 	height: auto;
@@ -1679,7 +1757,8 @@ data-servoyextra-fontawesome > div {
 
 /* AG Grid Theme Tool Panel & Side Bar */
 .ag-theme-servoy .ag-side-bar {
-	background-color: @brand-tertiary;
+	background-color: @table-menu-panel-bg;
+	color: @table-menu-panel-text-color;
 	border-bottom: 1px solid @border-color;
     border-right: 1px solid @border-color;
     border-top: 1px solid @border-color;
@@ -1720,7 +1799,7 @@ data-servoyextra-fontawesome > div {
 .ag-table.ag-theme-servoy .ag-filter-select {
 	margin: 4px 10px;
     width: calc(100% - 20px);
-    height: 32px;
+    height: @table-search-field-height;
 }
 
 .ag-table.ag-theme-servoy .ag-filter-apply-panel {
@@ -1734,7 +1813,7 @@ data-servoyextra-fontawesome > div {
 	-webkit-appearance: none;
     background: none;
 	border: none;
-	border: 1px solid #DBDBDB;
+	border: 1px solid @border-color;
     padding: 4px 6px;
     border-radius: 4px;
 }
@@ -1748,10 +1827,6 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Ag Grid Theme Side Panel Columns */
-.ag-theme-servoy .ag-primary-cols-header-panel {
-	padding-top: 8px;
-}
-
 .ag-theme-servoy .ag-column-drag {
 	height: 12px;
 	background-position-y: 0 !important;
@@ -1773,44 +1848,24 @@ data-servoyextra-fontawesome > div {
 	overflow: hidden;
 }
 
-
-/* AG Grid Side Panel Button */
-.ag-table .ag-tool-panel > .ag-side-buttons > button {
-	webkit-appearance:none;
-	-webkit-appearance: none;
-    background: none;
-    border: none;
-}
-
-.ag-table .ag-tool-panel > .ag-side-buttons > button:before {
-    content: "\f0c9";
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-}
-
-.ag-table .ag-side-bar .ag-side-buttons .ag-side-button button {
-	background: transparent;
-    border: 0;
-    padding: 8px 0 8px 0;
-}
-
-.ag-table .ag-side-bar .ag-side-buttons .ag-selected button { 
-	background-color: #f6f6f6; /* TODO parametrize color */
-}
-
 /* AG Grid Theme Side Tool panel */
 .ag-table.ag-theme-servoy .ag-column-panel .ag-pivot-mode-panel,
 .ag-table.ag-theme-servoy .ag-column-panel .ag-primary-cols-header-panel,
 .ag-table.ag-theme-servoy .ag-column-panel .ag-column-drop-vertical .ag-column-drop-list {
 	/* margin: 0 12px 8px 16px; */
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 8px;
-	padding-bottom: 8px;
+	padding: 8px 10px;
 	border-width: 0;
 	border-bottom-width: 1px;
 	border-color: @border-color;
 	border-style: solid;
+}
+
+.ag-table.ag-theme-servoy .ag-column-panel .ag-column-drop-vertical .ag-column-drop-list { 
+	border-bottom-width: 0;
+}
+
+.ag-table.ag-theme-servoy .ag-column-panel .ag-primary-cols-list-panel {
+	margin-top: 8px;
 }
 
 .ag-table.ag-theme-servoy .ag-column-panel .ag-column-drop-vertical .ag-column-drop-icon {
@@ -1824,40 +1879,6 @@ data-servoyextra-fontawesome > div {
 .ag-table.ag-theme-servoy .ag-primary-cols-header-panel a {
 	margin-left: 0;
     margin-right: 4px;
-}
-
-.ag-table.ag-theme-servoy .ag-menu select,
-.ag-table.ag-theme-servoy .ag-menu input,
-.ag-table.ag-theme-servoy .ag-side-bar select,
-.ag-table.ag-theme-servoy .ag-side-bar input,
-.ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter {
-	/* width: 100%; */
-	padding-left: 4px;
-	color: @field-color;
-	font-size: @field-font-size;
-	border-style: @border-style;
-	border-color: @border-color;
-	border-width: @field-border-width;
-}
-
-.ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter {
-	width: 100%;
-	height: 32px;
-}
-
-.ag-table.ag-theme-servoy .ag-menu select:focus,
-.ag-table.ag-theme-servoy .ag-menu input:focus,
-.ag-table.ag-theme-servoy .ag-side-bar select:focus,
-.ag-table.ag-theme-servoy .ag-side-bar input:focus,
-.ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter:focus {
-	border-color: @main-color;
-	outline: 1px;
-	outline-color: @main-color-light;
-	box-shadow: none;
-}
-
-.ag-table.ag-theme-servoy .ag-column-panel .ag-primary-cols-filter {
-
 }
 
 /*
@@ -1926,6 +1947,12 @@ data-servoyextra-fontawesome > div {
 } */
 
 /* Ag-Grid Theme Side Panel Column Drops */
+.ag-table.ag-theme-servoy .ag-column-drop-vertical {
+	padding-top: 8px;
+	border-top: 1px solid @border-color;
+}
+
+
 .ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-cell {
 	margin-top: 4px;
 	border: 1px @border-style @border-color;
@@ -1972,6 +1999,10 @@ data-servoyextra-fontawesome > div {
 .ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-list:after {
 	margin-top: 4px;
 }
+
+/*------------------------------------------------------------------------------------------------------------------
+* ----End AG Grid Theme Servoy-----------
+* ------------------------------------------------------------------------------------------------------------------*/
 
 /* Popup */
 .yuimenu {
