@@ -636,8 +636,14 @@ fieldset[disabled] .form-control {
 .bts-check input[type=checkbox],
 .bts-radiogroup input[type=checkbox],
 .bts-radiogroup input[type=radio] { 
-	display:none; /* to hide the checkbox itself */
-} 
+	/* to hide the checkbox itself */
+	webkit-appearence: none;
+	-webkit-appearance: none;
+	-moz-appearance:    none;
+	appearance:         none;
+	width: 0;
+	height: 0;
+}
 
 .svy-check input[type=checkbox] + span:before,
 .svy-check input[type=radio] + span:before,
@@ -650,6 +656,16 @@ fieldset[disabled] .form-control {
   	font-family: 'Glyphicons Halflings';
   	letter-spacing: 5px;
   	color: @field-check-color;
+}
+
+.svy-check input[type=checkbox]:focus + span:before,
+.svy-check input[type=radio]:focus + span:before,
+.svy-checkgroup input[type=checkbox]:focus + span:before,
+.svy-radiogroup input[type=radio]:focus + span:before,
+.bts-check input[type=checkbox]:focus + span:before,
+.bts-radiogroup input[type=checkbox]:focus + span:before,
+.bts-radiogroup input[type=radio]:focus + span:before {
+	color: darken(@field-check-color, 15%);
 }
 
 input[type="radio"][disabled] + span, 
@@ -881,13 +897,13 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 }
 
 .svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:before {
-	font-family: "FontAwesome";
+	font-family: "FontAwesome", "Font Awesome 5 Free";
 	content: "\F15A";
 	color: #ffffff;
 }
 
 .svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover:before {
-	font-family: "FontAwesome";
+	font-family: "FontAwesome", "Font Awesome 5 Free";
 	content: "\F159";
 	/* color: #ffffff; */
 }
@@ -898,7 +914,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 }
 
 .svy-select2-autotokenizer-dropdown .select2-results__option[aria-selected]:before {
-	font-family: "FontAwesome";
+	font-family: "FontAwesome", "Font Awesome 5 Free";
 	content: "\f096";
 	margin-right: 5px;
 }
@@ -1849,6 +1865,15 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Ag Grid Theme Side Panel Columns */
+/* TODO do i want to use this ?
+.ag-table .ag-tool-panel > .ag-side-buttons > button:before {
+    content: "\f0c9";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-family: "FontAwesome", "Font Awesome 5 Free";
+}
+*/
+
 .ag-theme-servoy .ag-column-drag {
 	height: 12px;
 	background-position-y: 0 !important;
@@ -1931,7 +1956,7 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-column-drop-cell .ag-column-drop-cell-button:after {
-    font-family: FontAwesome;
+	font-family: "FontAwesome", "Font Awesome 5 Free";
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
