@@ -10,7 +10,8 @@
 @secondary-color-dark: #364453;					/* Secondary color dark*/
 
 
-/* Font Sizes */
+/* Font & Font Sizes */
+@font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 /* when the font-size is set to 62.5 1rem = 10px */
 @rem-to-px: 10;								
@@ -205,7 +206,13 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
 }
 
 /* General Style */
+
+body {
+	color:@text-color;
+}
+
 *, body {
+	font-family: @font-family;
 	font-size: @text-font-size;
 }
 
@@ -505,6 +512,10 @@ h6, .h6 {
 .bts-button,
 .btn {
 	border-radius: @border-radius;
+}
+
+.btn-default {
+	color: @text-color;
 }
 
 .btn:focus, .btn:active:focus, 
@@ -1507,6 +1518,7 @@ data-servoyextra-fontawesome > div {
     content: "\f0c9";
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
+	font-family: "FontAwesome", "Font Awesome 5 Free";
 }
 
 .ag-table .ag-side-bar .ag-side-buttons .ag-side-button button {
@@ -1599,7 +1611,8 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-theme-servoy .ag-floating-filter-body input:focus {
-    .svy-field:focus();
+	border-color: @main-color;
+    /* .svy-field:focus(); */
 }
 
 .ag-theme-servoy .ag-floating-filter-button {
@@ -1683,7 +1696,8 @@ data-servoyextra-fontawesome > div {
 .ag-table.ag-theme-servoy .ag-side-bar input:focus,
 .ag-table.ag-theme-servoy .ag-side-bar select:focus {
 	padding-left: 4px;
-	.svy-field:focus();
+	border-color: @main-color;
+	/* .svy-field:focus();  */
 }
 
 /* Ag Grid Theme Grouped rows */
@@ -2998,11 +3012,7 @@ fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.foc
 	padding: 30px 0;
 	font-size: 24px;
 	text-transform: uppercase;
-}
-
-.header-bar {
 	/* height: initial !important; TODO what is this for, to center the text of a navbar ? */
-	
 }
 
 .header-bar .bts-label,
