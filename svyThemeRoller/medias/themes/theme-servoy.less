@@ -876,27 +876,31 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 }
 
 .svy-select2-autotokenizer .select2-container .select2-selection--multiple .select2-selection__rendered {
-    display: flex;
+    /*display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 2px 5px;
+    justify-content: flex-start; 
+    padding: 2px 5px; */
 }
 
-.svy-select2-autotokenizer-dropdown .svy-select2-autotokenizer.select2-sm .svy-select2-autotokenizer-container .select2-selection__choice, .svy-select2-autotokenizer.select2-sm .svy-select2-autotokenizer-container .select2-search--inline .select2-search__field {
+.svy-select2-autotokenizer-dropdown .svy-select2-autotokenizer.select2-sm .svy-select2-autotokenizer-container .select2-selection__choice, 
+.svy-select2-autotokenizer.select2-sm .svy-select2-autotokenizer-container .select2-search--inline .select2-search__field {
     margin-bottom: 5px;
 }
 
-.svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    background-color: #76BB29;
-    border: 0px solid #d8d8d8;
+.svy-select2-autotokenizer .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: @main-color; /* #76BB29; */
+    border: 0px solid @border-color;
     border-radius: 30px;
     cursor: default;
-    margin-right: 10px;
     margin-top: 5px;
     padding: 1px 15px 1px 10px;
-    color: #fff;
-    display: flex;
-    align-items: center;
+    color: @main-color-inverse;
+/*     display: flex;
+    align-items: center; */
+}
+
+.svy-select2-autotokenizer .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+	color: @main-color-inverse;
 }
 
 .svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
@@ -1879,15 +1883,6 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Ag Grid Theme Side Panel Columns */
-/* TODO do i want to use this ?
-.ag-table .ag-tool-panel > .ag-side-buttons > button:before {
-    content: "\f0c9";
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-family: "FontAwesome", "Font Awesome 5 Free";
-}
-*/
-
 .ag-theme-servoy .ag-column-drag {
 	height: 12px;
 	background-position-y: 0 !important;
