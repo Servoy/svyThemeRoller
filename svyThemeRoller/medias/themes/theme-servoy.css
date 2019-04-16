@@ -7,7 +7,7 @@
 /* Secondary color inverse */
 /* Secondary color light*/
 /* Secondary color dark*/
-/* Font Sizes */
+/* Font & Font Sizes */
 /* when the font-size is set to 62.5 1rem = 10px */
 /*
 @font-size-h1 : 36px;
@@ -54,9 +54,11 @@
 /* Tables */
 /* TODO Table boder width */
 /* Table header bg */
+/* Table header bg */
 /* Table header font style */
 /* Table header text transform */
 /* NG Table specific style */
+/* NG Table Panels */
 /* Breadcrumb specific style */
 /* Brand colors applicable to labels and buttons */
 /* TODO this one is not applicable to theme roller, what can i do about it ? */
@@ -71,8 +73,12 @@ div:not(.container):not(.container-fluid):not([class^="col-xs-"]):not([class^="c
   margin-left: 0;
 }
 /* General Style */
+body {
+  color: #777777;
+}
 *,
 body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
 }
 :focus {
@@ -330,6 +336,9 @@ h6,
 .bts-button,
 .btn {
   border-radius: 2px;
+}
+.btn-default {
+  color: #777777;
 }
 .btn:focus,
 .btn:active:focus,
@@ -671,26 +680,29 @@ fieldset[disabled] input[type="checkbox"] + span:before {
   box-shadow: none;
 }
 .svy-select2-autotokenizer .select2-container .select2-selection--multiple .select2-selection__rendered {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 2px 5px;
+  /*display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    padding: 2px 5px; */
 }
 .svy-select2-autotokenizer-dropdown .svy-select2-autotokenizer.select2-sm .svy-select2-autotokenizer-container .select2-selection__choice,
 .svy-select2-autotokenizer.select2-sm .svy-select2-autotokenizer-container .select2-search--inline .select2-search__field {
   margin-bottom: 5px;
 }
-.svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice {
-  background-color: #76BB29;
-  border: 0px solid #d8d8d8;
+.svy-select2-autotokenizer .select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: #e9720b;
+  /* #76BB29; */
+  border: 0px solid #dbdbdb;
   border-radius: 30px;
   cursor: default;
-  margin-right: 10px;
   margin-top: 5px;
   padding: 1px 15px 1px 10px;
-  color: #fff;
-  display: flex;
-  align-items: center;
+  color: #ffffff;
+  /*     display: flex;
+    align-items: center; */
+}
+.svy-select2-autotokenizer .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  color: #ffffff;
 }
 .svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
   color: #4A4A4A;
@@ -714,12 +726,12 @@ fieldset[disabled] input[type="checkbox"] + span:before {
   color: #ffffff;
 }
 .svy-select2-autotokenizer-dropdown .select2-results__option[aria-selected]:before {
-  font-family: "FontAwesome", "Font Awesome 5 Free";
-  content: "\f096";
+  font-family: 'Glyphicons Halflings';
+  content: "\e067";
   margin-right: 5px;
 }
 .svy-select2-autotokenizer-dropdown .select2-results__option[aria-selected=true]:before {
-  content: "\f14a";
+  content: "\e157";
 }
 /* Badge */
 .btn-filter .badge {
@@ -1291,6 +1303,7 @@ data-servoyextra-fontawesome > div {
 }
 .bts-table thead,
 .svy-table thead {
+  color: #777777;
   background-color: inherit;
   /* Table header bg */
   font-style: normal;
@@ -1329,6 +1342,7 @@ data-servoyextra-fontawesome > div {
 .svy-table thead,
 .bts-table thead,
 .ui-grid-header-cell {
+  color: #777777;
   background-color: inherit;
   border-style: solid;
   border-color: #dbdbdb;
@@ -1346,6 +1360,7 @@ data-servoyextra-fontawesome > div {
 /* AG Grid Table */
 .ag-table {
   color: #777777;
+  background-color: inherit;
 }
 .ag-table .ag-header {
   color: #777777;
@@ -1353,6 +1368,8 @@ data-servoyextra-fontawesome > div {
   font-weight: normal;
 }
 .ag-table .ag-row {
+  border-style: solid;
+  border-width: 0;
   border-bottom-width: 1px;
   border-color: #dbdbdb;
 }
@@ -1374,24 +1391,7 @@ data-servoyextra-fontawesome > div {
 .ag-table .ag-cell.font-icon {
   padding: 0 8px;
 }
-/* AG Theme Servoy */
-.ag-table.ag-theme-servoy .ag-body .ag-cell-value {
-  line-height: 23px;
-}
-/* Grouped rows */
-.ag-table.ag-theme-servoy .ag-row-group {
-  color: #777777;
-  background-color: #ffffff;
-}
-.ag-table.ag-theme-servoy .ag-row-group.ag-row-level-0 {
-  color: #e9720b;
-  background-color: #f9f9f9;
-}
-.ag-table.ag-theme-servoy .ag-row-group > .ag-cell {
-  font-weight: bold;
-}
-/* AG Grid Tool Panel */
-/* AG Grid side panel Button */
+/* AG Grid Side Panel Button */
 .ag-table .ag-tool-panel > .ag-side-buttons > button {
   webkit-appearance: none;
   -webkit-appearance: none;
@@ -1413,16 +1413,353 @@ data-servoyextra-fontawesome > div {
   background-color: #f6f6f6;
   /* TODO parametrize color */
 }
-/* AG Grid Side Tool panel */
+/*******************************************************************************************************************
+*
+* AG Grid Theme Servoy
+*
+* Body & Header
+* Header Filters
+* Checkbox & Input fields
+* Grouped Rows
+* Column Menu
+* 	Menu List
+* 	Filter
+* 	Column List
+* Side Panel
+* 	Filter
+* 	Columns
+* Horizontal Panel Drop
+* Side Panel Column Drop
+*
+*******************************************************************************************************************/
+.ag-table.ag-theme-servoy .ag-root {
+  border: 1px solid #dbdbdb;
+}
+.ag-table.ag-theme-servoy .ag-header {
+  color: #777777;
+  background-color: inherit;
+  border-bottom: 1px solid #dbdbdb;
+}
+.ag-theme-servoy .ag-header-cell,
+.ag-theme-servoy .ag-header-group-cell {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.ag-theme-servoy .ag-cell {
+  padding-left: 11px;
+  padding-right: 11px;
+}
+.ag-theme-servoy .ag-header-cell-label .ag-header-cell-text {
+  /*
+	overflow: hidden;
+    text-overflow: ellipsis; */
+}
+.ag-theme-servoy .ag-header-cell-label {
+  display: flex;
+}
+.ag-theme-servoy .ag-header-cell-label > span {
+  height: 100%;
+}
+.ag-theme-servoy .ag-icon-menu {
+  height: 24px;
+}
+.ag-table.ag-theme-servoy .ag-body .ag-cell-value {
+  line-height: 23px;
+}
+/* Ag Grid Theme Header Filter bar */
+.ag-theme-servoy .ag-floating-filter-body {
+  float: left;
+  height: 100%;
+  margin-right: 0;
+  width: calc(72%);
+}
+.ag-theme-servoy .ag-floating-filter-body input {
+  padding-left: 4px;
+  box-shadow: none;
+  color: #777777;
+  font-size: 1.4rem;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -ms-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  border-style: solid;
+  border-color: #dbdbdb;
+  border-width: 1px 1px 1px 1px;
+  border-radius: 0;
+}
+.ag-theme-servoy .ag-floating-filter-body input:focus {
+  border-color: #e9720b;
+  /* .svy-field:focus(); */
+}
+.ag-theme-servoy .ag-floating-filter-button {
+  float: right;
+  line-height: 16px;
+  margin-top: 4px;
+}
+.ag-theme-servoy .ag-floating-filter-button button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  height: 16px;
+  padding: 0;
+  width: 16px;
+}
+/* Ag Grid Theme Check icons */
+.ag-theme-servoy .ag-column-select-checkbox {
+  margin-right: 4px;
+}
+/*
+.ag-theme-servoy .ag-icon-checkbox-checked,
+.ag-theme-servoy .ag-icon-checkbox-checked:empty {
+	font-family: 'Glyphicons Halflings';
+  	letter-spacing: 5px;
+  	color: @field-check-color;
+	background: none;
+	line-height: 10px;
+    font-size: 12px;
+    height: auto;
+    width: auto;
+}
+
+.ag-theme-servoy .ag-icon-checkbox-checked:before {
+	content: "\e067";
+}
+
+.ag-theme-servoy .ag-icon-checkbox-unchecked {
+	font-family: 'Glyphicons Halflings';
+  	letter-spacing: 5px;
+  	color: @field-check-color;
+	background: none;
+	line-height: 10px;
+    font-size: 12px;
+    height: auto;
+    width: auto;
+}
+
+.ag-theme-servoy .ag-icon-checkbox-unchecked:before {
+	content: "\e157";
+}
+
+.ag-theme-servoy .ag-icon-checkbox-indeterminate {
+	font-family: 'Glyphicons Halflings';
+  	letter-spacing: 5px;
+  	color: @field-check-color;
+  	background: none;
+  	line-height: 10px;
+    font-size: 12px;
+    height: auto;
+    width: auto;
+}
+
+.ag-theme-servoy .ag-icon-checkbox-indeterminate:before {
+	content: "\e157";
+} */
+/* Ag Grid Theme Input Fields */
+.ag-table.ag-theme-servoy .ag-menu input,
+.ag-table.ag-theme-servoy .ag-menu select,
+.ag-table.ag-theme-servoy .ag-side-bar input,
+.ag-table.ag-theme-servoy .ag-side-bar select {
+  padding-left: 4px;
+  box-shadow: none;
+  color: #777777;
+  font-size: 1.4rem;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -ms-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  border-style: solid;
+  border-color: #dbdbdb;
+  border-width: 1px 1px 1px 1px;
+  border-radius: 0;
+}
+.ag-table.ag-theme-servoy .ag-menu input:focus,
+.ag-table.ag-theme-servoy .ag-menu select:focus,
+.ag-table.ag-theme-servoy .ag-side-bar input:focus,
+.ag-table.ag-theme-servoy .ag-side-bar select:focus {
+  padding-left: 4px;
+  border-color: #e9720b;
+  /* .svy-field:focus();  */
+}
+/* Ag Grid Theme Grouped rows */
+.ag-table.ag-theme-servoy .ag-row-group {
+  color: #777777;
+  background-color: #ffffff;
+}
+.ag-table.ag-theme-servoy .ag-row-group.ag-row-level-0 {
+  color: #e9720b;
+  background-color: #f9f9f9;
+}
+.ag-table.ag-theme-servoy .ag-row-group > .ag-cell {
+  font-weight: bold;
+}
+/* AG Grid Theme Column Menu */
+.ag-table.ag-theme-servoy .ag-menu {
+  background-color: #ffffff;
+  color: #777777;
+  border-radius: 2px;
+  border-color: #dbdbdb;
+}
+.ag-table.ag-theme-servoy .ag-tab-header {
+  background-color: #e8e6e6;
+}
+.ag-table.ag-theme-servoy .ag-tab-body {
+  padding: 8px 0;
+}
+.ag-table.ag-theme-servoy .ag-tab-header .ag-tab.ag-tab-selected {
+  background-color: inherit;
+  border-color: #dbdbdb;
+  border-bottom: 0px;
+}
+.ag-table.ag-theme-servoy .ag-tab-body .ag-menu-list {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.ag-table.ag-theme-servoy .ag-menu .ag-menu-option-active {
+  background: #ffffff;
+  color: #e9720b;
+}
+.ag-table.ag-theme-servoy .ag-filter-body-wrapper {
+  padding-bottom: 5px;
+}
+.ag-table.ag-theme-servoy .ag-filter .ag-filter-apply-panel {
+  border: 0;
+}
+.ag-table.ag-theme-servoy .ag-menu .ag-primary-cols-filter-wrapper {
+  margin-left: 4px;
+  margin-right: 0px;
+}
+.ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter {
+  width: 100%;
+  height: 32px;
+}
+.ag-table.ag-theme-servoy .ag-menu .ag-primary-cols-header-panel {
+  height: auto;
+  align-items: center;
+  padding-bottom: 8px;
+  padding-top: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* padding-left: 0; */
+  border-color: #dbdbdb;
+}
+.ag-table.ag-theme-servoy .ag-menu .ag-primary-cols-list-panel {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.ag-table.ag-theme-servoy .ag-column-select-panel .ag-column-tool-panel-column .ag-column-select-checkbox {
+  margin-left: 0;
+}
+/* AG Grid Theme Tool Panel & Side Bar */
+.ag-theme-servoy .ag-side-bar {
+  background-color: #f9f9f9;
+  color: #777777;
+  border-bottom: 1px solid #dbdbdb;
+  border-right: 1px solid #dbdbdb;
+  border-top: 1px solid #dbdbdb;
+}
+.ag-theme-servoy .ag-side-bar .ag-side-buttons {
+  background-color: #ffffff;
+  /* TODO parametrize color */
+  color: #777777;
+}
+.ag-theme-servoy .ag-side-bar .ag-side-buttons .ag-selected button {
+  background-color: #f9f9f9;
+  /* TODO parametrize color */
+  color: #777777;
+}
+/* Ag Grid Theme Side Panel Filter */
+.ag-theme-servoy .ag-tool-panel-wrapper {
+  border-right: 1px solid #dbdbdb;
+}
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel {
+  width: 100%;
+}
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel .ag-filter-toolpanel-header {
+  padding: 10px;
+}
+.ag-theme-servoy .ag-filter-panel .ag-header-cell-label {
+  display: flex;
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #dbdbdb;
+}
+.ag-theme-servoy .ag-filter-panel .ag-header-cell-label .ag-header-cell-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ag-theme-servoy .ag-filter-toolpanel-body.ag-filter .ag-filter-air {
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 10px;
+}
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel .ag-filter-body-wrapper > div:first-child > * {
+  margin-top: 10px;
+}
+.ag-table.ag-theme-servoy .ag-filter-filter,
+.ag-table.ag-theme-servoy .ag-filter-select {
+  margin: 4px 10px;
+  width: calc(80%);
+  height: 32px;
+}
+.ag-table.ag-theme-servoy .ag-filter-apply-panel {
+  display: flex;
+  justify-content: space-around;
+  padding: 4px;
+}
+.ag-table.ag-theme-servoy .ag-filter-apply-panel button {
+  webkit-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  border: 1px solid #dbdbdb;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+.ag-table.ag-theme-servoy .ag-filter-apply-panel button:first-child {
+  background-color: #e8e6e6;
+  color: #777777;
+  border-color: #e8e6e6;
+}
+.ag-table.ag-theme-servoy .ag-filter-apply-panel button:last-child {
+  background-color: #428bca;
+  color: #ffffff;
+  border-color: #428bca;
+}
+/* Ag Grid Theme Side Panel Columns */
+.ag-theme-servoy .ag-column-drag {
+  height: 12px;
+  background-position-y: 0 !important;
+}
+.ag-theme-servoy .ag-column-tool-panel-column {
+  align-items: center;
+  overflow: hidden;
+  margin-left: 10px;
+  min-height: 20px;
+}
+.ag-theme-servoy .ag-column-tool-panel-column .ag-column-select-checkbox > span {
+  display: flex;
+}
+.ag-theme-servoy .ag-column-tool-panel-column .ag-column-tool-panel-column-label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* AG Grid Theme Side Tool panel */
 .ag-table.ag-theme-servoy .ag-column-panel .ag-pivot-mode-panel,
 .ag-table.ag-theme-servoy .ag-column-panel .ag-primary-cols-header-panel,
 .ag-table.ag-theme-servoy .ag-column-panel .ag-column-drop-vertical .ag-column-drop-list {
-  margin: 0 12px 8px 16px;
-  padding-bottom: 8px;
+  /* margin: 0 12px 8px 16px; */
+  padding: 8px 10px;
   border-width: 0;
   border-bottom-width: 1px;
   border-color: #dbdbdb;
   border-style: solid;
+}
+.ag-table.ag-theme-servoy .ag-column-panel .ag-column-drop-vertical .ag-column-drop-list {
+  border-bottom-width: 0;
+}
+.ag-table.ag-theme-servoy .ag-column-panel .ag-primary-cols-list-panel {
+  margin-top: 8px;
 }
 .ag-table.ag-theme-servoy .ag-column-panel .ag-column-drop-vertical .ag-column-drop-icon {
   margin-left: 16px;
@@ -1431,21 +1768,8 @@ data-servoyextra-fontawesome > div {
   align-items: center;
 }
 .ag-table.ag-theme-servoy .ag-primary-cols-header-panel a {
+  margin-left: 0;
   margin-right: 4px;
-}
-.ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter {
-  width: 100%;
-  color: #777777;
-  font-size: 1.4rem;
-  border-style: solid;
-  border-color: #dbdbdb;
-  border-width: 1px 1px 1px 1px;
-}
-.ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter:focus {
-  border-color: #e9720b;
-  outline: 1px;
-  outline-color: #f58c32;
-  box-shadow: none;
 }
 /*
 .ag-table.ag-theme-servoy .ag-table.ag-theme-servoy .ag-tool-panel .ag-column-drop {
@@ -1454,7 +1778,13 @@ data-servoyextra-fontawesome > div {
     padding: 4px 0;
     padding-bottom: 4px;
 } */
-/* Ag Group Horizontal Panel Column Drop */
+/* Ag Group Theme Horizontal Panel Column Drop */
+.ag-theme-servoy .ag-column-drop-horizontal {
+  background-color: inherit;
+  border: 1px solid #dbdbdb;
+  border-bottom: 0;
+  padding: 5px;
+}
 .ag-table.ag-theme-servoy .ag-column-drop-horizontal > div:first-child {
   float: left;
   height: 100%;
@@ -1497,7 +1827,11 @@ data-servoyextra-fontawesome > div {
     /*line-height: 32px;*
     display: block;
 } */
-/* Ag-Grid Side Panel Column Drops */
+/* Ag-Grid Theme Side Panel Column Drops */
+.ag-table.ag-theme-servoy .ag-column-drop-vertical {
+  padding-top: 8px;
+  border-top: 1px solid #dbdbdb;
+}
 .ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-cell {
   margin-top: 4px;
   border: 1px solid #dbdbdb;
@@ -1538,6 +1872,9 @@ data-servoyextra-fontawesome > div {
 .ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-list:after {
   margin-top: 4px;
 }
+/*------------------------------------------------------------------------------------------------------------------
+* ----End AG Grid Theme Servoy-----------
+* ------------------------------------------------------------------------------------------------------------------*/
 /* Popup */
 .yuimenu {
   padding: 0;
@@ -2560,8 +2897,6 @@ fieldset[disabled] .btn-outline-default.active {
   padding: 30px 0;
   font-size: 24px;
   text-transform: uppercase;
-}
-.header-bar {
   /* height: initial !important; TODO what is this for, to center the text of a navbar ? */
 }
 .header-bar .bts-label,
