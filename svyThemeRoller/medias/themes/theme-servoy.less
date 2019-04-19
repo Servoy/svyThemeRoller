@@ -938,6 +938,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 	content: "\e067";
 }
 
+
 /* Badge */
 .btn-filter .badge {
     background-color: @main-color;
@@ -1609,6 +1610,7 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-theme-servoy .ag-floating-filter-body input {
+	height: @table-search-field-height;
 	padding-left: 4px;
     .svy-field();
 }
@@ -1619,9 +1621,21 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-theme-servoy .ag-floating-filter-button {
-    float: right;
+  	/* margin-top: -49px; */
+}
+
+.ag-theme-servoy .ag-floating-filter-button button {
+    /* height:49px */
+}
+
+.ag-theme-servoy .ag-floating-filter-button {
+    /* float: right;
+    margin-top: 4px; */
     line-height: 16px;
-    margin-top: 4px;
+	position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
 }
 
 .ag-theme-servoy .ag-floating-filter-button button {
@@ -1850,8 +1864,8 @@ data-servoyextra-fontawesome > div {
     margin-top: 10px;
 }
 
-.ag-table.ag-theme-servoy .ag-filter-filter,
-.ag-table.ag-theme-servoy .ag-filter-select {
+.ag-table.ag-theme-servoy .ag-filter-body .ag-filter-filter,
+.ag-table.ag-theme-servoy .ag-filter-body-wrapper .ag-filter-select {
 	margin: 4px 10px;
     width: calc(100% - 20px);
     height: @table-search-field-height;
