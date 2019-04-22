@@ -118,8 +118,9 @@
 /* Tables */
 @table-bg: inherit;
 @table-border-width: 0;							/* TODO Table boder width */
+@table-border-radius: 0;
 @table-header-bg: inherit;						/* Table header bg */
-@table-header-text-color: @text-color;						/* Table header bg */
+@table-header-text-color: @text-color;			/* Table header color */
 @table-header-font-style: normal;				/* Table header font style */
 @table-header-text-transform: uppercase;		/* Table header text transform */
 
@@ -1531,6 +1532,10 @@ data-servoyextra-fontawesome > div {
     padding: 8px 0 8px 0;
 }
 
+.ag-table .ag-side-bar .ag-side-buttons .ag-selected { 
+	overflow: hidden;
+}
+
 .ag-table .ag-side-bar .ag-side-buttons .ag-selected button { 
 	background-color: #f6f6f6; /* TODO parametrize color */
 }
@@ -1555,8 +1560,13 @@ data-servoyextra-fontawesome > div {
 *
 *******************************************************************************************************************/
 
+.ag-table.ag-theme-servoy {
+	border: @table-border-width solid @border-color;
+	border-radius: @table-border-radius;
+}
+
 .ag-table.ag-theme-servoy .ag-root {
-	border: 1px solid @border-color;
+	border-radius: @table-border-radius;
 }
 
 .ag-table.ag-theme-servoy .ag-header {
@@ -1814,14 +1824,22 @@ data-servoyextra-fontawesome > div {
 .ag-theme-servoy .ag-side-bar {
 	background-color: @table-side-panel-bg;
 	color: @table-side-panel-text-color;
-	border-bottom: 1px solid @border-color;
-    border-right: 1px solid @border-color;
-    border-top: 1px solid @border-color;
+	border-radius: @table-border-radius;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .ag-theme-servoy .ag-side-bar .ag-side-buttons { 
 	background-color: @table-side-button-bg; /* TODO parametrize color */
 	color: @table-side-button-text-color;
+	border-left: 1px solid @border-color;
+	border-radius: @table-border-radius;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+	
+/* 	border-bottom: 1px solid @border-color;
+    border-right: 1px solid @border-color;
+    border-top: 1px solid @border-color; */
 }
 
 .ag-theme-servoy .ag-side-bar .ag-side-buttons .ag-selected button { 
@@ -1829,9 +1847,16 @@ data-servoyextra-fontawesome > div {
 	color: @table-side-button-selected-text-color;
 }
 
+.ag-theme-servoy .ag-side-bar .ag-side-buttons:first-child .ag-selected button { 
+	border-radius: @table-border-radius;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
 /* Ag Grid Theme Side Panel Filter */
 .ag-theme-servoy .ag-tool-panel-wrapper {
-	border-right: 1px solid @border-color;
+	border-left: 1px solid @border-color;
 }
 
 .ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel {
