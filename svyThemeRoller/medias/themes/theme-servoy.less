@@ -1471,6 +1471,11 @@ data-servoyextra-fontawesome > div {
 	border: @table-border-width @border-style @border-color;
 }
 
+.svy-table.no-border,
+.bts-table.no-border {
+	border: none;
+}
+
 .bts-table thead,
 .svy-table thead {
 	color: @table-header-text-color;
@@ -2151,6 +2156,20 @@ data-servoyextra-fontawesome > div {
 
 .ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-list:after {
 	margin-top: 4px;
+}
+
+/* Ag Variations */
+
+.ag-table.no-border {
+	border: 0;
+}
+
+.ag-table.no-row-selected .ag-row-selected.ag-row-even {
+	.ag-table .ag-row-even();
+}
+
+.ag-table.no-row-selected .ag-row-selected.ag-row-odd {
+	.ag-table .ag-row-odd();
 }
 
 /*------------------------------------------------------------------------------------------------------------------
