@@ -9,6 +9,11 @@
 @secondary-color-light: #464E56;				/* Secondary color light*/
 @secondary-color-dark: #364453;					/* Secondary color dark*/
 
+/* Scrollbars */
+@theme-scrollbar: true;							/* Set theme-scrollbar to true to use custom scrollbar theme, set it to false to use the default browser webkit */
+@scrollbar-bg: #FFF;							/* Scrollbar background color. Only when theme-scrollbar is true */
+@scrollbar-color: #DBDBDB;						/* Scrollbar thumb color. Only when theme-scrollbar is true */
+@scrollbar-border-width: 0 1px;					/* Scrollbar border width. Only when theme-scrollbar is true */
 
 /* Font & Font Sizes */
 @font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -117,7 +122,7 @@
 
 /* Tables */
 @table-bg: inherit;								/* Table bg */
-@table-border-width: 0;							/* TODO Table border width */
+@table-border-width: 1px;							/* TODO Table border width */
 @table-border-radius: 0;
 @table-header-bg: inherit;						/* Table header bg */
 @table-header-text-color: @text-color;			/* Table header color */
@@ -1553,9 +1558,6 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-table .ag-row {
-	border-style: solid;
-    border-width: 0;
-	border-bottom-width: @table-row-border-width;
 	border-color: @border-color;
 }
 
@@ -1636,6 +1638,29 @@ data-servoyextra-fontawesome > div {
 	border-radius: @table-border-radius;
 }
 
+/* No scrollbar border for ag-grid table */
+.ag-table.ag-theme-servoy ::-webkit-scrollbar-track when (@theme-scrollbar = true) {
+	border: 0;
+}
+
+.ag-table.ag-theme-servoy ::-webkit-scrollbar-track:horizontal when (@theme-scrollbar = true) {
+	border-left: 0;
+	border-right: 0;
+}
+
+.ag-table.ag-theme-servoy ::-webkit-scrollbar-track:vertical when (@theme-scrollbar = true) {
+	border-top: 0;
+	border-bottom: 0;
+}
+
+.ag-table.ag-theme-servoy .ag-body-viewport-wrapper ::-webkit-scrollbar-track:horizontal when (@theme-scrollbar = true) {
+	border-top: 1px @border-style @border-color;
+}
+
+.ag-table.ag-theme-servoy .ag-body-viewport-wrapper ::-webkit-scrollbar-track:vertical when (@theme-scrollbar = true) {
+	border-left: 1px @border-style @border-color;
+}
+
 .ag-table.ag-theme-servoy .ag-root {
 	border-radius: @table-border-radius;
 }
@@ -1644,6 +1669,13 @@ data-servoyextra-fontawesome > div {
 	color: @table-header-text-color;
     background-color: @table-header-bg;
     border-bottom: 1px solid @border-color;
+}
+
+.ag-table.ag-theme-servoy .ag-row {
+	border-style: solid;
+    border-width: 0;
+	border-bottom-width: @table-row-border-width;
+	border-color: @border-color;
 }
 
 .ag-theme-servoy .ag-header-cell, 
@@ -1680,6 +1712,29 @@ data-servoyextra-fontawesome > div {
 
 .ag-table.ag-theme-servoy .ag-body .ag-cell-value {
 	line-height: @ngtable-cell-value-line-height;
+}
+
+// Table Footer
+.ag-table.ag-theme-servoy .ag-floating-bottom-viewport,
+.ag-table.ag-theme-servoy .ag-pinned-left-floating-bottom,
+.ag-table.ag-theme-servoy .ag-pinned-right-floating-bottom {
+	border-top: 1px solid @border-color;
+}
+
+.ag-table.ag-theme-servoy .ag-floating-bottom .ag-row {
+	border-bottom: 0;
+}
+
+/* Ag Grid Theme Pinned Columns */
+
+.ag-pinned-left-header,
+.ag-pinned-left-cols-viewport-wrapper {
+	border-right: 1px solid @border-color;
+}
+
+.ag-pinned-right-header,
+.ag-pinned-right-cols-viewport-wrapper {
+	border-left: 1px solid @border-color;
 }
 
 /* Ag Grid Theme Header Filter bar */
@@ -2057,9 +2112,13 @@ data-servoyextra-fontawesome > div {
 /* Ag Group Theme Horizontal Panel Column Drop */
 .ag-theme-servoy .ag-column-drop-horizontal {
 	background-color: @table-header-bg;
-	border: 1px solid @border-color;
-	border-bottom: 0;
+	/* border: 1px solid @border-color; */
+	border-bottom: 1px solid @border-color;
 	padding: 5px;
+}
+
+.ag-theme-servoy .ag-column-drop-horizontal .ag-column-drop-cell {
+	margin-top: 4px;
 }
 
 .ag-table.ag-theme-servoy .ag-column-drop-horizontal > div:first-child {
@@ -2074,12 +2133,12 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-column-drop-cell .ag-column-drop-cell-button:after {
-	font-family: "FontAwesome", "Font Awesome 5 Free";
+	font-family: "Glyphicons Halflings", "FontAwesome", "Font Awesome 5 Free";
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
-    content: "\f054";
-    vertical-align: middle;
+    content: "\e080";
+    /* vertical-align: middle; */
 }
 
 .ag-table.ag-theme-servoy .ag-column-drop-horizontal  .ag-column-drag {
@@ -2147,11 +2206,12 @@ data-servoyextra-fontawesome > div {
     color: @text-color;
     border-radius: @border-radius;
     padding: 4px 16px;
-    display: inline-block;
+    display: inline;
 	line-height: 20px;
 }
 
 .ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-list:after {
+	display: inline-block;
 	width: 100%;
 }
 
@@ -2233,27 +2293,31 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Scrollbar Style */
-::-webkit-scrollbar {
-	width: 12px;
-	height: 12px;
-	padding: 0 5px;
+
+#webkit-scrollbar (@themed-scrollbar) when (@themed-scrollbar = true) {
+	::-webkit-scrollbar {
+		width: 12px;
+		height: 12px;
+		padding: 0 5px;
+	}
+	
+	::-webkit-scrollbar-track {
+		border-radius: 0px;
+		background: @scrollbar-bg;
+		border: 1px @border-style @border-color;
+		border-width: @scrollbar-border-width;
+	}
+	
+	::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background: @scrollbar-color;
+	}
+	::-webkit-scrollbar-thumb:window-inactive {
+		background: #F8F8F8;
+	}
 }
 
-::-webkit-scrollbar-track {
-	border-radius: 0px;
-	background: #FFF;
-	border: @table-border-width @border-style @border-color;
-	border-top: 0;
-	border-bottom: 0;
-}
-
-::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	background: @border-color;
-}
-::-webkit-scrollbar-thumb:window-inactive {
-	background: #F8F8F8;
-}
+#webkit-scrollbar(@theme-scrollbar);
 
 /************************************************************************************
  Style Layout Containers
