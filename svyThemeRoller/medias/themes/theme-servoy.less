@@ -1395,6 +1395,16 @@ data-servoyextra-fontawesome > div {
 	color: @table-row-selected-text-color;
 }
 
+.no-row-selected .ui-grid-row.ui-grid-row-selected:nth-child(even) div.ui-grid-cell {
+	background: @table-row-even-bg-color !important;
+	color: @table-row-even-text-color;
+}
+
+.no-row-selected .ui-grid-row.ui-grid-row-selected:nth-child(odd) div.ui-grid-cell {
+	background: @table-row-odd-bg-color !important;
+	color: @table-row-odd-text-color;
+}
+
 .ui-grid-cell .svy-field, 
 .ui-grid-cell .svy-password, 
 .ui-grid-cell .svy-textarea, 
@@ -1476,6 +1486,30 @@ data-servoyextra-fontawesome > div {
 	color: @field-color; */
 }
 
+/* Re-style fields when no-row-selected class is applied */
+.no-row-selected .ui-grid-row-selected div.ui-grid-cell .svy-label,
+.no-row-selected .ui-grid-row-selected div.ui-grid-cell .bts-label {
+	color: @field-color;
+}
+
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-field,
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-password,  
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-textarea, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-textarea, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-textfield, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-textbox, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-typeahead, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-typeahead, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-combobox, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-combobox .ui-select-toggle, .ui-grid-row-selected .ui-grid-cell .svy-combobox input,
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-select, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-calendar, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-calendar, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-calendar input {
+	outline: @main-color;
+	color: @field-color;
+}
+
 /* Servoy Bootstrap/Extra Table */
 .svy-table,
 .bts-table {
@@ -1495,12 +1529,14 @@ data-servoyextra-fontawesome > div {
 	text-transform: @table-header-text-transform;		/* Table header text transform */
 }
 
-.svy-table tbody tr:nth-child(even):not(.table-servoyextra-selected) {
+.svy-table tbody tr:nth-child(even):not(.table-servoyextra-selected),
+.svy-table.no-row-selected tbody tr:nth-child(even) {
 	background: @table-row-even-bg-color;
 	color: @table-row-even-text-color;
 }
 
-.svy-table tbody tr:nth-child(odd):not(.table-servoyextra-selected) {
+.svy-table tbody tr:nth-child(odd):not(.table-servoyextra-selected),
+.svy-table.no-row-selected tbody tr:nth-child(odd) {
 	background: @table-row-odd-bg-color;
 	color: @table-row-odd-text-color;
 }
