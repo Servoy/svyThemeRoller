@@ -60,10 +60,10 @@
 @field-font-size: @text-font-size;
 @field-bg : #FFF;								/* Field bg */
 @field-disabled-bg : @field-bg;					/* Field disabled bg */
-@field-color: @text-color;  					/* Field color #4A4A4A */
+@field-color: @text-color;  					/* Field color */
 @field-addon-bg: @field-bg;						/* Field addon bg */
 @field-border-width: 1px 1px @border-width 1px;	/* Field width */
-@field-border-radius: 2px;
+@field-border-radius: 2px;						/* Field border radius */
 @field-check-color: @brand-info;				/* Check and Radio Color */
 
 /* TODO icons */
@@ -91,9 +91,9 @@
 @sidenav-secondary-selected-border-width: 0px 0px 0px 5px; /* Border for selected top-level item top|right|bottom|left */
 
 /* Navbar */
-@navbar-bg: @main-color;								/* #f8f8f8; */
-@navbar-bg-highlighted: @main-color-dark; 				/* @main-color; */
-@navbar-text-color: @main-color-inverse;				/* @text-color; */
+@navbar-bg: @main-color;								/* Navbar background color; */
+@navbar-bg-highlighted: @main-color-dark; 				/* Navbar highlighted item; */
+@navbar-text-color: @main-color-inverse;				/* Navbar text color; */
 @navbar-dropdown-bg: @navbar-bg;
 @navbar-dropdown-text-color: @navbar-text-color;
 @navbar-active-bg: @navbar-bg;
@@ -137,25 +137,24 @@
 @table-row-selected-text-color: @main-color-inverse;
 @table-row-border-width: 1px;
 
-/* NG Table specific style */
+/* NG Table style: applied only for NG Grid components having the styleClass ag-theme-servoy */
 @ngtable-cell-value-line-height : 23px;
+@ngtable-row-group-bg: @body-bg;				
+@ngtable-row-group-color: @text-color;			
+@ngtable-row-group-bg-level-0: #F9F9F9;			
+@ngtable-row-group-color-level-0: @main-color;			
+@ngtable-row-group-cell-font-weight : bold;			
 
-@ngtable-row-group-bg: @body-bg;
-@ngtable-row-group-color: @text-color;
-@ngtable-row-group-bg-level-0: #F9F9F9;
-@ngtable-row-group-color-level-0: @main-color;
-@ngtable-row-group-cell-font-weight : bold;
-
-/* NG Table Panels */
-@table-menu-panel-bg: @body-bg;
-@table-menu-panel-text-color: @text-color;
-@table-side-panel-bg: #F9F9F9;
-@table-side-panel-text-color: @text-color;
-@table-side-button-bg: @body-bg;
-@table-side-button-text-color: @text-color;
-@table-side-button-selected-bg: #F9F9F9;
-@table-side-button-selected-text-color: @text-color;
-@table-search-field-height: 32px;
+/* NG Table Panels: applied only for NG Grid components having the styleClass ag-theme-servoy */
+@ngtable-menu-panel-bg: @body-bg;
+@ngtable-menu-panel-text-color: @text-color;
+@ngtable-side-panel-bg: #F9F9F9;
+@ngtable-side-panel-text-color: @text-color;
+@ngtable-side-button-bg: @body-bg;
+@ngtable-side-button-text-color: @text-color;
+@ngtable-side-button-selected-bg: #F9F9F9;
+@ngtable-side-button-selected-text-color: @text-color;
+@ngtable-search-field-height: 32px;
 
 /* Breadcrumb specific style */
 @breadcrumb-bg: @body-bg;
@@ -1389,6 +1388,23 @@ data-servoyextra-fontawesome > div {
 	box-shadow: none;
 }
 
+/* UI Grid hover row */
+.ui-grid-row:hover>[ui-grid-row]>.ui-grid-cell:hover .ui-grid-cell, 
+.ui-grid-row:nth-child(odd):hover .ui-grid-cell, 
+.ui-grid-row:nth-child(even):hover .ui-grid-cell {
+	background-color: lighten(@table-row-selected-bg-color, 20%);
+}
+
+.no-row-selected .ui-grid-row:nth-child(odd):hover>[ui-grid-row]>.ui-grid-cell:hover .ui-grid-cell,  
+.no-row-selected .ui-grid-row:nth-child(even):hover .ui-grid-cell {
+	background: @table-row-even-bg-color;
+}
+
+.no-row-selected .ui-grid-row:nth-child(odd):hover>[ui-grid-row]>.ui-grid-cell:hover .ui-grid-cell, 
+.no-row-selected .ui-grid-row:nth-child(odd):hover .ui-grid-cell{
+	background: @table-row-odd-bg-color;
+}
+
 /* Selected Row */
 .ui-grid-row.ui-grid-row-selected div.ui-grid-cell {
 	background-color: @table-row-selected-bg-color !important;
@@ -1782,7 +1798,7 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-theme-servoy .ag-floating-filter-body input {
-	height: @table-search-field-height;
+	height: @ngtable-search-field-height;
 	padding-left: 4px;
     .svy-field();
 }
@@ -1906,8 +1922,8 @@ data-servoyextra-fontawesome > div {
 
 /* AG Grid Theme Column Menu */
 .ag-table.ag-theme-servoy .ag-menu {
-	background-color: @table-menu-panel-bg;
-	color: @table-menu-panel-text-color;
+	background-color: @ngtable-menu-panel-bg;
+	color: @ngtable-menu-panel-text-color;
 	border-radius: @border-radius;
 	border-color: @border-color;
 }
@@ -1957,7 +1973,7 @@ data-servoyextra-fontawesome > div {
 
 .ag-table.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter {
 	width: 100%;
-	height: @table-search-field-height;
+	height: @ngtable-search-field-height;
 }
 
 // The Column List
@@ -1984,16 +2000,16 @@ data-servoyextra-fontawesome > div {
 
 /* AG Grid Theme Tool Panel & Side Bar */
 .ag-theme-servoy .ag-side-bar {
-	background-color: @table-side-panel-bg;
-	color: @table-side-panel-text-color;
+	background-color: @ngtable-side-panel-bg;
+	color: @ngtable-side-panel-text-color;
 	border-radius: @table-border-radius;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 
 .ag-theme-servoy .ag-side-bar .ag-side-buttons { 
-	background-color: @table-side-button-bg; /* TODO parametrize color */
-	color: @table-side-button-text-color;
+	background-color: @ngtable-side-button-bg; /* TODO parametrize color */
+	color: @ngtable-side-button-text-color;
 	border-left: 1px solid @border-color;
 	border-radius: @table-border-radius;
     border-top-left-radius: 0;
@@ -2005,8 +2021,8 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-theme-servoy .ag-side-bar .ag-side-buttons .ag-selected button { 
-	background-color: @table-side-button-selected-bg; /* TODO parametrize color */
-	color: @table-side-button-selected-text-color;
+	background-color: @ngtable-side-button-selected-bg; /* TODO parametrize color */
+	color: @ngtable-side-button-selected-text-color;
 }
 
 .ag-theme-servoy .ag-side-bar .ag-side-buttons:first-child .ag-selected button { 
@@ -2055,7 +2071,7 @@ data-servoyextra-fontawesome > div {
 .ag-table.ag-theme-servoy .ag-filter-body-wrapper .ag-filter-select {
 	margin: 4px 10px;
     width: calc(100% - 20px);
-    height: @table-search-field-height;
+    height: @ngtable-search-field-height;
 }
 
 .ag-table.ag-theme-servoy .ag-filter-apply-panel {
