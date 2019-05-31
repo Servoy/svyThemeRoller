@@ -119,6 +119,7 @@
 @window-header-color: @brand-primary-inverse;	/* Window header color */
 @window-body-bg: @body-bg;						/* Window body bg */
 @window-footer-bg: @body-bg;					/* Window footer bg */
+@window-border-radius: 6px;						/* Border radius for window and dialogs */
 
 /* Dialogs */
 @dialog-info-header-bg: @brand-info;			/* Info Dialog header bg */
@@ -570,8 +571,8 @@ h6, .h6 {
 .svy-dialog .window-header {
 	background: @window-header-bg;
 	color: @window-header-color;
-	border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+	border-top-left-radius: @window-border-radius;
+    border-top-right-radius: @window-border-radius;
     padding: 15px;
 }
 
@@ -591,37 +592,50 @@ h6, .h6 {
 
 .svy-dialog .window-footer {
 	background: @window-footer-bg;
-	border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+	border-bottom-left-radius: @window-border-radius;
+    border-bottom-right-radius: @window-border-radius;
+}
+
+.svy-dialog,
+.modal-content {
+	border-radius: @window-border-radius;
 }
 
 // Input & Select Dialog
 .bootbox-prompt .modal-header {
 	background: @dialog-input-header-bg;
 	color: @dialog-input-header-color;
-	border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+	border-top-left-radius: @window-border-radius;
+    border-top-right-radius: @window-border-radius;
 }
 
 // Info Dialog
 .type-info .modal-header {
 	background: @dialog-info-header-bg;
 	color: @dialog-info-header-color;
+	border-top-left-radius: @window-border-radius;
+    border-top-right-radius: @window-border-radius;
 }
 
 .type-question .modal-header {
 	background: @dialog-question-header-bg;
 	color: @dialog-question-header-color;
+	border-top-left-radius: @window-border-radius;
+    border-top-right-radius: @window-border-radius;
 }
 
 .type-warning .modal-header {
 	background: @brand-warning;
 	color: @brand-warning-inverse;
+	border-top-left-radius: @window-border-radius;
+    border-top-right-radius: @window-border-radius;
 }
 
 .type-error .modal-header {
 	background: @brand-danger;
 	color: @brand-danger-inverse;
+	border-top-left-radius: @window-border-radius;
+    border-top-right-radius: @window-border-radius;
 }
 
 
