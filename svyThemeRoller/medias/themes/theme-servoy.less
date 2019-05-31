@@ -115,15 +115,23 @@
 @tab-active-border-width: 0;
 
 /* Windows */
-@window-header-bg : @body-bg-inverse;			/* Window header bg */
+@window-header-bg : @brand-primary;				/* Window header bg */
+@window-header-color: @brand-primary-inverse;	/* Window header color */
 @window-body-bg: @body-bg;						/* Window body bg */
 @window-footer-bg: @body-bg;					/* Window footer bg */
-@window-header-color: @text-color-inverse;		/* Window header color */
+
+/* Dialogs */
+@dialog-info-header-bg: @brand-info;			/* Info Dialog header bg */
+@dialog-info-header-color: @brand-info-inverse; /* Info Dialog header color */
+@dialog-question-header-bg: @window-header-bg;	/* Question Dialog header bg */
+@dialog-question-header-color: @window-header-color;	/* Question Dialog header color */
+@dialog-input-header-bg: @window-header-bg;			/* Input and Select Dialog header bg */
+@dialog-input-header-color: @window-header-color;	/* Input and Select Dialog header color */
 
 /* Tables */
 @table-bg: inherit;								/* Table bg */
-@table-border-width: 1px;							/* TODO Table border width */
-@table-border-radius: 0;
+@table-border-width: 1px;						/* TODO Table border width */
+@table-border-radius: 0;						/* Table border radius */
 @table-header-bg: inherit;						/* Table header bg */
 @table-header-text-color: @text-color;			/* Table header color */
 @table-header-font-style: normal;				/* Table header font style */
@@ -559,18 +567,62 @@ h6, .h6 {
 */
 
 /* Dialogs */
-.svy-dialog .svy-header {
+.svy-dialog .window-header {
 	background: @window-header-bg;
+	color: @window-header-color;
+	border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.svy-dialog.active .window-header .window-title {
 	color: @window-header-color;
 }
 
-.svy-dialog .svy-body {
+.svy-dialog .window-header .svy-dialog-close {
+	opacity: 0.8;
+	color: @window-header-color;
+	text-shadow: none;
+}
+
+.svy-dialog .window-body {
 	background: @window-body-bg;
 }
 
-.svy-dialog .svy-footer {
+.svy-dialog .window-footer {
 	background: @window-footer-bg;
+	border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
+
+// Input & Select Dialog
+.bootbox-prompt .modal-header {
+	background: @dialog-input-header-bg;
+	color: @dialog-input-header-color;
+	border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+// Info Dialog
+.type-info .modal-header {
+	background: @dialog-info-header-bg;
+	color: @dialog-info-header-color;
+}
+
+.type-question .modal-header {
+	background: @dialog-question-header-bg;
+	color: @dialog-question-header-color;
+}
+
+.type-warning .modal-header {
+	background: @brand-warning;
+	color: @brand-warning-inverse;
+}
+
+.type-error .modal-header {
+	background: @brand-danger;
+	color: @brand-danger-inverse;
+}
+
 
 /* Button */
 .svy-button,
