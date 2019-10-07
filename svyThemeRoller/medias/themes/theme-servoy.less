@@ -227,6 +227,13 @@ html, body {
 	outline: none;
 }
 
+
+/**********************************************
+*
+* Generic Rules 
+*
+**********************************************/
+
 .full-size {
 	width: 100%;
 	height: 100%;
@@ -477,6 +484,10 @@ h6, .h6 {
 /* TODO does make sense ? */
 .border-radius {
 	border-radius: @border-radius;
+}
+
+.border-round {
+	border-radius: 50px;
 }
 
 .no-border {
@@ -941,6 +952,24 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 
 .svy-combobox.ui-select-bootstrap .ui-select-choices-row.active>span {
 	background-color: @main-color;
+}
+
+.svy-combobox.border-radius {
+	
+	input,
+	.ui-select-toggle,
+	.ui-select-bootstrap > .ui-select-match {
+		border-radius: @border-radius;
+	}
+}
+
+.svy-combobox.border-round {
+	
+	input,
+	.ui-select-toggle,
+	.ui-select-bootstrap > .ui-select-match {
+		border-radius: 50px;
+	}
 }
 
 
