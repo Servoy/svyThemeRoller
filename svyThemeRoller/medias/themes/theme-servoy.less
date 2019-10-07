@@ -112,8 +112,8 @@
 @window-border-radius: 6px;						/* Border radius for window and dialogs */
 
 /* Popup Menu */
-@popup-selected-bg: transparent;
-@popup-selected-text: @toolbar-icon-hover;
+@popup-selected-bg: @body-bg;
+@popup-selected-text: @text-color;
 @popup-disabled-color: @border-color;
 
 /* Dialogs */
@@ -233,337 +233,6 @@ html, body {
 }
 
 
-/**********************************************
-*
-* Generic Rules 
-*
-**********************************************/
-
-.full-size {
-	width: 100%;
-	height: 100%;
-}
-
-.full-width {
-	width: 100%;
-}
-
-.full-height {
-	height: 100%;
-}
-
-.width-auto {
-	width: auto;
-}
-
-.width-auto-important {
-	width: auto !important;
-}
-
-/* Reset Header Margins */
-h1, .h1, h2, .h2, h3, .h3,
-h4, .h4, h5, .h5, h6, .h6 {
-    margin-top: 0;
-    margin-bottom: 0;	
-}
-
-h1, .h1 {
-  font-size: @font-size-h1;
-  line-height: if((isunit(@font-size-h1, rem)), unit(ceil(@font-size-h1 * @rem-to-px * 1.1), px), ceil(@font-size-h1 * 1.1));
-}
-
-h2, .h2 {
-  font-size: @font-size-h2;
-  line-height: if((isunit(@font-size-h2, rem)), unit(ceil(@font-size-h2 * @rem-to-px * 1.1), px), ceil(@font-size-h2 * 1.1));
-}
-
-h3, .h3 {
-  font-size: @font-size-h3;
-  line-height: if((isunit(@font-size-h3, rem)), unit(ceil(@font-size-h3 * @rem-to-px * 1.1), px), ceil(@font-size-h3 * 1.1));
-}
-
-h4, .h4 {
-  font-size: @font-size-h4;
-  line-height: if((isunit(@font-size-h4, rem)), unit(ceil(@font-size-h4 * @rem-to-px * 1.1), px), ceil(@font-size-h4 * 1.1));
-}
-
-h5, .h5 {
-  font-size: @font-size-h5;
-  line-height: if((isunit(@font-size-h5, rem)), unit(ceil(@font-size-h5 * @rem-to-px * 1.1), px), ceil(@font-size-h5 * 1.1));
-}
-
-h6, .h6 {
-  font-size: @font-size-h6;
-  line-height: if((isunit(@font-size-h6, rem)), unit(ceil(@font-size-h6 * @rem-to-px * 1.1), px), ceil(@font-size-h6 * 1.1));
-}
-
-/* To be used on a tab/tabless panel when nesting responsive form. Is used to indent the nested form with the container form */
-.margin-reset {
-	margin-left: -15px;
-	margin-right: -15px;
-}
-
-/* Margins, to be used on rows to separate lines */
-.no-margin {
-	margin: 0;
-}
-
-.margin-10 {
-	margin: @box-size-10;
-}
-
-.margin-15 {
-	margin: 15px;
-}
-
-.margin-20 {
-	margin: @box-size-20;
-}
-
-.margin-30 {
-	margin: @box-size-30;
-}
-
-.margin-top-10 {
-	margin-top: @box-size-10;
-}
-
-.margin-top-15 {
-	margin-top: 15px;
-}
-
-.margin-top-20 {
-	margin-top: @box-size-20;
-}
-
-.margin-top-30 {
-	margin-top: @box-size-30;
-}
-
-.margin-bottom-10 {
-	margin-bottom: @box-size-10;
-}
-
-.margin-bottom-15 {
-	margin-bottom: 15px;
-}
-
-.margin-bottom-20 {
-	margin-bottom: @box-size-20;
-}
-
-.margin-bottom-30 {
-	margin-bottom: @box-size-30;
-}
-
-.margin-right-10 {
-	margin-right: @box-size-10;
-}
-
-.margin-right-15 {
-	margin-right: 15px;
-}
-
-.margin-right-20 {
-	margin-right: @box-size-20;
-}
-
-.margin-right-30 {
-	margin-right: @box-size-30;
-}
-
-.margin-left-10 {
-	margin-left: @box-size-10;
-}
-
-.margin-left-15 {
-	margin-left: 15px;
-}
-
-.margin-left-20 {
-	margin-left: @box-size-20;
-}
-
-.margin-left-30 {
-	margin-left: @box-size-30;
-}
-
-/* paddings, to be used on rows to separate lines */
-.no-padding {
-	padding: 0;
-}
-
-.padding-10 {
-	padding: @box-size-10;
-}
-
-.padding-15 {
-	padding: 15px;
-}
-
-.padding-20 {
-	padding: @box-size-20;
-}
-
-.padding-30 {
-	padding: @box-size-30;
-}
-
-.padding-top-10 {
-	padding-top: @box-size-10;
-}
-
-.padding-top-15 {
-	padding-top: 15px;
-}
-
-.padding-top-20 {
-	padding-top: @box-size-20;
-}
-
-.padding-top-30 {
-	padding-top: @box-size-30;
-}
-
-.padding-bottom-10 {
-	padding-bottom: @box-size-10;
-}
-
-.padding-bottom-15 {
-	padding-bottom: 15px;
-}
-
-.padding-bottom-20 {
-	padding-bottom: @box-size-20;
-}
-
-.padding-bottom-30 {
-	padding-bottom: @box-size-30;
-}
-
-.padding-right-10 {
-	padding-right: @box-size-10;
-}
-
-.padding-right-15 {
-	padding-right: 15px;
-}
-
-.padding-right-20 {
-	padding-right: @box-size-20;
-}
-
-.padding-right-30 {
-	padding-right: @box-size-30;
-}
-
-.padding-left-10 {
-	padding-left: @box-size-10;
-}
-
-.padding-left-15 {
-	padding-left: 15px;
-}
-
-.padding-left-20 {
-	padding-left: @box-size-20;
-}
-
-.padding-left-30 {
-	padding-left: @box-size-30;
-}
-
-.border-class {
-	border-style: @border-style;
-	border-color: @border-color;
-}
-
-/* Border classes */
-
-/* TODO does it make sense to call a class border ? shall i use border-default instead ? */
-.border {
-	.border-class();
-	border-width: @border-width;
-}
-
-/* TODO does make sense ? */
-.border-radius {
-	border-radius: @border-radius;
-}
-
-.border-round {
-	border-radius: 50px;
-}
-
-.no-border {
-	border-style: none;
-	border-width: 0;
-}
-
-.border-top {
-	border-top: @border-width @border-style @border-color;
-}
-
-.border-bottom {
-	border-bottom: @border-width @border-style @border-color;
-}
-
-.border-left {
-	border-left: @border-width @border-style @border-color;
-}
-
-.border-right {
-	border-right: @border-width @border-style @border-color;
-}
-
-.border-default {
-	.border-class();
-	border-width: @border-width;
-	border-radius: @border-radius; /* TODO does it make sense to use border radius in border-default ? shall i create a separate class border-radius instead ? */
-}
-
-.border-primary {
-	border-color: @brand-primary;
-}
-
-.border-tertiary {
-	border-color: @brand-tertiary;
-}
-
-.border-info {
-	border-color: @brand-info;
-}
-
-.border-success {
-	border-color: @brand-success;
-}
-
-.border-warning {
-	border-color: @brand-warning;
-}
-
-.border-danger {
-	border-color: @brand-danger;
-}
-
-/* Clickable cursors */
-.clickable {
-	cursor: pointer;
-}
-
-.clickable-hover {
-	cursor: pointer;
-	transition:border-color 0.4s ease 0s, background-color 0.4s ease 0s;
-}
-
-.clickable-hover:hover {
-	background: fade(@main-color, 20%);
-}
-
-.clickable[disabled],
-.clickable-hover[disabled] {
-	cursor: not-allowed;
-}
 
 /* Forms */
 /* TODO enable form bgs !?
@@ -2787,6 +2456,13 @@ a.bg-danger:hover {
 *
 * btn-primary|tertiary|success|warning|danger|info|default
 ************************************************************************************/
+.btn-xs span,
+.btn-sm span, 
+.btn-md span, 
+.btn-lg span {
+	/* font-size: inherit; */
+}
+
 .btn-primary {
 	background-color: @brand-primary;
 	color: @brand-primary-inverse;
@@ -3405,4 +3081,337 @@ fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.foc
 .box.row {
 	padding-left: 0;
 	padding-right: 0;
+}
+
+
+/**********************************************
+*
+* Generic Rules 
+*
+**********************************************/
+
+.full-size {
+	width: 100%;
+	height: 100%;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.full-height {
+	height: 100%;
+}
+
+.width-auto {
+	width: auto;
+}
+
+.width-auto-important {
+	width: auto !important;
+}
+
+/* Reset Header Margins */
+h1, .h1, h2, .h2, h3, .h3,
+h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 0;
+    margin-bottom: 0;	
+}
+
+h1, .h1 {
+  font-size: @font-size-h1;
+  line-height: if((isunit(@font-size-h1, rem)), unit(ceil(@font-size-h1 * @rem-to-px * 1.1), px), ceil(@font-size-h1 * 1.1));
+}
+
+h2, .h2 {
+  font-size: @font-size-h2;
+  line-height: if((isunit(@font-size-h2, rem)), unit(ceil(@font-size-h2 * @rem-to-px * 1.1), px), ceil(@font-size-h2 * 1.1));
+}
+
+h3, .h3 {
+  font-size: @font-size-h3;
+  line-height: if((isunit(@font-size-h3, rem)), unit(ceil(@font-size-h3 * @rem-to-px * 1.1), px), ceil(@font-size-h3 * 1.1));
+}
+
+h4, .h4 {
+  font-size: @font-size-h4;
+  line-height: if((isunit(@font-size-h4, rem)), unit(ceil(@font-size-h4 * @rem-to-px * 1.1), px), ceil(@font-size-h4 * 1.1));
+}
+
+h5, .h5 {
+  font-size: @font-size-h5;
+  line-height: if((isunit(@font-size-h5, rem)), unit(ceil(@font-size-h5 * @rem-to-px * 1.1), px), ceil(@font-size-h5 * 1.1));
+}
+
+h6, .h6 {
+  font-size: @font-size-h6;
+  line-height: if((isunit(@font-size-h6, rem)), unit(ceil(@font-size-h6 * @rem-to-px * 1.1), px), ceil(@font-size-h6 * 1.1));
+}
+
+/* To be used on a tab/tabless panel when nesting responsive form. Is used to indent the nested form with the container form */
+.margin-reset {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+/* Margins, to be used on rows to separate lines */
+.no-margin {
+	margin: 0;
+}
+
+.margin-10 {
+	margin: @box-size-10;
+}
+
+.margin-15 {
+	margin: 15px;
+}
+
+.margin-20 {
+	margin: @box-size-20;
+}
+
+.margin-30 {
+	margin: @box-size-30;
+}
+
+.margin-top-10 {
+	margin-top: @box-size-10;
+}
+
+.margin-top-15 {
+	margin-top: 15px;
+}
+
+.margin-top-20 {
+	margin-top: @box-size-20;
+}
+
+.margin-top-30 {
+	margin-top: @box-size-30;
+}
+
+.margin-bottom-10 {
+	margin-bottom: @box-size-10;
+}
+
+.margin-bottom-15 {
+	margin-bottom: 15px;
+}
+
+.margin-bottom-20 {
+	margin-bottom: @box-size-20;
+}
+
+.margin-bottom-30 {
+	margin-bottom: @box-size-30;
+}
+
+.margin-right-10 {
+	margin-right: @box-size-10;
+}
+
+.margin-right-15 {
+	margin-right: 15px;
+}
+
+.margin-right-20 {
+	margin-right: @box-size-20;
+}
+
+.margin-right-30 {
+	margin-right: @box-size-30;
+}
+
+.margin-left-10 {
+	margin-left: @box-size-10;
+}
+
+.margin-left-15 {
+	margin-left: 15px;
+}
+
+.margin-left-20 {
+	margin-left: @box-size-20;
+}
+
+.margin-left-30 {
+	margin-left: @box-size-30;
+}
+
+/* paddings, to be used on rows to separate lines */
+.no-padding {
+	padding: 0;
+}
+
+.padding-10 {
+	padding: @box-size-10;
+}
+
+.padding-15 {
+	padding: 15px;
+}
+
+.padding-20 {
+	padding: @box-size-20;
+}
+
+.padding-30 {
+	padding: @box-size-30;
+}
+
+.padding-top-10 {
+	padding-top: @box-size-10;
+}
+
+.padding-top-15 {
+	padding-top: 15px;
+}
+
+.padding-top-20 {
+	padding-top: @box-size-20;
+}
+
+.padding-top-30 {
+	padding-top: @box-size-30;
+}
+
+.padding-bottom-10 {
+	padding-bottom: @box-size-10;
+}
+
+.padding-bottom-15 {
+	padding-bottom: 15px;
+}
+
+.padding-bottom-20 {
+	padding-bottom: @box-size-20;
+}
+
+.padding-bottom-30 {
+	padding-bottom: @box-size-30;
+}
+
+.padding-right-10 {
+	padding-right: @box-size-10;
+}
+
+.padding-right-15 {
+	padding-right: 15px;
+}
+
+.padding-right-20 {
+	padding-right: @box-size-20;
+}
+
+.padding-right-30 {
+	padding-right: @box-size-30;
+}
+
+.padding-left-10 {
+	padding-left: @box-size-10;
+}
+
+.padding-left-15 {
+	padding-left: 15px;
+}
+
+.padding-left-20 {
+	padding-left: @box-size-20;
+}
+
+.padding-left-30 {
+	padding-left: @box-size-30;
+}
+
+.border-class {
+	border-style: @border-style;
+	border-color: @border-color;
+}
+
+/* Border classes */
+
+/* TODO does it make sense to call a class border ? shall i use border-default instead ? */
+.border {
+	.border-class();
+	border-width: @border-width;
+}
+
+/* TODO does make sense ? */
+.border-radius {
+	border-radius: @border-radius;
+}
+
+.border-round {
+	border-radius: 50px;
+}
+
+.no-border {
+	border-style: none;
+	border-width: 0;
+}
+
+.border-top {
+	border-top: @border-width @border-style @border-color;
+}
+
+.border-bottom {
+	border-bottom: @border-width @border-style @border-color;
+}
+
+.border-left {
+	border-left: @border-width @border-style @border-color;
+}
+
+.border-right {
+	border-right: @border-width @border-style @border-color;
+}
+
+.border-default {
+	.border-class();
+	border-width: @border-width;
+	border-radius: @border-radius; /* TODO does it make sense to use border radius in border-default ? shall i create a separate class border-radius instead ? */
+}
+
+.border-primary {
+	border-color: @brand-primary;
+}
+
+.border-tertiary {
+	border-color: @brand-tertiary;
+}
+
+.border-info {
+	border-color: @brand-info;
+}
+
+.border-success {
+	border-color: @brand-success;
+}
+
+.border-warning {
+	border-color: @brand-warning;
+}
+
+.border-danger {
+	border-color: @brand-danger;
+}
+
+/* Clickable cursors */
+.clickable {
+	cursor: pointer;
+}
+
+.clickable-hover {
+	cursor: pointer;
+	transition:border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+}
+
+.clickable-hover:hover {
+	background: fade(@main-color, 20%);
+}
+
+.clickable[disabled],
+.clickable-hover[disabled] {
+	cursor: not-allowed;
 }
