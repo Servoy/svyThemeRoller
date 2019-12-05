@@ -142,7 +142,7 @@
 @table-row-border-width: 1px;
 
 /* NG Table style: applied only for NG Grid components having the styleClass ag-theme-servoy */
-@ngtable-cell-value-line-height : 23px;
+@ngtable-cell-value-line-height : 20px;
 @ngtable-row-group-bg: @body-bg;				
 @ngtable-row-group-color: @text-color;			
 @ngtable-row-group-bg-level-0: #F9F9F9;			
@@ -1530,8 +1530,11 @@ data-servoyextra-fontawesome > div {
 	height: 24px;
 }
 
-.ag-table.ag-theme-servoy .ag-body .ag-cell-value {
+.ag-table.ag-theme-servoy .ag-body .ag-cell-value,
+.ag-table.ag-theme-servoy .ag-body .ag-group-value {
 	line-height: @ngtable-cell-value-line-height;
+	display: flex;
+	align-items: center;
 }
 
 // Table Footer
