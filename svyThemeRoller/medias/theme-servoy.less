@@ -1491,6 +1491,11 @@ data-servoyextra-fontawesome > div {
     border-bottom: 1px solid @border-color;
 }
 
+.ag-theme-servoy .ag-header-cell-resize {
+    width: 8px;
+    cursor: col-resize;
+}
+
 .ag-table.ag-theme-servoy .ag-row {
 	border-style: solid;
     border-width: 0;
@@ -1526,12 +1531,19 @@ data-servoyextra-fontawesome > div {
 	height: 100%;
 }
 
+.ag-theme-servoy .ag-icon {
+	/* font-size: 12px; */
+    color: inherit;
+}
+
 .ag-theme-servoy .ag-icon-menu {
 	height: 24px;
 }
 
 .ag-table.ag-theme-servoy .ag-body .ag-cell-value,
-.ag-table.ag-theme-servoy .ag-body .ag-group-value {
+.ag-table.ag-theme-servoy .ag-body .ag-group-value,
+.ag-table.ag-theme-servoy .ag-body-viewport .ag-cell-value,
+.ag-table.ag-theme-servoy .ag-body-viewport .ag-group-value {
 	line-height: @ngtable-cell-value-line-height;
 	display: flex;
 	align-items: center;
@@ -1606,7 +1618,9 @@ data-servoyextra-fontawesome > div {
     width: 16px;
 }
 
-/* Ag Grid Theme Check icons */
+/*****************************************/
+/***** Ag Grid Theme Check icons  *******/
+/*****************************************/
 .ag-theme-servoy .ag-column-select-checkbox {
 	margin-right: 4px;
 }
@@ -1658,7 +1672,9 @@ data-servoyextra-fontawesome > div {
 	content: "\e157";
 } */
 
-/* Ag Grid Theme Input Fields */
+/*****************************************/
+/***** Ag Grid Theme Input Fields  *******/
+/*****************************************/
 .ag-table.ag-theme-servoy .ag-menu input,
 .ag-table.ag-theme-servoy .ag-menu select,
 .ag-table.ag-theme-servoy .ag-side-bar input,
@@ -1676,13 +1692,17 @@ data-servoyextra-fontawesome > div {
 	/* .svy-field:focus();  */
 }
 
-/* Ag Grid Theme Grouped rows */
+/*****************************************/
+/*****  Ag Grid Theme Grouped rows *******/
+/*****************************************/
 .ag-table.ag-theme-servoy .ag-row-group{
     color: @ngtable-row-group-color;
     background-color: @ngtable-row-group-bg;
 }
 
-.ag-table.ag-theme-servoy .ag-row-group.ag-row-level-0 {
+.ag-table.ag-theme-servoy .ag-row-group.ag-row-level-0,
+.ag-table.ag-theme-servoy .ag-row-group.ag-row-group-indent-0,
+.ag-table.ag-theme-servoy .ag-row-group.ag-row-level-0 > .ag-row-group-indent-0 {
     color: @ngtable-row-group-color-level-0;
     background-color: @ngtable-row-group-bg-level-0;
 }
@@ -1691,7 +1711,18 @@ data-servoyextra-fontawesome > div {
 	font-weight: @ngtable-row-group-cell-font-weight;
 }
 
-/* AG Grid Theme Column Menu */
+/*****************************************/
+/*****  Ag Grid Theme Popup Menu *********/
+/*****************************************/
+.ag-popup.ag-theme-servoy .ag-menu {
+	border: 1px solid @border-color;
+}
+
+
+
+/*****************************************/
+/*****  AG Grid Theme Column Menu ********/
+/*****************************************/
 .ag-table.ag-theme-servoy .ag-menu {
 	background-color: @ngtable-menu-panel-bg;
 	color: @ngtable-menu-panel-text-color;
@@ -1701,20 +1732,22 @@ data-servoyextra-fontawesome > div {
 
 .ag-table.ag-theme-servoy .ag-tab-header {
 	background-color: @brand-tertiary;
+	padding: 4px 0;
+	min-width: 220px;
+}
+
+.ag-table.ag-theme-servoy .ag-tab-header .ag-tab {
+	margin: 4px;
+}
+
+.ag-table.ag-theme-servoy .ag-tab-header .ag-tab.ag-tab-selected {
+	background-color: @brand-tertiary;
+	color: @brand-primary;
+	border: 0;
 }
 
 .ag-table.ag-theme-servoy .ag-tab-body {
 	padding: 8px 0;
-}
-
-.ag-table.ag-theme-servoy .ag-tab-header .ag-tab {
-	
-}
-
-.ag-table.ag-theme-servoy .ag-tab-header .ag-tab.ag-tab-selected {
-	background-color: @table-header-bg;
-	border-color: @border-color;
-	border-bottom: 0px;
 }
 
 // The Column Menu List
@@ -1769,7 +1802,9 @@ data-servoyextra-fontawesome > div {
 }
 
 
-/* AG Grid Theme Tool Panel & Side Bar */
+/*****************************************/
+/** AG Grid Theme Tool Panel & Side Bar **/
+/*****************************************/
 .ag-theme-servoy .ag-side-bar {
 	background-color: @ngtable-side-panel-bg;
 	color: @ngtable-side-panel-text-color;
@@ -1818,7 +1853,7 @@ data-servoyextra-fontawesome > div {
 
 .ag-theme-servoy .ag-filter-panel .ag-header-cell-label {
     display: flex;
-    float: left;
+    /*float: left;*/
     width: 100%;
     border-bottom: 1px solid @border-color;
 }
@@ -1834,7 +1869,8 @@ data-servoyextra-fontawesome > div {
 	padding-bottom: 10px;
 }
 
-.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel .ag-filter-body-wrapper > div:first-child > * {
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel .ag-filter-body-wrapper > div:first-child > *,
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel .ag-filter-body-wrapper > .ag-filter-select:first-child {
     margin-top: 10px;
 }
 
@@ -1870,9 +1906,11 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Ag Grid Theme Side Panel Columns */
+
+
 .ag-theme-servoy .ag-column-drag {
-	height: 12px;
-	background-position-y: 0 !important;
+	/* height: 12px;
+	background-position-y: 0 !important; */
 }
 
 .ag-theme-servoy .ag-column-tool-panel-column {
@@ -1880,6 +1918,10 @@ data-servoyextra-fontawesome > div {
 	overflow: hidden;
 	margin-left: 10px;
 	min-height: 20px;
+}
+
+.ag-theme-servoy .ag-column-tool-panel-column .ag-icon {
+	padding: 0;
 }
 
 .ag-theme-servoy .ag-column-tool-panel-column .ag-column-select-checkbox > span {
@@ -1950,7 +1992,8 @@ data-servoyextra-fontawesome > div {
     line-height:32px;
 }
 
-.ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-right-arrow {
+.ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-right-arrow,
+.ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-icon-small-right {
 	padding: 0 4px;
 	display: none;
 }
