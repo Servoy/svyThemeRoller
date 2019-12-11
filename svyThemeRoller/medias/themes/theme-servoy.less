@@ -1540,6 +1540,8 @@ data-servoyextra-fontawesome > div {
 	height: 24px;
 }
 
+// Center Text in Cells
+.ag-table.ag-theme-servoy .ag-body .ag-row-group,
 .ag-table.ag-theme-servoy .ag-body .ag-cell-value,
 .ag-table.ag-theme-servoy .ag-body .ag-group-value,
 .ag-table.ag-theme-servoy .ag-body-viewport .ag-row-group,
@@ -1548,6 +1550,18 @@ data-servoyextra-fontawesome > div {
 	line-height: @ngtable-cell-value-line-height;
 	display: flex;
 	align-items: center;
+	/* white-space: normal; */
+}
+
+
+[class^="ag-row-group-indent-"] {
+	display: flex;
+}
+
+.ag-table.ag-theme-servoy .ag-cell-wrapper.ag-row-group {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 // Table Footer
@@ -1699,12 +1713,6 @@ data-servoyextra-fontawesome > div {
 .ag-table.ag-theme-servoy .ag-row-group{
     color: @ngtable-row-group-color;
     background-color: @ngtable-row-group-bg;
-}
-
-.ag-table.ag-theme-servoy .ag-cell-wrapper.ag-row-group {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
 }
 
 .ag-table.ag-theme-servoy .ag-row-group.ag-row-level-0,
