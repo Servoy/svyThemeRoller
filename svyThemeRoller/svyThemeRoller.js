@@ -40,6 +40,7 @@ function initLessJS (useInProduction) {
 		log.info("Init less.js");
 	}
 	
+	/** @type {CustomType<ngclientutils.tag>} */
 	var lessJSTag = {
 		tagName: "script",
 		attrs: [
@@ -92,6 +93,7 @@ function addLESSFileDependancy(mediaFileName) {
 		return false;
 	}
 	
+	/** @type {CustomType<ngclientutils.tag>} */
 	var lessJSTag = {
 		tagName: "link",
 		attrs: [{
@@ -131,6 +133,7 @@ function addCSSFileDependancy(mediaFileName) {
 		return false;
 	}
 	
+	/** @type {CustomType<ngclientutils.tag>} */
 	var lessCSSTag = {
 		tagName: "link",
 		attrs: [
@@ -171,6 +174,7 @@ function addJSFileDependancy(mediaFileName) {
 		return false;
 	}
 	
+	/** @type {CustomType<ngclientutils.tag>} */
 	var lessCSSTag = {
 		tagName: "script",
 		attrs: [{
