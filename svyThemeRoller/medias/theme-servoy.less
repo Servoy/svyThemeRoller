@@ -3084,6 +3084,17 @@ fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.foc
 	outline-color: @brand-danger;
 }
 
+.svy-field.ng-invalid, .svy-password.ng-invalid, 
+.svy-textarea.ng-invalid, .bts-textarea.ng-invalid, 
+.svy-textfield.ng-invalid, .bts-textbox.ng-invalid, 
+.svy-typeahead.ng-invalid, .bts-typeahead.ng-invalid, 
+.bts-select.ng-invalid, .bts-select.ng-invalid ~ .input-group-addon, 
+.svy-calendar.ng-invalid, .svy-calendar.ng-invalid ~ .input-group-addon, 
+.bts-calendar.ng-invalid input, .bts-calendar.ng-invalid input ~ .input-group-addon {
+	border: 1px solid @brand-danger;
+	outline-color: @brand-danger;
+}
+
 .svy-check.form-invalid input[type=checkbox] + span:before, 
 .bts-check.form-invalid input[type=checkbox] + span:before, 
 .svy-checkgroup.form-invalid input[type=checkbox] + span:before, 
