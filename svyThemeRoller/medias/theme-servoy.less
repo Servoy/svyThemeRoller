@@ -1374,7 +1374,11 @@ data-servoyextra-fontawesome > div {
 /*	font-size: 12px; */
 }
 
-/* AG Grid Table */
+/**************************************************************
+ **************************************************************
+ 						AG Grid Table 
+ **************************************************************
+ **************************************************************/
 .ag-table {
 	color: @text-color;
 	background-color: @table-bg;
@@ -2129,6 +2133,23 @@ data-servoyextra-fontawesome > div {
 
 .ag-table.no-row-selected .ag-row-selected.ag-row-odd {
 	.ag-table .ag-row-odd();
+}
+
+/* Cell Align Helpers */
+
+.ag-table.ag-theme-servoy .ag-table-header.align-left .ag-header-cell-label,
+.ag-table.ag-theme-servoy .ag-cell.align-left {
+    justify-content: flex-start;
+}
+
+.ag-table.ag-theme-servoy .ag-table-header.align-right .ag-header-cell-label,
+.ag-table.ag-theme-servoy .ag-cell.align-right {
+    justify-content: flex-end;
+}
+
+.ag-table.ag-theme-servoy .ag-table-header.align-center .ag-header-cell-label,
+.ag-table.ag-theme-servoy .ag-cell.align-center {
+    justify-content: center;
 }
 
 /*------------------------------------------------------------------------------------------------------------------
