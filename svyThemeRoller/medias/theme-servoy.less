@@ -2137,19 +2137,34 @@ data-servoyextra-fontawesome > div {
 
 /* Cell Align Helpers */
 
-.ag-table.ag-theme-servoy .ag-table-header.align-left .ag-header-cell-label,
+.ag-table .ag-cell.align-left {
+	text-align: left;
+}
+
+.ag-table .ag-cell.align-right {
+	text-align: right;
+}
+
+.ag-table .ag-cell.align-center {
+	text-align: center;
+}
+
+.ag-table .ag-table-header.align-left .ag-header-cell-label,
 .ag-table.ag-theme-servoy .ag-cell.align-left {
     justify-content: flex-start;
+    text-align: initial;
 }
 
-.ag-table.ag-theme-servoy .ag-table-header.align-right .ag-header-cell-label,
+.ag-table .ag-table-header.align-right .ag-header-cell-label,
 .ag-table.ag-theme-servoy .ag-cell.align-right {
     justify-content: flex-end;
+    text-align: initial;
 }
 
-.ag-table.ag-theme-servoy .ag-table-header.align-center .ag-header-cell-label,
+.ag-table .ag-table-header.align-center .ag-header-cell-label,
 .ag-table.ag-theme-servoy .ag-cell.align-center {
     justify-content: center;
+    text-align: initial;
 }
 
 /*------------------------------------------------------------------------------------------------------------------
