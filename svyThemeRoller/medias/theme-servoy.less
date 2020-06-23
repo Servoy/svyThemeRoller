@@ -374,6 +374,7 @@ html, body {
 .svy-textfield, .bts-textbox,
 .svy-typeahead, .bts-typeahead,
 .svy-combobox, .svy-combobox ~ .input-group-addon,
+.bts-combobox, .bts-combobox ~ .input-group-addon,
 .bts-select, .bts-select ~ .input-group-addon,
 .svy-calendar, .svy-calendar ~ .input-group-addon,
 .bts-calendar input, .bts-calendar input ~ .input-group-addon {
@@ -424,6 +425,7 @@ html, body {
 .svy-textfield:focus, .bts-textbox:focus,
 .svy-typeahead:focus, .bts-typeahead:focus,
 .svy-combobox:focus, .svy-combobox:focus ~ .input-group-addon,
+.bts-combobox:focus, .bts-combobox:focus ~ .input-group-addon,
 .bts-select:focus, .bts-select:focus ~ .input-group-addon,
 .svy-calendar:focus, .svy-calendar:focus ~ .input-group-addon,
 .bts-calendar input:focus, .bts-calendar input:focus ~ .input-group-addon  {
@@ -596,6 +598,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 }
 
 /* Combobox */
+.bts-combobox .ui-select-toggle,
 .svy-combobox .ui-select-toggle {
     border: 0;
     border-style: @border-style;
@@ -605,26 +608,31 @@ fieldset[disabled] input[type="checkbox"] + span:before {
     box-shadow: none;
 }
 
+.bts-combobox .ui-select-toggle:hover,
 .svy-combobox .ui-select-toggle:hover {
     background-color: @field-addon-bg;
     border-color: @main-color;
 }
 
+.bts-combobox .ui-select-match > .form-control, 
 .svy-combobox .ui-select-match > .form-control {
 	font-size: @field-font-size;
 }
 
+.bts-combobox .ui-select-match-text,
 .svy-combobox .ui-select-match-text {
     top: 50%;
     transform: translateY(-50%);
 }
 
+.bts-combobox input,
 .svy-combobox input {
 	border-width: @field-border-width;
 	border-radius: 0;
 	box-shadow: none;
 }
 
+.bts-combobox input:focus,
 .svy-combobox input:focus {
 	-webkit-box-shadow: none;
     box-shadow: none;
@@ -633,10 +641,12 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 	border-width: @field-border-width;
 }
 
+.bts-combobox.ui-select-bootstrap .ui-select-choices-row.active>span,
 .svy-combobox.ui-select-bootstrap .ui-select-choices-row.active>span {
 	background-color: @main-color;
 }
 
+.bts-combobox.border-radius,
 .svy-combobox.border-radius {
 	
 	input,
@@ -646,6 +656,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 	}
 }
 
+.bts-combobox.border-round,
 .svy-combobox.border-round {
 	
 	input,
@@ -1202,6 +1213,7 @@ data-servoyextra-fontawesome > div {
 .ui-grid-cell .svy-typeahead, 
 .ui-grid-cell .bts-typeahead, 
 .ui-grid-cell .svy-combobox, .ui-grid-cell .svy-combobox .ui-select-toggle, .ui-grid-cell .svy-combobox input,
+.ui-grid-cell .bts-combobox, .ui-grid-cell .bts-combobox .ui-select-toggle, .ui-grid-cell .bts-combobox input,
 .ui-grid-cell .bts-select, 
 .ui-grid-cell .svy-calendar, 
 .ui-grid-cell .svy-calendar ~ .input-group-addon, 
@@ -1230,6 +1242,8 @@ data-servoyextra-fontawesome > div {
 .ui-grid-row-selected .ui-grid-cell .bts-typeahead, 
 .ui-grid-row-selected .ui-grid-cell .svy-combobox, 
 .ui-grid-row-selected .ui-grid-cell .svy-combobox .ui-select-toggle, .ui-grid-row-selected .ui-grid-cell .svy-combobox input,
+.ui-grid-row-selected .ui-grid-cell .bts-combobox, 
+.ui-grid-row-selected .ui-grid-cell .bts-combobox .ui-select-toggle, .ui-grid-row-selected .ui-grid-cell .bts-combobox input,
 .ui-grid-row-selected .ui-grid-cell .bts-select, 
 .ui-grid-row-selected .ui-grid-cell .svy-calendar, 
 .ui-grid-row-selected .ui-grid-cell .bts-calendar, 
@@ -1255,6 +1269,8 @@ data-servoyextra-fontawesome > div {
 .ui-grid-row-selected .ui-grid-cell .bts-typeahead:focus,
 .ui-grid-row-selected .ui-grid-cell .svy-combobox:focus, 
 .ui-grid-row-selected .ui-grid-cell .svy-combobox:focus ~ .input-group-addon,
+.ui-grid-row-selected .ui-grid-cell .bts-combobox:focus, 
+.ui-grid-row-selected .ui-grid-cell .bts-combobox:focus ~ .input-group-addon,
 .ui-grid-row-selected .ui-grid-cell .bts-select:focus, 
 .ui-grid-row-selected .ui-grid-cell .bts-select:focus ~ .input-group-addon,
 .ui-grid-row-selected .ui-grid-cell .svy-calendar:focus, 
@@ -1267,6 +1283,7 @@ data-servoyextra-fontawesome > div {
 }
 
 .ui-grid-row-selected .ui-grid-cell .svy-combobox:focus ~ .input-group-addon,
+.ui-grid-row-selected .ui-grid-cell .bts-combobox:focus ~ .input-group-addon,
 .ui-grid-row-selected .ui-grid-cell .bts-select:focus ~ .input-group-addon,
 .ui-grid-row-selected .ui-grid-cell .svy-calendar:focus ~ .input-group-addon,
 .ui-grid-row-selected .ui-grid-cell .bts-calendar input:focus ~ .input-group-addon  {
@@ -1290,6 +1307,8 @@ data-servoyextra-fontawesome > div {
 .no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-typeahead, 
 .no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-combobox, 
 .no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-combobox .ui-select-toggle, .ui-grid-row-selected .ui-grid-cell .svy-combobox input,
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-combobox, 
+.no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-combobox .ui-select-toggle, .ui-grid-row-selected .ui-grid-cell .bts-combobox input,
 .no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-select, 
 .no-row-selected .ui-grid-row-selected .ui-grid-cell .svy-calendar, 
 .no-row-selected .ui-grid-row-selected .ui-grid-cell .bts-calendar, 
