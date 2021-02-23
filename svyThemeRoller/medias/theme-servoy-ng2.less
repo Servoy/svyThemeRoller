@@ -377,6 +377,7 @@ html, body {
 .bts-combobox, .bts-combobox ~ .input-group-addon,
 .bts-select, .bts-select ~ .input-group-addon,
 .svy-calendar, .svy-calendar ~ .input-group-addon,
+.bts-calendar, .bts-calendar ~ .input-group-addon,
 .bts-calendar input, .bts-calendar input ~ .input-group-addon {
 	box-shadow: none;
 	color: @field-color;
@@ -395,6 +396,7 @@ html, body {
 .svy-typeahead, .bts-typeahead,
 .bts-select, .bts-select ~ .input-group-addon,
 .svy-calendar, .svy-calendar ~ .input-group-addon,
+.bts-calendar, .bts-calendar ~ .input-group-addon,
 .bts-calendar input, .bts-calendar input ~ .input-group-addon {
 	border-style: @border-style;
 	border-color: @border-color;
@@ -404,21 +406,54 @@ html, body {
 
 .input-group-addon:last-child,
 .svy-calendar ~ .input-group-addon,
+.bts-calendar ~ .input-group-addon,
 .bts-calendar input ~ .input-group-addon {
 	border-left: 0;
 }
 
-.bts-select, .bts-select ~ .input-group-addon,
+.bts-select ~ .input-group-addon,
 .svy-calendar ~ .input-group-addon,
+.bts-calendar ~ .input-group-addon,
 .bts-calendar input ~ .input-group-addon  {
 	background-color: @field-addon-bg;
 }
 
+.svy-calendar ~ .input-group-text,
+.bts-calendar ~ .input-group-text,
+.bts-calendar input ~ .input-group-text {
+	border-style: @border-style;
+	border-color: @border-color;
+	border-width: @field-border-width;
+	border-radius: @field-border-radius;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;	
+	box-shadow: none;
+	color: @field-color;
+	font-size: @field-font-size;
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	   -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	    -ms-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	     -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  	        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
 
-/*
-.input-group.date .input-group-addon {
+.svy-calendar ~ .input-group-text,
+.bts-calendar ~ .input-group-text,
+.bts-calendar input ~ .input-group-text {
+	border-left: 0;
+}
+
+.svy-calendar ~ .input-group-text,
+.bts-calendar ~ .input-group-text,
+.bts-calendar input ~ .input-group-text {
 	background-color: @field-addon-bg;
-} */
+}
+
+.svy-calendar:focus ~ .input-group-text,
+.bts-calendar:focus ~ .input-group-text,
+.bts-calendar input:focus ~ .input-group-text {
+	border-color: @main-color;
+}
 
 .svy-field:focus, .svy-password:focus,
 .svy-textarea:focus, .bts-textarea:focus,
@@ -428,7 +463,8 @@ html, body {
 .bts-combobox:focus, .bts-combobox:focus ~ .input-group-addon,
 .bts-select:focus, .bts-select:focus ~ .input-group-addon,
 .svy-calendar:focus, .svy-calendar:focus ~ .input-group-addon,
-.bts-calendar input:focus, .bts-calendar input:focus ~ .input-group-addon  {
+.bts-calendar:focus, .bts-calendar:focus ~ .input-group-addon,
+.bts-calendar input:focus, .bts-calendar input:focus ~ .input-group-addon {
 	border-color: @main-color;
 }
 
@@ -440,8 +476,37 @@ fieldset[disabled] .form-control {
 	border-color: @border-color;
 }
 
+.dropdown .dropdown-item.active, 
+.dropdown .dropdown-item:active {
+	background-color: @main-color;
+	color: @main-color-inverse;
+}
+
+.bts-combobox-container {
+	border-radius: @field-border-radius;
+}
+
+/* Combobox active */
+.bts-combobox-containerform-primary.show,
+.bts-combobox-containerform-primary.show > .bts-combobox,
+.bts-combobox-containerform-tertiary.show,
+.bts-combobox-containerform-tertiary.show > .bts-combobox,
+.bts-combobox-containerform-success.show,
+.bts-combobox-containerform-success.show > .bts-combobox,
+.bts-combobox-containerform-info.show,
+.bts-combobox-containerform-info.show > .bts-combobox,
+.bts-combobox-containerform-warning.show,
+.bts-combobox-containerform-warning.show > .bts-combobox,
+.bts-combobox-containerform-danger.show,
+.bts-combobox-containerform-danger.show > .bts-combobox {
+	background-color: initial;
+}
+
+
 /* Checkbox */
 /*** custom checkboxes ***/
+
+/*
 .svy-check label,
 .svy-checkgroup label,
 .svy-radiogroup label,
@@ -459,7 +524,7 @@ fieldset[disabled] .form-control {
 .bts-check input[type=checkbox],
 .bts-radiogroup input[type=checkbox],
 .bts-radiogroup input[type=radio] { 
-	/* to hide the checkbox itself */
+	/* to hide the checkbox itself *
 	webkit-appearence: none;
 	-webkit-appearance: none;
 	-moz-appearance:    none;
@@ -532,7 +597,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 .svy-radiogroup input[type=radio]:checked + span:before,
 .bts-radiogroup input[type=radio]:checked + span:before {
 	content: "\e165";
-}
+} */
 
 /* Calendar Field */
 
@@ -610,7 +675,7 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 
 .bts-combobox .ui-select-toggle:hover,
 .svy-combobox .ui-select-toggle:hover {
-    background-color: @field-addon-bg;
+    /* background-color: @field-addon-bg; */
     border-color: @main-color;
 }
 
@@ -3196,6 +3261,7 @@ fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.foc
 .svy-typeahead.form-invalid, .bts-typeahead.form-invalid, 
 .bts-select.form-invalid, .bts-select.form-invalid ~ .input-group-addon, 
 .svy-calendar.form-invalid, .svy-calendar.form-invalid ~ .input-group-addon, 
+.bts-calendar.form-invalid, .bts-calendar.form-invalid ~ .input-group-addon, 
 .bts-calendar input.form-invalid, .bts-calendar input.form-invalid ~ .input-group-addon {
 	border: 1px solid @brand-danger;
 	outline-color: @brand-danger;
@@ -3207,10 +3273,27 @@ fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.foc
 .svy-typeahead.ng-invalid, .bts-typeahead.ng-invalid, 
 .bts-select.ng-invalid, .bts-select.ng-invalid ~ .input-group-addon, 
 .svy-calendar.ng-invalid, .svy-calendar.ng-invalid ~ .input-group-addon, 
+.bts-calendar.form-invalid, .bts-calendar.form-invalid ~ .input-group-addon,
 .bts-calendar.ng-invalid input, .bts-calendar.ng-invalid input ~ .input-group-addon {
 	border: 1px solid @brand-danger;
 	outline-color: @brand-danger;
 }
+
+/* Calendar invalid */
+.svy-calendar-container.form-invalid input.svy-calendar ~ .input-group-text,
+.bts-calendar-container.form-invalid input.bts-calendar ~ .input-group-text,
+.bts-calendar.form-invalid input ~ .input-group-text {
+	border: 1px solid @brand-danger;
+	outline-color: @brand-danger;
+}
+
+.svy-calendar-container.ng-invalid input.svy-calendar ~ .input-group-text,
+.bts-calendar-container.form-invalid input.bts-calendar ~ .input-group-text,
+.bts-calendar.ng-invalid input ~ .input-group-text {
+	border: 1px solid @brand-danger;
+	outline-color: @brand-danger;
+}
+
 
 .svy-check.form-invalid input[type=checkbox] + span:before, 
 .bts-check.form-invalid input[type=checkbox] + span:before, 
