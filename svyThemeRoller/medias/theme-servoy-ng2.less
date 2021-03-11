@@ -428,6 +428,20 @@ html, body {
 	border-radius: @field-border-radius;
 }
 
+/* Navbar input group */
+.input-group-btn:last-child > .btn  {
+	border-style: @border-style;
+	border-color: @border-color;
+	border-width: @field-border-width;
+	border-radius: @field-border-radius;
+	color: @field-color;
+	font-size: @field-font-size;
+	border-left: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;	
+}
+
+/* Calendar add-on */
 .input-group-addon:last-child,
 .svy-calendar ~ .input-group-addon,
 .bts-calendar ~ .input-group-addon,
@@ -757,14 +771,30 @@ fieldset[disabled] input[type="checkbox"] + span:before {
 
 
 /* Dropdown field */
-.dropdown-menu > li > a {
+.dropdown-menu > li > a,
+.dropdown-menu > .dropdown-item {
 	color: @text-color;
 }
 
 .dropdown-menu > .active > a, 
 .dropdown-menu > .active > a:hover, 
-.dropdown-menu > .active > a:focus {
+.dropdown-menu > .active > a:focus,
+.dropdown-menu > .dropdown-item.active,
+.dropdown-menu > .dropdown-item:active,
+.dropdown-menu > .dropdown-item.active:focus,
+.dropdown-menu > .dropdown-item.active:hover {
+	/* background-color: @main-color;
+	color: @main-color-inverse; */
+	background-color: #e9ecef;
+}
+
+/* TODO there is a difference between typeahead and dropdown structure.
+Typeahead highlight the inner text element, while dropdown set the outer div as active.
+Can we make them look similar ?  */
+.dropdown-menu > .dropdown-item.svy-ngbdropdownitem.active,
+.dropdown-menu > .dropdown-item.svy-ngbdropdownitem.active:focus {
 	background-color: @main-color;
+	color: @main-color-inverse;
 }
 
 /* Bootstrap Select  
@@ -1105,14 +1135,20 @@ data-servoyextra-fontawesome > div {
 .navbar-collapse {
 }
 
-.bts-extra-navbar.navbar-default {
+.bts-extra-navbar.navbar-default,
+.bts-extra-navbar.navbar-light {
 	background-color: @navbar-bg;
 	color: @navbar-text-color;
 	margin-bottom: 0;
 	border: 0;
 }
 
-.bts-extra-navbar.navbar-default .navbar-brand {
+.bts-extra-navbar.bg-light {
+    background-color: @navbar-bg !important;
+}
+
+.bts-extra-navbar.navbar-default .navbar-brand,
+.bts-extra-navbar.navbar-light .navbar-brand {
 	color: @navbar-text-color;
 }
 
@@ -1122,7 +1158,14 @@ data-servoyextra-fontawesome > div {
 .bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus,
 .bts-extra-navbar.navbar-default .navbar-nav > .open > a, 
 .bts-extra-navbar.navbar-default .navbar-nav > .open > a:hover, 
-.bts-extra-navbar.navbar-default .navbar-nav > .open > a:focus
+.bts-extra-navbar.navbar-default .navbar-nav > .open > a:focus,
+.bts-extra-navbar.navbar-light .navbar-nav > li > a,
+.bts-extra-navbar.navbar-light .navbar-nav > .active > a, 
+.bts-extra-navbar.navbar-light .navbar-default .navbar-nav > .active > a:hover, 
+.bts-extra-navbar.navbar-light .navbar-default .navbar-nav > .active > a:focus,
+.bts-extra-navbar.navbar-light .navbar-nav > .open > a, 
+.bts-extra-navbar.navbar-light .navbar-nav > .open > a:hover, 
+.bts-extra-navbar.navbar-light .navbar-nav > .open > a:focus
  {
 	background-color: @navbar-bg;
 	color: @navbar-text-color;
@@ -1133,7 +1176,13 @@ data-servoyextra-fontawesome > div {
 .bts-extra-navbar.navbar-default .navbar-default .navbar-nav > .active > a:focus,
 .bts-extra-navbar.navbar-default .navbar-nav > .active.open > a, 
 .bts-extra-navbar.navbar-default .navbar-nav > .active.open > a:hover, 
-.bts-extra-navbar.navbar-default .navbar-nav > .active.open > a:focus {
+.bts-extra-navbar.navbar-default .navbar-nav > .active.open > a:focus,
+.bts-extra-navbar.navbar-light .navbar-nav > .active > a, 
+.bts-extra-navbar.navbar-light .navbar-nav > .active > a:hover, 
+.bts-extra-navbar.navbar-light .navbar-nav > .active > a:focus,
+.bts-extra-navbar.navbar-light .navbar-nav > .active.open > a, 
+.bts-extra-navbar.navbar-light .navbar-nav > .active.open > a:hover, 
+.bts-extra-navbar.navbar-light .navbar-nav > .active.open > a:focus {
 	background-color: @navbar-active-bg;
 	color: @navbar-active-text-color;
 	border-color: @navbar-active-border-color;
@@ -1142,28 +1191,41 @@ data-servoyextra-fontawesome > div {
 }
 
 .bts-extra-navbar.navbar-default .dropdown-menu,
-.bts-extra-navbar.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+.bts-extra-navbar.navbar-default .navbar-nav .open .dropdown-menu > li > a,
+.bts-extra-navbar.navbar-light .dropdown-menu,
+.bts-extra-navbar.navbar-light .navbar-nav .open .dropdown-menu > li > a  {
 	background-color: @navbar-bg;
 	color: @navbar-text-color;
 }
 
 .bts-extra-navbar.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, 
-.bts-extra-navbar.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+.bts-extra-navbar.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus,
+.bts-extra-navbar.navbar-light .navbar-nav .open .dropdown-menu > li > a:hover, 
+.bts-extra-navbar.navbar-light .navbar-nav .open .dropdown-menu > li > a:focus {
 	background-color: @navbar-bg-highlighted;
 }
 
-.bts-extra-navbar.navbar-default .navbar-toggle {
+.bts-extra-navbar.navbar-default .navbar-toggle,
+.bts-extra-navbar.navbar-light .navbar-toggle {
 	background-color: @navbar-bg;
 	color: @navbar-text-color;
 }
 
 .bts-extra-navbar.navbar-default .navbar-toggle:hover, 
-.bts-extra-navbar.navbar-default .navbar-toggle:focus {
+.bts-extra-navbar.navbar-default .navbar-toggle:focus,
+.bts-extra-navbar.navbar-light .navbar-toggle:hover, 
+.bts-extra-navbar.navbar-light .navbar-toggle:focus {
 	background-color: @navbar-bg-highlighted;
 }
 
-.bts-extra-navbar.navbar-default .navbar-toggle .icon-bar {
+.bts-extra-navbar.navbar-default .navbar-toggle .icon-bar,
+.bts-extra-navbar.navbar-light .navbar-toggle .icon-bar {
 	background-color: @navbar-text-color;
+}
+
+.bts-extra-navbar.navbar-light .navbar-nav .nav-link:focus, 
+.bts-extra-navbar.navbar-light .navbar-nav .nav-link:hover {
+	color: @navbar-text-color;
 }
 
 /* Navbar static */
