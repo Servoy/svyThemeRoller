@@ -232,7 +232,31 @@ html, body {
 	outline: none;
 }
 
+/* Scrollbar Style */
+#webkit-scrollbar (@themed-scrollbar) when (@themed-scrollbar = true) {
+	::-webkit-scrollbar {
+		width: 12px;
+		height: 12px;
+		padding: 0 5px;
+	}
+	
+	::-webkit-scrollbar-track {
+		border-radius: 0px;
+		background: @scrollbar-bg;
+		border: 1px @border-style @border-color;
+		border-width: @scrollbar-border-width;
+	}
+	
+	::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background: @scrollbar-color;
+	}
+	::-webkit-scrollbar-thumb:window-inactive {
+		background: #F8F8F8;
+	}
+}
 
+#webkit-scrollbar(@theme-scrollbar);
 
 /* Forms */
 /* TODO enable form bgs !?
@@ -2331,33 +2355,6 @@ data-servoyextra-fontawesome > div {
 	/* TODO */
 	color: @popup-disabled-color;
 }
-
-/* Scrollbar Style */
-
-#webkit-scrollbar (@themed-scrollbar) when (@themed-scrollbar = true) {
-	::-webkit-scrollbar {
-		width: 12px;
-		height: 12px;
-		padding: 0 5px;
-	}
-	
-	::-webkit-scrollbar-track {
-		border-radius: 0px;
-		background: @scrollbar-bg;
-		border: 1px @border-style @border-color;
-		border-width: @scrollbar-border-width;
-	}
-	
-	::-webkit-scrollbar-thumb {
-		border-radius: 10px;
-		background: @scrollbar-color;
-	}
-	::-webkit-scrollbar-thumb:window-inactive {
-		background: #F8F8F8;
-	}
-}
-
-#webkit-scrollbar(@theme-scrollbar);
 
 /************************************************************************************
  Style Layout Containers
