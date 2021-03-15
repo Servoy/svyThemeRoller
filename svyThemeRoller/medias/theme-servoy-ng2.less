@@ -1978,9 +1978,15 @@ data-servoyextra-fontawesome > div {
     margin-right: 0px;
 }
 
-.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter {
+.ag-theme-servoy .ag-primary-cols-header-panel .ag-primary-cols-filter-wrapper .ag-primary-cols-filter,
+.ag-theme-servoy .ag-side-bar .ag-column-select-header .ag-column-select-header-filter-wrapper input.ag-input-field-input,
+.ag-theme-servoy .ag-side-bar .ag-filter-toolpanel .ag-filter-toolpanel-search-input input.ag-input-field-input {
 	width: 100%;
 	height: @ngtable-search-field-height;
+}
+
+.ag-theme-servoy .ag-side-bar .ag-filter-toolpanel .ag-filter-toolpanel-search-input input.ag-input-field-input {
+	margin-left: 10px;
 }
 
 // The Column List
@@ -2067,30 +2073,27 @@ data-servoyextra-fontawesome > div {
 	width: 100%;
 }
 
-.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel .ag-filter-toolpanel-header {
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-toolpanel .ag-filter-toolpanel-group-title-bar {
     padding: 10px;
 }
 
-.ag-theme-servoy .ag-filter-panel .ag-header-cell-label {
-    display: flex;
-    /*float: left;*/
-    width: 100%;
+.ag-theme-servoy .ag-filter-toolpanel .ag-filter-toolpanel-group-title-bar  {
     border-bottom: 1px solid @border-color;
 }
 
 
-.ag-theme-servoy .ag-filter-panel .ag-header-cell-label .ag-header-cell-text {
+.ag-theme-servoy .ag-filter-toolpanel .ag-filter-toolpanel-group .ag-filter-toolpanel-group-title {
 	overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.ag-theme-servoy .ag-filter-toolpanel-body.ag-filter .ag-filter-air {
+.ag-theme-servoy .ag-filter-toolpanel .ag-filter-toolpanel-group .ag-filter-toolpanel-group-item {
 	border-bottom: 1px solid @border-color;
 	padding-bottom: 10px;
 }
 
-.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel .ag-filter-body-wrapper > div:first-child > *,
-.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-panel .ag-filter-body-wrapper > .ag-filter-select:first-child {
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-toolpanel .ag-filter-body-wrapper > .ag-filter-body > .ag-input-wrapper > input,
+.ag-theme-servoy .ag-tool-panel-wrapper .ag-filter-toolpanel .ag-filter-body-wrapper > .ag-filter-select:first-child {
     margin-top: 10px;
 }
 
@@ -2158,6 +2161,8 @@ data-servoyextra-fontawesome > div {
 /* AG Grid Theme Side Tool panel */
 .ag-theme-servoy .ag-column-panel .ag-pivot-mode-panel,
 .ag-theme-servoy .ag-column-panel .ag-primary-cols-header-panel,
+.ag-theme-servoy .ag-column-panel .ag-column-select-header,
+.ag-theme-servoy .ag-filter-toolpanel .ag-filter-toolpanel-search,
 .ag-theme-servoy .ag-column-panel .ag-column-drop-vertical .ag-column-drop-list {
 	/* margin: 0 12px 8px 16px; */
 	padding: 8px 10px;
