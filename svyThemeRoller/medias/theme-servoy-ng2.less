@@ -1933,28 +1933,32 @@ data-servoyextra-fontawesome > div {
 	border-color: @border-color;
 }
 
-.ag-theme-servoy .ag-tab-header {
+.ag-theme-servoy .ag-tabs-header {
 	background-color: @brand-tertiary;
 	padding: 4px 0;
 	min-width: 220px;
 }
 
-.ag-theme-servoy .ag-tab-header .ag-tab {
+.ag-theme-servoy .ag-tabs-header .ag-tab {
 	margin: 4px;
+	
+	> .ag-icon {
+		display: initial;
+	}
 }
 
-.ag-theme-servoy .ag-tab-header .ag-tab.ag-tab-selected {
+.ag-theme-servoy .ag-tabs-header .ag-tab.ag-tab-selected {
 	background-color: @brand-tertiary;
 	color: @brand-primary;
 	border: 0;
 }
 
-.ag-theme-servoy .ag-tab-body {
+.ag-theme-servoy .ag-tabs-body {
 	padding: 8px 0;
 }
 
 // The Column Menu List
-.ag-theme-servoy .ag-tab-body .ag-menu-list {
+.ag-theme-servoy .ag-tabs-body .ag-menu-list {
 	padding-top: 4px;
 	padding-bottom: 4px;
 }
