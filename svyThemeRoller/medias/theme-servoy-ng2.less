@@ -2128,7 +2128,6 @@ data-servoyextra-fontawesome > div {
 
 /* Ag Grid Theme Side Panel Columns */
 
-
 .ag-theme-servoy .ag-column-drag {
 	min-height: 10px;
 	cursor: drag;
@@ -2200,45 +2199,11 @@ data-servoyextra-fontawesome > div {
 /* Ag Group Theme Horizontal Panel Column Drop */
 .ag-theme-servoy .ag-column-drop-horizontal {
 	background-color: @table-header-bg;
-	/* border: 1px solid @border-color; */
 	border-bottom: 1px solid @border-color;
 	padding: 5px;
 }
 
-.ag-theme-servoy .ag-column-drop-horizontal .ag-column-drop-cell {
-	/* margin-top: 4px; */
-}
-
-.ag-theme-servoy .ag-column-drop-horizontal > div:first-child {
-    /* float: left;
-    height: 100%;
-    line-height:32px; */
-}
-
-.ag-theme-servoy .ag-column-drop-horizontal .ag-right-arrow,
-.ag-theme-servoy .ag-column-drop-horizontal .ag-icon-small-right {
-	/* padding: 0 4px;
-	display: none; */
-}
-
-/*.ag-theme-servoy .ag-column-drop-horizontal .ag-column-drop-cell .ag-column-drop-cell-button:after {
-	/* font-family: "Glyphicons Halflings", "FontAwesome", "Font Awesome 5 Free"; *
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    content : ">";
-    /* content: "\e080"; *
-    /* vertical-align: middle; *
-}*/
-
-.ag-theme-servoy .ag-column-drop-horizontal-cell-separator {
-	margin: 0 6px;
-}
-
-.ag-theme-servoy .ag-column-drop-horizontal-cell-separator:before {
-    content: "\f12d";
-}
-
+/* Grouped item */
 .ag-theme-servoy .ag-column-drop-horizontal .ag-column-drag,
 .ag-theme-servoy .ag-column-drop-horizontal .ag-drag-handle  {
     border: 1px @border-style @border-color;
@@ -2255,7 +2220,6 @@ data-servoyextra-fontawesome > div {
     border-right: 0;
     padding: 4px 16px;
     padding-left: 0;
-    /* border-radius: 0 @border-radius @border-radius 0; */
     line-height: 20px;
 }
 
@@ -2269,9 +2233,10 @@ data-servoyextra-fontawesome > div {
 }
 
 .ag-table.ag-theme-servoy .ag-column-drop-horizontal .ag-column-drop-cell:last-child {
-	margin-right: 10px;
+	margin-right: 4px;
 }
 
+/* Remove group button */
 .ag-theme-servoy .ag-column-drop-horizontal .ag-column-drop-cell-button > .ag-icon-cancel:before,
 .ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-cell .ag-column-drop-cell-button > .ag-icon-cancel:before {
 	border-radius: 50px;
@@ -2283,13 +2248,6 @@ data-servoyextra-fontawesome > div {
 .ag-theme-servoy .ag-column-drop-horizontal .ag-icon-pivot {
 	margin-right: 12px;
 }
-
-/*
-.ag-table.ag-theme-servoy .ag-tool-panel-wrapper .ag-column-drop .ag-column-drop-cell {
-    padding-left: 10px;
-    /*line-height: 32px;*
-    display: block;
-} */
 
 /* Ag-Grid Theme Side Panel Column Drops */
 .ag-table.ag-theme-servoy .ag-column-drop-vertical {
@@ -2309,15 +2267,6 @@ data-servoyextra-fontawesome > div {
 	background-repeat: no-repeat;
 	background-position: 4px 6px !important;
 }
-
-.ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-cell .ag-column-drop-cell-button {
-	/* margin-top: 2px; */
-}
-
-/*
-.ag-table.ag-theme-servoy .ag-tool-panel .ag-column-drop .ag-column-drop-cell .ag-column-drop-cell-button {
-    float: initial;
-} */
 
 /* ag-column-drop-horizontal-list */
 .ag-table.ag-theme-servoy .ag-column-drop-empty-message,
@@ -2341,7 +2290,8 @@ data-servoyextra-fontawesome > div {
     text-transform: none;
     -webkit-font-smoothing: antialiased;
     content: "\f12d";
-    margin-left: 10px;
+    margin-left: 4px;
+    font-size: 12px;
 }
 
 .ag-table.ag-theme-servoy .ag-column-drop-vertical .ag-column-drop-list:after {
