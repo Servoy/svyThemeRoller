@@ -2317,7 +2317,89 @@ data-servoyextra-fontawesome > div {
 	margin-top: 4px;
 }
 
-/* Ag Variations */
+/***************************************************************************************************************
+****************************************************************************************************************
+*
+* Ag Icons
+*
+****************************************************************************************************************
+****************************************************************************************************************/
+
+.ag-theme-servoy .ag-checkbox-input-wrapper {
+    font-family: "agGridClassic";
+    font-size: 12px;
+    line-height: 12px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 12px;
+    height: 12px;
+    background-color: var(--ag-checkbox-background-color);
+    border-radius: 0px;
+    display: inline-block;
+    vertical-align: middle;
+    flex: none;
+}
+.ag-theme-servoy .ag-checkbox-input-wrapper input, .ag-theme-bootstrap .ag-checkbox-input-wrapper input {
+    -webkit-appearance: none;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ag-theme-servoy .ag-checkbox-input-wrapper:focus-within, .ag-theme-bootstrap .ag-checkbox-input-wrapper:active {
+    outline: none;
+}
+
+.ag-theme-servoy .ag-checkbox-input-wrapper.ag-disabled {
+    opacity: 0.5;
+}
+
+.ag-theme-servoy .ag-checkbox-input-wrapper::after {
+    content: "\f108";
+    color: #000;
+    color: var(--ag-checkbox-unchecked-color, var(--ag-foreground-color, inherit));
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.ag-theme-servoy .ag-checkbox-input-wrapper.ag-checked::after {
+    content: "\f106";
+    color: #000;
+    color: var(--ag-checkbox-checked-color, var(--ag-foreground-color, inherit));
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.ag-theme-servoy .ag-checkbox-input-wrapper.ag-indeterminate::after {
+    content: "\f107";
+    color: #000;
+    color: var(--ag-checkbox-indeterminate-color, var(--ag-checkbox-unchecked-color, var(--ag-foreground-color, inherit)));
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.ag-theme-servoy .ag-side-bar .ag-checkbox-input-wrapper {
+	margin-left: 10px;
+}
+
+/***************************************************************************************************************
+****************************************************************************************************************
+*
+* Ag Variations
+*
+****************************************************************************************************************
+****************************************************************************************************************/
 
 .ag-table.no-border {
 	border: 0;
