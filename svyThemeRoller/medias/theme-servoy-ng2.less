@@ -1496,9 +1496,10 @@ data-servoyextra-fontawesome > div {
 }
 
 /* Servoy Bootstrap/Extra Table */
-.svy-table,
+.svy-table tbody,
 .bts-table {
 	border: @table-border-width @border-style @border-color;
+	border-top: 0;
 }
 
 .svy-table.no-border,
@@ -1507,7 +1508,9 @@ data-servoyextra-fontawesome > div {
 }
 
 .svy-table.no-border thead,
-.bts-table.no-border thead {
+.bts-table.no-border thead,
+.svy-table.no-border tbody,
+.bts-table.no-border tbody {
 	border: 0px;
 }
 
@@ -1561,14 +1564,21 @@ data-servoyextra-fontawesome > div {
 	border-width: @table-border-width;
 }
 
+.svy-table thead {
+	border-top-width: 0;
+}
+
 .ui-grid-header-cell,
 .svy-table th,
 .bts-table th,
 .table > thead > tr > th {
-	border-width: @table-border-width;
 	text-transform: @table-header-text-transform;
 	font-weight: @table-header-font-style;
 /*	font-size: 12px; */
+}
+
+.ui-grid-header-cell {
+	border-width: @table-border-width;
 }
 
 /**************************************************************
