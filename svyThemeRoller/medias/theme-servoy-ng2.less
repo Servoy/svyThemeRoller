@@ -475,22 +475,49 @@ html, body {
   	        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-.svy-calendar ~ .input-group-text,
-.bts-calendar ~ .input-group-text,
-.bts-calendar input ~ .input-group-text {
-	border-left: 0;
-}
+.svy-calendar,
+.bts-calendar  {
+	& ~ .input-group-text {
+		border-left: 0;
+		background-color: @field-addon-bg;
+	}
+	
+	&:focus ~ .input-group-text {
+		border-color: @main-color;
+	}
+	
+	&.no-border ~ .input-group-text {
+		.no-border();
+	}
+	
+	&.border-primary ~ .input-group-text {
+		.border-primary();
+	}
+	
+	&.border-info ~ .input-group-text {
+		.border-info();
+	}
+	
+	&.border-success ~ .input-group-text {
+		.border-success();
+	}
+	
+	&.border-warning ~ .input-group-text {
+		.border-warning();
+	}
+	
+	&.border-danger ~ .input-group-text {
+		.border-danger();
+	}
+	
+	&.border-tertiary ~ .input-group-text {
+		.border-tertiary();
+	}
+	
+	&.form-invalid ~ .input-group-text {
+		.border-danger();
+	}
 
-.svy-calendar ~ .input-group-text,
-.bts-calendar ~ .input-group-text,
-.bts-calendar input ~ .input-group-text {
-	background-color: @field-addon-bg;
-}
-
-.svy-calendar:focus ~ .input-group-text,
-.bts-calendar:focus ~ .input-group-text,
-.bts-calendar input:focus ~ .input-group-text {
-	border-color: @main-color;
 }
 
 .svy-field:focus, .svy-password:focus,
@@ -3430,7 +3457,7 @@ fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.foc
 .svy-calendar.form-invalid, .svy-calendar.form-invalid ~ .input-group-addon, 
 .bts-calendar.form-invalid, .bts-calendar.form-invalid ~ .input-group-addon, 
 .bts-calendar input.form-invalid, .bts-calendar input.form-invalid ~ .input-group-addon {
-	border: 1px solid @brand-danger;
+	border: @field-border-width @border-style @brand-danger;
 	outline-color: @brand-danger;
 }
 
@@ -3442,7 +3469,7 @@ fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.foc
 .svy-calendar.ng-invalid, .svy-calendar.ng-invalid ~ .input-group-addon, 
 .bts-calendar.form-invalid, .bts-calendar.form-invalid ~ .input-group-addon,
 .bts-calendar.ng-invalid input, .bts-calendar.ng-invalid input ~ .input-group-addon {
-	border: 1px solid @brand-danger;
+	border: @field-border-width @border-style @brand-danger;
 	outline-color: @brand-danger;
 }
 
@@ -3450,14 +3477,14 @@ fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.foc
 .svy-calendar-container.form-invalid input.svy-calendar ~ .input-group-text,
 .bts-calendar-container.form-invalid input.bts-calendar ~ .input-group-text,
 .bts-calendar.form-invalid input ~ .input-group-text {
-	border: 1px solid @brand-danger;
+	border: @field-border-width @border-style @brand-danger;
 	outline-color: @brand-danger;
 }
 
 .svy-calendar-container.ng-invalid input.svy-calendar ~ .input-group-text,
 .bts-calendar-container.form-invalid input.bts-calendar ~ .input-group-text,
 .bts-calendar.ng-invalid input ~ .input-group-text {
-	border: 1px solid @brand-danger;
+	border: @field-border-width @border-style @brand-danger;
 	outline-color: @brand-danger;
 }
 
