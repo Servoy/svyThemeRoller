@@ -418,6 +418,7 @@ html, body {
 .svy-textarea, .bts-textarea,
 .svy-textfield, .bts-textbox,
 .svy-typeahead, .bts-typeahead,
+.svy-combobox, .bts-combobox,
 .bts-select, .bts-select ~ .input-group-addon,
 .svy-calendar, .svy-calendar ~ .input-group-addon,
 .bts-calendar, .bts-calendar ~ .input-group-addon,
@@ -547,9 +548,86 @@ fieldset[disabled] .form-control {
 	color: @main-color-inverse;
 }
 
+
+/* Combobox */
+.svy-combobox-container,
 .bts-combobox-container {
 	border-radius: @field-border-radius;
+	
+	/* Combobox background */
+	&.form-primary > .svy-combobox,
+	&.form-primary > .bts-combobox {
+		.form-primary();
+	}
+	
+	&.form-info > .svy-combobox,
+	&.form-info > .bts-combobox {
+		.form-info();
+	}
+	
+	&.form-success > .svy-combobox,
+	&.form-success > .bts-combobox {
+		.form-success();
+	}
+	
+	&.form-warning > .svy-combobox,
+	&.form-warning > .bts-combobox {
+		.form-warning();
+	}
+
+	&.form-danger > .svy-combobox,
+	&.form-danger > .bts-combobox {
+		.form-danger();
+	}
+	
+	&.form-tertiary > .svy-combobox,
+	&.form-tertiary > .bts-combobox {
+		.form-tertiary();
+	}
+	
+	/* Combobox Border */
+	&.border-default {
+		border: 0;
+	}
+	
+	&.border-default > .svy-combobox,
+	&.border-default > .bts-combobox {
+		.border-default();
+	}
+
+	&.border-primary > .svy-combobox,
+	&.border-primary > .bts-combobox {
+		.border-primary();
+	}
+	
+	&.border-info > .svy-combobox,
+	&.border-info > .bts-combobox {
+		.border-info();
+	}
+	
+	&.border-success > .svy-combobox,
+	&.border-success > .bts-combobox {
+		.border-success();
+	}
+	
+	&.border-warning > .svy-combobox,
+	&.border-warning > .bts-combobox {
+		.border-warning();
+	}
+
+	&.border-danger > .svy-combobox,
+	&.border-danger > .bts-combobox {
+		.border-danger();
+	}
+	
+	&.border-tertiary > .svy-combobox,
+	&.border-tertiary > .bts-combobox {
+		.border-tertiary();
+	}
+
 }
+
+
 
 /* Combobox active */
 .bts-combobox-containerform-primary.show,
@@ -3474,7 +3552,9 @@ fieldset[disabled] .btn-outline-default:focus, .btn-outline-default.disabled.foc
 .svy-field.ng-invalid, .svy-password.ng-invalid, 
 .svy-textarea.ng-invalid, .bts-textarea.ng-invalid, 
 .svy-textfield.ng-invalid, .bts-textbox.ng-invalid, 
-.svy-typeahead.ng-invalid, .bts-typeahead.ng-invalid, 
+.svy-typeahead.ng-invalid, .bts-typeahead.ng-invalid,
+.svy-combobox-container.form-invalid .svy-combobox,
+.bts-combobox-container.form-invalid .bts-combobox,
 .bts-select.ng-invalid, .bts-select.ng-invalid ~ .input-group-addon, 
 .svy-calendar.ng-invalid, .svy-calendar.ng-invalid ~ .input-group-addon, 
 .bts-calendar.form-invalid, .bts-calendar.form-invalid ~ .input-group-addon,
