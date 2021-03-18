@@ -848,90 +848,90 @@ Can we make them look similar ?  */
 }
 
 /* Select2Tokenizer Servoy Extra */
-.svy-select2-autotokenizer-dropdown .select2-results__option.select2-results__option--highlighted {
-	background-color: @main-color;
+
+:root {
+	/* CSS variables used by the Tokenizer https://www.npmjs.com/package/ng-select2-component */
+    /* label */
+    --select2-label-text-color: @text-color;
+    /* --select2-required-color: red; */
+
+    /* selection */
+    --select2-selection-border-radius: @field-border-radius;
+    --select2-selection-background: @field-bg;
+    /* --select2-selection-disabled-background: #eee; */
+    --select2-selection-border-color: @border-color;
+    --select2-selection-focus-border-color: @main-color;
+    --select2-selection-text-color: @text-color;
+
+    /* selection: choice item (multiple) */
+    --select2-selection-choice-background: @main-color;
+    --select2-selection-choice-text-color: @main-color-inverse;
+    --select2-selection-choice-border-color: @border-color;
+    --select2-selection-choice-close-color: @main-color-inverse;
+    --select2-selection-choice-hover-close-color: @main-color-inverse;
+
+     /* placeholder */
+    /* --select2-placeholder-color: #999; */
+
+    /* reset */
+   	/* --select2-reset-color: #999; */
+
+    /* arrow */
+    /* --select2-arrow-color: #888; */
+
+    /* dropdown panel */
+    --select2-dropdown-background: #fff;
+    --select2-dropdown-border-color: @border-color;
+
+    /* search field */
+    --select2-search-border-color: @border-color;
+    --select2-search-background: #fff;
+    --select2-search-border-radius: 0px;
+
+    /* dropdown option */
+    --select2-option-text-color: @text-color;
+    /* --select2-option-disabled-text-color: #999;
+    --select2-option-disabled-background: transparent; */
+    --select2-option-selected-text-color: @main-color-inverse;
+    --select2-option-selected-background: @main-color;
+    --select2-option-highlighted-text-color: @text-color;
+    --select2-option-highlighted-background: #e9ecef;
+    /* --select2-option-group-text-color: gray;
+    --select2-option-group-background: transparent; */
+
+    /* hint */
+    /* --select2-hint-text-color: #888; */
+
+    /* for Material ------------------------------------------
+    --select2-material-underline: #ddd;
+    --select2-material-underline-active: #5a419e;
+    --select2-material-underline-disabled: linear-gradient(to right, rgba(0, 0, 0, 0.26) 0, rgba(0, 0, 0, 0.26) 33%, transparent 0);
+    --select2-material-underline-invalid: red;
+    --select2-material-placeholder-color: rgba(0, 0, 0, 0.38);
+    --select2-material-selection-background: #ddd;
+    --select2-material-option-selected-background: rgba(0, 0, 0, 0.04);
+    --select2-material-option-highlighted-text-color: #000;
+    --select2-material-option-selected-text-color: #ff5722;
+    */
 }
 
 .svy-select2-autotokenizer .select2-container--default .select2-selection--multiple {
-   	background-color: @field-bg;
-   	color: @field-color;
+	/* TODO should make this important !? */
     border-style: @border-style;
-	border-color: @border-color;
 	border-width: @field-border-width;
-	border-radius: 0;
-    cursor: text;
 }
 
-.svy-select2-autotokenizer .select2-container--default.select2-container--focus .select2-selection--multiple {
-	outline: 1px;
-	outline-color: @main-color-light;
-	border-color: @main-color-light;
-	box-shadow: none;
-}
-
-.svy-select2-autotokenizer .select2-container .select2-selection--multiple .select2-selection__rendered {
-    /*display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    padding: 2px 5px; */
-}
-
-.svy-select2-autotokenizer-dropdown .svy-select2-autotokenizer.select2-sm .svy-select2-autotokenizer-container .select2-selection__choice, 
-.svy-select2-autotokenizer.select2-sm .svy-select2-autotokenizer-container .select2-search--inline .select2-search__field {
-    margin-bottom: 5px;
-}
-
-.svy-select2-autotokenizer .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    background-color: @main-color; /* #76BB29; */
-    border: 0px solid @border-color;
-    border-radius: 30px;
-    cursor: default;
-    margin-top: 5px;
-    padding: 1px 15px 1px 10px;
-    color: @main-color-inverse;
-/*     display: flex;
-    align-items: center; */
-}
-
-.svy-select2-autotokenizer .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-	color: @main-color-inverse;
-}
-
-.svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-    color: #4A4A4A;
-    cursor: pointer;
-    font-weight: normal;
-    margin-right: 5px;
-    font-size: 0px;
-}
-
-.svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:before {
+/* Checkbox icon for the select2tokenizer dropdown */
+.svy-select2-autotokenizer .select2-container-dropdown .select2-results__option[aria-selected]:before {
 	font-family: "FontAwesome", "Font Awesome 5 Free";
-	content: "\F15A";
-	color: #ffffff;
-}
-
-.svy-select2-autotokenizer-dropdown .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover:before {
-	font-family: "FontAwesome", "Font Awesome 5 Free";
-	content: "\F159";
-	/* color: #ffffff; */
-}
-
-.svy-select2-autotokenizer-dropdown .select2-results__option[aria-selected=true] {
-	background-color: @main-color;
-	color: @main-color-inverse;
-}
-
-.svy-select2-autotokenizer-dropdown .select2-results__option[aria-selected]:before {
-	font-family: 'Glyphicons Halflings';
-	content: "\e157";
+	content: "\f0c8";
 	margin-right: 5px;
+	font-weight: normal;
 }
 
-.svy-select2-autotokenizer-dropdown .select2-results__option[aria-selected=true]:before {
-	content: "\e067";
+.svy-select2-autotokenizer .select2-container-dropdown .select2-results__option[aria-selected=true]:before {
+	content: "\f14a";
 }
-
 
 /* Badge */
 .btn-filter .badge {
