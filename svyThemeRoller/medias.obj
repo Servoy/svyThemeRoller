@@ -8,6 +8,12 @@ uuid:"42A34D64-3528-4217-A00F-F13EDBA6F95A"
 },
 {
 encapsulation:0,
+name:"theme-servoy-ng2.less",
+typeid:37,
+uuid:"83D2BC3B-26CD-4D27-89FE-CE93234D8EAE"
+},
+{
+encapsulation:0,
 name:"theme-servoy.less",
 typeid:37,
 uuid:"64D02AAF-D672-474E-A1F3-606783E09D49"
