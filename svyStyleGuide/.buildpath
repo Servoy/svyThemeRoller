@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
 	<buildpathentry excluding=".stp/|medias/" kind="src" path=""/>
+	<buildpathentry exported="true" kind="prj" path="/postImportHookStyleGuide"/>
 	<buildpathentry exported="true" kind="prj" path="/svyThemeRoller"/>
 	<buildpathentry exported="true" kind="prj" path="/svyUtils"/>
 	<buildpathentry exported="true" kind="prj" path="/svyUtils$NGClient"/>

@@ -1,5 +1,5 @@
 firstFormID:"26E9E052-E288-42D6-B04D-7B4175A75230",
-modulesNames:"svyUtils,svyUtils$NGClient,svyThemeRoller",
+modulesNames:"svyUtils,svyUtils$NGClient,svyThemeRoller,postImportHookStyleGuide",
 onOpenMethodID:"84759B51-D315-4EC2-8199-9146D8D2EBE0",
 styleSheetID:"7D62BAA4-EFF7-4992-B752-58B4D4E47FF6",
 typeid:43,
