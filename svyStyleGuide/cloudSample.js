@@ -152,17 +152,31 @@ function overrideStyleColors(mainColor, secondaryColor) {
 	}
 
 	// set the preferred colors
-	var mediaOriginal = solutionModel.getMedia('cloudSampleTemplateOriginal.less');
+	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
 	var cssText = mediaOriginal.getAsString();
-
+	
 	// override css
 	cssText = utils.stringReplaceTags(cssText, newColorStyle);
-	var media = solutionModel.getMedia('cloudSampleTemplate.less');
+	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
+	//cssText += '\n@main-color:pink;';
+	cssText += '\n@font-size-h1 : 100px;';
 	media.setAsString(cssText);
+	
+	plugins.file.writeTXTFile('mytheme.less',cssText)
 
-	application.overrideStyle('cloudSampleSolution.less', 'cloudSampleTemplate.less');
+	application.overrideStyle('svyStyleGuide.less', 'svyStyleGuideTemplate.less');
 }
 
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param StyleObj
+ *
+ * @properties={typeid:24,uuid:"D8FA1AE8-7F58-45E3-8EBD-2F2F587A01BA"}
+ */
+function overideStyle(StyleObj){
+	
+}
 
 /**
  * @public 
