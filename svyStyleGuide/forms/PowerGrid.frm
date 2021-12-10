@@ -146,7 +146,7 @@ height:30,
 width:80
 },
 styleClass:"default-align h1 font-weight-bold",
-text:"Data Grid"
+text:"Power Grid"
 },
 location:"1,1",
 name:"title",

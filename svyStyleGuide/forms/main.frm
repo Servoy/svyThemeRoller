@@ -93,7 +93,7 @@ width:"0"
 }
 },
 name:"tablesspanel_1",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"7BC45CCA-B019-46F5-887C-A5E8DAF0E5CC"
 }

@@ -46,7 +46,7 @@ width:200
 location:"1,1",
 name:"tabLabel",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"85FCA73B-3DC6-4E6F-B4BC-3EA67BF2D2A0"
 }
@@ -79,7 +79,7 @@ width:200
 location:"1,1",
 name:"tabButton",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"68381B0F-BA1E-48E8-A2CE-8DC59467051F"
 }
@@ -126,7 +126,7 @@ width:200
 location:"-2,-2",
 name:"tabTextarea",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"B1BE18C7-FE60-4FAA-B32B-4451C7108B49"
 }
@@ -159,7 +159,7 @@ width:200
 location:"1,1",
 name:"tablesspanel_1",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"0A1521FC-CD4B-4091-89AC-7281AF182F92"
 }
@@ -202,7 +202,7 @@ y:1
 },
 location:"1,1",
 name:"tabDataGrid",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"D6D55AAD-7CF1-4229-AA59-60997C556F8C"
 }
@@ -230,7 +230,7 @@ y:1
 },
 location:"1,1",
 name:"tablesspanel",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"5ED17B7B-C6DF-4660-95CF-D54AEE1DBE12"
 }
@@ -258,7 +258,7 @@ y:1
 },
 location:"1,1",
 name:"tabTableExtra",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"797487CC-7BCD-44C1-AB72-37A913C2C16B"
 }
@@ -338,7 +338,7 @@ width:200
 location:"-2,-2",
 name:"tabCombobox",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"EAE038F3-3C2F-4C0C-A5DB-BA3197F850F1"
 }
@@ -371,7 +371,7 @@ width:200
 location:"-2,-2",
 name:"tabTypeahead",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"6D8FDD3F-78CC-4A67-9AC2-53A64D62F3DC"
 }
@@ -414,7 +414,7 @@ y:1
 },
 location:"1,1",
 name:"tablesspanel_6",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"C23F243B-9503-458E-9B63-BFCF5A733824"
 }
@@ -442,7 +442,7 @@ y:1
 },
 location:"1,1",
 name:"tablesspanel_4",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"A1005187-27C2-447E-8F8E-7BB11FD27221"
 }
@@ -489,7 +489,7 @@ width:200
 location:"1,1",
 name:"tablesspanel_7",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"6D91F321-B49F-4EDE-87AD-5C5051251D2E"
 }
@@ -522,7 +522,7 @@ width:200
 location:"1,1",
 name:"tablesspanel_8",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"BBA035C5-0974-4F0F-BB57-76C7C10923BB"
 }
@@ -564,7 +564,7 @@ y:1
 },
 location:"1,1",
 name:"tablesspanel_3",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"EBF2A436-5EAC-4161-B266-61CC838FE1AF"
 }
@@ -597,7 +597,7 @@ width:200
 location:"1,1",
 name:"tablesspanel_2",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"1747C412-3BB9-428E-9B2F-C5B3358E127F"
 }
@@ -644,7 +644,7 @@ width:200
 location:"1,1",
 name:"tabCalendar",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"565BB91C-462A-41C0-A195-6C3C70CB3560"
 }
@@ -677,7 +677,7 @@ width:200
 location:"2,2",
 name:"tabTextbox",
 size:"200,100",
-typeName:"bootstrapcomponents-tablesspanel",
+typeName:"servoycore-formcontainer",
 typeid:47,
 uuid:"5AEF2BC5-577E-49DE-84F3-D34A72034AB5"
 }
