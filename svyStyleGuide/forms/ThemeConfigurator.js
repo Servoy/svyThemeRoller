@@ -35,84 +35,93 @@ var secondaryColor = "#18222C";
 var defaults = {};
 
 /**
+ * @type {Object}
+ * @properties={typeid:35,uuid:"8EBB57C0-CAA3-43A5-93BA-DA560B245CAA",variableType:-4}
+ */
+var defaultStyle = {
+	defaultMainColor: '#E9720B',
+	defaultSecondaryColor: '#18222C',
+	defaultH1Size: '36',
+	defaultFontSize: '14'
+}
+
+/**
  * @properties={typeid:24,uuid:"C3AD1B43-5EDE-4E16-9A94-8E973C622E8A"}
  */
 function overrideStyleColors() {
-	
-	var defaultStyle = {
-		defaultMainColor: '#E9720B',
-		defaultSecondaryColor: '#18222C',
-		defaultH1Size:'36',
-		defaultFontSize:'14'
-		}
+	var x;
 	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
 	var cssText = mediaOriginal.getAsString();
-	
 	cssText += '\n@excludeFromFile:#ffffff;';
+	
 	//main
-	if(mainColor != defaultStyle.defaultMainColor){
-		var finalColor = mainColor;
-	}else{
-		var x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultMainColor%%;', defaultStyle);
+	var finalColor;
+	if (mainColor != defaultStyle.defaultMainColor) {
+		finalColor = mainColor;
+	} else {
+		x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultMainColor%%;', defaultStyle);
 		cssText += x;
-		var finalColor = '@excludeFromFile';
+		finalColor = '@excludeFromFile';
 	}
-	
+
 	//secondary
-	if(secondaryColor != defaultStyle.defaultSecondaryColor){
-		var finalSecColor = secondaryColor;
-	}else{
-		var x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultSecondaryColor%%;', defaultStyle);
+	var finalSecColor;
+	if (secondaryColor != defaultStyle.defaultSecondaryColor) {
+		finalSecColor = secondaryColor;
+	} else {
+		x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultSecondaryColor%%;', defaultStyle);
 		cssText += x;
-		var finalSecColor = '@excludeFromFile';
+		finalSecColor = '@excludeFromFile';
 	}
-	application.output(h1Size);
+
 	//h1
-	if(h1Size != defaultStyle.defaultH1Size){
-		var finalH1Size = h1Size +'px';
-		application.output(finalH1Size);
-	}else{
-		var x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultH1Size%%px;', defaultStyle);
+	var finalH1Size;
+	if (h1Size != defaultStyle.defaultH1Size) {
+		finalH1Size = h1Size + 'px';
+		//application.output(finalH1Size);
+	} else {
+		x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultH1Size%%px;', defaultStyle);
 		cssText += x;
-		var finalH1Size = '@excludeFromFile';
-		application.output('default mode')
+		finalH1Size = '@excludeFromFile';
 	}
-	
-	if(textFontSize != defaultStyle.defaultFontSize){
-		var finalFontSize = textFontSize +'px';
-	}else{
-		var x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultFontSize%%px;', defaultStyle);
+
+	//font-size
+	var finalFontSize;
+	if (textFontSize != defaultStyle.defaultFontSize) {
+		finalFontSize = textFontSize + 'px';
+	} else {
+		x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultFontSize%%px;', defaultStyle);
 		cssText += x;
-		var finalFontSize = '@excludeFromFile';
+		finalFontSize = '@excludeFromFile';
 	}
-	
+
 	var newColorStyle = {
 		'MAIN-COLOR': finalColor,
 		'SECONDARY-COLOR': finalSecColor,
 		'FONT-SIZE-H1': finalH1Size,
 		'TEXT-FONT-SIZE': finalFontSize
 	}
-	
+
 	// override css
 	cssText = utils.stringReplaceTags(cssText, newColorStyle);
-	
-	application.output('before removing excludeFromFilecssText')
-		application.output(cssText)
+
+	//application.output('before removing excludeFromFilecssText')
+	//application.output(cssText)
 	/*
 	 * filter the cssText by excluding the rows marked with '@excludeFromFile'
 	 */
-		
+
 	var splitted = cssText.split('\n');
 	//application.output(splitted)
-	for(var i=0; i<splitted.length;i++){
-		if(splitted[i].indexOf('@excludeFromFile')!=-1){
-			splitted[i]='';
-			
+	for (var i = 0; i < splitted.length; i++) {
+		if (splitted[i].indexOf('@excludeFromFile') != -1) {
+			splitted[i] = '';
+
 		}
 	}
 	var textJoined = splitted.join(' ')
-	
-	application.output('after removing excludeFromFilecssText')
+
+	//application.output('after removing excludeFromFilecssText')
 	application.output(textJoined)
 
 	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
@@ -136,5 +145,17 @@ function onActionApplyColors(event) {
 	overrideStyleColors();
 	//scopes.cloudSample.overrideStyleColors(primaryColor, secondaryColor);
 //	application.overrideStyle("MAIN-COLOR",primaryColor);
+
+}
+
+/**
+ * @param {JSEvent} event
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"C3A1031C-1B1E-4EE3-ADB3-25D569071EA4"}
+ */
+function onActionResetToDefault(event) {
+	// TODO Auto-generated method stub
 
 }
