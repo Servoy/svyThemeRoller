@@ -62,6 +62,7 @@ function onActionResetStyle(event) {
  * @properties={typeid:24,uuid:"9A29640A-0185-4030-BEA4-BDB568E8820C"}
  */
 function onActionApplyStyle(event) {
+	var count = 0;
 	var newStyle = {
 		mainColor: mainColor,
 		secondaryColor: secondaryColor,
@@ -77,14 +78,17 @@ function onActionApplyStyle(event) {
 		for (var key in newStyle) {
 			  if (newCssArr[i].indexOf(key) != -1 && newStyle[key] == defaultStyle[key]){
 				  newCssArr[i] = '';
+				  count++;
 			  }
 		}
 	}
-
+	
 	var newCssText = newCssArr.join('');
 	newCssText = utils.stringReplaceTags(newCssText, newStyle);
 	
-	overrideCSS(newCssText);
+	if (count != Object.keys(newStyle).length) {
+		overrideCSS(newCssText);
+	}
 }
 
 /**
@@ -96,8 +100,8 @@ function onActionApplyStyle(event) {
  */
 function onActionDownloadStyle(event) {
 	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
-	if (media.getAsString().length>0) {
-		plugins.file.writeTXTFile('CustomTheme.less',media.getAsString());
+	if (media.getAsString().length > 0) {
+		plugins.file.writeTXTFile('CustomTheme.less', media.getAsString());
 	}
 }
 
