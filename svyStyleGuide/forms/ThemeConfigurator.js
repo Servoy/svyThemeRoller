@@ -1,152 +1,41 @@
 /**
+ * @type {Object}
+ * @properties={typeid:35,uuid:"8EBB57C0-CAA3-43A5-93BA-DA560B245CAA",variableType:-4}
+ */
+var defaultStyle = {
+	mainColor: '#E9720B',
+	secondaryColor: '#18222C',
+	fontSizeH1: '36px',
+	textFontSize: '@font-size-h5'
+}
+
+/**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"57506907-D2C6-4F61-9855-7B4600E8529A"}
  */
-var textFontSize = '14';
+var textFontSize = defaultStyle.textFontSize;
 
 /**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"40B01B95-A466-4D97-91E2-2F42962A301D"}
  */
-var h1Size = '36';
-
-
+var fontSizeH1 = defaultStyle.fontSizeH1;
 
 /**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"8F1F4D6A-DC75-4611-9872-0137A0007A69"}
  */
-var mainColor = "#E9720B";
+var mainColor = defaultStyle.mainColor;
 
 /**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"54231A2E-0D13-471E-B028-8A8DA1ABAE05"}
  */
-var secondaryColor = "#18222C";
-
-
-/**
- * @properties={typeid:35,uuid:"7665804E-5991-4CB7-80E6-6BDB4FE2ACF8",variableType:-4}
- */
-var defaults = {};
-
-/**
- * @type {Object}
- * @properties={typeid:35,uuid:"8EBB57C0-CAA3-43A5-93BA-DA560B245CAA",variableType:-4}
- */
-var defaultStyle = {
-	defaultMainColor: '#E9720B',
-	defaultSecondaryColor: '#18222C',
-	defaultH1Size: '36',
-	defaultFontSize: '14'
-}
-
-/**
- * @properties={typeid:24,uuid:"C3AD1B43-5EDE-4E16-9A94-8E973C622E8A"}
- */
-function overrideStyleColors() {
-	var x;
-	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
-	var cssText = mediaOriginal.getAsString();
-	cssText += '\n@excludeFromFile:#ffffff;';
-	
-	//main
-	var finalColor;
-	if (mainColor != defaultStyle.defaultMainColor) {
-		finalColor = mainColor;
-	} else {
-		x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultMainColor%%;', defaultStyle);
-		cssText += x;
-		finalColor = '@excludeFromFile';
-	}
-
-	//secondary
-	var finalSecColor;
-	if (secondaryColor != defaultStyle.defaultSecondaryColor) {
-		finalSecColor = secondaryColor;
-	} else {
-		x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultSecondaryColor%%;', defaultStyle);
-		cssText += x;
-		finalSecColor = '@excludeFromFile';
-	}
-
-	//h1
-	var finalH1Size;
-	if (h1Size != defaultStyle.defaultH1Size) {
-		finalH1Size = h1Size + 'px';
-		//application.output(finalH1Size);
-	} else {
-		x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultH1Size%%px;', defaultStyle);
-		cssText += x;
-		finalH1Size = '@excludeFromFile';
-	}
-
-	//font-size
-	var finalFontSize;
-	if (textFontSize != defaultStyle.defaultFontSize) {
-		finalFontSize = textFontSize + 'px';
-	} else {
-		x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultFontSize%%px;', defaultStyle);
-		cssText += x;
-		finalFontSize = '@excludeFromFile';
-	}
-
-	var newColorStyle = {
-		'MAIN-COLOR': finalColor,
-		'SECONDARY-COLOR': finalSecColor,
-		'FONT-SIZE-H1': finalH1Size,
-		'TEXT-FONT-SIZE': finalFontSize
-	}
-
-	// override css
-	cssText = utils.stringReplaceTags(cssText, newColorStyle);
-
-	//application.output('before removing excludeFromFilecssText')
-	//application.output(cssText)
-	/*
-	 * filter the cssText by excluding the rows marked with '@excludeFromFile'
-	 */
-
-	var splitted = cssText.split('\n');
-	//application.output(splitted)
-	for (var i = 0; i < splitted.length; i++) {
-		if (splitted[i].indexOf('@excludeFromFile') != -1) {
-			splitted[i] = '';
-
-		}
-	}
-	var textJoined = splitted.join(' ')
-
-	//application.output('after removing excludeFromFilecssText')
-	application.output(textJoined)
-
-	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
-	media.setAsString(textJoined);
-
-	//application.output(cssText);
-	//downloading file
-	//plugins.file.writeTXTFile('mytheme.less',textJoined)
-
-	application.overrideStyle('svyStyleGuide.less', 'svyStyleGuideTemplate.less');
-}
-
-/**
- * @param {JSEvent} event
- *
- * @properties={typeid:24,uuid:"73A092C4-784A-4DF2-B1C9-8C1AE81E3342"}
- */
-function onActionApplyColors(event) {
-//	scopes.svyProperties.setUserProperty("MAIN-COLOR", "style", primaryColor);
-//	scopes.svyProperties.setUserProperty("SECONDARY-COLOR", "style", secondaryColor);
-	overrideStyleColors();
-	//scopes.cloudSample.overrideStyleColors(primaryColor, secondaryColor);
-//	application.overrideStyle("MAIN-COLOR",primaryColor);
-
-}
+var secondaryColor = defaultStyle.secondaryColor;
 
 /**
  * @param {JSEvent} event
@@ -155,7 +44,77 @@ function onActionApplyColors(event) {
  *
  * @properties={typeid:24,uuid:"C3A1031C-1B1E-4EE3-ADB3-25D569071EA4"}
  */
-function onActionResetToDefault(event) {
-	// TODO Auto-generated method stub
+function onActionResetStyle(event) {
+	overrideCSS('');
+	
+	//reset form variables
+	textFontSize = defaultStyle.textFontSize;
+	fontSizeH1 = defaultStyle.fontSizeH1;
+	mainColor = defaultStyle.mainColor;
+	secondaryColor = defaultStyle.secondaryColor;
+}
 
+/**
+ * @param {JSEvent} event
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"9A29640A-0185-4030-BEA4-BDB568E8820C"}
+ */
+function onActionApplyStyle(event) {
+	var newStyle = {
+		mainColor: mainColor,
+		secondaryColor: secondaryColor,
+		fontSizeH1: fontSizeH1,
+		textFontSize: textFontSize
+	}
+	
+	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
+	var defaultCssText = mediaOriginal.getAsString();
+	
+	var newCssArr = defaultCssText.split('\n');
+	for (var i = 0; i < newCssArr.length; i++) {
+		for (var key in newStyle) {
+			  if (newCssArr[i].indexOf(key) != -1 && newStyle[key] == defaultStyle[key]){
+				  newCssArr[i] = '';
+			  }
+		}
+	}
+
+	var newCssText = newCssArr.join('');
+	newCssText = utils.stringReplaceTags(newCssText, newStyle);
+	
+	overrideCSS(newCssText);
+}
+
+/**
+ * @param {JSEvent} event
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"7FFC9617-B84D-48C6-BED3-FA6947B78283"}
+ */
+function onActionDownloadStyle(event) {
+	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
+	if (media.getAsString().length>0) {
+		plugins.file.writeTXTFile('CustomTheme.less',media.getAsString());
+	}
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param str
+ *
+ * @properties={typeid:24,uuid:"23AC6186-DA7D-46B1-BFA5-BED2589A138F"}
+ */
+function overrideCSS(str) {
+	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
+	media.setAsString(str);
+
+	if (str) {
+		application.overrideStyle('svyStyleGuide.less', 'svyStyleGuideTemplate.less');
+	} else {
+		application.overrideStyle('svyStyleGuide.less', 'svyStyleGuide.less');
+	}
+	
 }
