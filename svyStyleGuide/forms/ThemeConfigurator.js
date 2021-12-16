@@ -1,9 +1,18 @@
 /**
  * @type {String}
  *
- * @properties={typeid:35,uuid:"129BA819-746F-4C8F-81FC-C1834726F914"}
+ * @properties={typeid:35,uuid:"57506907-D2C6-4F61-9855-7B4600E8529A"}
  */
-var h1Size = null;
+var textFontSize = '14';
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"40B01B95-A466-4D97-91E2-2F42962A301D"}
+ */
+var h1Size = '36';
+
+
 
 /**
  * @type {String}
@@ -17,7 +26,7 @@ var mainColor = "#E9720B";
  *
  * @properties={typeid:35,uuid:"54231A2E-0D13-471E-B028-8A8DA1ABAE05"}
  */
-var secondaryColor = "#ffffff";
+var secondaryColor = "#18222C";
 
 
 /**
@@ -32,8 +41,9 @@ function overrideStyleColors() {
 	
 	var defaultStyle = {
 		defaultMainColor: '#E9720B',
-		defaultSecondaryColor: '#FFF',
-		defaultH1Size:'36'
+		defaultSecondaryColor: '#18222C',
+		defaultH1Size:'36',
+		defaultFontSize:'14'
 		}
 	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
 	var cssText = mediaOriginal.getAsString();
@@ -58,31 +68,40 @@ function overrideStyleColors() {
 	}
 	application.output(h1Size);
 	//h1
-//	if(h1Size != defaultStyle.defaultH1Size){
-//		var finalH1Size = h1Size +'px';
-//		application.output(finalH1Size);
-//	}else{
-//		var x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultH1Size%%px;', defaultStyle);
-//		cssText += x;
-//		var finalH1Size = '@excludeFromFile';
-//	}
+	if(h1Size != defaultStyle.defaultH1Size){
+		var finalH1Size = h1Size +'px';
+		application.output(finalH1Size);
+	}else{
+		var x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultH1Size%%px;', defaultStyle);
+		cssText += x;
+		var finalH1Size = '@excludeFromFile';
+		application.output('default mode')
+	}
 	
-
-
+	if(textFontSize != defaultStyle.defaultFontSize){
+		var finalFontSize = textFontSize +'px';
+	}else{
+		var x = utils.stringReplaceTags('\n@excludeFromFile:%%defaultFontSize%%px;', defaultStyle);
+		cssText += x;
+		var finalFontSize = '@excludeFromFile';
+	}
 	
 	var newColorStyle = {
 		'MAIN-COLOR': finalColor,
 		'SECONDARY-COLOR': finalSecColor,
-		//'FONT-SIZE-H1': finalH1Size
+		'FONT-SIZE-H1': finalH1Size,
+		'TEXT-FONT-SIZE': finalFontSize
 	}
 	
 	// override css
 	cssText = utils.stringReplaceTags(cssText, newColorStyle);
-//	application.output('before removing excludeFromFilecssText')
-//		application.output(cssText)
+	
+	application.output('before removing excludeFromFilecssText')
+		application.output(cssText)
 	/*
 	 * filter the cssText by excluding the rows marked with '@excludeFromFile'
 	 */
+		
 	var splitted = cssText.split('\n');
 	//application.output(splitted)
 	for(var i=0; i<splitted.length;i++){
@@ -92,12 +111,11 @@ function overrideStyleColors() {
 		}
 	}
 	var textJoined = splitted.join(' ')
-//	application.output('after removing excludeFromFilecssText')
-//	application.output(textJoined)
+	
+	application.output('after removing excludeFromFilecssText')
+	application.output(textJoined)
 
 	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
-	
-
 	media.setAsString(textJoined);
 
 	//application.output(cssText);
