@@ -156,6 +156,28 @@ function onActionApplyColors(event) {
  * @properties={typeid:24,uuid:"C3A1031C-1B1E-4EE3-ADB3-25D569071EA4"}
  */
 function onActionResetToDefault(event) {
+	mainColor = "#E9720B";
+
+}
+
+/**
+ * @param {JSEvent} event
+ * @param {string} dataTarget
+ *
+ * @properties={typeid:24,uuid:"63611007-748C-45B3-AE12-69D7A35FCA1A"}
+ */
+function cardInfo(event, dataTarget) {
+	plugins.dialogs.showInfoDialog('Main Color','Main Color will affect the navbar')
+
+}
+
+/**
+ * @param {JSEvent} event
+ * @param {string} dataTarget
+ *
+ * @properties={typeid:24,uuid:"86251B0F-BF93-488F-ABA2-1B62EB98545D"}
+ */
+function onActionOptions(event, dataTarget) {
 	// TODO Auto-generated method stub
 
 }
