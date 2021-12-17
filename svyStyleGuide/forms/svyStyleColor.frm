@@ -25,6 +25,24 @@ typeid:47,
 uuid:"0D4E2ED8-D486-430C-820D-6C7AA5E858D0"
 },
 {
+cssPosition:"80,50,-1,-1,30,30",
+json:{
+cssPosition:{
+bottom:"-1",
+height:"30",
+left:"-1",
+right:"50",
+top:"80",
+width:"30"
+},
+inputType:"color"
+},
+name:"cardColorPicker",
+typeName:"bootstrapcomponents-textbox",
+typeid:47,
+uuid:"273633F4-0F4B-4F33-8ABA-476DF626BCF8"
+},
+{
 cssPosition:"0,-1,0,0,10,-1",
 formIndex:1,
 json:{
@@ -37,29 +55,29 @@ top:"0",
 width:"10"
 },
 formIndex:1,
-styleClass:"default-align bg-primary"
+styleClass:"default-align bg-primary cardMenuBar"
 },
 name:"cardDefaultMartor",
-styleClass:"default-align bg-primary",
+styleClass:"default-align bg-primary cardMenuBar",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"2D8429FE-DA7E-4900-9550-8B24B0636D60"
 },
 {
-cssPosition:"-1,50,10,20,231,30",
+cssPosition:"-1,80,10,20,-1,30",
 formIndex:5,
 json:{
 cssPosition:{
 bottom:"10",
 height:"30",
 left:"20",
-right:"50",
+right:"80",
 top:"-1",
-width:"231"
+width:"-1"
 },
 formIndex:5
 },
-name:"textbox_8",
+name:"cardInputField",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
 uuid:"31103D2A-A76A-4300-9381-5595E77E1A21"

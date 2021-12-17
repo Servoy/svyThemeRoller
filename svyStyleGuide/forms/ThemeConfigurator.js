@@ -10,6 +10,15 @@ var defaultStyle = {
 }
 
 /**
+ * @type {Object}
+ * @properties={typeid:35,uuid:"44320B3D-C95C-42FD-AAC6-D673DF0217B0",variableType:-4}
+ */
+var styleGuideInfo = {
+	mainColor:'This will affect the navbar',
+	secondaryColor: 'This will affect the sideNav'
+}
+
+/**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"57506907-D2C6-4F61-9855-7B4600E8529A"}
@@ -129,10 +138,24 @@ function onActionDownloadStyle(event) {
  * @properties={typeid:24,uuid:"86251B0F-BF93-488F-ABA2-1B62EB985451"}
  */
 function onActionResetToDefault(event) {
-	mainColor = "#E9720B";
+	/*the name of the formComponent should be the same as the defaultStyle object*/
+	var dp = elements[getComponentName(event.getElementName())].containedForm.cardInputField.getDataProviderID();
+
+	application.output(dp)
+	this[dp] = defaultStyle[getComponentName(event.getElementName())];
 
 }
-
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param elementName
+ *
+ * @properties={typeid:24,uuid:"FB2DC6E0-0EB6-4263-A30E-81E0E8180347"}
+ */
+function getComponentName(elementName){
+	var indexOF$ = elementName.indexOf('$');
+	var name = elementName.substring(0, indexOF$);
+	return name;
+}
 /**
  * @param {JSEvent} event
  * @param {string} dataTarget
@@ -140,8 +163,8 @@ function onActionResetToDefault(event) {
  * @properties={typeid:24,uuid:"63611007-748C-45B3-AE12-69D7A35FCA1A"}
  */
 function cardInfo(event, dataTarget) {
-	plugins.dialogs.showInfoDialog('Main Color','Main Color will affect the navbar')
-
+	/*this will show the specific info based on the component name that should be set it exactly like the names of the styleGuideInfo object which also will keep the information*/
+	plugins.dialogs.showInfoDialog(' ',styleGuideInfo[getComponentName(event.getElementName())]);
 }
 
 /**
@@ -151,5 +174,15 @@ function cardInfo(event, dataTarget) {
  * @properties={typeid:24,uuid:"86251B0F-BF93-488F-ABA2-1B62EB98545D"}
  */
 function onActionOptions(event, dataTarget) {
-	// TODO Auto-generated method stub
+	plugins.window.createFormPopup(forms.colorOptions).show();
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param variable
+ *
+ * @properties={typeid:24,uuid:"239BBE2C-CACD-402F-BF0A-60ABAEE52449"}
+ */
+function setColorValue(variable){
+	mainColor = variable;
 }

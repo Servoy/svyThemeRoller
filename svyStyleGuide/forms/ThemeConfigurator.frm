@@ -96,16 +96,77 @@ btnCardInfo:{
 onActionMethodID:"63611007-748C-45B3-AE12-69D7A35FCA1A"
 },
 btnCardMenu:{
-
+onActionMethodID:"86251B0F-BF93-488F-ABA2-1B62EB98545D"
 },
 btnCardReset:{
-onActionMethodID:"C3A1031C-1B1E-4EE3-ADB3-25D569071EA4"
+onActionMethodID:"86251B0F-BF93-488F-ABA2-1B62EB985451"
+},
+cardColorPicker:{
+dataProviderID:"secondaryColor",
+inputType:"color"
 },
 cardContainer:{
 
 },
 cardDefaultMartor:{
 
+},
+cardInputField:{
+dataProviderID:"secondaryColor"
+},
+cardName:{
+text:"Secondary Color"
+},
+cardNavbar:{
+
+},
+svy_form:"D3ACD293-8396-4A8B-8C3D-323CE047D3C9",
+textbox_8:{
+dataProviderID:"secondaryColor"
+}
+},
+location:{
+x:2,
+y:2
+},
+size:{
+height:120,
+width:300
+},
+styleClass:"svy-formcomponent margin-10"
+},
+location:"2,2",
+name:"secondaryColor",
+size:"300,120",
+styleClass:"svy-formcomponent margin-10",
+typeName:"servoycore-formcomponent",
+typeid:47,
+uuid:"0FD47F8C-16E4-41DD-AC14-CDC17B7F35B6"
+},
+{
+json:{
+containedForm:{
+btnCardInfo:{
+onActionMethodID:"63611007-748C-45B3-AE12-69D7A35FCA1A"
+},
+btnCardMenu:{
+onActionMethodID:"86251B0F-BF93-488F-ABA2-1B62EB98545D"
+},
+btnCardReset:{
+onActionMethodID:"86251B0F-BF93-488F-ABA2-1B62EB985451"
+},
+cardColorPicker:{
+dataProviderID:"mainColor",
+inputType:"color"
+},
+cardContainer:{
+
+},
+cardDefaultMartor:{
+
+},
+cardInputField:{
+dataProviderID:"mainColor"
 },
 cardName:{
 text:"Main Color"
@@ -125,11 +186,14 @@ y:1
 size:{
 height:120,
 width:300
-}
+},
+styleClass:"svy-formcomponent margin-10",
+visible:true
 },
 location:"1,1",
-name:"formcomponent_6",
+name:"mainColor",
 size:"300,120",
+styleClass:"svy-formcomponent margin-10",
 typeName:"servoycore-formcomponent",
 typeid:47,
 uuid:"2F0D030D-68D7-4BF0-8D1F-EC8A6667271C"
@@ -395,10 +459,8 @@ specname:\"flexitem\"\
 }",
 items:[
 {
-enabled:false,
 json:{
 dataProviderID:"mainColor",
-enabled:false,
 inputType:"color",
 location:{
 x:162,
@@ -424,7 +486,7 @@ typeid:46,
 uuid:"CE932BE5-1364-4DE6-AC85-E258505049AB"
 }
 ],
-location:"2,2",
+location:"3,3",
 typeid:46,
 uuid:"49E9B6C5-BDB1-43BB-A474-B3DA067F7E8D"
 }
