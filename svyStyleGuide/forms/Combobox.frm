@@ -2052,5 +2052,6 @@ uuid:"69E47329-998F-4C84-89AB-56FC2122DC8B"
 name:"Combobox",
 navigatorID:"-1",
 showInMenu:true,
+styleClass:"frm-combobox",
 typeid:3,
 uuid:"253F0048-F5E7-46F8-B01E-C6D396CE24C7"
