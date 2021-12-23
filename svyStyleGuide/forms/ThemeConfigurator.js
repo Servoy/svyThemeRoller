@@ -2,12 +2,7 @@
  * @type {Object}
  * @properties={typeid:35,uuid:"8EBB57C0-CAA3-43A5-93BA-DA560B245CAA",variableType:-4}
  */
-var defaultStyle = {
-	maincolor: '#E9720B',
-	secondarycolor: '#18222C',
-	fontsizeh1: '36px',
-	textfontsize: '@font-size-h5'
-}
+var defaultStyle = { }
 
 /**
  * @type {Object}
@@ -23,28 +18,28 @@ var styleGuideInfo = {
  *
  * @properties={typeid:35,uuid:"57506907-D2C6-4F61-9855-7B4600E8529A"}
  */
-var textfontsize = defaultStyle.textfontsize;
+var textfontsize = null;
 
 /**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"40B01B95-A466-4D97-91E2-2F42962A301D"}
  */
-var fontsizeh1 = defaultStyle.fontsizeh1;
+var fontsizeh1 = null;
 
 /**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"8F1F4D6A-DC75-4611-9872-0137A0007A69"}
  */
-var maincolor = defaultStyle.maincolor;
+var maincolor = null;
 
 /**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"54231A2E-0D13-471E-B028-8A8DA1ABAE05"}
  */
-var secondarycolor = defaultStyle.secondarycolor;
+var secondarycolor = null;
 
 /**
  * @param {JSEvent} event
@@ -57,10 +52,9 @@ function onActionResetStyle(event) {
 	overrideCSS('');
 	
 	//reset form variables
-	textfontsize = defaultStyle.textfontsize;
-	fontsizeh1 = defaultStyle.fontsizeh1;
-	maincolor = defaultStyle.maincolor;
-	secondarycolor = defaultStyle.secondarycolor;
+	for (var prop in defaultStyle) {
+		forms.ThemeConfigurator[prop] = defaultStyle[prop];
+	}
 }
 
 /**
@@ -71,12 +65,10 @@ function onActionResetStyle(event) {
  * @properties={typeid:24,uuid:"9A29640A-0185-4030-BEA4-BDB568E8820C"}
  */
 function onActionApplyStyle(event) {
-	var count = 0;
-	var newStyle = {
-		maincolor: maincolor,
-		secondarycolor: secondarycolor,
-		fontsizeh1: fontsizeh1,
-		textfontsize: textfontsize
+	var count = 0;	
+	var newStyle = {}
+	for (var prop in defaultStyle) {
+		newStyle[prop] = forms.ThemeConfigurator[prop];
 	}
 	
 	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
@@ -94,10 +86,8 @@ function onActionApplyStyle(event) {
 	
 	var newCssText = newCssArr.join('\n');
 	newCssText = utils.stringReplaceTags(newCssText, newStyle);
-	
-	if (count != Object.keys(newStyle).length) {
-		overrideCSS(newCssText);
-	}
+
+	(count != Object.keys(newStyle).length) && overrideCSS(newCssText);
 }
 
 /**
@@ -113,7 +103,7 @@ function onActionDownloadStyle(event) {
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
 		if (i > 0 && mediaCssArr[i].indexOf('@') == 0) {
-			mediaCssArr[i] = mediaCssArr[i].trim() + " // default: " + defaultStyle[''+mediaCssArr[i].split(':')[0].slice(1).replace('-','')] + "\n" ;
+			mediaCssArr[i] = mediaCssArr[i].trim() + " // default: " + defaultStyle[''+mediaCssArr[i].split(':')[0].slice(1).split('-').join('')] + "\n" ;
 		}
 	}
 	if (media.getAsString().length > 0) {
@@ -131,11 +121,7 @@ function onActionDownloadStyle(event) {
 	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
 	media.setAsString(str);
 
-	if (str) {
-		application.overrideStyle('svyStyleGuide.less', 'svyStyleGuideTemplate.less');
-	} else {
-		application.overrideStyle('svyStyleGuide.less', 'svyStyleGuide.less');
-	}
+	str ? application.overrideStyle('svyStyleGuide.less', 'svyStyleGuideTemplate.less') : application.overrideStyle('svyStyleGuide.less', 'svyStyleGuide.less');
 	
 }
 
@@ -204,18 +190,23 @@ function setColorValue(variable){
  * @properties={typeid:24,uuid:"36E8977A-546E-4F67-81F8-A889E0FE7D5C"}
  */
 function onShow(firstShow, event) {
-	var obj = { }
 	var key, value;
+	//parsing theme-servoy.less file
 	var media = solutionModel.getMedia('theme-servoy.less');
 	var mediaCssText = media.getAsString();	
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
 		if (mediaCssArr[i][0] == '@' && mediaCssArr[i].indexOf('@media') == -1) {
-			key = mediaCssArr[i].slice(1).split(':')[0].split('-').join('');
-			value = "'"+mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1)+"'";
-			obj[key] = value;
+			//get variable name(key) and value(value)
+			key = mediaCssArr[i].slice(1).split(':')[0].split('-').join('').replace(' ','');
+			value = mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1);
+			//add item to the object
+			defaultStyle[key] = value;
 		}
 	}
 	
-	defaultStyle = obj;
+	//set default values for form variables
+	for (var prop in defaultStyle) {
+		forms.ThemeConfigurator[prop] = defaultStyle[prop];
+	}
 }
