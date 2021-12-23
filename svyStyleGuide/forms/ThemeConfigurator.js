@@ -3,10 +3,10 @@
  * @properties={typeid:35,uuid:"8EBB57C0-CAA3-43A5-93BA-DA560B245CAA",variableType:-4}
  */
 var defaultStyle = {
-	mainColor: '#E9720B',
-	secondaryColor: '#18222C',
-	fontSizeH1: '36px',
-	textFontSize: '@font-size-h5'
+	maincolor: '#E9720B',
+	secondarycolor: '#18222C',
+	fontsizeh1: '36px',
+	textfontsize: '@font-size-h5'
 }
 
 /**
@@ -14,8 +14,8 @@ var defaultStyle = {
  * @properties={typeid:35,uuid:"44320B3D-C95C-42FD-AAC6-D673DF0217B0",variableType:-4}
  */
 var styleGuideInfo = {
-	mainColor:'This will affect the navbar',
-	secondaryColor: 'This will affect the sideNav'
+	maincolor:'This will affect the navbar',
+	secondarycolor: 'This will affect the sideNav'
 }
 
 /**
@@ -23,28 +23,28 @@ var styleGuideInfo = {
  *
  * @properties={typeid:35,uuid:"57506907-D2C6-4F61-9855-7B4600E8529A"}
  */
-var textFontSize = defaultStyle.textFontSize;
+var textfontsize = defaultStyle.textfontsize;
 
 /**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"40B01B95-A466-4D97-91E2-2F42962A301D"}
  */
-var fontSizeH1 = defaultStyle.fontSizeH1;
+var fontsizeh1 = defaultStyle.fontsizeh1;
 
 /**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"8F1F4D6A-DC75-4611-9872-0137A0007A69"}
  */
-var mainColor = defaultStyle.mainColor;
+var maincolor = defaultStyle.maincolor;
 
 /**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"54231A2E-0D13-471E-B028-8A8DA1ABAE05"}
  */
-var secondaryColor = defaultStyle.secondaryColor;
+var secondarycolor = defaultStyle.secondarycolor;
 
 /**
  * @param {JSEvent} event
@@ -57,10 +57,10 @@ function onActionResetStyle(event) {
 	overrideCSS('');
 	
 	//reset form variables
-	textFontSize = defaultStyle.textFontSize;
-	fontSizeH1 = defaultStyle.fontSizeH1;
-	mainColor = defaultStyle.mainColor;
-	secondaryColor = defaultStyle.secondaryColor;
+	textfontsize = defaultStyle.textfontsize;
+	fontsizeh1 = defaultStyle.fontsizeh1;
+	maincolor = defaultStyle.maincolor;
+	secondarycolor = defaultStyle.secondarycolor;
 }
 
 /**
@@ -73,10 +73,10 @@ function onActionResetStyle(event) {
 function onActionApplyStyle(event) {
 	var count = 0;
 	var newStyle = {
-		mainColor: mainColor,
-		secondaryColor: secondaryColor,
-		fontSizeH1: fontSizeH1,
-		textFontSize: textFontSize
+		maincolor: maincolor,
+		secondarycolor: secondarycolor,
+		fontsizeh1: fontsizeh1,
+		textfontsize: textfontsize
 	}
 	
 	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
@@ -92,7 +92,7 @@ function onActionApplyStyle(event) {
 		}
 	}
 	
-	var newCssText = newCssArr.join('');
+	var newCssText = newCssArr.join('\n');
 	newCssText = utils.stringReplaceTags(newCssText, newStyle);
 	
 	if (count != Object.keys(newStyle).length) {
@@ -109,8 +109,15 @@ function onActionApplyStyle(event) {
  */
 function onActionDownloadStyle(event) {
 	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
+	var mediaCssText = media.getAsString();	
+	var mediaCssArr = mediaCssText.split('\n');
+	for (var i = 0; i < mediaCssArr.length; i++) {
+		if (i > 0 && mediaCssArr[i].indexOf('@') == 0) {
+			mediaCssArr[i] = mediaCssArr[i].trim() + " // default: " + defaultStyle[''+mediaCssArr[i].split(':')[0].slice(1).replace('-','')] + "\n" ;
+		}
+	}
 	if (media.getAsString().length > 0) {
-		plugins.file.writeTXTFile('CustomTheme.less', media.getAsString());
+		plugins.file.writeTXTFile('CustomTheme.less', mediaCssArr.join(''));
 	}
 }
 
@@ -184,5 +191,31 @@ function onActionOptions(event, dataTarget) {
  * @properties={typeid:24,uuid:"239BBE2C-CACD-402F-BF0A-60ABAEE52449"}
  */
 function setColorValue(variable){
-	mainColor = variable;
+	maincolor = variable;
+}
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"36E8977A-546E-4F67-81F8-A889E0FE7D5C"}
+ */
+function onShow(firstShow, event) {
+	var obj = { }
+	var key, value;
+	var media = solutionModel.getMedia('theme-servoy.less');
+	var mediaCssText = media.getAsString();	
+	var mediaCssArr = mediaCssText.split('\n');
+	for (var i = 0; i < mediaCssArr.length; i++) {
+		if (mediaCssArr[i][0] == '@' && mediaCssArr[i].indexOf('@media') == -1) {
+			key = mediaCssArr[i].slice(1).split(':')[0].split('-').join('');
+			value = "'"+mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1)+"'";
+			obj[key] = value;
+		}
+	}
+	
+	defaultStyle = obj;
 }

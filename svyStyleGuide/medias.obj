@@ -1,6 +1,12 @@
 [
 {
 encapsulation:0,
+name:"custom_servoy_theme_properties2.less",
+typeid:37,
+uuid:"CF5D82CE-8F08-46AB-B7DB-7E8100BC5954"
+},
+{
+encapsulation:0,
 mimeType:"text/css",
 name:"svyStyleGuide.less",
 typeid:37,

@@ -102,7 +102,7 @@ btnCardReset:{
 onActionMethodID:"86251B0F-BF93-488F-ABA2-1B62EB985451"
 },
 cardColorPicker:{
-dataProviderID:"secondaryColor",
+dataProviderID:"secondarycolor",
 inputType:"color"
 },
 cardContainer:{
@@ -156,7 +156,7 @@ btnCardReset:{
 onActionMethodID:"86251B0F-BF93-488F-ABA2-1B62EB985451"
 },
 cardColorPicker:{
-dataProviderID:"mainColor",
+dataProviderID:"maincolor",
 inputType:"color"
 },
 cardContainer:{
@@ -221,7 +221,7 @@ specname:\"flexitem\"\
 items:[
 {
 json:{
-dataProviderID:"secondaryColor",
+dataProviderID:"secondarycolor",
 inputType:"color",
 location:{
 x:168,
@@ -356,7 +356,7 @@ specname:\"flexitem\"\
 items:[
 {
 json:{
-dataProviderID:"fontSizeH1",
+dataProviderID:"fontsizeh1",
 inputType:null,
 location:{
 x:3,
@@ -425,7 +425,7 @@ specname:\"flexitem\"\
 items:[
 {
 json:{
-dataProviderID:"textFontSize",
+dataProviderID:"textfontsize",
 location:{
 x:164,
 y:1764
@@ -460,7 +460,7 @@ specname:\"flexitem\"\
 items:[
 {
 json:{
-dataProviderID:"mainColor",
+dataProviderID:"maincolor",
 inputType:"color",
 location:{
 x:162,
@@ -896,6 +896,7 @@ uuid:"5CD7D022-1609-4DDF-B382-C5BA2327612C"
 ],
 name:"ThemeConfigurator",
 navigatorID:"-1",
+onShowMethodID:"36E8977A-546E-4F67-81F8-A889E0FE7D5C",
 showInMenu:true,
 typeid:3,
 uuid:"3AD031EC-2B2D-4915-9371-51D6FB09C01B"
