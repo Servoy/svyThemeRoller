@@ -50,7 +50,10 @@ var secondarycolor = null;
  */
 function onActionResetStyle(event) {
 	overrideCSS('');
-	
+
+	//clear local storage
+	plugins.webstorageLocalstorage.removeItem('customCss');
+
 	//reset form variables
 	for (var prop in defaultStyle) {
 		forms.ThemeConfigurator[prop] = defaultStyle[prop];
@@ -65,29 +68,7 @@ function onActionResetStyle(event) {
  * @properties={typeid:24,uuid:"9A29640A-0185-4030-BEA4-BDB568E8820C"}
  */
 function onActionApplyStyle(event) {
-	var count = 0;	
-	var newStyle = {}
-	for (var prop in defaultStyle) {
-		newStyle[prop] = forms.ThemeConfigurator[prop];
-	}
-	
-	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
-	var defaultCssText = mediaOriginal.getAsString();
-	
-	var newCssArr = defaultCssText.split('\n');
-	for (var i = 0; i < newCssArr.length; i++) {
-		for (var key in newStyle) {
-			  if (newCssArr[i].indexOf(key) != -1 && newStyle[key] == defaultStyle[key]){
-				  newCssArr[i] = '';
-				  count++;
-			  }
-		}
-	}
-	
-	var newCssText = newCssArr.join('\n');
-	newCssText = utils.stringReplaceTags(newCssText, newStyle);
-
-	(count != Object.keys(newStyle).length) && overrideCSS(newCssText);
+	applyStyle({});
 }
 
 /**
@@ -99,11 +80,11 @@ function onActionApplyStyle(event) {
  */
 function onActionDownloadStyle(event) {
 	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
-	var mediaCssText = media.getAsString();	
+	var mediaCssText = media.getAsString();
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
 		if (i > 0 && mediaCssArr[i].indexOf('@') == 0) {
-			mediaCssArr[i] = mediaCssArr[i].trim() + " // default: " + defaultStyle[''+mediaCssArr[i].split(':')[0].slice(1).split('-').join('')] + "\n" ;
+			mediaCssArr[i] = mediaCssArr[i].trim() + " // default: " + defaultStyle['' + mediaCssArr[i].split(':')[0].slice(1).split('-').join('')] + "\n";
 		}
 	}
 	if (media.getAsString().length > 0) {
@@ -121,8 +102,7 @@ function onActionDownloadStyle(event) {
 	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
 	media.setAsString(str);
 
-	str ? application.overrideStyle('svyStyleGuide.less', 'svyStyleGuideTemplate.less') : application.overrideStyle('svyStyleGuide.less', 'svyStyleGuide.less');
-	
+	str ? application.overrideStyle('svyStyleGuide.less', 'svyStyleGuideTemplate.less') : application.overrideStyle('svyStyleGuide.less', 'svyStyleGuide.less'); 
 }
 
 /**
@@ -190,23 +170,64 @@ function setColorValue(variable){
  * @properties={typeid:24,uuid:"36E8977A-546E-4F67-81F8-A889E0FE7D5C"}
  */
 function onShow(firstShow, event) {
-	var key, value;
+	var key, value, objLocal = { };
 	//parsing theme-servoy.less file
 	var media = solutionModel.getMedia('theme-servoy.less');
-	var mediaCssText = media.getAsString();	
+	var mediaCssText = media.getAsString();
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
 		if (mediaCssArr[i][0] == '@' && mediaCssArr[i].indexOf('@media') == -1) {
-			//get variable name(key) and value(value)
-			key = mediaCssArr[i].slice(1).split(':')[0].split('-').join('').replace(' ','');
+			//get variable(that start with '@' and is not a media) name(key) and value(value)
+			key = mediaCssArr[i].slice(1).split(':')[0].split('-').join('').replace(' ', '');
 			value = mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1);
 			//add item to the object
 			defaultStyle[key] = value;
 		}
 	}
-	
+
+	//get local storage
+	var objStr = plugins.webstorageLocalstorage.getItem('customCss');
+	objStr && (objLocal = JSON.parse(objStr));
+
 	//set default values for form variables
 	for (var prop in defaultStyle) {
-		forms.ThemeConfigurator[prop] = defaultStyle[prop];
+		objLocal[prop] ? forms.ThemeConfigurator[prop] = objLocal[prop] : forms.ThemeConfigurator[prop] = defaultStyle[prop];
 	}
+
+	Object.keys(objLocal).length && applyStyle(objLocal);
+}
+
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param {Object} obj
+ * @private
+ * @properties={typeid:24,uuid:"CB83CB4B-BFAA-4631-876C-56499A711F47"}
+ */
+function applyStyle(obj) {
+	var newStyle = obj
+	for (var prop in defaultStyle) {
+		newStyle[prop] = forms.ThemeConfigurator[prop];
+	}
+
+	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
+	var defaultCssText = mediaOriginal.getAsString();
+	var localStorageObj = { }
+	var newCssArr = defaultCssText.split('\n');
+	for (var i = 0; i < newCssArr.length; i++) {
+		for (var key in newStyle) {
+			if (newCssArr[i].indexOf(key) != -1 && newStyle[key] == defaultStyle[key]) {
+				newCssArr[i] = '';
+			}
+			if (newCssArr[i].indexOf(key) != -1 || newStyle[key] != defaultStyle[key]) {
+				localStorageObj[key] = newStyle[key];
+			}
+		}
+	}
+
+	var newCssText = newCssArr.join('\n');
+	newCssText = utils.stringReplaceTags(newCssText, newStyle);
+
+	Object.keys(localStorageObj).length && overrideCSS(newCssText);
+	Object.keys(localStorageObj).length && plugins.webstorageLocalstorage.setItem('customCss', JSON.stringify(localStorageObj));
 }
