@@ -26,6 +26,7 @@ uuid:"0D4E2ED8-D486-430C-820D-6C7AA5E858D0"
 },
 {
 cssPosition:"80,50,-1,-1,30,30",
+formIndex:8,
 json:{
 cssPosition:{
 bottom:"-1",
@@ -35,6 +36,7 @@ right:"50",
 top:"80",
 width:"30"
 },
+formIndex:8,
 inputType:"color"
 },
 name:"cardColorPicker",
@@ -55,10 +57,10 @@ top:"0",
 width:"10"
 },
 formIndex:1,
-styleClass:"default-align bg-primary cardMenuBar"
+styleClass:"default-align cardMenuBar"
 },
 name:"cardDefaultMartor",
-styleClass:"default-align bg-primary cardMenuBar",
+styleClass:"default-align cardMenuBar",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"2D8429FE-DA7E-4900-9550-8B24B0636D60"

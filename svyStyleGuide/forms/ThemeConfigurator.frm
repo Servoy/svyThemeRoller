@@ -112,7 +112,7 @@ cardDefaultMartor:{
 
 },
 cardInputField:{
-dataProviderID:"secondaryColor"
+dataProviderID:"secondarycolor"
 },
 cardName:{
 text:"Secondary Color"
@@ -166,7 +166,7 @@ cardDefaultMartor:{
 
 },
 cardInputField:{
-dataProviderID:"mainColor"
+dataProviderID:"maincolor"
 },
 cardName:{
 text:"Main Color"
