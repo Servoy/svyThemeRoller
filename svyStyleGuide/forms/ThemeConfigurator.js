@@ -49,6 +49,7 @@ var secondarycolor = null;
  * @properties={typeid:24,uuid:"C3A1031C-1B1E-4EE3-ADB3-25D569071EA4"}
  */
 function onActionResetStyle(event) {
+	//restore default CSS
 	overrideCSS('');
 
 	//clear local storage
@@ -84,11 +85,15 @@ function onActionDownloadStyle(event) {
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
 		if (i > 0 && mediaCssArr[i].indexOf('@') == 0) {
+			//adding the default value for the variables that has changed
 			mediaCssArr[i] = mediaCssArr[i].trim() + " // default: " + defaultStyle['' + mediaCssArr[i].split(':')[0].slice(1).split('-').join('')] + "\n";
 		}
 	}
+	
 	if (media.getAsString().length > 0) {
 		plugins.file.writeTXTFile('CustomTheme.less', mediaCssArr.join(''));
+	} else {
+		plugins.dialogs.showWarningDialog("Warning","You cannot download the default CSS!");
 	}
 }
 
@@ -170,18 +175,22 @@ function setColorValue(variable){
  * @properties={typeid:24,uuid:"36E8977A-546E-4F67-81F8-A889E0FE7D5C"}
  */
 function onShow(firstShow, event) {
-	var key, value, objLocal = { };
+	var key, valueKey, objLocal = { };
+	var dataset = databaseManager.createEmptyDataSet();
+	dataset.addColumn("property");
+	dataset.addColumn("value");
+	
 	//parsing theme-servoy.less file
 	var media = solutionModel.getMedia('theme-servoy.less');
 	var mediaCssText = media.getAsString();
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
 		if (mediaCssArr[i][0] == '@' && mediaCssArr[i].indexOf('@media') == -1) {
-			//get variable(that start with '@' and is not a media) name(key) and value(value)
+			//get variable(that start with '@' and is not a media) name(key) and value(valueKey)
 			key = mediaCssArr[i].slice(1).split(':')[0].split('-').join('').replace(' ', '');
-			value = mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1);
+			valueKey = mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1);
 			//add item to the object
-			defaultStyle[key] = value;
+			defaultStyle[key] = valueKey;
 		}
 	}
 
@@ -191,9 +200,19 @@ function onShow(firstShow, event) {
 
 	//set default values for form variables
 	for (var prop in defaultStyle) {
-		objLocal[prop] ? forms.ThemeConfigurator[prop] = objLocal[prop] : forms.ThemeConfigurator[prop] = defaultStyle[prop];
+		if (objLocal[prop]) {
+			forms.ThemeConfigurator[prop] = objLocal[prop];
+			dataset.addRow([prop, objLocal[prop]]);
+		} else { 
+			forms.ThemeConfigurator[prop] = defaultStyle[prop];
+			dataset.addRow([prop, defaultStyle[prop]]);
+		}
 	}
-
+	
+	//add data in memory table
+	dataset.createDataSource("cssTable");
+	
+	//restore style
 	Object.keys(objLocal).length && applyStyle(objLocal);
 }
 
