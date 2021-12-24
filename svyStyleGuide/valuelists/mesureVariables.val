@@ -1,0 +1,13 @@
+addEmptyValue:1,
+customValues:"@font-size-h1\r\
+@font-size-h2\r\
+@font-size-h3\r\
+@font-size-h4\r\
+@font-size-h5\r\
+@font-size-h6\r\
+@text-font-size",
+displayValueType:4,
+name:"mesureVariables",
+realValueType:12,
+typeid:34,
+uuid:"FB749A5B-7BEC-492B-87B9-4366147A1733"
