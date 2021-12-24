@@ -1,4 +1,11 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"F9254269-7629-4E71-B713-16523FF52045"}
+ */
+var mesureUnits = 'px';
+
+/**
  * @type {Object}
  * @properties={typeid:35,uuid:"8EBB57C0-CAA3-43A5-93BA-DA560B245CAA",variableType:-4}
  */
@@ -141,8 +148,15 @@ function getComponentName(elementName){
  * @properties={typeid:24,uuid:"63611007-748C-45B3-AE12-69D7A35FCA1A"}
  */
 function cardInfo(event, dataTarget) {
+	var selectedCard = styleGuideInfo[foundset.getSelectedRecord().property];
+	
 	/*this will show the specific info based on the component name that should be set it exactly like the names of the styleGuideInfo object which also will keep the information*/
-	plugins.dialogs.showInfoDialog(' ',styleGuideInfo[getComponentName(event.getElementName())]);
+	if(selectedCard){
+		plugins.dialogs.showInfoDialog('Info',selectedCard);
+	}else{
+		plugins.dialogs.showInfoDialog('Info','This property has no Info');
+	}
+	
 }
 
 /**
