@@ -68,27 +68,6 @@ typeid:47,
 uuid:"4B300244-273B-445C-AA95-0472F98479ED"
 },
 {
-cssPosition:"10,50,-1,20,-1,30",
-formIndex:7,
-json:{
-cssPosition:{
-bottom:"-1",
-height:"30",
-left:"20",
-right:"50",
-top:"10",
-width:"-1"
-},
-formIndex:7,
-styleClass:"default-align text-center text-center-vertical font-weight-bold"
-},
-name:"cardName",
-styleClass:"default-align text-center text-center-vertical font-weight-bold",
-typeName:"bootstrapcomponents-label",
-typeid:47,
-uuid:"534A42DB-C5BA-4AB4-BFC9-89E5EDBAA936"
-},
-{
 cssPosition:"45,50,-1,220,30,30",
 formIndex:3,
 json:{
@@ -149,6 +128,25 @@ styleClass:"default-align cardMenuBar",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"A792554F-B954-4FA8-B97E-5F72D7D75D8E"
+},
+{
+cssPosition:"10,50,-1,20,-1,30",
+json:{
+cssPosition:{
+bottom:"-1",
+height:"30",
+left:"20",
+right:"50",
+top:"10",
+width:"-1"
+},
+styleClass:"default-align text-center text-center-vertical font-weight-bold"
+},
+name:"datalabel_1",
+styleClass:"default-align text-center text-center-vertical font-weight-bold",
+typeName:"bootstrapcomponents-datalabel",
+typeid:47,
+uuid:"DA9BDB3D-8083-4812-99AC-4A414A0723B1"
 },
 {
 cssPosition:"0,0,0,-1,40,-1",
