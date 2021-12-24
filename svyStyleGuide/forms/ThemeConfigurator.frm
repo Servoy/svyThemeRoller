@@ -134,7 +134,8 @@ size:{
 height:120,
 width:300
 },
-styleClass:"svy-formcomponent margin-10"
+styleClass:"svy-formcomponent margin-10",
+visible:false
 },
 location:"2,2",
 name:"secondarycolor",
@@ -142,7 +143,8 @@ size:"300,120",
 styleClass:"svy-formcomponent margin-10",
 typeName:"servoycore-formcomponent",
 typeid:47,
-uuid:"0FD47F8C-16E4-41DD-AC14-CDC17B7F35B6"
+uuid:"0FD47F8C-16E4-41DD-AC14-CDC17B7F35B6",
+visible:false
 },
 {
 json:{
@@ -189,7 +191,7 @@ height:120,
 width:300
 },
 styleClass:"svy-formcomponent margin-10",
-visible:true
+visible:false
 },
 location:"1,1",
 name:"maincolor",
@@ -197,7 +199,8 @@ size:"300,120",
 styleClass:"svy-formcomponent margin-10",
 typeName:"servoycore-formcomponent",
 typeid:47,
-uuid:"2F0D030D-68D7-4BF0-8D1F-EC8A6667271C"
+uuid:"2F0D030D-68D7-4BF0-8D1F-EC8A6667271C",
+visible:false
 },
 {
 customProperties:"attributes:{\
@@ -211,45 +214,6 @@ packagename:\"12grid\",\
 specname:\"flexcontainer\"\
 }",
 items:[
-{
-customProperties:"attributes:{\
-class:\"flex-item\"\
-},\
-properties:{\
-packagename:\"12grid\",\
-specname:\"flexitem\"\
-}",
-items:[
-{
-json:{
-columns:[
-{
-dataprovider:"property",
-headerText:"Prop",
-svyUUID:"1FD1CFBD-510F-4EB4-866A-92E7FA163EA0"
-},
-{
-dataprovider:"value",
-headerText:"Val",
-svyUUID:"D0E25202-D2FF-49E4-8DA8-5C7BA84973F3"
-}
-],
-location:{
-x:1,
-y:1
-}
-},
-location:"1,1",
-name:"table",
-typeName:"servoyextra-table",
-typeid:47,
-uuid:"0F5E272E-F8D7-4B63-A21E-35D0D7A38CE6"
-}
-],
-location:"10,10",
-typeid:46,
-uuid:"0DFFF1BB-A987-446A-B38E-EF55E67AA046"
-},
 {
 customProperties:"attributes:{\
 class:\"flex-item margin-10\"\
@@ -271,7 +235,8 @@ size:{
 height:30,
 width:140
 },
-styleClass:"form-control color-picker"
+styleClass:"form-control color-picker",
+visible:false
 },
 location:"168,649",
 name:"textbox_3",
@@ -279,24 +244,13 @@ size:"140,30",
 styleClass:"form-control color-picker",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
-uuid:"8936DA48-6AC4-461B-AFEA-2A5CE9524371"
+uuid:"8936DA48-6AC4-461B-AFEA-2A5CE9524371",
+visible:false
 }
 ],
 location:"5,5",
 typeid:46,
 uuid:"19C3BC1D-55AD-4B71-9F90-FA31195E8E49"
-},
-{
-customProperties:"attributes:{\
-class:\"flex-item\"\
-},\
-properties:{\
-packagename:\"12grid\",\
-specname:\"flexitem\"\
-}",
-location:"11,11",
-typeid:46,
-uuid:"2F6D2777-6A25-42D3-9E31-F486AB20BB64"
 },
 {
 customProperties:"attributes:{\
@@ -317,19 +271,80 @@ size:{
 height:30,
 width:80
 },
-text:"Text font size"
+text:"Text font size",
+visible:false
 },
 location:"199,1700",
 name:"label_8",
 size:"80,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
-uuid:"20A96293-F39A-4497-9A19-843779766ACC"
+uuid:"20A96293-F39A-4497-9A19-843779766ACC",
+visible:false
 }
 ],
 location:"8,8",
 typeid:46,
 uuid:"35B93AF1-A9E3-454C-AAEF-27CEE0BA435F"
+},
+{
+customProperties:"attributes:{\
+class:\"flex-item\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"flexitem\"\
+}",
+items:[
+{
+json:{
+containedForm:{
+btnCardInfo:{
+onActionMethodID:"63611007-748C-45B3-AE12-69D7A35FCA1A"
+},
+btnCardReset:{
+
+},
+cardColorPicker:{
+dataProviderID:"value"
+},
+cardContainer:{
+styleClass:"default-align bg border-radius"
+},
+cardDefaultMartor:{
+
+},
+cardInputField:{
+dataProviderID:"value"
+},
+cardNavbar:{
+
+},
+cardUnitisPicker:{
+dataProviderID:"units"
+},
+datalabel_1:{
+dataProviderID:"property"
+},
+svy_form:"EB1224AB-08A0-41F6-A8CF-A7F0A66EFB84"
+},
+location:{
+x:1,
+y:1
+},
+pageLayout:"cardview",
+responsivePageSize:24
+},
+location:"1,1",
+name:"listformcomponent",
+typeName:"servoycore-listformcomponent",
+typeid:47,
+uuid:"0390CBFF-9E07-4E12-B6D6-9E4B0F38C5C0"
+}
+],
+location:"9,9",
+typeid:46,
+uuid:"6258324A-4BD1-4B0A-8FB9-1F1561E13818"
 },
 {
 customProperties:"attributes:{\
@@ -350,14 +365,16 @@ size:{
 height:30,
 width:80
 },
-text:"H1"
+text:"H1",
+visible:false
 },
 location:"156,922",
 name:"label_6",
 size:"80,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
-uuid:"66A8417F-41EF-4F67-B46D-CF46F49CA93F"
+uuid:"66A8417F-41EF-4F67-B46D-CF46F49CA93F",
+visible:false
 }
 ],
 location:"6,6",
@@ -383,85 +400,21 @@ size:{
 height:30,
 width:80
 },
-text:"Main Color"
+text:"Main Color",
+visible:false
 },
 location:"2,2",
 name:"label_2",
 size:"80,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
-uuid:"0352BE85-BE6B-4110-8EC7-A55908A7F2BA"
+uuid:"0352BE85-BE6B-4110-8EC7-A55908A7F2BA",
+visible:false
 }
 ],
 location:"2,2",
 typeid:46,
 uuid:"7EE2F5A8-18D0-48F6-8A11-D5A925582F39"
-},
-{
-customProperties:"attributes:{\
-class:\"flex-item\"\
-},\
-properties:{\
-packagename:\"12grid\",\
-specname:\"flexitem\"\
-}",
-items:[
-{
-json:{
-containedForm:{
-btnCardInfo:{
-onActionMethodID:"63611007-748C-45B3-AE12-69D7A35FCA1A"
-},
-btnCardReset:{
-
-},
-cardColorPicker:{
-dataProviderID:"value"
-},
-cardContainer:{
-
-},
-cardDefaultMartor:{
-
-},
-cardInputField:{
-dataProviderID:"value",
-valuelistID:"CF220529-7BD6-4199-895D-2F4FC319B019"
-},
-cardNavbar:{
-
-},
-cardUnitisPicker:{
-dataProviderID:"mesureUnits",
-valuelistID:"1DA46608-4677-4B2B-A34D-36D8E0124E02"
-},
-datalabel_1:{
-dataProviderID:"property"
-},
-svy_form:"EB1224AB-08A0-41F6-A8CF-A7F0A66EFB84"
-},
-location:{
-x:153,
-y:1361
-},
-pageLayout:"cardview",
-responsivePageSize:10,
-size:{
-height:120,
-width:300
-}
-},
-location:"153,1361",
-name:"listformcomponent_1",
-size:"300,120",
-typeName:"servoycore-listformcomponent",
-typeid:47,
-uuid:"F9326A45-0F55-40EF-8083-792747F00ABB"
-}
-],
-location:"1,1",
-typeid:46,
-uuid:"8DD96259-C78D-40F1-82A9-8DDCFD55CFC4"
 },
 {
 customProperties:"attributes:{\
@@ -484,7 +437,8 @@ size:{
 height:30,
 width:140
 },
-styleClass:"form-control color-picker"
+styleClass:"form-control color-picker",
+visible:false
 },
 location:"3,3",
 name:"textbox_2",
@@ -492,7 +446,8 @@ size:"140,30",
 styleClass:"form-control color-picker",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
-uuid:"D95A374A-98C5-4CFE-A0AA-8678359CADE4"
+uuid:"D95A374A-98C5-4CFE-A0AA-8678359CADE4",
+visible:false
 }
 ],
 location:"7,7",
@@ -518,14 +473,16 @@ size:{
 height:30,
 width:80
 },
-text:"Secondary color"
+text:"Secondary color",
+visible:false
 },
 location:"230,756",
 name:"label_4",
 size:"80,30",
 typeName:"bootstrapcomponents-label",
 typeid:47,
-uuid:"32B3EBFB-6CB9-4ACF-932C-E6744393CCD4"
+uuid:"32B3EBFB-6CB9-4ACF-932C-E6744393CCD4",
+visible:false
 }
 ],
 location:"4,4",
@@ -552,7 +509,8 @@ size:{
 height:30,
 width:140
 },
-styleClass:"form-control color-picker"
+styleClass:"form-control color-picker",
+visible:false
 },
 location:"164,1764",
 name:"textbox_4",
@@ -560,7 +518,8 @@ size:"140,30",
 styleClass:"form-control color-picker",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
-uuid:"4BECD9C4-8648-4063-A157-7195873B2B23"
+uuid:"4BECD9C4-8648-4063-A157-7195873B2B23",
+visible:false
 }
 ],
 location:"9,9",
@@ -588,7 +547,8 @@ size:{
 height:30,
 width:140
 },
-styleClass:"form-control color-picker"
+styleClass:"form-control color-picker",
+visible:false
 },
 location:"162,493",
 name:"textbox_1",
@@ -596,7 +556,8 @@ size:"140,30",
 styleClass:"form-control color-picker",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
-uuid:"21CC1911-8CFD-47A9-A999-A4F88693D99D"
+uuid:"21CC1911-8CFD-47A9-A999-A4F88693D99D",
+visible:false
 }
 ],
 location:"3,3",

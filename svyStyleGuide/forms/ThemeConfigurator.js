@@ -63,9 +63,20 @@ function onActionResetStyle(event) {
 	plugins.webstorageLocalstorage.removeItem('customCss');
 
 	//reset form variables
-	for (var prop in defaultStyle) {
+	/*for (var prop in defaultStyle) {
 		forms.ThemeConfigurator[prop] = defaultStyle[prop];
+	}*/
+	
+	var dataset = databaseManager.createEmptyDataSet();
+	dataset.addColumn("property");
+	dataset.addColumn("value");
+	dataset.addColumn("units");
+	
+	for (var prop in defaultStyle) {
+		dataset.addRow([prop, defaultStyle[prop], '']);
 	}
+			
+	dataset.createDataSource("cssTable");
 }
 
 /**
@@ -193,6 +204,7 @@ function onShow(firstShow, event) {
 	var dataset = databaseManager.createEmptyDataSet();
 	dataset.addColumn("property");
 	dataset.addColumn("value");
+	dataset.addColumn("units");
 	
 	//parsing theme-servoy.less file
 	var media = solutionModel.getMedia('theme-servoy.less');
@@ -216,10 +228,10 @@ function onShow(firstShow, event) {
 	for (var prop in defaultStyle) {
 		if (objLocal[prop]) {
 			forms.ThemeConfigurator[prop] = objLocal[prop];
-			dataset.addRow([prop, objLocal[prop]]);
+			dataset.addRow([prop, objLocal[prop], '']);
 		} else { 
 			forms.ThemeConfigurator[prop] = defaultStyle[prop];
-			dataset.addRow([prop, defaultStyle[prop]]);
+			dataset.addRow([prop, defaultStyle[prop], '']);
 		}
 	}
 	
@@ -239,10 +251,15 @@ function onShow(firstShow, event) {
  */
 function applyStyle(obj) {
 	var newStyle = obj
-	for (var prop in defaultStyle) {
+	
+	/*for (var prop in defaultStyle) {
 		newStyle[prop] = forms.ThemeConfigurator[prop];
+	}*/
+	
+	for (var j = 1; j < foundset.getSize(); j++) {
+		newStyle[foundset.getRecord(j).property] = foundset.getRecord(j).value;
 	}
-
+	
 	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
 	var defaultCssText = mediaOriginal.getAsString();
 	var localStorageObj = { }
