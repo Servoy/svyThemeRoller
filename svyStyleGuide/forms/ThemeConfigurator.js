@@ -20,35 +20,6 @@ var styleGuideInfo = {
 	secondarycolor: 'This will affect the sideNav'
 }
 
-
-/**
- * @type {String}
- *
- * @properties={typeid:35,uuid:"57506907-D2C6-4F61-9855-7B4600E8529A"}
- */
-var textfontsize = null;
-
-/**
- * @type {String}
- *
- * @properties={typeid:35,uuid:"40B01B95-A466-4D97-91E2-2F42962A301D"}
- */
-var fontsizeh1 = null;
-
-/**
- * @type {String}
- *
- * @properties={typeid:35,uuid:"8F1F4D6A-DC75-4611-9872-0137A0007A69"}
- */
-var maincolor = null;
-
-/**
- * @type {String}
- *
- * @properties={typeid:35,uuid:"54231A2E-0D13-471E-B028-8A8DA1ABAE05"}
- */
-var secondarycolor = null;
-
 /**
  * @param {JSEvent} event
  *
@@ -318,4 +289,14 @@ function setPicker(){
 		}
 		
 	}
+}
+/**
+ * @param {JSEvent} event
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"19B69179-7AEE-4421-88F3-14E75C6128BD"}
+ */
+function onActionBack(event) {
+	application.showForm(forms.styleGuide);
 }
