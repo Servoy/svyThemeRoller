@@ -268,26 +268,6 @@ function applyStyle(obj) {
 }
 
 /**
- * Handle changed data, return false if the value should not be accepted.
- * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope)
- *
- * @param oldValue
- * @param newValue
- * @param {JSEvent} event
- *
- * @return {boolean}
- *
- * @private
- *
- * @properties={typeid:24,uuid:"8F98C171-99B6-488A-9DCF-8C628422C8A6"}
- */
-function onDataChangeCard(oldValue, newValue, event) {
-	var record = foundset.getSelectedRecord();
-	record.value = newValue;
-	return true;
-}
-
-/**
  * @properties={typeid:24,uuid:"B34AF95C-2A08-4E12-A268-8D726D79D977"}
  */
 function setPicker(){

@@ -139,8 +139,7 @@ cardDefaultMartor:{
 
 },
 cardInputField:{
-dataProviderID:"returnValue",
-onDataChangeMethodID:"8F98C171-99B6-488A-9DCF-8C628422C8A6",
+dataProviderID:"value",
 valuelistID:"CF220529-7BD6-4199-895D-2F4FC319B019"
 },
 cardName:{
