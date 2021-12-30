@@ -317,6 +317,9 @@ cardDefaultMartor:{
 cardInputField:{
 dataProviderID:"value"
 },
+cardName:{
+dataProviderID:"property"
+},
 cardNavbar:{
 
 },
