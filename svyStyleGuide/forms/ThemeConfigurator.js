@@ -186,8 +186,8 @@ function onShow(firstShow, event) {
 	var mediaCssText = media.getAsString();
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
-		if (mediaCssArr[i].indexOf('START')) {
-			application.output(mediaCssArr[i])
+		if (mediaCssArr[i].indexOf('START') > -1) {
+			cat = mediaCssArr[i].split('START ')[1].split(' */')[0];
 		}
 		if (mediaCssArr[i][0] == '@' && mediaCssArr[i].indexOf('@media') == -1) {
 			//get variable(that start with '@' and is not a media) name(key) and value(valueKey)
@@ -195,6 +195,7 @@ function onShow(firstShow, event) {
 			valueKey = mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1);
 			//add item to the object
 			defaultStyle[key] = valueKey;
+			objCategory[key] = cat;
 		}
 	}
 
@@ -207,16 +208,16 @@ function onShow(firstShow, event) {
 	for (var prop in defaultStyle) {
 		if (objLocal[prop]) {
 			forms.ThemeConfigurator[prop] = objLocal[prop];
-			dataset.addRow([prop, objLocal[prop], '', (index.indexOf(prop) + 1), '']);
+			dataset.addRow([prop, objLocal[prop], '', (index.indexOf(prop) + 1), objCategory[prop]]);
 		} else { 
 			forms.ThemeConfigurator[prop] = defaultStyle[prop];
-			dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1), '']);
+			dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1), objCategory[prop]]);
 		}
 	}
 	
 	//add data in memory table
 	dataset.createDataSource("cssTable");
-	application.output(foundset.getRecord(1))
+
 	//restore style
 	Object.keys(objLocal).length && applyStyle(objLocal);
 	setPicker()
