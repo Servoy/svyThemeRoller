@@ -179,11 +179,16 @@ function onShow(firstShow, event) {
 	dataset.addColumn("id");
 	dataset.addColumn("category");
 	
+	var objCategory = {}
+	var cat = '';
 	//parsing theme-servoy.less file
 	var media = solutionModel.getMedia('theme-servoy.less');
 	var mediaCssText = media.getAsString();
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
+		if (mediaCssArr[i].indexOf('START')) {
+			application.output(mediaCssArr[i])
+		}
 		if (mediaCssArr[i][0] == '@' && mediaCssArr[i].indexOf('@media') == -1) {
 			//get variable(that start with '@' and is not a media) name(key) and value(valueKey)
 			key = mediaCssArr[i].slice(1).split(':')[0].split('-').join('').replace(' ', '');
