@@ -134,11 +134,14 @@ function onActionDownloadStyle(event) {
  * @properties={typeid:24,uuid:"86251B0F-BF93-488F-ABA2-1B62EB985451"}
  */
 function onActionResetToDefault(event) {
-	/*the name of the formComponent should be the same as the defaultStyle object*/
-	var dp = elements[getComponentName(event.getElementName())].containedForm.cardInputField.getDataProviderID();
-
-	application.output(dp)
-	this[dp] = defaultStyle[getComponentName(event.getElementName())];
+	var selectedCard = foundset.getSelectedRecord();
+	selectedCard.value = defaultStyle[selectedCard.property];
+	/*old code*/
+//	/*the name of the formComponent should be the same as the defaultStyle object*/
+//	var dp = elements[getComponentName(event.getElementName())].containedForm.cardInputField.getDataProviderID();
+//
+//	application.output(dp)
+//	this[dp] = defaultStyle[getComponentName(event.getElementName())];
 
 }
 /**

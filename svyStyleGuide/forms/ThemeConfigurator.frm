@@ -303,7 +303,7 @@ btnCardInfo:{
 onActionMethodID:"63611007-748C-45B3-AE12-69D7A35FCA1A"
 },
 btnCardReset:{
-
+onActionMethodID:"86251B0F-BF93-488F-ABA2-1B62EB985451"
 },
 cardColorPicker:{
 dataProviderID:"value"
