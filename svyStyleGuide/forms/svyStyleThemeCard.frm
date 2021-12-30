@@ -142,7 +142,7 @@ width:"-1"
 },
 styleClass:"default-align text-center text-center-vertical font-weight-bold"
 },
-name:"datalabel_1",
+name:"cardName",
 styleClass:"default-align text-center text-center-vertical font-weight-bold",
 typeName:"bootstrapcomponents-datalabel",
 typeid:47,
