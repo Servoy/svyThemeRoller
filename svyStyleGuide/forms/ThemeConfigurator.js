@@ -47,13 +47,16 @@ function onActionResetStyle(event) {
 	dataset.addColumn("units");
 	dataset.addColumn("id");
 	dataset.addColumn("category");
+	dataset.addColumn("name");
 	
 	var index = Object.keys(defaultStyle);
 	for (var prop in defaultStyle) {
-		dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1) , objCategory[prop]]);
+		dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1) , objCategory[prop][0], objCategory[prop][1]]);
 	}
 			
 	dataset.createDataSource("cssTable");
+	
+	application.output(foundset.getRecord(1))
 }
 
 /**
@@ -187,6 +190,7 @@ function onShow(firstShow, event) {
 	dataset.addColumn("units");
 	dataset.addColumn("id");
 	dataset.addColumn("category");
+	dataset.addColumn("name");
 	
 	var cat = '';
 	//parsing theme-servoy.less file
@@ -203,7 +207,7 @@ function onShow(firstShow, event) {
 			valueKey = mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1);
 			//add item to the object
 			defaultStyle[key] = valueKey;
-			objCategory[key] = cat;
+			objCategory[key] = [cat, mediaCssArr[i].slice(1).split(':')[0]];
 		}
 	}
 
@@ -216,10 +220,10 @@ function onShow(firstShow, event) {
 	for (var prop in defaultStyle) {
 		if (objLocal[prop]) {
 			forms.ThemeConfigurator[prop] = objLocal[prop];
-			dataset.addRow([prop, objLocal[prop], '', (index.indexOf(prop) + 1), objCategory[prop]]);
+			dataset.addRow([prop, objLocal[prop], '', (index.indexOf(prop) + 1), objCategory[prop][0], objCategory[prop][1]]);
 		} else { 
 			forms.ThemeConfigurator[prop] = defaultStyle[prop];
-			dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1), objCategory[prop]]);
+			dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1), objCategory[prop][0], objCategory[prop][1]]);
 		}
 	}
 	

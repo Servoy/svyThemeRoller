@@ -143,7 +143,7 @@ dataProviderID:"value",
 valuelistID:"CF220529-7BD6-4199-895D-2F4FC319B019"
 },
 cardName:{
-dataProviderID:"property"
+dataProviderID:"name"
 },
 cardNavbar:{
 
@@ -388,7 +388,7 @@ uuid:"AF6623E7-18CF-405D-BDE0-6DCF237F181C"
 },
 {
 customProperties:"attributes:{\
-class:\"row\"\
+class:\"row padding-bottom-10\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -529,13 +529,15 @@ x:1,
 y:1
 },
 onActionMethodID:"19B69179-7AEE-4421-88F3-14E75C6128BD",
-text:"Back"
+text:"Back",
+visible:false
 },
 location:"1,1",
 name:"btnBack",
 typeName:"bootstrapcomponents-button",
 typeid:47,
-uuid:"E9180D2A-0A05-4B9F-B90C-22474A64775C"
+uuid:"E9180D2A-0A05-4B9F-B90C-22474A64775C",
+visible:false
 }
 ],
 location:"4,4",
