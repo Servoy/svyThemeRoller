@@ -13,6 +13,12 @@ var defaultStyle = { }
 
 /**
  * @type {Object}
+ * @properties={typeid:35,uuid:"CB94E1CE-C93E-4807-843F-FAB7E8978F02",variableType:-4}
+ */
+var objCategory = {}
+
+/**
+ * @type {Object}
  * @properties={typeid:35,uuid:"44320B3D-C95C-42FD-AAC6-D673DF0217B0",variableType:-4}
  */
 var styleGuideInfo = {
@@ -39,9 +45,12 @@ function onActionResetStyle(event) {
 	dataset.addColumn("property");
 	dataset.addColumn("value");
 	dataset.addColumn("units");
+	dataset.addColumn("id");
+	dataset.addColumn("category");
 	
+	var index = Object.keys(defaultStyle);
 	for (var prop in defaultStyle) {
-		dataset.addRow([prop, defaultStyle[prop], '']);
+		dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1) , objCategory[prop]]);
 	}
 			
 	dataset.createDataSource("cssTable");
@@ -179,7 +188,6 @@ function onShow(firstShow, event) {
 	dataset.addColumn("id");
 	dataset.addColumn("category");
 	
-	var objCategory = {}
 	var cat = '';
 	//parsing theme-servoy.less file
 	var media = solutionModel.getMedia('theme-servoy.less');
@@ -203,7 +211,7 @@ function onShow(firstShow, event) {
 	var objStr = plugins.webstorageLocalstorage.getItem('customCss');
 	objStr && (objLocal = JSON.parse(objStr));
 
-	var index = Object.keys(defaultStyle)
+	var index = Object.keys(defaultStyle);
 	//set default values for form variables
 	for (var prop in defaultStyle) {
 		if (objLocal[prop]) {
