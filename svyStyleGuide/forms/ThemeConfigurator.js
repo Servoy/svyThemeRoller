@@ -64,10 +64,6 @@ function onActionResetStyle(event) {
 	plugins.webstorageLocalstorage.removeItem('customCss');
 
 	//reset form variables
-	/*for (var prop in defaultStyle) {
-		forms.ThemeConfigurator[prop] = defaultStyle[prop];
-	}*/
-	
 	var dataset = databaseManager.createEmptyDataSet();
 	dataset.addColumn("property");
 	dataset.addColumn("value");
@@ -256,11 +252,7 @@ function onShow(firstShow, event) {
 function applyStyle(obj) {
 	var newStyle = obj
 	
-	/*for (var prop in defaultStyle) {
-		newStyle[prop] = forms.ThemeConfigurator[prop];
-	}*/
-	
-	for (var j = 1; j < foundset.getSize(); j++) {
+	for (var j = 1; j <= foundset.getSize(); j++) {
 		newStyle[foundset.getRecord(j).property] = foundset.getRecord(j).value;
 	}
 	
