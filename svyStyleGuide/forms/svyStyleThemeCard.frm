@@ -14,7 +14,8 @@ right:"80",
 top:"-1",
 width:"-1"
 },
-formIndex:2
+formIndex:2,
+selectOnEnter:true
 },
 name:"cardInputField",
 typeName:"bootstrapcomponents-typeahead",

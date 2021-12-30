@@ -1,8 +1,9 @@
 addEmptyValue:1,
-customValues:"@main-color\r\
-@secondary-color",
+customProperties:"lazyLoading:true",
+customValues:"7D75E8FA-4D2A-4C7E-ABB8-F8FFF76A8944",
 displayValueType:12,
 name:"colorVariables",
 realValueType:12,
 typeid:34,
-uuid:"CF220529-7BD6-4199-895D-2F4FC319B019"
+uuid:"CF220529-7BD6-4199-895D-2F4FC319B019",
+valueListType:4
