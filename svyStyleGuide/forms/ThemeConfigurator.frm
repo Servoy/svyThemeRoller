@@ -150,7 +150,8 @@ cardNavbar:{
 
 },
 cardUnitisPicker:{
-dataProviderID:"units"
+dataProviderID:"units",
+valuelistID:"1DA46608-4677-4B2B-A34D-36D8E0124E02"
 },
 datalabel_1:{
 dataProviderID:"property"
