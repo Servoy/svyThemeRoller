@@ -337,7 +337,8 @@ x:1,
 y:1
 },
 pageLayout:"cardview",
-responsivePageSize:24
+responsivePageSize:24,
+rowStyleClassDataprovider:"cardTypeStyleClass"
 },
 location:"1,1",
 name:"listformcomponent",

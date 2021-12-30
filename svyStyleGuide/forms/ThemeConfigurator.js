@@ -20,6 +20,7 @@ var styleGuideInfo = {
 	secondarycolor: 'This will affect the sideNav'
 }
 
+
 /**
  * @type {String}
  *
@@ -243,6 +244,7 @@ function onShow(firstShow, event) {
 	
 	//restore style
 	Object.keys(objLocal).length && applyStyle(objLocal);
+	setPicker()
 }
 
 
@@ -303,4 +305,26 @@ function onDataChangeCard(oldValue, newValue, event) {
 	var record = foundset.getSelectedRecord();
 	record.value = newValue;
 	return true;
+}
+
+/**
+ * @properties={typeid:24,uuid:"B34AF95C-2A08-4E12-A268-8D726D79D977"}
+ */
+function setPicker(){
+	return;
+	for(var key in cardType){
+		for(var i=0; i<cardType[key].length; i++){
+			if(key=='units'){
+				
+				
+				
+				application.output('units ' + cardType[key][i])
+			}
+			if(key=='color'){
+				application.output('color ' + cardType[key][i])
+			}
+			
+		}
+		
+	}
 }

@@ -40,9 +40,11 @@ top:"80",
 width:"30"
 },
 formIndex:6,
-inputType:"color"
+inputType:"color",
+styleClass:"form-control form-color-picker"
 },
 name:"cardColorPicker",
+styleClass:"form-control form-color-picker",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
 uuid:"31B73919-8A6E-4A0F-A99E-96A2C1A68E6D"
@@ -68,7 +70,7 @@ typeid:47,
 uuid:"4B300244-273B-445C-AA95-0472F98479ED"
 },
 {
-cssPosition:"45,50,-1,220,30,30",
+cssPosition:"80,50,-1,220,30,30",
 formIndex:3,
 json:{
 cssPosition:{
@@ -76,12 +78,14 @@ bottom:"-1",
 height:"30",
 left:"220",
 right:"50",
-top:"45",
+top:"80",
 width:"30"
 },
-formIndex:3
+formIndex:3,
+styleClass:"form-control form-unit-picker"
 },
 name:"cardUnitisPicker",
+styleClass:"form-control form-unit-picker",
 typeName:"bootstrapcomponents-typeahead",
 typeid:47,
 uuid:"9A88AF2B-1670-41AE-B538-974B988786CA"
