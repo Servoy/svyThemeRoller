@@ -2,7 +2,13 @@ columns:{
 columns:[
 {
 allowNull:true,
-autoEnterSubType:2,
+creationOrderIndex:4,
+dataType:12,
+length:50,
+name:"category"
+},
+{
+allowNull:false,
 autoEnterType:2,
 creationOrderIndex:3,
 dataType:4,

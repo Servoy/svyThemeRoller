@@ -176,6 +176,8 @@ function onShow(firstShow, event) {
 	dataset.addColumn("property");
 	dataset.addColumn("value");
 	dataset.addColumn("units");
+	dataset.addColumn("id");
+	dataset.addColumn("category");
 	
 	//parsing theme-servoy.less file
 	var media = solutionModel.getMedia('theme-servoy.less');
@@ -195,19 +197,21 @@ function onShow(firstShow, event) {
 	var objStr = plugins.webstorageLocalstorage.getItem('customCss');
 	objStr && (objLocal = JSON.parse(objStr));
 
+	var index = Object.keys(defaultStyle)
 	//set default values for form variables
 	for (var prop in defaultStyle) {
 		if (objLocal[prop]) {
 			forms.ThemeConfigurator[prop] = objLocal[prop];
-			dataset.addRow([prop, objLocal[prop], '']);
+			dataset.addRow([prop, objLocal[prop], '', (index.indexOf(prop) + 1), '']);
 		} else { 
 			forms.ThemeConfigurator[prop] = defaultStyle[prop];
-			dataset.addRow([prop, defaultStyle[prop], '']);
+			dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1), '']);
 		}
 	}
 	
 	//add data in memory table
 	dataset.createDataSource("cssTable");
+	application.output(foundset.getRecord(1))
 	//restore style
 	Object.keys(objLocal).length && applyStyle(objLocal);
 	setPicker()
