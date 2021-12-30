@@ -17,8 +17,5 @@ function cardTypeStyleClass()
  */
 function returnValue()
 {
-	if (value instanceof Number) {
-		return value + units;
-	}
 	return value;
 }

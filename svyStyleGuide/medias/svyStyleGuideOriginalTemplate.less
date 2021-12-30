@@ -3,6 +3,183 @@
 /* START General */
 
 @main-color: %%maincolor%%;
+@main-color-inverse: %%maincolorinverse%%;
+@main-color-light: %%maincolorlight%%;
+@main-color-dark: %%maincolordark%%;
 @secondary-color: %%secondarycolor%%;
+@secondary-color-inverse: %%secondarycolorinverse%%;
+@secondary-color-light: %%secondarycolorlight%%;
+@secondary-color-dark: %%secondarycolordark%%;
+@theme-scrollbar: %%themescrollbar%%;
+@scrollbar-bg: %%scrollbarbg%%;
+@scrollbar-color: %%scrollbarcolor%%;
+@scrollbar-border-width: %%scrollbarborderwidth%%;
+@font-family: %%fontfamily%%;
+@rem-to-px: %%remtopx%%;
 @font-size-h1: %%fontsizeh1%%;
+@font-size-h2: %%fontsizeh2%%;
+@font-size-h3: %%fontsizeh3%%;
+@font-size-h4: %%fontsizeh4%%;
+@font-size-h5: %%fontsizeh5%%;
+@font-size-h6: %%fontsizeh6%%;
+@body-bg: %%bodybg%%;
+@body-bg-inverse: %%bodybginverse%%;
+@border-color: %%bordercolor%%;
+@border-width: %%borderwidth%%;
+@border-style: %%borderstyle%%;
+@border-radius: %%borderradius%%;
 @text-font-size: %%textfontsize%%;
+@text-color: %%textcolor%%;
+@text-color-inverse: %%textcolorinverse%%;
+@text-color-default: %%textcolordefault%%;
+@text-color-default-inverse: %%textcolordefaultinverse%%;
+@field-font-size: %%fieldfontsize%%;
+@field-bg: %%fieldbg%%;
+@field-disabled-bg: %%fielddisabledbg%%;
+@field-color: %%fieldcolor%%;
+@field-addon-bg: %%fieldaddonbg%%;
+@field-border-width: %%fieldborderwidth%%;
+@field-border-radius: %%fieldborderradius%%;
+@field-check-color: %%fieldcheckcolor%%;
+
+/* START Sidenav */
+
+@sidenav-color: %%sidenavcolor%%;
+@sidenav-text-color: %%sidenavtextcolor%%;
+@sidenav-text-font-size: %%sidenavtextfontsize%%;
+@sidenav-border-width: %%sidenavborderwidth%%;
+@sidenav-border-color: %%sidenavbordercolor%%;
+@sidenav-selected-color: %%sidenavselectedcolor%%;
+@sidenav-selected-text-color: %%sidenavselectedtextcolor%%;
+@sidenav-selected-border-color: %%sidenavselectedbordercolor%%;
+@sidenav-selected-border-width: %%sidenavselectedborderwidth%%;
+@sidenav-secondary-color: %%sidenavsecondarycolor%%;
+@sidenav-secondary-text-color: %%sidenavsecondarytextcolor%%;
+@sidenav-secondary-text-font-size: %%sidenavsecondarytextfontsize%%;
+@sidenav-secondary-border-width: %%sidenavsecondaryborderwidth%%;
+@sidenav-secondary-border-color: %%sidenavsecondarybordercolor%%;
+@sidenav-secondary-selected-color: %%sidenavsecondaryselectedcolor%%;
+@sidenav-secondary-selected-text-color: %%sidenavsecondaryselectedtextcolor%%;
+@sidenav-secondary-selected-border-color: %%sidenavsecondaryselectedbordercolor%%;
+@sidenav-secondary-selected-border-width: %%sidenavsecondaryselectedborderwidth%%;
+
+/* START Navbar */
+
+@navbar-bg: %%navbarbg%%;
+@navbar-bg-highlighted: %%navbarbghighlighted%%;
+@navbar-text-color: %%navbartextcolor%%;
+@navbar-dropdown-bg: %%navbardropdownbg%%;
+@navbar-dropdown-text-color: %%navbardropdowntextcolor%%;
+@navbar-active-bg: %%navbaractivebg%%;
+@navbar-active-text-color: %%navbaractivetextcolor%%;
+@navbar-active-border-color: %%navbaractivebordercolor%%;
+@navbar-active-border-width: %%navbaractiveborderwidth%%;
+
+/* START Tabs */
+
+@tab-bg: %%tabbg%%;
+@tab-text-color: %%tabtextcolor%%;
+@tab-text-transform: %%tabtexttransform%%;
+@tab-border-color: %%tabbordercolor%%;
+@tab-border-width: %%tabborderwidth%%;
+@tab-border-radius: %%tabborderradius%%;
+@tab-active-bg: %%tabactivebg%%;
+@tab-active-text-color: %%tabactivetextcolor%%;
+@tab-active-border-color: %%tabactivebordercolor%%;
+@tab-active-border-width: %%tabactiveborderwidth%%;
+
+/* START Windows */
+
+@window-header-bg: %%windowheaderbg%%;
+@window-header-color: %%windowheadercolor%%;
+@window-body-bg: %%windowbodybg%%;
+@window-footer-bg: %%windowfooterbg%%;
+@window-border-radius: %%windowborderradius%%;
+@popup-selected-bg: %%popupselectedbg%%;
+@popup-selected-text: %%popupselectedtext%%;
+@popup-disabled-color: %%popupdisabledcolor%%;
+
+/* START Dialogs */
+
+@dialog-info-header-bg: %%dialoginfoheaderbg%%;
+@dialog-info-header-color: %%dialoginfoheadercolor%%;
+@dialog-question-header-bg: %%dialogquestionheaderbg%%;
+@dialog-question-header-color: %%dialogquestionheadercolor%%;
+@dialog-input-header-bg: %%dialoginputheaderbg%%;
+@dialog-input-header-color: %%dialoginputheadercolor%%;
+
+/* START Tables */
+
+@table-bg: %%tablebg%%;
+@table-border-width: %%tableborderwidth%%;
+@table-border-radius: %%tableborderradius%%;
+@table-header-bg: %%tableheaderbg%%;
+@table-header-text-color: %%tableheadertextcolor%%;
+@table-header-font-style: %%tableheaderfontstyle%%;
+@table-header-text-transform: %%tableheadertexttransform%%;
+@table-row-odd-bg-color: %%tablerowoddbgcolor%%;
+@table-row-odd-text-color: %%tablerowoddtextcolor%%;
+@table-row-even-bg-color: %%tablerowevenbgcolor%%;
+@table-row-even-text-color: %%tableroweventextcolor%%;
+@table-row-selected-bg-color: %%tablerowselectedbgcolor%%;
+@table-row-selected-text-color: %%tablerowselectedtextcolor%%;
+@table-row-border-width: %%tablerowborderwidth%%;
+@ngtable-cell-value-line-height: %%ngtablecellvaluelineheight%%;
+@ngtable-row-group-bg: %%ngtablerowgroupbg%%;
+@ngtable-row-group-color: %%ngtablerowgroupcolor%%;
+@ngtable-row-group-bg-level-0: %%ngtablerowgroupbglevel0%%;
+@ngtable-row-group-color-level-0: %%ngtablerowgroupcolorlevel0%%;
+@ngtable-row-group-cell-font-weight: %%ngtablerowgroupcellfontweight%%;
+@ngtable-menu-panel-bg: %%ngtablemenupanelbg%%;
+@ngtable-menu-panel-text-color: %%ngtablemenupaneltextcolor%%;
+@ngtable-side-panel-bg: %%ngtablesidepanelbg%%;
+@ngtable-side-panel-text-color: %%ngtablesidepaneltextcolor%%;
+@ngtable-side-button-bg: %%ngtablesidebuttonbg%%;
+@ngtable-side-button-text-color: %%ngtablesidebuttontextcolor%%;
+@ngtable-side-button-selected-bg: %%ngtablesidebuttonselectedbg%%;
+@ngtable-side-button-selected-text-color: %%ngtablesidebuttonselectedtextcolor%%;
+@ngtable-search-field-height: %%ngtablesearchfieldheight%%;
+
+/* START Breadcrumb specific style */
+
+@breadcrumb-bg: %%breadcrumbbg%%;
+@breadcrumb-color: %%breadcrumbcolor%%;
+@breadcrumb-selected-color: %%breadcrumbselectedcolor%%;
+
+/* START Brand colors */
+
+@brand-primary: %%brandprimary%%;
+@brand-tertiary: %%brandtertiary%%;
+@brand-success: %%brandsuccess%%;
+@brand-info: %%brandinfo%%;
+@brand-warning: %%brandwarning%%;
+@brand-danger: %%branddanger%%;
+@text-tertiary: %%texttertiary%%;
+@brand-primary-inverse: %%brandprimaryinverse%%;
+@brand-tertiary-inverse: %%brandtertiaryinverse%%;
+@brand-success-inverse: %%brandsuccessinverse%%;
+@brand-info-inverse: %%brandinfoinverse%%;
+@brand-warning-inverse: %%brandwarninginverse%%;
+@brand-danger-inverse: %%branddangerinverse%%;
+@brand-primary-highlighted: %%brandprimaryhighlighted%%;
+@brand-tertiary-highlighted: %%brandtertiaryhighlighted%%;
+@brand-success-highlighted: %%brandsuccesshighlighted%%;
+@brand-info-highlighted: %%brandinfohighlighted%%;
+@brand-warning-highlighted: %%brandwarninghighlighted%%;
+@brand-danger-highlighted: %%branddangerhighlighted%%;
+@brand-primary-highlighted-inverse: %%brandprimaryhighlightedinverse%%;
+@brand-tertiary-highlighted-inverse: %%brandtertiaryhighlightedinverse%%;
+@brand-success-highlighted-inverse: %%brandsuccesshighlightedinverse%%;
+@brand-info-highlighted-inverse: %%brandinfohighlightedinverse%%;
+@brand-warning-highlighted-inverse: %%brandwarninghighlightedinverse%%;
+@brand-danger-highlighted-inverse: %%branddangerhighlightedinverse%%;
+
+/* START Validations */
+
+@form-required-label-suffix: %%formrequiredlabelsuffix%%;
+
+/* START Margins and Padding */
+
+@box-size-10: %%boxsize10%%;
+@box-size-20: %%boxsize20%%;
+@box-size-30: %%boxsize30%%;

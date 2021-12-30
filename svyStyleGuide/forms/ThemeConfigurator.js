@@ -241,7 +241,6 @@ function onShow(firstShow, event) {
 	
 	//add data in memory table
 	dataset.createDataSource("cssTable");
-	
 	//restore style
 	Object.keys(objLocal).length && applyStyle(objLocal);
 	setPicker()
