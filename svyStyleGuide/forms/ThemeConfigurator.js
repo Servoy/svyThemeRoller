@@ -15,7 +15,7 @@ var defaultStyle = { }
  * @type {Object}
  * @properties={typeid:35,uuid:"CB94E1CE-C93E-4807-843F-FAB7E8978F02",variableType:-4}
  */
-var objCategory = {}
+var objNameAndCategory = {}
 
 /**
  * @type {Object}
@@ -41,6 +41,7 @@ function onActionResetStyle(event) {
 	plugins.webstorageLocalstorage.removeItem('customCss');
 
 	//reset form variables
+	foundset.deleteAllRecords();
 	var dataset = databaseManager.createEmptyDataSet();
 	dataset.addColumn("property");
 	dataset.addColumn("value");
@@ -51,12 +52,10 @@ function onActionResetStyle(event) {
 	
 	var index = Object.keys(defaultStyle);
 	for (var prop in defaultStyle) {
-		dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1) , objCategory[prop][0], objCategory[prop][1]]);
+		dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1) , objNameAndCategory[prop][0], objNameAndCategory[prop][1]]);
 	}
 			
 	dataset.createDataSource("cssTable");
-	
-	application.output(foundset.getRecord(1))
 }
 
 /**
@@ -207,7 +206,7 @@ function onShow(firstShow, event) {
 			valueKey = mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1);
 			//add item to the object
 			defaultStyle[key] = valueKey;
-			objCategory[key] = [cat, mediaCssArr[i].slice(1).split(':')[0]];
+			objNameAndCategory[key] = [cat, mediaCssArr[i].slice(1).split(':')[0]];
 		}
 	}
 
@@ -220,10 +219,10 @@ function onShow(firstShow, event) {
 	for (var prop in defaultStyle) {
 		if (objLocal[prop]) {
 			forms.ThemeConfigurator[prop] = objLocal[prop];
-			dataset.addRow([prop, objLocal[prop], '', (index.indexOf(prop) + 1), objCategory[prop][0], objCategory[prop][1]]);
+			dataset.addRow([prop, objLocal[prop], '', (index.indexOf(prop) + 1), objNameAndCategory[prop][0], objNameAndCategory[prop][1]]);
 		} else { 
 			forms.ThemeConfigurator[prop] = defaultStyle[prop];
-			dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1), objCategory[prop][0], objCategory[prop][1]]);
+			dataset.addRow([prop, defaultStyle[prop], '', (index.indexOf(prop) + 1), objNameAndCategory[prop][0], objNameAndCategory[prop][1]]);
 		}
 	}
 	
