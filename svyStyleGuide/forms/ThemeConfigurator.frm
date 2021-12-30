@@ -113,7 +113,7 @@ specname:\"flexcontainer\"\
 items:[
 {
 customProperties:"attributes:{\
-class:\"flex-item\"\
+class:\"flex-item hr\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -418,7 +418,7 @@ specname:\"flexcontainer\"\
 items:[
 {
 customProperties:"attributes:{\
-class:\"flex-item\"\
+class:\"flex-item margin-right-10\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -447,7 +447,7 @@ uuid:"2F8D6850-C455-48FA-AFEC-7BA8F7CB0016"
 },
 {
 customProperties:"attributes:{\
-class:\"flex-item\"\
+class:\"flex-item margin-right-10\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -481,7 +481,7 @@ uuid:"56113E90-9641-4AAF-AE7A-15DFEFC4EBC9"
 },
 {
 customProperties:"attributes:{\
-class:\"flex-item\"\
+class:\"flex-item margin-right-10\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -515,7 +515,7 @@ uuid:"7B06FEBC-50D0-408A-858B-F741B51440A9"
 },
 {
 customProperties:"attributes:{\
-class:\"flex-item\"\
+class:\"flex-item margin-right-10\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -623,5 +623,6 @@ name:"ThemeConfigurator",
 navigatorID:"-1",
 onShowMethodID:"36E8977A-546E-4F67-81F8-A889E0FE7D5C",
 showInMenu:true,
+styleClass:"bg-tertiary",
 typeid:3,
 uuid:"3AD031EC-2B2D-4915-9371-51D6FB09C01B"
