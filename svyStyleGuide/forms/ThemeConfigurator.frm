@@ -439,8 +439,8 @@ items:[
 customProperties:"attributes:{\
 class:\"flex float-bottom\",\
 data-align-items:\"stretch\",\
-data-direction:\"row\",\
-data-justify-content:\"flex-end\"\
+data-direction:\"column\",\
+data-justify-content:\"flex-start\"\
 },\
 properties:{\
 packagename:\"12grid\",\
