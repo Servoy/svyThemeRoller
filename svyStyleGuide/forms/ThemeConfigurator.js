@@ -207,6 +207,7 @@ function onShow(firstShow, event) {
 			//add item to the object
 			defaultStyle[key] = valueKey;
 			objNameAndCategory[key] = [cat, mediaCssArr[i].slice(1).split(':')[0]];
+			
 		}
 	}
 
@@ -231,7 +232,8 @@ function onShow(firstShow, event) {
 
 	//restore style
 	Object.keys(objLocal).length && applyStyle(objLocal);
-	setPicker()
+	//sorts the variables based on type
+	sortVariablesType();
 }
 
 
@@ -271,27 +273,6 @@ function applyStyle(obj) {
 }
 
 /**
- * @properties={typeid:24,uuid:"B34AF95C-2A08-4E12-A268-8D726D79D977"}
- */
-function setPicker(){
-	return;
-	for(var key in cardType){
-		for(var i=0; i<cardType[key].length; i++){
-			if(key=='units'){
-				
-				
-				
-				application.output('units ' + cardType[key][i])
-			}
-			if(key=='color'){
-				application.output('color ' + cardType[key][i])
-			}
-			
-		}
-		
-	}
-}
-/**
  * @param {JSEvent} event
  *
  * @private
@@ -301,4 +282,27 @@ function setPicker(){
 function onActionCancel(event) {
 	//application.showForm(forms.styleGuide);
 	plugins.window.cancelFormPopup()
+}
+/**
+ * @properties={typeid:24,uuid:"E7FF152D-A664-4D90-820E-A2BC61546FDD"}
+ */
+function sortVariablesType(){
+	var media = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
+	var mediaCssText = media.getAsString();
+	var mediaCssArr = mediaCssText.split('\n');
+	var variableName = '';
+	for (var i = 0; i < mediaCssArr.length; i++) {
+		variableName = '';
+		if (mediaCssArr[i][0] == '@') {
+			/*extract the variable name*/
+			variableName = mediaCssArr[i].split(':')[0];
+			/*sort the variables*/
+			if(variableName.indexOf('color') > -1 || variableName.indexOf('bg') > -1){
+				scopes.svyStyleGuide.variablesType.color.push(variableName);
+			}else{
+				scopes.svyStyleGuide.variablesType.units.push(variableName);
+			}
+		}
+		
+	}
 }

@@ -3,9 +3,9 @@
  */
 function cardTypeStyleClass()
 {
-	if (scopes.svyStyleGuide.cardType.units.indexOf(property) > -1) {
+	if (scopes.svyStyleGuide.variablesType.units.indexOf('@'+name) > -1) {
 		return 'card-unit';
-	} else if (scopes.svyStyleGuide.cardType.color.indexOf(property) > -1) {
+	} else if (scopes.svyStyleGuide.variablesType.color.indexOf('@'+name) > -1) {
 		return 'card-color';
 	}
 	

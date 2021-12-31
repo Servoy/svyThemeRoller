@@ -10,32 +10,11 @@ var cardType = {
  * @properties={typeid:35,uuid:"FC5ED59B-13E0-47CF-AD68-08DD418B2C45",variableType:-4}
  */
 var variablesType = {
-	units:['@font-size-h1','@font-size-h2','@font-size-h3','@font-size-h4','@font-size-h5','@font-size-h6'],
-	color:['@main-color','@main-color-inverse','@main-color-light','@main-color-dark','@secondary-color','@secondary-color-inverse','@secondary-color-light','@secondary-color-dark','@scrollbar-bg']
+	units:[],
+	color:[]
 }
 
-/**
- * @properties={typeid:24,uuid:"9B8F432F-25E4-4746-BAD0-E23E2C6E2B28"}
- */
-function sortVariablesType(){
-	var media = solutionModel.getMedia('svySyleGuideOriginalTemplate.less');
-	var mediaCssText = media.getAsString();
-	var mediaCssArr = mediaCssText.split('\n');
-	var variableName = '';
-	for (var i = 0; i < mediaCssArr.length; i++) {
-		variableName = '';
-		if (mediaCssArr[i][0] == '@') {
-			/*extract the variable name*/
-			variableName = mediaCssArr[i].slice(0, mediaCssArr[i].indexOf(':') + 1);
-			if(variableName.indexOf('color') > -1 || variableName.indexOf('bg') > -1){
-				variablesType.color.push(variableName);
-			}else{
-				variablesType.units.push(variableName);
-			}
-		}
-		
-	}
-}
+
 /**
  * The global method of the valuelist is called to fill in or adjust the values of the valuelist.
  * The method returns a dataset with one or two columns, first column is the display value, second column is real value(if present). The valuelist will be filled in with the dataset data.
