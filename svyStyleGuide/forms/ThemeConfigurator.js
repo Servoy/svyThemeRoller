@@ -288,7 +288,7 @@ function sortVariablesType(){
 	var variableName = '';
 	for (var i = 0; i < mediaCssArr.length; i++) {
 		variableName = '';
-		if (mediaCssArr[i][0] == '@') {
+		if (mediaCssArr[i][0] == '@' && mediaCssArr[i].indexOf('@import') == -1) {
 			/*extract the variable name*/
 			variableName = mediaCssArr[i].split(':')[0];
 			/*sort the variables*/
