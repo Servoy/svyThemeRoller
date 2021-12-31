@@ -56,11 +56,17 @@ function getDataSetForValueListVariables(displayValue, realValue, record, valueL
 		
 		
 		result = databaseManager.convertToDataSet(Arr);
+		if (Arr.indexOf(displayValue) == -1) {
+			result.addRow([displayValue])
+		}
 	} else if (displayValue != null) {
 		// TYPE_AHEAD filter call, return a filtered list
 		
 
 		result = databaseManager.convertToDataSet(Arr);
+		if (Arr.indexOf(displayValue) == -1) {
+			result.addRow([displayValue])
+		}
 	} else if (realValue != null) {
 		// TODO think about caching this result. can be called often!
 		// real object not found in the current list, return 1 row with display,realvalue that will be added to the current list
