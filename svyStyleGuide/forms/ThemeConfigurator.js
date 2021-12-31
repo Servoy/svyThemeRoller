@@ -1,11 +1,4 @@
 /**
- * @type {String}
- *
- * @properties={typeid:35,uuid:"F9254269-7629-4E71-B713-16523FF52045"}
- */
-var mesureUnits = 'px';
-
-/**
  * @type {Object}
  * @properties={typeid:35,uuid:"8EBB57C0-CAA3-43A5-93BA-DA560B245CAA",variableType:-4}
  */
@@ -234,6 +227,8 @@ function onShow(firstShow, event) {
 	Object.keys(objLocal).length && applyStyle(objLocal);
 	//sorts the variables based on type
 	sortVariablesType();
+	
+	elements.collapse.show(0);
 }
 
 

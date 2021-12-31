@@ -52,10 +52,12 @@ x:1,
 y:1
 },
 pageLayout:"cardview",
-responsivePageSize:40
+responsivePageSize:40,
+styleClass:"svy-listformcomponent list-form-component-margin-5"
 },
 location:"1,1",
 name:"listformcomponent",
+styleClass:"svy-listformcomponent list-form-component-margin-5",
 typeName:"servoycore-listformcomponent",
 typeid:47,
 uuid:"42A0F29A-6A5B-497A-8D70-43A81017CDF6"
