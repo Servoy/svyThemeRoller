@@ -43,7 +43,8 @@ cardNavbar:{
 
 },
 cardUnitisPicker:{
-dataProviderID:"units"
+dataProviderID:"units",
+valuelistID:"1DA46608-4677-4B2B-A34D-36D8E0124E02"
 },
 svy_form:"EB1224AB-08A0-41F6-A8CF-A7F0A66EFB84"
 },
@@ -53,6 +54,7 @@ y:1
 },
 pageLayout:"cardview",
 responsivePageSize:40,
+rowStyleClassDataprovider:"cardTypeStyleClass",
 styleClass:"svy-listformcomponent list-form-component-margin-5"
 },
 location:"1,1",
