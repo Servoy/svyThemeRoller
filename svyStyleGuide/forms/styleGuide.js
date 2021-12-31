@@ -9,7 +9,7 @@
 function onActionThemeConfig(event) {
 	//application.showForm(forms.ThemeConfigurator);
 	var popup = plugins.window.createFormPopup(forms.ThemeConfigurator);
-	popup.width(application.getWindow().getWidth()-1);
+	popup.width(application.getWindow().getWidth()-13);
 	popup.x(1);
 	popup.y(1);
 	popup.showBackdrop(true);
