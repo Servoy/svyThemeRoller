@@ -108,6 +108,7 @@ function onActionDownloadStyle(event) {
 function onActionResetToDefault(event) {
 	var selectedCard = foundset.getSelectedRecord();
 	selectedCard.value = defaultStyle[selectedCard.property];
+	application.output(selectedCard)
 	/*old code*/
 //	/*the name of the formComponent should be the same as the defaultStyle object*/
 //	var dp = elements[getComponentName(event.getElementName())].containedForm.cardInputField.getDataProviderID();
