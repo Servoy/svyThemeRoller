@@ -36,11 +36,11 @@ var variablesType = {
  * @properties={typeid:24,uuid:"7D75E8FA-4D2A-4C7E-ABB8-F8FFF76A8944"}
  */
 function getDataSetForValueListVariables(displayValue, realValue, record, valueListName, findMode, rawDisplayValue) {
-	var Arr = null;
-	if(record.cardTypeStyleClass == 'card-color'){
+	var Arr = [realValue];
+	if(record && record.cardTypeStyleClass == 'card-color'){
 		Arr = scopes.svyStyleGuide.variablesType.color;
 		
-	}else{
+	}else if (record) {
 		Arr = scopes.svyStyleGuide.variablesType.units;
 	}
 	

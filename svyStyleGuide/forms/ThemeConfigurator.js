@@ -103,7 +103,7 @@ function onActionDownloadStyle(event) {
  function overrideCSS(str) {
 	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
 	media.setAsString(str);
-	application.output(str);
+	
 	str ? application.overrideStyle('svyStyleGuide.less', 'svyStyleGuideTemplate.less') : application.overrideStyle('svyStyleGuide.less', 'svyStyleGuide.less'); 
 }
 
