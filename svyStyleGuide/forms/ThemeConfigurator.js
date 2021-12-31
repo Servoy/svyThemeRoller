@@ -279,7 +279,7 @@ function applyStyle(obj) {
  *
  * @properties={typeid:24,uuid:"19B69179-7AEE-4421-88F3-14E75C6128BD"}
  */
-function onActionBack(event) {
+function onActionCancel(event) {
 	//application.showForm(forms.styleGuide);
 	plugins.window.cancelFormPopup()
 }
