@@ -437,7 +437,7 @@ specname:\"column\"\
 items:[
 {
 customProperties:"attributes:{\
-class:\"flex\",\
+class:\"flex float-bottom\",\
 data-align-items:\"stretch\",\
 data-direction:\"row\",\
 data-justify-content:\"flex-end\"\
@@ -463,10 +463,12 @@ x:1,
 y:1
 },
 onActionMethodID:"7FFC9617-B84D-48C6-BED3-FA6947B78283",
+styleClass:"btn btn-default custom-btn",
 text:"Download"
 },
 location:"1,1",
 name:"btnDownload",
+styleClass:"btn btn-default custom-btn",
 typeName:"bootstrapcomponents-button",
 typeid:47,
 uuid:"887C70DB-90CB-4D42-8186-1EA12FD1EACD"
@@ -496,11 +498,13 @@ size:{
 height:30,
 width:80
 },
+styleClass:"btn btn-default custom-btn",
 text:"Apply"
 },
 location:"277,404",
 name:"btnApply",
 size:"80,30",
+styleClass:"btn btn-default custom-btn",
 typeName:"bootstrapcomponents-button",
 typeid:47,
 uuid:"180A9656-4F12-46DD-B5B7-0A508D61214E"
@@ -530,11 +534,13 @@ size:{
 height:30,
 width:80
 },
+styleClass:"btn btn-default custom-btn",
 text:"Reset"
 },
 location:"138,416",
 name:"btnReset",
 size:"80,30",
+styleClass:"btn btn-default custom-btn",
 typeName:"bootstrapcomponents-button",
 typeid:47,
 uuid:"B0493F8E-DA99-4A5D-8FCB-992B464C19B9"
@@ -560,11 +566,13 @@ x:1,
 y:1
 },
 onActionMethodID:"19B69179-7AEE-4421-88F3-14E75C6128BD",
-text:"Back",
+styleClass:"btn btn-default custom-btn",
+text:"Cancel",
 visible:true
 },
 location:"1,1",
-name:"btnBack",
+name:"btnCancel",
+styleClass:"btn btn-default custom-btn",
 typeName:"bootstrapcomponents-button",
 typeid:47,
 uuid:"E9180D2A-0A05-4B9F-B90C-22474A64775C"
