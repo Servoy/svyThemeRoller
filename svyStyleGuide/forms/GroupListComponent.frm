@@ -21,7 +21,7 @@ btnCardInfo:{
 
 },
 btnCardReset:{
-
+onActionMethodID:"7137FB4D-102D-4468-BA95-9DCB7F6919F6"
 },
 cardColorPicker:{
 dataProviderID:"value"
