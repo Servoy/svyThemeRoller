@@ -103,7 +103,7 @@ function onActionDownloadStyle(event) {
  function overrideCSS(str) {
 	var media = solutionModel.getMedia('svyStyleGuideTemplate.less');
 	media.setAsString(str);
-
+	application.output(str);
 	str ? application.overrideStyle('svyStyleGuide.less', 'svyStyleGuideTemplate.less') : application.overrideStyle('svyStyleGuide.less', 'svyStyleGuide.less'); 
 }
 
@@ -299,5 +299,6 @@ function setPicker(){
  * @properties={typeid:24,uuid:"19B69179-7AEE-4421-88F3-14E75C6128BD"}
  */
 function onActionBack(event) {
-	application.showForm(forms.styleGuide);
+	//application.showForm(forms.styleGuide);
+	plugins.window.cancelFormPopup()
 }

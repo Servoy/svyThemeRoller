@@ -9,7 +9,6 @@
 function onActionThemeConfig(event) {
 	//application.showForm(forms.ThemeConfigurator);
 	var popup = plugins.window.createFormPopup(forms.ThemeConfigurator);
-	//popup.height(application.getWindow().getHeight()-100);
 	popup.width(application.getWindow().getWidth()-1);
 	popup.x(1);
 	popup.y(1);
