@@ -155,10 +155,12 @@ svyUUID:"44E08CE4-3DBA-41BE-B042-CF7635355645"
 location:{
 x:1,
 y:1
-}
+},
+styleClass:"themeCollapse"
 },
 location:"1,1",
 name:"collapse",
+styleClass:"themeCollapse",
 typeName:"servoyextra-collapse",
 typeid:47,
 uuid:"30F99CE3-E193-42CB-A126-C58C4DB61F5F"
