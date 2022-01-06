@@ -1,25 +1,24 @@
-/**
- * @properties={type:12,typeid:36,uuid:"5E904837-4D8F-4D94-956C-BA1E3DEEB9CF"}
- */
-function cardChangeStatus()
-{
-
-	if(true){
-		return 'cardChangeSignal';
-	}
-	return '';
-}
 
 /**
  * @properties={type:12,typeid:36,uuid:"95CB8083-70C9-4F96-9CF3-66E04A0AA9D8"}
  */
 function cardTypeStyleClass()
-{
+{	
+	var className = '';
+	
 	if (scopes.svyStyleGuide.variablesType.units.indexOf('@'+name) > -1) {
-		return 'card-unit';
+		
+		className = 'card-unit';
+		
 	} else if (scopes.svyStyleGuide.variablesType.color.indexOf('@'+name) > -1) {
-		return 'card-color';
+	
+		className = 'card-color';
+		
 	}
 	
-	return '';
+	if(value != scopes.svyStyleGuide.defaultStyle[property]){
+		className += ' cardChangeSignal';
+	}
+	
+	return className? className: '';
 }
