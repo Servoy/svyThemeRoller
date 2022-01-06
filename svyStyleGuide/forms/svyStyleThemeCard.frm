@@ -89,7 +89,7 @@ styleClass:"form-control clickable form-unit-picker"
 },
 name:"cardUnitisPicker",
 styleClass:"form-control clickable form-unit-picker",
-typeName:"bootstrapcomponents-typeahead",
+typeName:"bootstrapcomponents-combobox",
 typeid:47,
 uuid:"9A88AF2B-1670-41AE-B538-974B988786CA"
 },

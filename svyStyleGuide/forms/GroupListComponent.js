@@ -29,3 +29,24 @@ function onActionInfo(event, dataTarget) {
 		plugins.dialogs.showInfoDialog('Info', 'This property has no Info');
 	}
 }
+/**
+ * Handle changed data, return false if the value should not be accepted.
+ * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope)
+ *
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @return {boolean}
+ *
+ * @private
+ *
+ * @properties={typeid:24,uuid:"C31561B4-6DA3-4F74-B7F9-EBD37B0FB4FA"}
+ */
+function onDataChangeUnits(oldValue, newValue, event) {
+	var selectedCard = foundset.getSelectedRecord();
+	selectedCard.value = parseInt(selectedCard.value) + selectedCard.units;
+	selectedCard.units = null;
+	
+	return true;
+}
