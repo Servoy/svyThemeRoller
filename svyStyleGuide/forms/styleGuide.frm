@@ -501,7 +501,7 @@ uuid:"D909C524-1D27-40AA-BC20-F209FDAC8149"
 },
 {
 customProperties:"attributes:{\
-class:\"row\"\
+class:\"row padding-bottom-30\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -542,10 +542,12 @@ x:1,
 y:1
 },
 onActionMethodID:"180A20C1-AE37-4809-A193-CAB215097221",
+styleClass:"btn btn-default theme-config-btn",
 text:"Theme Configurator"
 },
 location:"1,1",
 name:"btnThemeConfig",
+styleClass:"btn btn-default theme-config-btn",
 typeName:"bootstrapcomponents-button",
 typeid:47,
 uuid:"15EA2AF8-1238-4AC0-B199-CF6AD2CD620D"
