@@ -3,21 +3,23 @@ useCssPosition:true",
 encapsulation:108,
 items:[
 {
-cssPosition:"-1,80,10,20,-1,30",
+cssPosition:"-1,79,10,20,-1,30",
 formIndex:2,
 json:{
 cssPosition:{
 bottom:"10",
 height:"30",
 left:"20",
-right:"80",
+right:"79",
 top:"-1",
 width:"-1"
 },
 formIndex:2,
-selectOnEnter:true
+selectOnEnter:true,
+styleClass:"form-control clickable cardInput"
 },
 name:"cardInputField",
+styleClass:"form-control clickable cardInput",
 typeName:"bootstrapcomponents-typeahead",
 typeid:47,
 uuid:"083D3A9F-283B-4EAC-8449-75FF89DB68CB"
@@ -42,10 +44,10 @@ width:"30"
 },
 formIndex:6,
 inputType:"color",
-styleClass:"form-control form-color-picker"
+styleClass:"form-control clickable form-color-picker"
 },
 name:"cardColorPicker",
-styleClass:"form-control form-color-picker",
+styleClass:"form-control clickable form-color-picker",
 typeName:"bootstrapcomponents-textbox",
 typeid:47,
 uuid:"31B73919-8A6E-4A0F-A99E-96A2C1A68E6D"
@@ -62,10 +64,10 @@ top:"0",
 width:"-1"
 },
 formIndex:0,
-styleClass:"default-align bg border-radius"
+styleClass:"default-align bg cardContainer"
 },
 name:"cardContainer",
-styleClass:"default-align bg border-radius",
+styleClass:"default-align bg cardContainer",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"4B300244-273B-445C-AA95-0472F98479ED"
@@ -83,10 +85,10 @@ top:"80",
 width:"30"
 },
 formIndex:3,
-styleClass:"form-control form-unit-picker"
+styleClass:"form-control clickable form-unit-picker"
 },
 name:"cardUnitisPicker",
-styleClass:"form-control form-unit-picker",
+styleClass:"form-control clickable form-unit-picker",
 typeName:"bootstrapcomponents-typeahead",
 typeid:47,
 uuid:"9A88AF2B-1670-41AE-B538-974B988786CA"
@@ -105,10 +107,10 @@ width:"30"
 },
 formIndex:8,
 imageStyleClass:"fas fa-undo-alt",
-styleClass:"default-align text-center text-center-vertical cardMenuItems"
+styleClass:"default-align clickable text-center text-center-vertical cardMenuItems"
 },
 name:"btnCardReset",
-styleClass:"default-align text-center text-center-vertical cardMenuItems",
+styleClass:"default-align clickable text-center text-center-vertical cardMenuItems",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"9E591D5F-EDBC-482F-B554-6D077531B6F6"
@@ -126,10 +128,10 @@ top:"0",
 width:"10"
 },
 formIndex:4,
-styleClass:"default-align cardMenuBar"
+styleClass:"default-align observer"
 },
 name:"cardDefaultMartor",
-styleClass:"default-align cardMenuBar",
+styleClass:"default-align observer",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"A792554F-B954-4FA8-B97E-5F72D7D75D8E"
@@ -188,10 +190,10 @@ width:"30"
 },
 formIndex:5,
 imageStyleClass:"fas fa-info",
-styleClass:"default-align text-center text-center-vertical cardMenuItems"
+styleClass:"default-align clickable text-center text-center-vertical cardMenuItems"
 },
 name:"btnCardInfo",
-styleClass:"default-align text-center text-center-vertical cardMenuItems",
+styleClass:"default-align clickable text-center text-center-vertical cardMenuItems",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"EB0F721E-7B4B-4B22-8119-2AB463294F5B"
