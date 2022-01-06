@@ -1,19 +1,32 @@
 /**
- * @properties={typeid:35,uuid:"863CE8A3-4E65-4A38-884C-AF70761954BB",variableType:-4}
+ * @type {Object}
+ * @properties={typeid:35,uuid:"7BCD9714-3FB6-481D-9535-4183C6BC19B7",variableType:-4}
  */
-var cardType = {
-	units:['fontsizeh1','fontsizeh2','fontsizeh3','fontsizeh4','fontsizeh5'],
-	color:['maincolor','secondarycolor']
+var defaultStyle = { }
+
+/**
+ * @type {Object}
+ * @properties={typeid:35,uuid:"078F04F5-297D-48B7-A92E-8F46C10D656A",variableType:-4}
+ */
+var objNameAndCategory = { }
+
+/**
+ * @type {Object}
+ * @properties={typeid:35,uuid:"E332597D-6441-4D62-A59F-014FE450A04C",variableType:-4}
+ */
+var styleGuideInfo = {
+	maincolor: 'This will affect the navbar',
+	secondarycolor: 'This will affect the sideNav'
 }
 
 /**
+ * @type {Object}
  * @properties={typeid:35,uuid:"FC5ED59B-13E0-47CF-AD68-08DD418B2C45",variableType:-4}
  */
 var variablesType = {
-	units:[],
-	color:[]
+	units: [],
+	color: []
 }
-
 
 /**
  * The global method of the valuelist is called to fill in or adjust the values of the valuelist.
@@ -39,32 +52,24 @@ var variablesType = {
  */
 function getDataSetForValueListVariables(displayValue, realValue, record, valueListName, findMode, rawDisplayValue) {
 	var Arr = [realValue];
-	if(record && record.cardTypeStyleClass == 'card-color'){
+	if (record && record.cardTypeStyleClass == 'card-color') {
 		Arr = scopes.svyStyleGuide.variablesType.color;
-		
-	}else if (record) {
+	} else if (record) {
 		Arr = scopes.svyStyleGuide.variablesType.units;
 	}
-	
-	
-	
+
 	/** @type  {JSDataSet} */
 	var result = null;
-	
+
 	if (displayValue == null && realValue == null) {
 		// TODO think about caching this result. can be called often!
-		
 		// return the complete list
-		
-		
 		result = databaseManager.convertToDataSet(Arr);
 		if (Arr.indexOf(displayValue) == -1) {
 			result.addRow([displayValue])
 		}
 	} else if (displayValue != null) {
 		// TYPE_AHEAD filter call, return a filtered list
-		
-
 		result = databaseManager.convertToDataSet(Arr);
 		if (Arr.indexOf(displayValue) == -1) {
 			result.addRow([displayValue])
@@ -73,10 +78,8 @@ function getDataSetForValueListVariables(displayValue, realValue, record, valueL
 		// TODO think about caching this result. can be called often!
 		// real object not found in the current list, return 1 row with display,realvalue that will be added to the current list
 		// dont return a complete list in this mode because that will be added to the list that is already there
-
 		result = databaseManager.convertToDataSet([realValue]);
 	}
-	
-	return result;
 
+	return result;
 }
