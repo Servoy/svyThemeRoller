@@ -18,13 +18,16 @@ items:[
 json:{
 containedForm:{
 btnCardInfo:{
-
+onActionMethodID:"E525F980-C6C7-4ECA-9F34-9C9343020B8B",
+styleClass:"default-align text-center text-center-vertical cardMenuItems clickable"
 },
 btnCardReset:{
-onActionMethodID:"7137FB4D-102D-4468-BA95-9DCB7F6919F6"
+onActionMethodID:"7137FB4D-102D-4468-BA95-9DCB7F6919F6",
+styleClass:"default-align text-center text-center-vertical cardMenuItems clickable"
 },
 cardColorPicker:{
-dataProviderID:"value"
+dataProviderID:"value",
+styleClass:"form-control form-color-picker clickable"
 },
 cardContainer:{
 
@@ -44,6 +47,7 @@ cardNavbar:{
 },
 cardUnitisPicker:{
 dataProviderID:"units",
+styleClass:"form-control form-unit-picker clickable",
 valuelistID:"1DA46608-4677-4B2B-A34D-36D8E0124E02"
 },
 svy_form:"EB1224AB-08A0-41F6-A8CF-A7F0A66EFB84"

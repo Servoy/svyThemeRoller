@@ -131,7 +131,7 @@ function getComponentName(elementName){
 /**
  * @param {JSEvent} event
  * @param {string} dataTarget
- *
+ * @public
  * @properties={typeid:24,uuid:"63611007-748C-45B3-AE12-69D7A35FCA1A"}
  */
 function cardInfo(event, dataTarget) {
@@ -234,9 +234,8 @@ function onShow(firstShow, event) {
 
 
 /**
- * TODO generated, please specify type and doc for the params
  * @param {Object} obj
- * @private
+ * @public
  * @properties={typeid:24,uuid:"CB83CB4B-BFAA-4631-876C-56499A711F47"}
  */
 function applyStyle(obj) {
