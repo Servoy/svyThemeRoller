@@ -101,71 +101,6 @@ function onActionDownloadStyle(event) {
 }
 
 /**
- * @param {JSEvent} event
- *
- * @properties={typeid:24,uuid:"86251B0F-BF93-488F-ABA2-1B62EB985451"}
- */
-function onActionResetToDefault(event) {
-	var selectedCard = foundset.getSelectedRecord();
-	selectedCard.value = defaultStyle[selectedCard.property];
-	application.output(selectedCard)
-	/*old code*/
-//	/*the name of the formComponent should be the same as the defaultStyle object*/
-//	var dp = elements[getComponentName(event.getElementName())].containedForm.cardInputField.getDataProviderID();
-//
-//	application.output(dp)
-//	this[dp] = defaultStyle[getComponentName(event.getElementName())];
-
-}
-/**
- * TODO generated, please specify type and doc for the params
- * @param elementName
- *
- * @properties={typeid:24,uuid:"FB2DC6E0-0EB6-4263-A30E-81E0E8180347"}
- */
-function getComponentName(elementName){
-	var indexOF$ = elementName.indexOf('$');
-	var name = elementName.substring(0, indexOF$);
-	return name;
-}
-/**
- * @param {JSEvent} event
- * @param {string} dataTarget
- * @public
- * @properties={typeid:24,uuid:"63611007-748C-45B3-AE12-69D7A35FCA1A"}
- */
-function cardInfo(event, dataTarget) {
-	var selectedCard = styleGuideInfo[foundset.getSelectedRecord().property];
-	
-	/*this will show the specific info based on the component name that should be set it exactly like the names of the styleGuideInfo object which also will keep the information*/
-	if(selectedCard){
-		plugins.dialogs.showInfoDialog('Info',selectedCard);
-	}else{
-		plugins.dialogs.showInfoDialog('Info','This property has no Info');
-	}
-	
-}
-
-/**
- * @param {JSEvent} event
- * @param {string} dataTarget
- *
- * @properties={typeid:24,uuid:"86251B0F-BF93-488F-ABA2-1B62EB98545D"}
- */
-function onActionOptions(event, dataTarget) {
-	plugins.window.createFormPopup(forms.colorOptions).show();
-}
-
-/**
- * TODO generated, please specify type and doc for the params
- * @param variable
- *
- * @properties={typeid:24,uuid:"239BBE2C-CACD-402F-BF0A-60ABAEE52449"}
- */
-function setColorValue(variable){
-	maincolor = variable;
-}
-/**
  * Callback method for when form is shown.
  *
  * @param {Boolean} firstShow form is shown first time after load
@@ -262,9 +197,11 @@ function applyStyle(obj) {
 
 	var newCssText = newCssArr.join('\n');
 	newCssText = utils.stringReplaceTags(newCssText, newStyle);
-
+	
 	Object.keys(localStorageObj).length && overrideCSS(newCssText);
+	!Object.keys(localStorageObj).length && overrideCSS('');
 	Object.keys(localStorageObj).length && plugins.webstorageLocalstorage.setItem('customCss', JSON.stringify(localStorageObj));
+	!Object.keys(localStorageObj).length && plugins.webstorageLocalstorage.removeItem('customCss');
 }
 
 /**

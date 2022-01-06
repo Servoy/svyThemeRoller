@@ -7,6 +7,8 @@
 function onActionResetCardDefault(event, dataTarget) {
 	var selectedCard = foundset.getSelectedRecord();
 	selectedCard.value = forms.ThemeConfigurator.defaultStyle[selectedCard.property];
+
+	forms.ThemeConfigurator.applyStyle({});
 }
 
 /**
