@@ -47,6 +47,7 @@ cardNavbar:{
 },
 cardUnitisPicker:{
 dataProviderID:"units",
+onDataChangeMethodID:"C31561B4-6DA3-4F74-B7F9-EBD37B0FB4FA",
 styleClass:"form-control form-unit-picker clickable",
 valuelistID:"1DA46608-4677-4B2B-A34D-36D8E0124E02"
 },

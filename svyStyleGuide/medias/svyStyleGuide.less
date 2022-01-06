@@ -44,12 +44,12 @@
 	}
 }
 
-.form-color-picker{
+.form-color-picker {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
 
-.form-unit-picker{
+.form-unit-picker {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
@@ -59,6 +59,7 @@
 		display: none;
 	}
 	.form-unit-picker {
+		padding: 0;
 		position: relative;
 		z-index: 9999;
 	}
@@ -74,7 +75,7 @@
 	}
 }
 
-.float-bottom{
+.float-bottom {
 	position: fixed;
 	bottom: 170px;
 	right: 70px;
@@ -128,4 +129,13 @@ div.list-form-component-margin-5 > * {
 
 .custom-height {
 	height: 819px;
+}
+
+.units-disable span.btn.btn-default.form-control.ui-select-toggle {
+	pointer-events: none;
+	background: #D3D3D3;
+}
+
+.form-unit-picker > input {
+    display: none;
 }

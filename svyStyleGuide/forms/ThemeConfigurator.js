@@ -104,7 +104,7 @@ function onShow(firstShow, event) {
 			valueKey = mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1);
 			//add item to the object
 			scopes.svyStyleGuide.defaultStyle[key] = valueKey;
-			scopes.svyStyleGuide.objNameAndCategory[key] = [cat, mediaCssArr[i].slice(1).split(':')[0]];
+			scopes.svyStyleGuide.objNameAndCategory[key] = [cat, mediaCssArr[i].slice(1).split(':')[0].replace(' ', '')];
 		}
 	}
 
