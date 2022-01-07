@@ -42,7 +42,8 @@ var theme = {
  * @properties={typeid:24,uuid:"84759B51-D315-4EC2-8199-9146D8D2EBE0"}
  */
 function onSolutionOpen(arg, queryParams) {
-	plugins.ngclientutils.setViewportMetaDefaultForMobileAwareSites()
+	plugins.ngclientutils.setViewportMetaDefaultForMobileAwareSites();
+	scopes.svyStyleGuide.loadData();
 }
 
 /**

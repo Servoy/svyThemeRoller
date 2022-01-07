@@ -8,7 +8,7 @@ function onActionResetCardDefault(event, dataTarget) {
 	var selectedCard = foundset.getSelectedRecord();
 	selectedCard.value = scopes.svyStyleGuide.defaultStyle[selectedCard.property];
 
-	forms.ThemeConfigurator.applyStyle({ });
+	scopes.svyStyleGuide.applyStyle();
 }
 
 /**
