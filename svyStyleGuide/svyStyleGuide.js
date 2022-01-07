@@ -8,16 +8,7 @@ var defaultStyle = { }
  * @type {Object}
  * @properties={typeid:35,uuid:"078F04F5-297D-48B7-A92E-8F46C10D656A",variableType:-4}
  */
-var objNameAndCategory = { }
-
-/**
- * @type {Object}
- * @properties={typeid:35,uuid:"E332597D-6441-4D62-A59F-014FE450A04C",variableType:-4}
- */
-var styleGuideInfo = {
-	maincolor: 'This will affect the navbar',
-	secondarycolor: 'This will affect the sideNav'
-}
+var objCSS = { }
 
 /**
  * @type {Object}

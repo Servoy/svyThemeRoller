@@ -137,14 +137,14 @@ typeid:47,
 uuid:"A792554F-B954-4FA8-B97E-5F72D7D75D8E"
 },
 {
-cssPosition:"10,50,-1,20,-1,30",
+cssPosition:"15,50,-1,20,-1,30",
 json:{
 cssPosition:{
 bottom:"-1",
 height:"30",
 left:"20",
 right:"50",
-top:"10",
+top:"15",
 width:"-1"
 },
 styleClass:"default-align text-center text-center-vertical font-weight-bold"

@@ -4,11 +4,11 @@
 function cardTypeStyleClass() {
 	var className = '';
 
-	if (scopes.svyStyleGuide.variablesType.units.indexOf('@' + name) > -1) {
+	if (type == 'unit' || type == 'custom') {
 
 		className = 'card-unit';
 
-	} else if (scopes.svyStyleGuide.variablesType.color.indexOf('@' + name) > -1) {
+	} else if (type == 'color') {
 
 		className = 'card-color';
 
@@ -18,7 +18,7 @@ function cardTypeStyleClass() {
 		className += ' cardChangeSignal';
 	}
 	
-	if (!(parseInt(value) > 0)) {
+	if ((type == 'unit' && !(parseInt(value) > 0)) || type == 'custom') {
 		className += ' units-disable';
 	}
 

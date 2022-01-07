@@ -13,16 +13,14 @@ function onActionResetStyle(event) {
 	//reset form variables
 	foundset.deleteAllRecords();
 	var dataset = databaseManager.createEmptyDataSet();
-	dataset.addColumn("property");
-	dataset.addColumn("value");
-	dataset.addColumn("units");
-	dataset.addColumn("id");
-	dataset.addColumn("category");
-	dataset.addColumn("name");
+	var columns = ["property", "value", "units", "id", "category", "name", "type", "desc"];
+	columns.forEach(function(itm) {
+		dataset.addColumn(itm);
+	});
 
 	var index = Object.keys(scopes.svyStyleGuide.defaultStyle);
 	for (var prop in scopes.svyStyleGuide.defaultStyle) {
-		dataset.addRow([prop, scopes.svyStyleGuide.defaultStyle[prop], '', (index.indexOf(prop) + 1), scopes.svyStyleGuide.objNameAndCategory[prop][0], scopes.svyStyleGuide.objNameAndCategory[prop][1]]);
+		dataset.addRow([prop, scopes.svyStyleGuide.defaultStyle[prop], '', (index.indexOf(prop) + 1), scopes.svyStyleGuide.objCSS[prop].category, scopes.svyStyleGuide.objCSS[prop].name, scopes.svyStyleGuide.objCSS[prop].type, scopes.svyStyleGuide.objCSS[prop].desc]);
 	}
 
 	dataset.createDataSource("cssTable");
@@ -34,7 +32,7 @@ function onActionResetStyle(event) {
  * @properties={typeid:24,uuid:"9A29640A-0185-4030-BEA4-BDB568E8820C"}
  */
 function onActionApplyStyle(event) {
-	applyStyle({ });
+	applyStyle();
 }
 
 /**
@@ -49,12 +47,12 @@ function onActionDownloadStyle(event) {
 	for (var i = 0; i < mediaCssArr.length; i++) {
 		if (i > 0 && mediaCssArr[i].indexOf('@') == 0) {
 			//adding the default value for the variables that has changed
-			mediaCssArr[i] = mediaCssArr[i].trim() + " // default: " + scopes.svyStyleGuide.defaultStyle['' + mediaCssArr[i].split(':')[0].slice(1).split('-').join('')] + "\n";
+			mediaCssArr[i] = mediaCssArr[i].trim() + " // default: " + scopes.svyStyleGuide.defaultStyle['' + mediaCssArr[i].split(':')[0].slice(1).split('-').join('')];
 		}
 	}
 
 	if (media.getAsString().length > 0) {
-		plugins.file.writeTXTFile('CustomTheme.less', mediaCssArr.join(''));
+		plugins.file.writeTXTFile('CustomTheme.less', mediaCssArr.join('\n'));
 	} else {
 		plugins.dialogs.showWarningDialog("Warning", "You cannot download the default CSS!");
 	}
@@ -82,29 +80,35 @@ function overrideCSS(str) {
 function onShow(firstShow, event) {
 	var key, valueKey, objLocal = { };
 	var dataset = databaseManager.createEmptyDataSet();
-	dataset.addColumn("property");
-	dataset.addColumn("value");
-	dataset.addColumn("units");
-	dataset.addColumn("id");
-	dataset.addColumn("category");
-	dataset.addColumn("name");
+	var columns = ["property", "value", "units", "id", "category", "name", "type", "desc"];
+	columns.forEach(function(itm) {
+		dataset.addColumn(itm);
+	});
 
-	var cat = '';
 	//parsing theme-servoy.less file
 	var media = solutionModel.getMedia('theme-servoy.less');
 	var mediaCssText = media.getAsString();
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
-		if (mediaCssArr[i].indexOf('START') > -1) {
-			cat = mediaCssArr[i].split('START ')[1].split(' */')[0];
-		}
 		if (mediaCssArr[i][0] == '@' && mediaCssArr[i].indexOf('@media') == -1) {
-			//get variable(that start with '@' and is not a media) name(key) and value(valueKey)
+			//get metadata for each element
+			var objData = JSON.parse(""+mediaCssArr[i].split(';')[1].split('/* ')[1].split(' */')[0]);
+			//get variable(that start with '@' and is not a media element) name(key) and value(valueKey)
 			key = mediaCssArr[i].slice(1).split(':')[0].split('-').join('').replace(' ', '');
 			valueKey = mediaCssArr[i].slice(1).split(':')[1].split(';')[0].slice(1);
-			//add item to the object
+			//add default values
 			scopes.svyStyleGuide.defaultStyle[key] = valueKey;
-			scopes.svyStyleGuide.objNameAndCategory[key] = [cat, mediaCssArr[i].slice(1).split(':')[0].replace(' ', '')];
+			//add metadata
+			if (Object.keys(objData).length) {
+				scopes.svyStyleGuide.objCSS[key] = objData;
+				scopes.svyStyleGuide.objCSS[key].prop = mediaCssArr[i].split(':')[0].replace(' ', '');
+				//create list
+				if (objData.type == "color") {
+					scopes.svyStyleGuide.variablesType.color.push(mediaCssArr[i].split(':')[0].replace(' ', ''));
+				} else {
+					scopes.svyStyleGuide.variablesType.units.push(mediaCssArr[i].split(':')[0].replace(' ', ''));
+				}
+			}
 		}
 	}
 
@@ -116,9 +120,9 @@ function onShow(firstShow, event) {
 	//set default values for form variables
 	for (var prop in scopes.svyStyleGuide.defaultStyle) {
 		if (objLocal[prop]) {
-			dataset.addRow([prop, objLocal[prop], '', (index.indexOf(prop) + 1), scopes.svyStyleGuide.objNameAndCategory[prop][0], scopes.svyStyleGuide.objNameAndCategory[prop][1]]);
+			dataset.addRow([prop, objLocal[prop], '', (index.indexOf(prop) + 1), scopes.svyStyleGuide.objCSS[prop].category, scopes.svyStyleGuide.objCSS[prop].name, scopes.svyStyleGuide.objCSS[prop].type, scopes.svyStyleGuide.objCSS[prop].desc]);
 		} else {
-			dataset.addRow([prop, scopes.svyStyleGuide.defaultStyle[prop], '', (index.indexOf(prop) + 1), scopes.svyStyleGuide.objNameAndCategory[prop][0], scopes.svyStyleGuide.objNameAndCategory[prop][1]]);
+			dataset.addRow([prop, scopes.svyStyleGuide.defaultStyle[prop], '', (index.indexOf(prop) + 1), scopes.svyStyleGuide.objCSS[prop].category, scopes.svyStyleGuide.objCSS[prop].name, scopes.svyStyleGuide.objCSS[prop].type, scopes.svyStyleGuide.objCSS[prop].desc]);
 		}
 	}
 
@@ -126,21 +130,20 @@ function onShow(firstShow, event) {
 	dataset.createDataSource("cssTable");
 
 	//restore style
-	Object.keys(objLocal).length && applyStyle(objLocal);
-
-	//sorts the variables based on type
-	sortVariablesType();
+	Object.keys(objLocal).length && applyStyle();
 
 	elements.collapse.show(0);
 }
 
 /**
- * @param {Object} obj
  * @public
  * @properties={typeid:24,uuid:"CB83CB4B-BFAA-4631-876C-56499A711F47"}
  */
-function applyStyle(obj) {
-	var newStyle = obj
+function applyStyle() {
+	var newStyle = {}
+	
+	
+	var categories = ['General', 'Sidenav', 'Navbar', 'Tabs', 'Windows', 'Dialogs', 'Tables', 'Breadcrumb specific style', 'Brand colors', 'Validations', 'Margins and Padding'];
 
 	for (var j = 1; j <= foundset.getSize(); j++) {
 		newStyle[foundset.getRecord(j).property] = foundset.getRecord(j).value;
@@ -148,22 +151,18 @@ function applyStyle(obj) {
 
 	var mediaOriginal = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
 	var defaultCssText = mediaOriginal.getAsString();
+	var newCssText = defaultCssText + "\n";
 	var localStorageObj = { }
-	var newCssArr = defaultCssText.split('\n');
-	for (var i = 0; i < newCssArr.length; i++) {
+	categories.forEach(function(itm) {
+		newCssText += "\n/* START " + itm + " */\n\n";
 		for (var key in newStyle) {
-			if (newCssArr[i].indexOf(key) != -1 && newStyle[key] == scopes.svyStyleGuide.defaultStyle[key]) {
-				newCssArr[i] = '';
-			}
-			if (newCssArr[i].indexOf(key) != -1 || newStyle[key] != scopes.svyStyleGuide.defaultStyle[key]) {
+			if (newStyle[key] != scopes.svyStyleGuide.defaultStyle[key] && scopes.svyStyleGuide.objCSS[key].category == itm) {
+				newCssText += scopes.svyStyleGuide.objCSS[key].prop + ": " + newStyle[key] + ";\n";
 				localStorageObj[key] = newStyle[key];
 			}
 		}
-	}
-
-	var newCssText = newCssArr.join('\n');
-	newCssText = utils.stringReplaceTags(newCssText, newStyle);
-
+	});
+	
 	Object.keys(localStorageObj).length && overrideCSS(newCssText);
 	!Object.keys(localStorageObj).length && overrideCSS('');
 	Object.keys(localStorageObj).length && plugins.webstorageLocalstorage.setItem('customCss', JSON.stringify(localStorageObj));
@@ -178,28 +177,4 @@ function applyStyle(obj) {
 function onActionCancel(event) {
 	//application.showForm(forms.styleGuide);
 	plugins.window.cancelFormPopup()
-}
-
-/**
- * @private
- * @properties={typeid:24,uuid:"E7FF152D-A664-4D90-820E-A2BC61546FDD"}
- */
-function sortVariablesType() {
-	var media = solutionModel.getMedia('svyStyleGuideOriginalTemplate.less');
-	var mediaCssText = media.getAsString();
-	var mediaCssArr = mediaCssText.split('\n');
-	var variableName = '';
-	for (var i = 0; i < mediaCssArr.length; i++) {
-		variableName = '';
-		if (mediaCssArr[i][0] == '@' && mediaCssArr[i].indexOf('@import') == -1) {
-			/*extract the variable name*/
-			variableName = mediaCssArr[i].split(':')[0];
-			/*sort the variables*/
-			if (variableName.indexOf('color') > -1 || variableName.indexOf('bg') > -1) {
-				scopes.svyStyleGuide.variablesType.color.push(variableName);
-			} else {
-				scopes.svyStyleGuide.variablesType.units.push(variableName);
-			}
-		}
-	}
 }
