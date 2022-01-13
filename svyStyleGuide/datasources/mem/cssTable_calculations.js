@@ -4,7 +4,7 @@
 function cardTypeStyleClass() {
 	var className = '';
 
-	if (type == 'unit' || type == 'custom') {
+	if (type == 'unit') {
 
 		className = 'card-unit';
 
@@ -12,13 +12,15 @@ function cardTypeStyleClass() {
 
 		className = 'card-color';
 
+	} else if (type == 'custom') {
+		className = 'card-empty';
 	}
 
 	if (value != scopes.svyStyleGuide.defaultStyle[property]) {
 		className += ' cardChangeSignal';
 	}
 	
-	if ((type == 'unit' && !(parseInt(value) > 0)) || type == 'custom') {
+	if ((type == 'unit' && !(parseInt(value) > 0))) {
 		className += ' units-disable';
 	}
 

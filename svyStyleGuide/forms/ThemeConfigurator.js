@@ -46,7 +46,7 @@ function onActionDownloadStyle(event) {
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
 		if (i == 0) {
-			mediaCssArr[i] = "//import of the custom servoy theme properties that will import the hidden servoy theme, this imported file is for customizing the default servoy theme properties\n@import 'theme-servoy.less';";
+			mediaCssArr[i] = "//import of the custom servoy theme properties that will import the hidden servoy theme, this imported file is for customizing the default servoy theme properties\n@import 'custom_servoy_theme_properties.less';";
 		} else if (i > 0 && mediaCssArr[i].indexOf('@') == 0) {
 			//adding the default value for the variables that has changed
 			mediaCssArr[i] = mediaCssArr[i].trim() + " // default: " + scopes.svyStyleGuide.defaultStyle['' + mediaCssArr[i].split(':')[0].slice(1).split('-').join('')];
