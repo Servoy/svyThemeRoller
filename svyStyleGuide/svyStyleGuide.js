@@ -46,10 +46,10 @@ function getDataSetForValueListVariables(displayValue, realValue, record, valueL
 	var Arr = [realValue];
 	if (record && record.cardTypeStyleClass == 'card-color') {
 		Arr = scopes.svyStyleGuide.variablesType.color;
-	} else if (record) {
+	} else if (record && record.cardTypeStyleClass == 'card-unit') {
 		Arr = scopes.svyStyleGuide.variablesType.units;
 	}
-
+	
 	/** @type  {JSDataSet} */
 	var result = null;
 
@@ -58,12 +58,25 @@ function getDataSetForValueListVariables(displayValue, realValue, record, valueL
 		// return the complete list
 		result = databaseManager.convertToDataSet(Arr);
 		if (Arr.indexOf(displayValue) == -1) {
-			result.addRow([displayValue])
+			result.addRow(1, [displayValue])
 		}
 	} else if (displayValue != null) {
 		// TYPE_AHEAD filter call, return a filtered list
-		result = databaseManager.convertToDataSet(Arr);
-		if (Arr.indexOf(displayValue) == -1) {
+		if (Arr.length > 1) {
+			var values = Arr.filter(function(e) {
+				if (e.indexOf(displayValue) > -1) {
+					return true
+				}
+				return false
+			});
+			
+			result = databaseManager.convertToDataSet(values);
+			
+			if (Arr.indexOf(displayValue) == -1) {
+				result.addRow(1, [displayValue])
+			}
+		} else {
+			result = databaseManager.convertToDataSet(Arr);
 			result.addRow([displayValue])
 		}
 	} else if (realValue != null) {
@@ -72,6 +85,8 @@ function getDataSetForValueListVariables(displayValue, realValue, record, valueL
 		// dont return a complete list in this mode because that will be added to the list that is already there
 		result = databaseManager.convertToDataSet([realValue]);
 	}
+
+
 
 	return result;
 }
