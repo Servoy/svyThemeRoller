@@ -32,6 +32,10 @@ autoResize:false,
 columnDef:{
 checkboxSelection:"true"
 },
+enableResize:false,
+enableRowGroup:false,
+enableSort:false,
+enableToolPanel:false,
 svyUUID:"E2DFB31A-0E13-466C-B830-CCB6A9E09835",
 width:50
 },
@@ -80,11 +84,6 @@ svyUUID:"FF3A7717-E450-4A3A-9381-2DF79CE5EB51",
 width:50
 }
 ],
-iconConfig:{
-iconCheckboxChecked:"fas fa-search",
-iconCheckboxUnchecked:"fas fa-search",
-svyUUID:"56EEF4AC-CA9D-4D9C-8CE9-991C64725FAC"
-},
 location:{
 x:1,
 y:1
