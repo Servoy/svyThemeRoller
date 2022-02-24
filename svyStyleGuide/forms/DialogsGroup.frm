@@ -1,0 +1,16 @@
+customProperties:"formComponent:false,\
+layout:{\
+responsive:true\
+},\
+methods:{\
+onShowMethodID:{\
+arguments:null,\
+parameters:null\
+}\
+}",
+dataSource:"mem:cssTable",
+extendsID:"DF9A8808-D196-4062-A248-8DC4042E9182",
+name:"DialogsGroup",
+onShowMethodID:"E604366B-4109-4665-8AD3-2DA63D767275",
+typeid:3,
+uuid:"22E99AB2-B650-4F1A-8FCD-146EA7557499"

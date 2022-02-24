@@ -1,0 +1,16 @@
+customProperties:"formComponent:false,\
+layout:{\
+responsive:true\
+},\
+methods:{\
+onShowMethodID:{\
+arguments:null,\
+parameters:null\
+}\
+}",
+dataSource:"mem:cssTable",
+extendsID:"DF9A8808-D196-4062-A248-8DC4042E9182",
+name:"BrandColorsGroup",
+onShowMethodID:"090255DB-C75D-415C-B005-8DA214DEFCAA",
+typeid:3,
+uuid:"D3BFFFE2-8310-4071-92D2-72A5CBB9ACD3"

@@ -1,0 +1,16 @@
+customProperties:"formComponent:false,\
+layout:{\
+responsive:true\
+},\
+methods:{\
+onShowMethodID:{\
+arguments:null,\
+parameters:null\
+}\
+}",
+dataSource:"mem:cssTable",
+extendsID:"DF9A8808-D196-4062-A248-8DC4042E9182",
+name:"GeneralGroup",
+onShowMethodID:"449BD6C0-B9A3-4800-B29B-1962D187A970",
+typeid:3,
+uuid:"C20FD1D8-FB2C-4FDA-94C5-E5D96F3D135D"

@@ -1,5 +1,6 @@
 // import of the custom servoy theme properties that will import the hidden servoy theme, this imported file is for customizing the default servoy theme properties 
 @import 'theme-servoy.less';
+//@import 'custom_servoy_theme_properties.less';
 
 // Add your custom less/css to this file you can use the same less properties that are specified in the above properties.less 
 
@@ -23,8 +24,150 @@
 	padding-right: 5px;
 }
 
+.color-picker{
+	width:80px;
+	height:80px;
+}
+
+.cardMenuBar{
+	background: #D3D3D3;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.cardMenuItems{
+	color: #FFF;
+}
+
 .frm-combobox {
 	.inline-group-content {
 		min-height: 34px;
 	}
+}
+
+.form-color-picker {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.form-unit-picker {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.card-unit {
+	.form-color-picker {
+		display: none;
+	}
+	.form-unit-picker {
+		padding: 0;
+		position: relative;
+		z-index: 9999;
+	}
+}
+
+.card-color {
+	.form-unit-picker {
+		display: none;
+	}
+	.form-color-picker {
+		position: relative;
+		z-index: 9999;
+	}
+}
+
+.card-empty {
+	.form-unit-picker {
+		display: none;
+	}
+	.form-color-picker {
+		display: none;
+	}
+}
+
+.card-empty > div > input {
+    width: 231px !important;
+    border-radius: 5px;
+}
+
+.themeCollapse{
+	width: calc(100vw - 229px);
+}
+
+.float-bottom {
+	position: fixed;
+	bottom: 170px;
+	right: 20px;
+	z-index: 99999;
+	gap: 15px;	
+}
+
+.custom-btn {
+	width: 140px;
+	height: 45px;
+    background: #3fdfba;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    font-size: 25px;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, .2);
+    text-align: center;
+}
+
+div.list-form-component-margin-5 > * {
+    margin:15px;
+}
+
+.observer{
+	background-color: #D3D3D3;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.cardContainer{
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.2);
+}
+.cardInput{
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+
+.cardChangeSignal{
+	.observer{
+		background: repeating-linear-gradient( 45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px );
+	}
+}
+
+.cardChangeSignal{
+	.cardMenuBar{
+		background: repeating-linear-gradient( 45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px );
+	}
+}
+
+.custom-height {
+	height: 819px;
+}
+
+.units-disable span.btn.btn-default.form-control.ui-select-toggle {
+	pointer-events: none;
+	background: #D3D3D3;
+}
+
+.form-unit-picker > input {
+    display: none;
+}
+
+.theme-config-btn {
+	width: 250px;
+	height: 45px;
+    background: #3fdfba;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    font-size: 25px;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, .2);
+    text-align: center;
 }

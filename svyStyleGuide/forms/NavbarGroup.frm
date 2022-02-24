@@ -1,0 +1,16 @@
+customProperties:"formComponent:false,\
+layout:{\
+responsive:true\
+},\
+methods:{\
+onShowMethodID:{\
+arguments:null,\
+parameters:null\
+}\
+}",
+dataSource:"mem:cssTable",
+extendsID:"DF9A8808-D196-4062-A248-8DC4042E9182",
+name:"NavbarGroup",
+onShowMethodID:"BAEF0544-00F4-4D6E-B69C-64618058FBC9",
+typeid:3,
+uuid:"6A0BDEDE-558F-4E62-B0EF-FDFE49B83A36"

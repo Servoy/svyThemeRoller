@@ -1,0 +1,16 @@
+customProperties:"formComponent:false,\
+layout:{\
+responsive:true\
+},\
+methods:{\
+onShowMethodID:{\
+arguments:null,\
+parameters:null\
+}\
+}",
+dataSource:"mem:cssTable",
+extendsID:"DF9A8808-D196-4062-A248-8DC4042E9182",
+name:"SidenavGroup",
+onShowMethodID:"5046102A-C4E7-4F07-BE32-748FB10FCFAD",
+typeid:3,
+uuid:"206EB92C-DFA3-4DD8-856E-E160AC30F95A"

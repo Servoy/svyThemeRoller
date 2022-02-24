@@ -1,0 +1,16 @@
+customProperties:"formComponent:false,\
+layout:{\
+responsive:true\
+},\
+methods:{\
+onShowMethodID:{\
+arguments:null,\
+parameters:null\
+}\
+}",
+dataSource:"mem:cssTable",
+extendsID:"DF9A8808-D196-4062-A248-8DC4042E9182",
+name:"WindowsGroup",
+onShowMethodID:"59709BC6-F076-45D1-B45F-BB5192AEB786",
+typeid:3,
+uuid:"679B875E-9444-4142-84C5-56915D395322"

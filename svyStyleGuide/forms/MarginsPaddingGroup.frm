@@ -1,0 +1,16 @@
+customProperties:"formComponent:false,\
+layout:{\
+responsive:true\
+},\
+methods:{\
+onShowMethodID:{\
+arguments:null,\
+parameters:null\
+}\
+}",
+dataSource:"mem:cssTable",
+extendsID:"DF9A8808-D196-4062-A248-8DC4042E9182",
+name:"MarginsPaddingGroup",
+onShowMethodID:"99B93EAF-9743-4FB8-9048-AF5155B575AB",
+typeid:3,
+uuid:"F9CB4BD8-77FD-422F-BBD6-23DECC07E713"

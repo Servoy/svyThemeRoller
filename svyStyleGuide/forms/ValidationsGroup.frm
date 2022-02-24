@@ -1,0 +1,16 @@
+customProperties:"formComponent:false,\
+layout:{\
+responsive:true\
+},\
+methods:{\
+onShowMethodID:{\
+arguments:null,\
+parameters:null\
+}\
+}",
+dataSource:"mem:cssTable",
+extendsID:"DF9A8808-D196-4062-A248-8DC4042E9182",
+name:"ValidationsGroup",
+onShowMethodID:"781DB85C-5053-4B57-B4B2-0916DA3D8DB1",
+typeid:3,
+uuid:"8FDF2F47-49AF-4835-B917-1EC79B422C9C"
