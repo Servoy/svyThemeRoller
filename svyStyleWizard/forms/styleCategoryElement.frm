@@ -33,8 +33,7 @@ right:"0",
 top:"0",
 width:"-1"
 },
-styleClass:"btn btn-primary",
-text:"Button"
+styleClass:"btn btn-primary"
 },
 name:"button",
 styleClass:"btn btn-primary",

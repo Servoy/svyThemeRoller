@@ -62,7 +62,8 @@ items:[
 json:{
 containedForm:{
 button:{
-
+imageStyleClass:"fas fa-mouse fa-2x",
+onActionMethodID:"983EFE70-E3F5-4615-AE10-A2B9E3642BA9"
 },
 label:{
 text:"Button"
@@ -103,7 +104,8 @@ items:[
 json:{
 containedForm:{
 button:{
-
+imageStyleClass:"far fa-square fa-2x",
+onActionMethodID:"0BF30D2B-3186-4B30-A966-0DD7770DD54E"
 },
 label:{
 text:"Input"
@@ -144,7 +146,8 @@ items:[
 json:{
 containedForm:{
 button:{
-
+imageStyleClass:"fas fa-font fa-2x",
+onActionMethodID:"8CCC19A2-D019-46A7-91EB-212DFF645C6F"
 },
 label:{
 
