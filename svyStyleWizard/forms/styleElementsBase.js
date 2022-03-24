@@ -1,3 +1,16 @@
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"1C87F463-A807-4E0C-8414-A4D898C6280E"}
+ */
+function onShow(firstShow, event) {
+	foundset.loadAllRecords();
+}
 
 /**
  * @param {JSEvent} event
@@ -41,3 +54,4 @@ function onActionEdit() {
 	form.setStyle(foundset.getSelectedRecord());
 	globals.showForm(form);
 }
+

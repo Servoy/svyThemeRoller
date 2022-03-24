@@ -91,6 +91,7 @@ uuid:"C95785FA-DCD9-45EF-AC28-77DDC58F967C"
 name:"styleElementsBase",
 namedFoundSet:"separate",
 navigatorID:"-1",
+onShowMethodID:"1C87F463-A807-4E0C-8414-A4D898C6280E",
 showInMenu:true,
 typeid:3,
 uuid:"D3CDDA62-03C8-45F8-90A3-00ACA0E94F00"

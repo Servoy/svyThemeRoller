@@ -56,24 +56,25 @@ function setStyle(record) {
 }
 
 /**
- * @protected 
+ * @protected
  * @properties={typeid:24,uuid:"A23B2D65-4E46-4D52-AC29-8420C1F574A2"}
  */
 function save() {
 	if (styleUUID) {
-		scopes.entityStyles.updateStyle(styleUUID, getStyleClasses())
+		return scopes.entityStyles.updateStyle(styleUUID, getStyleClasses())
 	} else {
-		saveAsNew();
+		return saveAsNew() ? true : false
 	}
 }
 
 /**
- * @protected 
+ * @protected
  * @properties={typeid:24,uuid:"6258F3A9-D662-4E1D-A4B5-B69D48860159"}
  */
 function saveAsNew() {
 	var name = plugins.dialogs.showInputDialog("Save as New", "Must start with a letter, only letters, numbers or the special character - are allowed")
 	if (name) {
-		scopes.entityStyles.createStyle(name, getElementType(), getStyleClasses())
+		return scopes.entityStyles.createStyle(name, getElementType(), getStyleClasses()) ? true : false;
 	}
+	return false;
 }

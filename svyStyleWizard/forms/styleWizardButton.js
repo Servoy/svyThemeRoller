@@ -191,3 +191,15 @@ function onActionButtonStyleDropdown(event, dataTarget) {
 
 }
 
+
+/**
+
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"E090656E-B120-4416-AA88-47FD8721F322"}
+ */
+function onActionSaveAsNew() {
+	if (saveAsNew()) {
+		globals.showForm(forms.styleButtons);
+	}
+}
