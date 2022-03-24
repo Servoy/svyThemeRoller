@@ -86,7 +86,7 @@ uuid:"22FC7A0A-8075-4EC6-9EA5-090659B64A5A"
 },
 {
 customProperties:"attributes:{\
-class:\"row margin-top-30\"\
+class:\"row margin-top-30 wizard-categories\"\
 },\
 properties:{\
 packagename:\"12grid\",\
