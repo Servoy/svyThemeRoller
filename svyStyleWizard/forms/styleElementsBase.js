@@ -1,4 +1,9 @@
 /**
+ * @properties={typeid:35,uuid:"8ED1055B-4783-459A-8E4D-055E1951C41F",variableType:-4}
+ */
+var showMargin = false;
+
+/**
  * Callback method for when form is shown.
  *
  * @param {Boolean} firstShow form is shown first time after load
@@ -14,6 +19,8 @@ function onShow(firstShow, event) {
 	/** @type {RuntimeForm<styleSolModel>} */
 	var form = forms[elements.formcontainer.containedForm];
 	form.createList(foundset);
+	
+	updateUI();
 	
 }
 
@@ -77,4 +84,32 @@ function onHide(event) {
 	var form = forms[elements.formcontainer.containedForm];
 	form.revertList();
 	return true;
+}
+
+/**
+ * @param {JSEvent} event
+ * @param {string} dataTarget
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"42D7E70A-8F85-4E99-B978-018C16A5EECF"}
+ */
+function onActionToggleShowMargin(event, dataTarget) {
+	// TODO Auto-generated method stub
+
+	showMargin = !showMargin;
+	updateUI();
+}
+
+/**
+ * @properties={typeid:24,uuid:"FD7D2BD3-2044-4BCA-8DB3-5D43B070E12D"}
+ */
+function updateUI() {
+	if (showMargin) {
+		elements.formcontainer.addStyleClass("show-margin-enabled")
+		elements.labelShowMargin.text = "Hide margins"
+	} else {
+		elements.formcontainer.removeStyleClass("show-margin-enabled")
+		elements.labelShowMargin.text = "Show margins"
+	}
 }

@@ -55,7 +55,7 @@ uuid:"36D9F584-ECE2-46B5-8AB2-D7B719220A96"
 },
 {
 customProperties:"attributes:{\
-class:\"flex-item\"\
+class:\"flex-item show-margin\"\
 },\
 properties:{\
 packagename:\"12grid\",\

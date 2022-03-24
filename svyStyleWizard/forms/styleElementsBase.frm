@@ -61,6 +61,28 @@ typeid:47,
 uuid:"4C43D0A8-F3FD-434E-8ADC-D2F63FB75DBE"
 },
 {
+cssPosition:"53,143,-1,-1,146,48",
+json:{
+cssPosition:{
+bottom:"-1",
+height:"48",
+left:"-1",
+right:"143",
+top:"53",
+width:"146"
+},
+imageStyleClass:"fas fa-eye",
+onActionMethodID:"42D7E70A-8F85-4E99-B978-018C16A5EECF",
+styleClass:"default-align clickable h4 text-tertiary",
+text:"Show margins"
+},
+name:"labelShowMargin",
+styleClass:"default-align clickable h4 text-tertiary",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"5696E83D-3B11-4CA9-8C83-668D7151B9AA"
+},
+{
 cssPosition:"9,-1,-1,12,455,64",
 json:{
 cssPosition:{
