@@ -25,7 +25,54 @@ specname:\"div\"\
 items:[
 {
 customProperties:"attributes:{\
-class:\"row\"\
+class:\"row margin-top-15\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"row\"\
+}",
+items:[
+{
+customProperties:"attributes:{\
+class:\"col-md-12\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"column\"\
+}",
+items:[
+{
+json:{
+containedForm:"684BDB44-C88C-4FCB-B6EE-6B9DB029388C",
+location:{
+x:1,
+y:1
+},
+size:{
+height:100,
+width:200
+}
+},
+location:"1,1",
+name:"tabResult",
+size:"200,100",
+typeName:"servoycore-formcontainer",
+typeid:47,
+uuid:"5BEB4EA6-8D5D-4D4F-A18E-ADBAF73B01F6"
+}
+],
+location:"1,1",
+typeid:46,
+uuid:"434B38F9-F6EE-4A62-91C0-96772D3CCDD3"
+}
+],
+location:"3,3",
+typeid:46,
+uuid:"2116873A-8A0C-4E68-A34F-726A04710DA1"
+},
+{
+customProperties:"attributes:{\
+class:\"row margin-top-15\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -53,11 +100,13 @@ size:{
 height:30,
 width:80
 },
+styleClass:"default-align back clickable",
 text:"Back"
 },
 location:"128,219",
 name:"labelBack",
 size:"80,30",
+styleClass:"default-align back clickable",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"DCD4F4B9-2362-408B-A18B-797158249C80"
@@ -74,7 +123,7 @@ uuid:"762204BA-9392-4FC6-B0FF-D875AA2C665D"
 },
 {
 customProperties:"attributes:{\
-class:\"row\"\
+class:\"row margin-top-30\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -100,47 +149,16 @@ size:{
 height:30,
 width:80
 },
+styleClass:"default-align title",
 text:"DIMENSIONS"
 },
 location:"1,1",
 name:"labelDimensions",
 size:"80,30",
+styleClass:"default-align title",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"15CC35BC-A594-47AB-8568-6EE487B3F614"
-},
-{
-customProperties:"attributes:{\
-class:\"customDiv\"\
-},\
-properties:{\
-packagename:\"12grid\",\
-specname:\"div\"\
-}",
-items:[
-{
-json:{
-containedForm:"684BDB44-C88C-4FCB-B6EE-6B9DB029388C",
-location:{
-x:2,
-y:2
-},
-size:{
-height:100,
-width:200
-}
-},
-location:"2,2",
-name:"tabResult",
-size:"200,100",
-typeName:"servoycore-formcontainer",
-typeid:47,
-uuid:"5BEB4EA6-8D5D-4D4F-A18E-ADBAF73B01F6"
-}
-],
-location:"3,3",
-typeid:46,
-uuid:"DF7EC5F9-0172-416A-B4D0-329C169C0A92"
 },
 {
 customProperties:"attributes:{\
@@ -182,13 +200,13 @@ size:{
 height:30,
 width:80
 },
-styleClass:"default-align font-weight-bold",
+styleClass:"default-align subtitle",
 text:"Margin"
 },
 location:"1,1",
 name:"labelMargin",
 size:"80,30",
-styleClass:"default-align font-weight-bold",
+styleClass:"default-align subtitle",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"05B75E1D-9535-4EAA-9481-98A9720517AA"
@@ -590,11 +608,13 @@ size:{
 height:30,
 width:80
 },
+styleClass:"default-align title",
 text:"ESTETHICS"
 },
 location:"1,1",
 name:"labelEstethics",
 size:"80,30",
+styleClass:"default-align title",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"78AFF75B-C906-4ACA-AB5A-A3A71B3EF0BD"
@@ -801,11 +821,13 @@ size:{
 height:30,
 width:80
 },
+styleClass:"default-align subtitle",
 text:"Rounded border"
 },
 location:"32,76",
 name:"labelRoundedBorder",
 size:"80,30",
+styleClass:"default-align subtitle",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"0189DBCC-1995-42CB-9B98-74356E5604D6"

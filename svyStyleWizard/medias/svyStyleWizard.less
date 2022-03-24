@@ -3,6 +3,8 @@
 
 // Add your custom less/css to this file you can use the same less properties that are specified in the above properties.less
 
+@text-color-secondary: #ACB1C0;
+
 body{
 	background-color:@body-bg;
 }
@@ -21,15 +23,37 @@ body{
 	}
 }
 
-.w-1000 {
-	max-width: 1000px;
-	margin:auto;
+.title{
+  color: @text-color-secondary;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform:uppercase;
+}
+
+.subtitle{
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.back{
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px 0;
 }
 
 .col-style-panel > .flex {
 	margin-top: 15px;
 	padding: 15px;
-	border-radius: 10px;
+	border-radius: @border-radius;
 	background: #FFF;
-	border: 1px solid #CCC;
+	border: 1px solid @border-color;
 }
+
+
+.w-1000 {
+	max-width: 1000px;
+	margin:auto;
+}
+
