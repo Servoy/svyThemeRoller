@@ -144,7 +144,7 @@ function updateElementStyle(classes) {
  * @properties={typeid:24,uuid:"2394B9B0-EDBF-4944-8BBB-986CAE7A843C"}
  */
 function onActionBack(event, dataTarget) {
-	scopes.svyNavigationHistory.back();
+	globals.showForm(forms.styleButtons)
 }
 
 /**

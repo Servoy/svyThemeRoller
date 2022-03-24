@@ -7,7 +7,7 @@
  * @properties={typeid:24,uuid:"983EFE70-E3F5-4615-AE10-A2B9E3642BA9"}
  */
 function onActionOpenButton(event) {
-	globals.showForm(forms.styleWizardButton);
+	globals.showForm(forms.styleButtons);
 }
 
 /**
