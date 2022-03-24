@@ -1,0 +1,13 @@
+addEmptyValue:1,
+customValues:"default|-1\r\
+none|0\r\
+10px|10\r\
+15px|20\r\
+20px|20\r\
+30px|30\r\
+",
+displayValueType:12,
+name:"stepsMargin",
+realValueType:12,
+typeid:34,
+uuid:"855C954F-CA08-4874-B693-571159D9F039"
