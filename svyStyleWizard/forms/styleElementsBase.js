@@ -10,6 +10,11 @@
  */
 function onShow(firstShow, event) {
 	foundset.loadAllRecords();
+	
+	/** @type {RuntimeForm<styleSolModel>} */
+	var form = forms[elements.formcontainer.containedForm];
+	form.createList(foundset);
+	
 }
 
 /**
@@ -55,3 +60,21 @@ function onActionEdit() {
 	globals.showForm(form);
 }
 
+
+/**
+ * Handle hide window.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @return {Boolean}
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"BC0A9B06-8372-4BF1-AAA7-49719C1A8830"}
+ */
+function onHide(event) {
+	/** @type {RuntimeForm<styleSolModel>} */
+	var form = forms[elements.formcontainer.containedForm];
+	form.revertList();
+	return true;
+}
