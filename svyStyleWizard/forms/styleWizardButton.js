@@ -80,7 +80,7 @@ function onActionToggleEditMargin(event, dataTarget) {
 function updateUI() {
 
 	var showAllMaginSelectors = expandMarginSelector ? true : false;
-	
+
 	elements.fcMarginMain.visible = !showAllMaginSelectors;
 	elements.fcMarginTop.visible = showAllMaginSelectors;
 	elements.fcMarginRight.visible = showAllMaginSelectors;
@@ -88,4 +88,36 @@ function updateUI() {
 	elements.fcMarginLeft.visible = showAllMaginSelectors;
 	elements.labelMarginAll.visible = !showAllMaginSelectors;
 	elements.labelMarginEqual.visible = showAllMaginSelectors;
+}
+
+/**
+ * @return {String}
+ * @properties={typeid:24,uuid:"B797E876-1EAB-455D-B69C-6EEF16BC9E89"}
+ */
+function getStyleClasses() {
+	var classes = 'btn';
+
+	if (styleRoundedBorder) {
+		classes = scopes.ngUtils.addStyleClass(classes, 'btn-round');
+	}
+	
+	if (!expandMarginSelector) {
+		classes = scopes.ngUtils.addStyleClass(classes, scopes.svyStyleWizard.getMarginStyleClass(marginAll))
+	} else {
+		classes = scopes.ngUtils.addStyleClass(classes, scopes.svyStyleWizard.getMarginStyleClass(marginTop, scopes.svyStyleWizard.SIDES.TOP));
+		classes = scopes.ngUtils.addStyleClass(classes, scopes.svyStyleWizard.getMarginStyleClass(marginRight, scopes.svyStyleWizard.SIDES.RIGHT));
+		classes = scopes.ngUtils.addStyleClass(classes, scopes.svyStyleWizard.getMarginStyleClass(marginBottom, scopes.svyStyleWizard.SIDES.BOTTOM));
+		classes = scopes.ngUtils.addStyleClass(classes, scopes.svyStyleWizard.getMarginStyleClass(marginLeft, scopes.svyStyleWizard.SIDES.LEFT));
+	}
+	
+	return classes
+}
+
+
+/**
+ * @properties={typeid:24,uuid:"6D38F8F1-0197-44E7-8868-E3A9487E1378"}
+ * @override
+ */
+function updateElementStyle(classes) {
+	forms.styleResultButton.updateElementStyle(classes);
 }

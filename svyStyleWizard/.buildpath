@@ -5,4 +5,5 @@
 	<buildpathentry exported="true" kind="prj" path="/svyNavigation"/>
 	<buildpathentry exported="true" kind="prj" path="/svyNavigationUX"/>
 	<buildpathentry exported="true" kind="prj" path="/svyThemeRoller"/>
+	<buildpathentry exported="true" kind="prj" path="/svyUtils$NGClient"/>
 </buildpath>
