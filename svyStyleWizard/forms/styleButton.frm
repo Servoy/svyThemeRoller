@@ -7,8 +7,8 @@ encapsulation:108,
 items:[
 {
 customProperties:"attributes:{\
-class:\"flex\",\
-data-align-items:\"stretch\",\
+class:\"flex margin-top-15 col-style-panel\",\
+data-align-items:\"center\",\
 data-direction:\"row\",\
 data-justify-content:\"space-between\"\
 },\
@@ -37,13 +37,13 @@ size:{
 height:30,
 width:80
 },
-styleClass:"default-align clickable",
+styleClass:"clickable text-tertiary font-weight-bold",
 text:"Edit"
 },
 location:"692,97",
 name:"labelEdit",
 size:"80,30",
-styleClass:"default-align clickable",
+styleClass:"clickable text-tertiary font-weight-bold",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"64F66615-AE7C-42BB-B0DA-160E67FF3386"

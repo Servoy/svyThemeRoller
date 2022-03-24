@@ -4,34 +4,54 @@ dataSource:"mem:styles",
 encapsulation:108,
 items:[
 {
-cssPosition:"52,-1,-1,546,86,30",
+cssPosition:"100,13,-1,14,613,62",
+json:{
+cssPosition:{
+bottom:"-1",
+height:"62",
+left:"14",
+right:"13",
+top:"100",
+width:"613"
+}
+},
+name:"fcDefault",
+typeName:"servoycore-formcomponent",
+typeid:47,
+uuid:"0997DE65-45C4-49B5-9055-2D2622CB0809"
+},
+{
+cssPosition:"52,8,-1,-1,103,30",
 json:{
 cssPosition:{
 bottom:"-1",
 height:"30",
-left:"546",
-right:"-1",
+left:"-1",
+right:"8",
 top:"52",
-width:"86"
+width:"103"
 },
+imageStyleClass:"fas fa-magic",
 onActionMethodID:"7D42B206-440C-4A05-B1D1-3F3F7DA04233",
+styleClass:"default-align clickable",
 text:"Create new"
 },
 name:"labelNew",
+styleClass:"default-align clickable",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"16DAFF32-8195-4321-BD97-36E19E562D59"
 },
 {
-cssPosition:"100,13,50,14,613,330",
+cssPosition:"185,13,50,14,613,245",
 json:{
 containedForm:"6C0222D3-349F-4DC7-9CC3-71FBF7F30547",
 cssPosition:{
 bottom:"50",
-height:"330",
+height:"245",
 left:"14",
 right:"13",
-top:"100",
+top:"185",
 width:"613"
 }
 },
@@ -61,20 +81,23 @@ typeid:47,
 uuid:"81A95BD1-7D06-47EE-9EE6-F76D318C25F7"
 },
 {
-cssPosition:"-1,-1,12,-1,86,30",
+cssPosition:"-1,19,10,-1,86,30",
 json:{
 cssPosition:{
-bottom:"12",
+bottom:"10",
 height:"30",
 left:"-1",
-right:"-1",
+right:"19",
 top:"-1",
 width:"86"
 },
+imageStyleClass:"fas fa-times",
 onActionMethodID:"E4A44159-BD91-44F6-BA83-8FA67E21022A",
+styleClass:"default-align text-tertiary",
 text:"Cancel"
 },
 name:"labelCancel",
+styleClass:"default-align text-tertiary",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"98399BF8-1145-47A4-B2CA-AA47D4D0752B"

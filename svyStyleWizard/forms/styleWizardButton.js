@@ -149,6 +149,10 @@ function updateUI() {
  */
 function getStyleClasses() {
 	var classes = 'btn';
+	
+	if (buttonStyle) {
+		classes = scopes.ngUtils.addStyleClass(classes, buttonStyle);
+	}
 
 	if (styleRoundedBorder) {
 		classes = scopes.ngUtils.addStyleClass(classes, 'btn-round');
