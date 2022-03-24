@@ -18,6 +18,15 @@ function getElementType() {
 function getStyleClasses() { }
 
 /**
+ * @param {String} classes
+ *
+ * @properties={typeid:24,uuid:"CE663665-61FD-4767-A1FB-F89A08069912"}
+ */
+function setStyleClasses(classes) {
+	
+}
+
+/**
  * Handle changed data, return false if the value should not be accepted. In NGClient you can return also a (i18n) string, instead of false, which will be shown as a tooltip.
  *
  * @param oldValue old value
@@ -49,9 +58,11 @@ function updateElementStyle(classes) { }
  */
 function setStyle(record) {
 	if (record) {
-		styleUUID = record.style_uuid.toString()
+		styleUUID = record.style_uuid.toString();
+		setStyleClasses(record.style_classes);
 	} else {
 		styleUUID = null;
+		setStyleClasses(null);
 	}
 }
 

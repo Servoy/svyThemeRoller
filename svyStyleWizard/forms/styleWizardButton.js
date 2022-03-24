@@ -75,7 +75,6 @@ function onShow(firstShow, event) {
 	updateUI();
 }
 
-
 /**
  * @properties={typeid:24,uuid:"758C9E6F-6271-4846-BA0D-269C6A0F871B"}
  * @override
@@ -123,7 +122,7 @@ function getStyleClasses() {
 	if (styleRoundedBorder) {
 		classes = scopes.ngUtils.addStyleClass(classes, 'btn-round');
 	}
-	
+
 	if (!expandMarginSelector) {
 		classes = scopes.ngUtils.addStyleClass(classes, scopes.svyStyleWizard.getMarginStyleClass(marginAll))
 	} else {
@@ -132,10 +131,103 @@ function getStyleClasses() {
 		classes = scopes.ngUtils.addStyleClass(classes, scopes.svyStyleWizard.getMarginStyleClass(marginBottom, scopes.svyStyleWizard.SIDES.BOTTOM));
 		classes = scopes.ngUtils.addStyleClass(classes, scopes.svyStyleWizard.getMarginStyleClass(marginLeft, scopes.svyStyleWizard.SIDES.LEFT));
 	}
-	
+
 	return classes
 }
 
+/**
+ * @param {String} classes
+ *
+ * @properties={typeid:24,uuid:"BF6198A0-339F-4779-B87F-CE5D315F82D9"}
+ */
+function setStyleClasses(classes) {
+	buttonStyle = "btn-default";
+	marginAll = "-1";
+	marginTop = "-1";
+	marginRight = "-1";
+	marginBottom = "-1";
+	marginLeft = "-1";
+	styleRoundedBorder = 0;
+	styleExtra = null;
+
+	if (!classes) {
+		return;
+	}
+
+	var cls = classes.split(" ");
+
+	var buttonStyles = ["btn-default", "btn-primary", "btn-warning"]
+	var marginAllStyles = ["margin-10", "margin-15", "margin-20", "margin-30"];
+	var marginTopStyles = ["margin-top-10", "margin-top-15", "margin-top-20", "margin-top-30"];
+	var marginRightStyles = ["margin-right-10", "margin-right-15", "margin-right-20", "margin-right-30"];
+	var marginBottomStyles = ["margin-bottom-10", "margin-bottom-15", "margin-bottom-20", "margin-bottom-30"];
+	var marginLeftStyles = ["margin-left-10", "margin-left-15", "margin-left-20", "margin-left-30"];
+
+	// rounderd border
+	if (cls.indexOf("btn-round") > -1) {
+		styleRoundedBorder = 1;
+	}
+
+	// button style
+	var key;
+	for (var i = 0; i < buttonStyles.length; i++) {
+		key = buttonStyles[i]
+		if (cls.indexOf(key) > -1) {
+			buttonStyle = key
+			break;
+		}
+	}
+
+	// margin all
+	for (i = 0; i < marginAllStyles.length; i++) {
+		key = marginAllStyles[i];
+		if (cls.indexOf(key) > -1) {
+			marginAll = key.substring(key.length - 2);
+			expandMarginSelector = 0;
+			break;
+		}
+	}
+	
+	// margin top
+	for (i = 0; i < marginTopStyles.length; i++) {
+		key = marginTopStyles[i];
+		if (cls.indexOf(key) > -1) {
+			marginTop = key.substring(key.length - 2);
+			expandMarginSelector = 1;
+			break;
+		}
+	}
+
+	// margin right
+	for (i = 0; i < marginRightStyles.length; i++) {
+		key = marginRightStyles[i];
+		if (cls.indexOf(key) > -1) {
+			marginRight = key.substring(key.length - 2);
+			expandMarginSelector = 1;
+			break;
+		}
+	}
+	
+	// margin bottom
+	for (i = 0; i < marginBottomStyles.length; i++) {
+		key = marginBottomStyles[i];
+		if (cls.indexOf(key) > -1) {
+			marginBottom = key.substring(key.length - 2);
+			expandMarginSelector = 1;
+			break;
+		}
+	}
+	
+	// margin left
+	for (i = 0; i < marginLeftStyles.length; i++) {
+		key = marginLeftStyles[i];
+		if (cls.indexOf(key) > -1) {
+			marginLeft = key.substring(key.length - 2);
+			expandMarginSelector = 1;
+			break;
+		}
+	}
+}
 
 /**
  * @properties={typeid:24,uuid:"6D38F8F1-0197-44E7-8868-E3A9487E1378"}
@@ -168,15 +260,12 @@ function onActionBack(event, dataTarget) {
  */
 function onActionCancel(event, dataTarget) {
 	cancel();
-
 }
 
 /**
  * @properties={typeid:24,uuid:"07A8AAA2-E8BA-4AC7-A53A-F333FE617473"}
  */
-function cancel() {
-	
-}
+function cancel() { }
 
 /**
  * @param {JSEvent} event
@@ -188,9 +277,7 @@ function cancel() {
  */
 function onActionButtonStyleDropdown(event, dataTarget) {
 	// TODO Auto-generated method stub
-
 }
-
 
 /**
 

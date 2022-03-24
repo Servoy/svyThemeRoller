@@ -11,6 +11,7 @@ function showForm(form) {
 	} else {
 		formName = form;
 	}
+	
 	var navItem = scopes.svyNavigation.createNavigationItem(formName)
 	scopes.svyNavigation.open(navItem);
 }

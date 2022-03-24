@@ -4,3 +4,10 @@
 function getElementType() {
 	return scopes.ngBootstrapcomponents.BTS_COMPONENTS.BUTTON;
 }
+
+/**
+ * @properties={typeid:24,uuid:"6D215389-C8D4-4361-B08A-D69174303235"}
+ */
+function getStyleElementType() {
+	return scopes.entityStyles.STYLE_ELEMENT_TYPES.BUTTON;
+}

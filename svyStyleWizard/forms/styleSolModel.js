@@ -6,6 +6,13 @@ function getElementType() {
 }
 
 /**
+ * @properties={typeid:24,uuid:"B5B32B04-AF06-4510-9DF2-29229F342C85"}
+ */
+function getStyleElementType() {
+	throw 'implement get elementType'
+}
+
+/**
  * @properties={typeid:24,uuid:"9D45757B-8148-40DB-B007-432DFFA2B6E8"}
  */
 function revertList() {
@@ -30,7 +37,7 @@ function createList(fs) {
 
 	//var jsform = solutionModel.getForm(controller.getName());
 	
-	for (var i = 1; i <= fs.getSize(); i++) {
+	for (i = 1; i <= fs.getSize(); i++) {
 		var record = fs.getRecord(i);
 		createRow(jsform,record,1)
 	}
@@ -53,6 +60,4 @@ function createRow(jsform, record, idx) {
 	
 	jscomponent.setJSONProperty("containedForm.button.styleClass", record.style_classes);
 	jscomponent.setJSONProperty("containedForm.button.text", record.style_name);
-
-
 }
