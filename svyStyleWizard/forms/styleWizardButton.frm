@@ -990,6 +990,7 @@ specname:\"flexitem\"\
 items:[
 {
 json:{
+imageStyleClass:"far fa-check-circle",
 location:{
 x:111,
 y:1062
@@ -999,19 +1000,20 @@ size:{
 height:30,
 width:80
 },
-styleClass:"default-align margin-15 clickable",
+styleClass:"default-align margin-15 clickable h4",
 text:"Apply"
 },
 location:"111,1062",
 name:"labelApply",
 size:"80,30",
-styleClass:"default-align margin-15 clickable",
+styleClass:"default-align margin-15 clickable h4",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"5EE320E9-D115-4B0A-A884-56F24DE013A1"
 },
 {
 json:{
+imageStyleClass:"far fa-plus-square",
 location:{
 x:124,
 y:1070
@@ -1021,13 +1023,13 @@ size:{
 height:30,
 width:80
 },
-styleClass:"default-align margin-15 clickable",
+styleClass:"default-align margin-15 clickable h4",
 text:"Save As New"
 },
 location:"124,1070",
 name:"labelSave",
 size:"80,30",
-styleClass:"default-align margin-15 clickable",
+styleClass:"default-align margin-15 clickable h4",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"C3DD74D9-FD9F-4F7B-A0C6-62608787DD8D"
@@ -1049,6 +1051,7 @@ specname:\"flexitem\"\
 items:[
 {
 json:{
+imageStyleClass:"fas fa-times",
 location:{
 x:248,
 y:1073
@@ -1058,13 +1061,13 @@ size:{
 height:30,
 width:80
 },
-styleClass:"default-align margin-15 clickable",
+styleClass:"default-align margin-15 clickable text-tertiary h4",
 text:"Cancel"
 },
 location:"248,1073",
 name:"labelCancel",
 size:"80,30",
-styleClass:"default-align margin-15 clickable",
+styleClass:"default-align margin-15 clickable text-tertiary h4",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"FB93E355-4731-416D-8DC8-E5B3E5AE5215"

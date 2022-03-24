@@ -21,23 +21,23 @@ typeid:47,
 uuid:"0997DE65-45C4-49B5-9055-2D2622CB0809"
 },
 {
-cssPosition:"52,8,-1,-1,103,30",
+cssPosition:"52,8,-1,-1,119,48",
 json:{
 cssPosition:{
 bottom:"-1",
-height:"30",
+height:"48",
 left:"-1",
 right:"8",
 top:"52",
-width:"103"
+width:"119"
 },
 imageStyleClass:"fas fa-magic",
 onActionMethodID:"7D42B206-440C-4A05-B1D1-3F3F7DA04233",
-styleClass:"default-align clickable",
+styleClass:"default-align clickable h4",
 text:"Create new"
 },
 name:"labelNew",
-styleClass:"default-align clickable",
+styleClass:"default-align clickable h4",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"16DAFF32-8195-4321-BD97-36E19E562D59"
@@ -93,11 +93,11 @@ width:"86"
 },
 imageStyleClass:"fas fa-times",
 onActionMethodID:"E4A44159-BD91-44F6-BA83-8FA67E21022A",
-styleClass:"default-align text-tertiary",
+styleClass:"default-align text-tertiary clickable h4",
 text:"Cancel"
 },
 name:"labelCancel",
-styleClass:"default-align text-tertiary",
+styleClass:"default-align text-tertiary clickable h4",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"98399BF8-1145-47A4-B2CA-AA47D4D0752B"
