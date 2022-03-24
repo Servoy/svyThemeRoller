@@ -42,7 +42,51 @@ specname:\"div\"\
 items:[
 {
 customProperties:"attributes:{\
-class:\"row\"\
+class:\"row margin-top-30\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"row\"\
+}",
+items:[
+{
+customProperties:"attributes:{\
+class:\"col-md-12\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"column\"\
+}",
+items:[
+{
+json:{
+location:{
+x:1,
+y:1
+},
+styleClass:"default-align font-weight-bold h2",
+text:"Choose the element to insert"
+},
+location:"1,1",
+name:"label",
+styleClass:"default-align font-weight-bold h2",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"673EECA2-524C-469B-B45B-81EC219BE05C"
+}
+],
+location:"1,1",
+typeid:46,
+uuid:"FFBC1639-B6D0-4AA5-88BB-EE2F279171AB"
+}
+],
+location:"1,1",
+typeid:46,
+uuid:"22FC7A0A-8075-4EC6-9EA5-090659B64A5A"
+},
+{
+customProperties:"attributes:{\
+class:\"row margin-top-30\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -176,7 +220,7 @@ typeid:46,
 uuid:"F0BC9C35-E793-45FC-A263-25675218DD3C"
 }
 ],
-location:"1,1",
+location:"2,2",
 typeid:46,
 uuid:"29A9BE4F-F3E5-4C93-AB2A-92332CBE7063"
 }
