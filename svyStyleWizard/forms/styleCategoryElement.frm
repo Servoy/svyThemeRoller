@@ -13,11 +13,11 @@ right:"0",
 top:"-1",
 width:"-1"
 },
-styleClass:"text-center",
+styleClass:"text-center h4",
 text:"Label"
 },
 name:"label",
-styleClass:"text-center",
+styleClass:"text-center h4",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"14F0E8DC-4228-4127-8B32-F6FEDCF1B633"
@@ -32,17 +32,15 @@ left:"0",
 right:"0",
 top:"0",
 width:"-1"
-},
-styleClass:"btn btn-primary"
+}
 },
 name:"button",
-styleClass:"btn btn-primary",
 typeName:"bootstrapcomponents-button",
 typeid:47,
 uuid:"C1484E79-7C41-49A6-A827-EB605F6DCFA3"
 },
 {
-height:120,
+height:150,
 partType:5,
 typeid:19,
 uuid:"D467DF60-7E9D-4B1F-B92F-F6AB18C1CA31"
@@ -51,6 +49,6 @@ uuid:"D467DF60-7E9D-4B1F-B92F-F6AB18C1CA31"
 name:"styleCategoryElement",
 navigatorID:"-1",
 showInMenu:true,
-size:"120,120",
+size:"180,120",
 typeid:3,
 uuid:"1937E8D2-438C-4F6C-905F-0557E3FED9D4"
