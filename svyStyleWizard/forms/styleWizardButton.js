@@ -1,4 +1,11 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"3C2D5AEB-6C2E-4BFA-BE51-010D94E0F87D",variableType:4}
+ */
+var styleRoundedBorder = 0;
+
+/**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"D5074F0F-8D7E-44B2-AAF3-2FE30FF031C8"}
