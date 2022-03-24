@@ -905,6 +905,7 @@ location:{
 x:111,
 y:1062
 },
+onActionMethodID:"A23B2D65-4E46-4D52-AC29-8420C1F574A2",
 size:{
 height:30,
 width:80
@@ -926,6 +927,7 @@ location:{
 x:124,
 y:1070
 },
+onActionMethodID:"6258F3A9-D662-4E1D-A4B5-B69D48860159",
 size:{
 height:30,
 width:80
@@ -962,6 +964,7 @@ location:{
 x:248,
 y:1073
 },
+onActionMethodID:"99811D79-8606-4739-8D39-241037DA9C41",
 size:{
 height:30,
 width:80

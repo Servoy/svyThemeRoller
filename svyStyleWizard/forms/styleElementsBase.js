@@ -8,7 +8,7 @@
  * @properties={typeid:24,uuid:"E4A44159-BD91-44F6-BA83-8FA67E21022A"}
  */
 function onActionCancel(event, dataTarget) {
-	scopes.svyNavigationHistory.back();
+	globals.showForm(forms.styleCategories);
 }
 
 /**

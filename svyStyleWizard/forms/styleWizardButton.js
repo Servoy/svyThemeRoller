@@ -75,6 +75,15 @@ function onShow(firstShow, event) {
 	updateUI();
 }
 
+
+/**
+ * @properties={typeid:24,uuid:"758C9E6F-6271-4846-BA0D-269C6A0F871B"}
+ * @override
+ */
+function getElementType() {
+	return scopes.entityStyles.STYLE_ELEMENT_TYPES.BUTTON;
+}
+
 /**
  * @param {JSEvent} event
  * @param {string} dataTarget
@@ -135,6 +144,7 @@ function getStyleClasses() {
 function updateElementStyle(classes) {
 	forms.styleResultButton.updateElementStyle(classes);
 }
+
 /**
  * @param {JSEvent} event
  * @param {string} dataTarget
@@ -144,7 +154,28 @@ function updateElementStyle(classes) {
  * @properties={typeid:24,uuid:"2394B9B0-EDBF-4944-8BBB-986CAE7A843C"}
  */
 function onActionBack(event, dataTarget) {
+	cancel();
 	globals.showForm(forms.styleButtons)
+}
+
+/**
+ * @param {JSEvent} event
+ * @param {string} dataTarget
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"99811D79-8606-4739-8D39-241037DA9C41"}
+ */
+function onActionCancel(event, dataTarget) {
+	cancel();
+
+}
+
+/**
+ * @properties={typeid:24,uuid:"07A8AAA2-E8BA-4AC7-A53A-F333FE617473"}
+ */
+function cancel() {
+	
 }
 
 /**
@@ -159,3 +190,4 @@ function onActionButtonStyleDropdown(event, dataTarget) {
 	// TODO Auto-generated method stub
 
 }
+
