@@ -6,6 +6,13 @@
 var styleExtra = null;
 
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"0D38CE9D-AC47-4696-A7B2-A9A0E036C51D"}
+ */
+var buttonStyle = "btn-default";
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"3C2D5AEB-6C2E-4BFA-BE51-010D94E0F87D",variableType:4}
@@ -127,4 +134,28 @@ function getStyleClasses() {
  */
 function updateElementStyle(classes) {
 	forms.styleResultButton.updateElementStyle(classes);
+}
+/**
+ * @param {JSEvent} event
+ * @param {string} dataTarget
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"2394B9B0-EDBF-4944-8BBB-986CAE7A843C"}
+ */
+function onActionBack(event, dataTarget) {
+	scopes.svyNavigationHistory.back();
+}
+
+/**
+ * @param {JSEvent} event
+ * @param {string} dataTarget
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"D95B71EB-8346-455A-95BC-8689F63B4CBF"}
+ */
+function onActionButtonStyleDropdown(event, dataTarget) {
+	// TODO Auto-generated method stub
+
 }
