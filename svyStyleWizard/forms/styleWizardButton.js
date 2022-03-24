@@ -1,4 +1,11 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"42C39647-79DA-486A-8554-5A34797BC30F"}
+ */
+var styleExtra = null;
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"3C2D5AEB-6C2E-4BFA-BE51-010D94E0F87D",variableType:4}
