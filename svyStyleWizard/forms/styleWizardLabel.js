@@ -215,7 +215,7 @@ function getStyleClasses() {
 	}
 	
 	if (styleItalic) {
-		classes = scopes.ngUtils.addStyleClass(classes, "font-italic");
+		classes = scopes.ngUtils.addStyleClass(classes, "font-style-italic");
 	}
 
 	return classes

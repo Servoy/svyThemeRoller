@@ -155,9 +155,20 @@ function getStyleVariants() {
 	var result = [];
 	for (var index = 1; index <= fs.getSize(); index++) {
 		var record = fs.getRecord(index);
+		var classes = record.style_classes ? record.style_classes.split(" ") : [];
+		classes = classes.filter(function (val) {
+			// FIXME need to include font-style-italic
+			if (!val || val == "font-style-italic" || val == "default-align" || val == "btn") {
+				return false;
+			} else {
+				return true;
+			}
+		})
+		
+		
 		result.push({
 			name: record.style_name,
-			classes: record.style_classes ? record.style_classes.split(" ") : []
+			classes: classes
 		})
 		
 	}
@@ -171,8 +182,8 @@ function getStyleVariants() {
  */
 function saveStylesToDeveloper() {
 	try {
-		application.output(getStyleVariants());
-		//servoyDeveloper.setVariantsFor("button", getStyleVariants());
+		//application.output(getStyleVariants());
+		servoyDeveloper.setVariantsFor("button", getStyleVariants());
 	} catch (e) {
 		application.output(e, LOGGINGLEVEL.ERROR)
 	}
