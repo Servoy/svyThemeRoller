@@ -14,8 +14,7 @@ var SIDES = {
  * @properties={typeid:35,uuid:"C459BD6C-A414-40C0-93A6-C0917136EDF2",variableType:-4}
  */
 var buttonStyles = ["btn-default", "btn-primary", "btn-warning", "btn-danger", "btn-success", "btn-info", "btn-tertiary",
-				"btn-outline-default", "btn-outline-primary", "btn-outline-warning", "btn-outline-danger", "btn-outline-success", "btn-outline-info", "btn-outline-tertiary"
-]
+	"btn-outline-default", "btn-outline-primary", "btn-outline-warning", "btn-outline-danger", "btn-outline-success", "btn-outline-info", "btn-outline-tertiary"]
 
 /**
  * Callback method for when solution is opened.
@@ -30,14 +29,18 @@ var buttonStyles = ["btn-default", "btn-primary", "btn-warning", "btn-danger", "
  */
 function onSolutionOpen(arg, queryParams) {
 	scopes.svyStyleValuelists.setButtonStyleValuelist();
-	
-	if (servoyDeveloper.getExistingVariants) {
-		var existingStyles = servoyDeveloper.getExistingVariants("button");
-		for (var i = 0; i < existingStyles.length; i++) {
-			var style = existingStyles[i];
-			var classes = style.classes ? style.classes.join(" ") : "";
-			scopes.entityStyles.createStyle(style.name, scopes.entityStyles.STYLE_ELEMENT_TYPES.BUTTON, classes)
+
+	try {
+		if (servoyDeveloper.getExistingVariants) {
+			var existingStyles = servoyDeveloper.getExistingVariants("button");
+			for (var i = 0; i < existingStyles.length; i++) {
+				var style = existingStyles[i];
+				var classes = style.classes ? style.classes.join(" ") : "";
+				scopes.entityStyles.createStyle(style.name, scopes.entityStyles.STYLE_ELEMENT_TYPES.BUTTON, classes)
+			}
 		}
+	} catch (e) {
+		application.output(e, LOGGINGLEVEL.ERROR)
 	}
 }
 
