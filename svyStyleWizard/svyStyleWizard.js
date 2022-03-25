@@ -30,6 +30,15 @@ var buttonStyles = ["btn-default", "btn-primary", "btn-warning", "btn-danger", "
  */
 function onSolutionOpen(arg, queryParams) {
 	scopes.svyStyleValuelists.setButtonStyleValuelist();
+	
+	if (servoyDeveloper.getExistingVariants) {
+		var existingStyles = servoyDeveloper.getExistingVariants("button");
+		for (var i = 0; i < existingStyles.length; i++) {
+			var style = existingStyles[i];
+			var classes = style.classes ? style.classes.join(" ") : "";
+			scopes.entityStyles.createStyle(style.name, scopes.entityStyles.STYLE_ELEMENT_TYPES.BUTTON, classes)
+		}
+	}
 }
 
 /**
