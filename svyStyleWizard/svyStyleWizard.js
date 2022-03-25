@@ -21,6 +21,11 @@ var buttonStyles = ["btn-default", "btn-primary", "btn-warning", "btn-danger", "
  */
 var labelColors = ["text-default", "text-primary", "text-warning", "text-danger", "text-success", "text-info", "text-tertiary"]
 
+/**
+ * @properties={typeid:35,uuid:"D0A58202-EEAF-443E-926E-05FB0D4009F6",variableType:-4}
+ */
+var fontSizes = ["h1", "h2", "h3", "h4", "h5", "h6"]
+
 
 /**
  * Callback method for when solution is opened.
@@ -37,6 +42,7 @@ function onSolutionOpen(arg, queryParams) {
 	
 	scopes.svyStyleValuelists.setButtonStyleValuelist();
 	scopes.svyStyleValuelists.setLabelColorValuelist();
+	scopes.svyStyleValuelists.setFontSizeValuelist();
 
 	try {
 		if (servoyDeveloper.getExistingVariants) {

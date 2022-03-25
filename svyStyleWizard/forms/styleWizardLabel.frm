@@ -494,16 +494,17 @@ location:{
 x:2,
 y:2
 },
+onActionMethodID:"E354A578-602C-4419-BD43-E2405E39BC3C",
 size:{
 height:30,
 width:80
 },
-styleClass:"btn-default btn-round wizard-btn-styles-icon"
+styleClass:"btn-round wizard-btn-styles-icon"
 },
 location:"2,2",
 name:"labelColorStyleSelected",
 size:"80,30",
-styleClass:"btn-default btn-round wizard-btn-styles-icon",
+styleClass:"btn-round wizard-btn-styles-icon",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"A8080E41-009F-4B21-8109-FE95E8012BAC"
@@ -529,7 +530,7 @@ location:{
 x:1,
 y:1
 },
-onActionMethodID:"D95B71EB-8346-455A-95BC-8689F63B4CBF",
+onActionMethodID:"E354A578-602C-4419-BD43-E2405E39BC3C",
 size:{
 height:30,
 width:80
@@ -868,7 +869,7 @@ customProperties:"attributes:{\
 class:\"flex\",\
 data-align-items:\"center\",\
 data-direction:\"row\",\
-data-justify-content:\"space-between\"\
+data-justify-content:\"flex-start\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -886,33 +887,35 @@ specname:\"flexitem\"\
 items:[
 {
 json:{
+imageStyleClass:"fas fa-chevron-down",
 location:{
-x:32,
-y:76
+x:1,
+y:1
 },
+onActionMethodID:"D2B06948-186B-4DB1-958C-3BB30F7A19A0",
 size:{
 height:30,
 width:80
 },
-styleClass:"default-align subtitle",
-text:"Font size"
+styleClass:"default-align padding-15 clickable"
 },
-location:"32,76",
-name:"labelRoundedBorder",
+location:"1,1",
+name:"labelSizeDropdown",
 size:"80,30",
-styleClass:"default-align subtitle",
+styleClass:"default-align padding-15 clickable",
 typeName:"bootstrapcomponents-label",
 typeid:47,
-uuid:"35855DE1-13AC-48B4-8A74-EE6E54B5578D"
+uuid:"B515FB3A-37D0-4A24-942F-69AFFE5B3686"
 }
 ],
-location:"1,1",
+location:"3,3",
 typeid:46,
-uuid:"9DFE56A8-0289-49F6-B4FC-B897D6F98EEE"
+uuid:"6EE794D0-431B-4003-824F-2BB08B71FB56"
 },
 {
 customProperties:"attributes:{\
-class:\"flex-item\"\
+class:\"flex-item\",\
+data-grow:\"1\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -921,38 +924,97 @@ specname:\"flexitem\"\
 items:[
 {
 json:{
-componentSize:"mini",
-dataProviderID:"styleRoundedBorder",
-handleWidth:"30",
-label:null,
-labelWidth:"10",
 location:{
-x:683,
-y:88
+x:3,
+y:3
 },
-offText:"No",
-onText:"Yes",
-size:{
-height:100,
-width:200
-}
+text:"%%labelSize%%"
 },
-location:"683,88",
-name:"switchRoundedBorder",
-size:"200,100",
-typeName:"bootstrapextracomponents-switch",
+location:"3,3",
+name:"labelSizeSelection",
+typeName:"bootstrapcomponents-label",
 typeid:47,
-uuid:"A307024C-DD2B-4AAF-B48D-DA2AB085BC50"
+uuid:"061BDC97-481F-47F0-951E-777D45B55A60"
+},
+{
+json:{
+location:{
+x:1,
+y:1
+},
+size:{
+height:30,
+width:80
+},
+styleClass:"default-align subtitle",
+text:"Font Size"
+},
+location:"1,1",
+name:"labelSize",
+size:"80,30",
+styleClass:"default-align subtitle",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"670A19C2-B896-4E5F-A01F-C97F943EA5F3"
+},
+{
+customProperties:"attributes:{\
+class:\"clearfix\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"clearfix\"\
+}",
+location:"2,2",
+typeid:46,
+uuid:"9F1D7FDF-17CF-466B-8068-F088FFC2F58B"
 }
 ],
-location:"3,3",
+location:"1,1",
 typeid:46,
-uuid:"E8D5921E-22B4-4E51-B12D-951462073BA9"
+uuid:"8F631879-9C57-45F2-AE72-FFCB42451164"
+},
+{
+customProperties:"attributes:{\
+class:\"flex-item\",\
+data-grow:\"0\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"flexitem\"\
+}",
+items:[
+{
+json:{
+imageStyleClass:"fas fa-font",
+location:{
+x:2,
+y:2
+},
+onActionMethodID:"D2B06948-186B-4DB1-958C-3BB30F7A19A0",
+size:{
+height:30,
+width:80
+},
+styleClass:"btn-round wizard-btn-styles-icon"
+},
+location:"2,2",
+name:"labelSizeSelected",
+size:"80,30",
+styleClass:"btn-round wizard-btn-styles-icon",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"99D4A882-FE7F-469C-B292-06A10957F55C"
 }
 ],
 location:"2,2",
 typeid:46,
-uuid:"FA84F010-3CA7-4250-A5DF-9AA613646EEE"
+uuid:"DA5C7DCA-B953-40B9-BB3A-5938BE87C358"
+}
+],
+location:"2,2",
+typeid:46,
+uuid:"EF6414D7-D4B2-4CF0-94A2-55914BE9C8F3"
 }
 ],
 location:"2,2",

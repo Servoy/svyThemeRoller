@@ -27,9 +27,26 @@ function setLabelColorValuelist() {
 
 	for (var i = 0; i < labelColors.length; i++) {
 		var labelColor = labelColors[i]
-		var display = '<div class="wizard-btn-styles"><span class="wizard-btn-styles-text"> ' + labelColor + '</span><span class="wizard-btn-styles-icon btn-round ' + labelColor + '"><span class="bts-label-icon fas fa-font"></span></span>'
+		var display = '<div class="wizard-btn-styles"><span class="wizard-btn-styles-text"> ' + labelColor + '</span><span class="wizard-btn-styles-icon btn-round ' + labelColor + '"><span class="bts-label-icon fas fa-font"></span></span></div>'
 		dataset.addRow([display, labelColor]);
 	}
 
 	application.setValueListItems("labelColors", dataset);
+}
+
+/**
+ * @properties={typeid:24,uuid:"74DF9362-68F3-42B2-99F4-112D1AD0E8B9"}
+ */
+function setFontSizeValuelist() {
+	var fontSizes = scopes.svyStyleWizard.fontSizes;
+
+	var dataset = databaseManager.createEmptyDataSet(0, ['displayValue', 'realValue']);
+
+	for (var i = 0; i < fontSizes.length; i++) {
+		var labelSize = fontSizes[i]
+		var display = '<div class="wizard-btn-styles"><span class="wizard-btn-styles-text ' + labelSize +'"> ' + labelSize + '</span></span></div>'
+		dataset.addRow([display, labelSize]);
+	}
+
+	application.setValueListItems("fontSizes", dataset);
 }

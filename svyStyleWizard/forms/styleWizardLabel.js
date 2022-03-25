@@ -13,6 +13,13 @@ var styleExtra = null;
 var borderColor = "Default";
 
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"8FEAB87A-C500-4883-85E2-55FE1C0743F2"}
+ */
+var labelSize = "";
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"6A747961-72C3-46BF-88D9-375CE37AC208",variableType:4}
@@ -165,6 +172,10 @@ function updateUI() {
 	if (labelColor) {
 		elements.labelColorStyleSelected.addStyleClass(labelColor);
 	}
+	
+	if (labelSize) {
+		elements.labelSizeSelected.addStyleClass(labelSize);
+	}
 }
 
 /**
@@ -176,6 +187,10 @@ function getStyleClasses() {
 	
 	if (labelColor) {
 		classes = scopes.ngUtils.addStyleClass(classes, labelColor);
+	}
+	
+	if (labelSize) {
+		classes = scopes.ngUtils.addStyleClass(classes, labelSize);
 	}
 
 	if (styleRoundedBorder) {
@@ -214,7 +229,9 @@ function getStyleClasses() {
 function setStyleClasses(classes) {
 	
 	elements.labelColorStyleSelected.removeStyleClass(labelColor);
+	elements.labelSizeSelected.removeStyleClass(labelSize);
 
+	labelSize = "";
 	labelColor = "";
 	marginAll = "-1";
 	marginTop = "-1";
@@ -233,6 +250,7 @@ function setStyleClasses(classes) {
 	var cls = classes.split(" ");
 
 	var labelColors = scopes.svyStyleWizard.labelColors;
+	var labelSizes = scopes.svyStyleWizard.fontSizes;
 	var marginAllStyles = ["margin-10", "margin-15", "margin-20", "margin-30"];
 	var marginTopStyles = ["margin-top-10", "margin-top-15", "margin-top-20", "margin-top-30"];
 	var marginRightStyles = ["margin-right-10", "margin-right-15", "margin-right-20", "margin-right-30"];
@@ -254,12 +272,21 @@ function setStyleClasses(classes) {
 		styleUnderline = true;
 	}
 
-	// button style
+	// label color
 	var key;
 	for (var i = 0; i < labelColors.length; i++) {
 		key = labelColors[i]
 		if (cls.indexOf(key) > -1) {
 			labelColor = key
+			break;
+		}
+	}
+	
+	// label size
+	for (i = 0; i < labelSizes.length; i++) {
+		key = labelColors[i]
+		if (cls.indexOf(key) > -1) {
+			labelSize = key
 			break;
 		}
 	}
@@ -349,11 +376,6 @@ function onActionCancel(event, dataTarget) {
 }
 
 /**
- * @properties={typeid:24,uuid:"F299A66B-D359-40CB-AC6D-C436F560B255"}
- */
-function cancel() { }
-
-/**
 
  * @protected
  *
@@ -409,37 +431,7 @@ function onActionLabelColorDropdown(event, dataTarget) {
 	
 	// show pop-up
 	var component = elements.labelColorStyle;
-
-	//var initialValue = application.getValueListDisplayValue(elements.productID.getValueListName());
 	lookupObj.showPopUp(onSelectLabelColor, component, 400, 500, null);
-	// add fields
-	
-//	// related data is supported
-//	lookupObj.addField('products_to_categories.categoryname').setTitleText('Category');
-//	lookupObj.addField('productname').setTitleText('Product');
-//	lookupObj.addField('products_to_suppliers.companyname').setTitleText('Supplier');
-//	
-//	// Valuelists and non-searchable fields supported
-//	lookupObj.addField('discontinued')
-//		.setTitleText('Available')
-//		.setSearchable(false)
-//		.setValueListName('product_availability');
-//		
-//	// calculation, non-searchable fields example (if (discontinued) return 'Discontinued' else return 'Available')
-//	// lookupObj.addField('isDiscontinued')
-//	//	.setTitleText('Available')
-//	//	.setSearchable(false)
-//		
-//	// formatted, non-searchable field example
-//	lookupObj.addField('unitprice')
-//		.setSearchable(false)
-//		.setTitleText('Price')
-//		.setFormat('#,###.00')
-//	
-//	// show pop-up
-//	var component = elements.productID;
-//	var initialValue = application.getValueListDisplayValue(elements.productID.getValueListName(),selectedProductID);
-//	lookupObj.showPopUp(onSelect,component,null,null,initialValue);
 }
 
 /**
@@ -472,4 +464,41 @@ function onActionToggleItalic(event, dataTarget) {
 	styleItalic = !styleItalic;
 	updateUI();
 	updateElementStyle(getStyleClasses());
+}
+
+/**
+ * @param {JSEvent} event
+ * @param {string} dataTarget
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"D2B06948-186B-4DB1-958C-3BB30F7A19A0"}
+ */
+function onActionLabelSizeDropdown(event, dataTarget) {
+	  // create lookup object
+	var lookupObj = scopes.svyLookup.createValueListLookup("fontSizes", "Choose a font Size");
+	lookupObj.setLookupForm(forms.svyLookupStyleWizard);
+	lookupObj.getField(0).setShowAs("html");
+	
+	// show pop-up
+	var component = elements.labelSize;
+	lookupObj.showPopUp(onSelectLabelSize, component, 400, 500, null);
+}
+
+/**
+ * @private
+ * @param {Array<JSRecord<db:/example_data/products>>} records
+ * @param {Array<String|Date|Number>} values
+ * @param {scopes.svyLookup.Lookup} lookup
+ * @properties={typeid:24,uuid:"FE2FBE38-672E-4CA4-9633-2ADF446ED385"}
+ */
+function onSelectLabelSize(records, values, lookup) {
+	if (values && values[0]) {
+		
+		elements.labelSizeSelected.removeStyleClass(labelSize);
+
+		labelSize = values[0];
+		updateElementStyle(getStyleClasses())
+		updateUI()
+	}
 }
