@@ -22,9 +22,7 @@ function getStyleClasses() { }
  *
  * @properties={typeid:24,uuid:"CE663665-61FD-4767-A1FB-F89A08069912"}
  */
-function setStyleClasses(classes) {
-	
-}
+function setStyleClasses(classes) { }
 
 /**
  * Handle changed data, return false if the value should not be accepted. In NGClient you can return also a (i18n) string, instead of false, which will be shown as a tooltip.
@@ -75,10 +73,19 @@ function setStyle(record) {
  */
 function save() {
 	if (styleUUID) {
-		return scopes.entityStyles.updateStyle(styleUUID, getStyleClasses())
+		if (scopes.entityStyles.updateStyle(styleUUID, getStyleClasses())) {
+			// TODO shall i save the variant now ?
+			scopes.entityStyles.saveStylesToDeveloper();
+			return true;
+		}
 	} else {
-		return saveAsNew() ? true : false
+		if (saveAsNew()) {
+			// TODO shall i save the variant now ?
+			scopes.entityStyles.saveStylesToDeveloper();
+			return true;
+		}
 	}
+	return false;
 }
 
 /**
@@ -89,7 +96,10 @@ function save() {
 function saveAsNew() {
 	var name = plugins.dialogs.showInputDialog("Save as New", "Must start with a letter, only letters, numbers or the special character - are allowed")
 	if (name) {
-		return scopes.entityStyles.createStyle(name, getElementType(), getStyleClasses()) ? true : false;
+		if(scopes.entityStyles.createStyle(name, getElementType(), getStyleClasses())) {
+			scopes.entityStyles.saveStylesToDeveloper();
+			return true;
+		}
 	}
 	return false;
 }
@@ -107,7 +117,7 @@ function cancel() {
 }
 
 /**
- * @protected 
+ * @protected
  * @properties={typeid:24,uuid:"1A6248FC-68C5-4641-BFB3-2291AE490B27"}
  */
-function updateUI() {}
+function updateUI() { }

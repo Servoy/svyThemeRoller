@@ -11,3 +11,11 @@ function getElementType() {
 function getStyleElementType() {
 	return scopes.entityStyles.STYLE_ELEMENT_TYPES.BUTTON;
 }
+
+/**
+ * @properties={typeid:24,uuid:"1013226C-B003-4401-A458-603F48781D27"}
+ * @override
+ */
+function getStyleFormComponent() {
+	return "styleButton";
+}

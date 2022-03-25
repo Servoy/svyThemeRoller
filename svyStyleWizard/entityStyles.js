@@ -27,10 +27,6 @@ function createStyle(name, elementType, styleClasses) {
 	fs.style_classes = styleClasses;
 
 	if (databaseManager.saveData(fs)) {
-
-		// TODO shall i save the variant now ?
-		saveStylesToDeveloper();
-
 		return fs.getSelectedRecord();
 	} else {
 		databaseManager.revertEditedRecords(fs);
@@ -61,10 +57,6 @@ function updateStyle(styleUUID, styleClasses) {
 	fs.style_classes = styleClasses;
 
 	if (databaseManager.saveData(fs)) {
-
-		// TODO shall i save the variant now ?
-		saveStylesToDeveloper();
-
 		return true
 	} else {
 		databaseManager.revertEditedRecords(fs);

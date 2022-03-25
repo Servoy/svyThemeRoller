@@ -12,7 +12,7 @@ items:[
 {
 extendsID:"4C43D0A8-F3FD-434E-8ADC-D2F63FB75DBE",
 json:{
-containedForm:"2278E4D6-A8F4-4AE5-A49F-7AA852818BD6"
+containedForm:"03FDBDBB-81EF-4E0A-B7A3-13AC9DE28A21"
 },
 typeName:"servoycore-formcontainer",
 typeid:47,
@@ -23,22 +23,13 @@ cssPosition:"100,13,-1,14,613,62",
 extendsID:"0997DE65-45C4-49B5-9055-2D2622CB0809",
 json:{
 containedForm:{
-button:{
-styleClass:"btn btn-default",
-text:"Button Default"
+label:{
+
 },
 labelEdit:{
-location:{
-x:692,
-y:97
+
 },
-size:{
-height:30,
-width:80
-},
-visible:false
-},
-svy_form:"CA5CB8FA-D0DD-433E-BD53-28681E0AA4B0"
+svy_form:"E9C05BB5-F43A-417C-A77B-8574DB9C8920"
 },
 cssPosition:{
 bottom:"-1",

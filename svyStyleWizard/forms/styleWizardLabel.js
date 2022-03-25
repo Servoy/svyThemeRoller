@@ -107,7 +107,7 @@ function onShow(firstShow, event) {
  * @override
  */
 function getElementType() {
-	return scopes.entityStyles.STYLE_ELEMENT_TYPES.BUTTON;
+	return scopes.entityStyles.STYLE_ELEMENT_TYPES.LABEL;
 }
 
 /**
