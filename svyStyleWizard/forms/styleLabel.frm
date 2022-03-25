@@ -71,7 +71,7 @@ y:74
 text:"Label"
 },
 location:"74,74",
-name:"label",
+name:"button",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"11AC4AD6-7962-491B-ACC2-371C3BC723E6"

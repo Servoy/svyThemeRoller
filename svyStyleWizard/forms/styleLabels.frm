@@ -23,11 +23,22 @@ cssPosition:"100,13,-1,14,613,62",
 extendsID:"0997DE65-45C4-49B5-9055-2D2622CB0809",
 json:{
 containedForm:{
+button:{
+text:"My Label"
+},
 label:{
 
 },
 labelEdit:{
-
+location:{
+x:692,
+y:97
+},
+size:{
+height:30,
+width:80
+},
+visible:false
 },
 svy_form:"E9C05BB5-F43A-417C-A77B-8574DB9C8920"
 },
