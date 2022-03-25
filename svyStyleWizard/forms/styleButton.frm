@@ -10,7 +10,7 @@ customProperties:"attributes:{\
 class:\"flex margin-top-15 col-style-panel\",\
 data-align-items:\"center\",\
 data-direction:\"row\",\
-data-justify-content:\"space-between\"\
+data-justify-content:\"flex-start\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -19,7 +19,7 @@ specname:\"flexcontainer\"\
 items:[
 {
 customProperties:"attributes:{\
-class:\"flex-item\"\
+class:\"flex-item style-variant-edit-block\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -49,13 +49,13 @@ typeid:47,
 uuid:"64F66615-AE7C-42BB-B0DA-160E67FF3386"
 }
 ],
-location:"2,2",
+location:"3,3",
 typeid:46,
 uuid:"36D9F584-ECE2-46B5-8AB2-D7B719220A96"
 },
 {
 customProperties:"attributes:{\
-class:\"flex-item show-margin\"\
+class:\"flex-item style-variant-element-block\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -63,19 +63,28 @@ specname:\"flexitem\"\
 }",
 items:[
 {
+customProperties:"attributes:{\
+class:\"show-margin\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"div\"\
+}",
+items:[
+{
 json:{
 location:{
-x:38,
-y:73
+x:1,
+y:1
 },
 size:{
 height:30,
 width:80
 },
 styleClass:null,
-text:"Button"
+text:"My Button"
 },
-location:"38,73",
+location:"1,1",
 name:"button",
 size:"80,30",
 typeName:"bootstrapcomponents-button",
@@ -85,7 +94,70 @@ uuid:"FCE7884E-B783-46B7-A07E-E3B5B09FECEF"
 ],
 location:"1,1",
 typeid:46,
+uuid:"C8BDCD02-5488-40CB-B1AF-2BC04EF263C5"
+}
+],
+location:"1,1",
+typeid:46,
 uuid:"3B4BD472-209B-4A58-BF42-D511BDF29ABF"
+},
+{
+customProperties:"attributes:{\
+class:\"flex-item margin-left-15 style-variant-class-block\",\
+data-grow:\"1\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"flexitem\"\
+}",
+items:[
+{
+customProperties:"attributes:{\
+class:\"customDiv\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"div\"\
+}",
+location:"1,1",
+typeid:46,
+uuid:"CEABE7E0-8389-48CA-9F69-6A00629A7329"
+},
+{
+json:{
+location:{
+x:2,
+y:2
+},
+styleClass:"default-align h6 text-tertiary",
+text:"Style variant"
+},
+location:"2,2",
+name:"header",
+styleClass:"default-align h6 text-tertiary",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"DCBC31F6-4FEF-4BA6-B0C4-097BA1B4965F"
+},
+{
+json:{
+location:{
+x:1,
+y:1
+},
+styleClass:"default-align style-variant-name"
+},
+location:"1,1",
+name:"className",
+styleClass:"default-align style-variant-name",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"FEA040BD-819F-4A13-85AA-A7752463E2F5"
+}
+],
+location:"2,2",
+typeid:46,
+uuid:"EEC0A248-FCD1-4C09-B3FA-16624BA34307"
 }
 ],
 location:"1,1",

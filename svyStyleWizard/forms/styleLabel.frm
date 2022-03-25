@@ -10,7 +10,7 @@ customProperties:"attributes:{\
 class:\"flex margin-top-15 col-style-panel\",\
 data-align-items:\"center\",\
 data-direction:\"row\",\
-data-justify-content:\"space-between\"\
+data-justify-content:\"flex-start\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -19,7 +19,7 @@ specname:\"flexcontainer\"\
 items:[
 {
 customProperties:"attributes:{\
-class:\"flex-item\"\
+class:\"flex-item style-variant-edit-block\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -49,13 +49,14 @@ typeid:47,
 uuid:"DE03A237-9E9D-4052-B9DE-DBDAF2FC106F"
 }
 ],
-location:"2,2",
+location:"3,3",
 typeid:46,
 uuid:"45A8051D-B14F-425F-B074-C966EA899A2F"
 },
 {
 customProperties:"attributes:{\
-class:\"flex-item show-margin\"\
+class:\"flex-item margin-left-15 style-variant-class-block\",\
+data-grow:\"1\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -65,16 +66,87 @@ items:[
 {
 json:{
 location:{
-x:74,
-y:74
+x:1,
+y:1
 },
-text:"Label"
+styleClass:"default-align style-variant-name"
 },
-location:"74,74",
+location:"1,1",
+name:"className",
+styleClass:"default-align style-variant-name",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"F23CA5E8-66D5-4ACA-9AF3-394F99FEB66B"
+},
+{
+customProperties:"attributes:{\
+class:\"customDiv\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"div\"\
+}",
+location:"11,11",
+typeid:46,
+uuid:"F764436B-6691-4642-99E6-E0DF44359DC7"
+},
+{
+json:{
+location:{
+x:12,
+y:12
+},
+styleClass:"default-align h6 text-tertiary",
+text:"Style variant"
+},
+location:"12,12",
+name:"header",
+styleClass:"default-align h6 text-tertiary",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"FBE1E4FC-2D9D-4CDF-A55E-F47C0719F4C9"
+}
+],
+location:"2,2",
+typeid:46,
+uuid:"5081D624-3E1F-4E3A-B38D-F60849FD08F8"
+},
+{
+customProperties:"attributes:{\
+class:\"flex-item style-variant-element-block\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"flexitem\"\
+}",
+items:[
+{
+customProperties:"attributes:{\
+class:\"show-margin\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"div\"\
+}",
+items:[
+{
+json:{
+location:{
+x:1,
+y:1
+},
+text:"My Label"
+},
+location:"1,1",
 name:"button",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"11AC4AD6-7962-491B-ACC2-371C3BC723E6"
+}
+],
+location:"1,1",
+typeid:46,
+uuid:"71F5C0D5-BE62-4CA0-8088-99B0F51B4FC5"
 }
 ],
 location:"1,1",

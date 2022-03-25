@@ -59,7 +59,9 @@ function createRow(jsform, record, idx) {
 	jscomponent.setJSONProperty("containedForm", getStyleFormComponent());
 
 	jscomponent.setJSONProperty("containedForm.button.styleClass", record.style_classes);
-	jscomponent.setJSONProperty("containedForm.button.text", record.style_name);
+	// jscomponent.setJSONProperty("containedForm.button.text", record.style_name);
+	jscomponent.setJSONProperty("containedForm.className.text", record.style_name);
+
 }
 
 /**

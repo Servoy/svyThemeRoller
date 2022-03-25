@@ -24,7 +24,10 @@ extendsID:"0997DE65-45C4-49B5-9055-2D2622CB0809",
 json:{
 containedForm:{
 button:{
-text:"My Label"
+
+},
+className:{
+text:"Default"
 },
 label:{
 
