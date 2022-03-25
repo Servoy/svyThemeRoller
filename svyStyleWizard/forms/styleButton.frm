@@ -130,7 +130,7 @@ x:2,
 y:2
 },
 styleClass:"default-align h6 text-tertiary",
-text:"Style variant"
+text:"Variant name"
 },
 location:"2,2",
 name:"header",

@@ -97,7 +97,7 @@ x:12,
 y:12
 },
 styleClass:"default-align h6 text-tertiary",
-text:"Style variant"
+text:"Variant name"
 },
 location:"12,12",
 name:"header",

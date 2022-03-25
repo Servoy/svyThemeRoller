@@ -442,7 +442,7 @@ function onActionToggleUnderline(event, dataTarget) {
  */
 function onActionLabelColorDropdown(event, dataTarget) {
 	  // create lookup object
-	var lookupObj = scopes.svyLookup.createValueListLookup("labelColors", "Choose a style");
+	var lookupObj = scopes.svyLookup.createValueListLookup("labelColors", "Choose a color class");
 	lookupObj.setLookupForm(forms.svyLookupStyleWizard);
 	lookupObj.getField(0).setShowAs("html");
 	
@@ -493,7 +493,7 @@ function onActionToggleItalic(event, dataTarget) {
  */
 function onActionLabelSizeDropdown(event, dataTarget) {
 	  // create lookup object
-	var lookupObj = scopes.svyLookup.createValueListLookup("fontSizes", "Choose a font Size");
+	var lookupObj = scopes.svyLookup.createValueListLookup("fontSizes", "Choose a fontsize class");
 	lookupObj.setLookupForm(forms.svyLookupStyleWizard);
 	lookupObj.getField(0).setShowAs("html");
 	
