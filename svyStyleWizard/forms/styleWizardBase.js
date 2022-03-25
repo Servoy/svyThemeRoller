@@ -95,6 +95,12 @@ function save() {
  */
 function saveAsNew() {
 	var name = plugins.dialogs.showInputDialog("Save as New", "Must start with a letter, only letters, numbers or the special character - are allowed")
+	
+	if (name) {
+		name = name.replace(/ /g,'_');
+		name = name.replace(/-/g,'_');
+	}
+	
 	if (name) {
 		if(scopes.entityStyles.createStyle(name, getElementType(), getStyleClasses())) {
 			scopes.entityStyles.saveStylesToDeveloper();

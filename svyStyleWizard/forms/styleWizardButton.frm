@@ -316,8 +316,8 @@ dataProvider:"marginBottom"
 svy_form:"3747A83B-31E7-485A-87DB-AAEAB4F1E1C9"
 },
 location:{
-x:13,
-y:13
+x:5,
+y:5
 },
 size:{
 height:70,
@@ -326,7 +326,7 @@ width:200
 visible:false,
 width:-1
 },
-location:"13,13",
+location:"5,5",
 name:"fcMarginBottom",
 size:"200,70",
 typeName:"servoycore-formcomponent",
@@ -346,8 +346,8 @@ dataProvider:"marginRight"
 svy_form:"3747A83B-31E7-485A-87DB-AAEAB4F1E1C9"
 },
 location:{
-x:13,
-y:13
+x:4,
+y:4
 },
 size:{
 height:70,
@@ -356,7 +356,7 @@ width:200
 visible:false,
 width:-1
 },
-location:"13,13",
+location:"4,4",
 name:"fcMarginRight",
 size:"200,70",
 typeName:"servoycore-formcomponent",
@@ -431,8 +431,8 @@ dataProvider:"marginLeft"
 svy_form:"3747A83B-31E7-485A-87DB-AAEAB4F1E1C9"
 },
 location:{
-x:13,
-y:13
+x:6,
+y:6
 },
 size:{
 height:70,
@@ -441,7 +441,7 @@ width:200
 visible:false,
 width:-1
 },
-location:"13,13",
+location:"6,6",
 name:"fcMarginLeft",
 size:"200,70",
 typeName:"servoycore-formcomponent",

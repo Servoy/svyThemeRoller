@@ -1,4 +1,11 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"437BDEAA-9834-4F95-BD57-3906699D9A5C",variableType:4}
+ */
+var styleCenterLabel = 0;
+
+/**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"09805BFA-4F81-4000-B2A2-4CA0294EBE58"}
@@ -138,9 +145,9 @@ function updateUI() {
 	var showAllMaginSelectors = expandMarginSelector ? true : false;
 
 	elements.fcMarginMain.visible = !showAllMaginSelectors;
-	elements.fcMarginTop.visible = false;
+	elements.fcMarginTop.visible = showAllMaginSelectors && styleCenterLabel;
 	elements.fcMarginRight.visible = showAllMaginSelectors;
-	elements.fcMarginBottom.visible = false;
+	elements.fcMarginBottom.visible = showAllMaginSelectors && styleCenterLabel;
 	elements.fcMarginLeft.visible = showAllMaginSelectors;
 	elements.labelMarginAll.visible = !showAllMaginSelectors;
 	elements.labelMarginEqual.visible = showAllMaginSelectors;
@@ -196,6 +203,10 @@ function getStyleClasses() {
 	if (styleRoundedBorder) {
 		classes = scopes.ngUtils.addStyleClass(classes, 'btn-round');
 	}
+	
+	if (styleCenterLabel) {
+		classes = scopes.ngUtils.addStyleClass(classes, 'text-center');
+	}
 
 	if (!expandMarginSelector) {
 		classes = scopes.ngUtils.addStyleClass(classes, scopes.svyStyleWizard.getMarginStyleClass(marginAll))
@@ -239,6 +250,7 @@ function setStyleClasses(classes) {
 	marginBottom = "-1";
 	marginLeft = "-1";
 	styleRoundedBorder = 0;
+	styleCenterLabel = 0;
 	styleBold = false;
 	styleUnderline = false;
 	styleExtra = null;
@@ -260,6 +272,11 @@ function setStyleClasses(classes) {
 	// rounderd border
 	if (cls.indexOf("btn-round") > -1) {
 		styleRoundedBorder = 1;
+	}
+	
+	// rounderd border
+	if (cls.indexOf("text-center") > -1) {
+		styleCenterLabel = 1;
 	}
 	
 	// Bold
@@ -501,4 +518,27 @@ function onSelectLabelSize(records, values, lookup) {
 		updateElementStyle(getStyleClasses())
 		updateUI()
 	}
+}
+
+/**
+ * Handle changed data, return false if the value should not be accepted.
+ * JSEvent.data will contain extra information about dataproviderid, its scope and the scope id (record datasource or form/global variable scope) - present since 2021.06 release
+ *
+ * @param oldValue
+ * @param newValue
+ * @param {JSEvent} event
+ *
+ * @return {boolean}
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"39140805-5232-44CF-B8D2-3CB387CACF8F"}
+ */
+function onDataChangeCenteredLabel(oldValue, newValue, event) {
+	if (!newValue) {
+		marginTop = "-1"
+		marginBottom = "-1"
+	}
+	updateUI();
+	return false;
 }
