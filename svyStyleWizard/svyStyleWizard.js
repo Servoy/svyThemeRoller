@@ -1,5 +1,15 @@
 /**
  * @enum
+ * @properties={typeid:35,uuid:"31A7D3D0-9A1D-4041-A13E-416E0A8494B0",variableType:-4}
+ */
+var VARIANT_CATEGORIES = {
+	BUTTON: "button",
+	LABEL: "label",
+	INPUT: "input"
+}
+
+/**
+ * @enum
  * @public
  * @properties={typeid:35,uuid:"AAB77EBE-0B5F-477D-9284-524C7E5BF4E4",variableType:-4}
  */
@@ -26,7 +36,6 @@ var labelColors = ["text-default", "text-primary", "text-warning", "text-danger"
  */
 var fontSizes = ["h1", "h2", "h3", "h4", "h5", "h6"]
 
-
 /**
  * Callback method for when solution is opened.
  * When deeplinking into solutions, the argument part of the deeplink url will be passed in as the first argument
@@ -39,7 +48,7 @@ var fontSizes = ["h1", "h2", "h3", "h4", "h5", "h6"]
  * @properties={typeid:24,uuid:"27B3199B-2F1C-47DA-8C0A-04D821CCC875"}
  */
 function onSolutionOpen(arg, queryParams) {
-	
+
 	scopes.svyStyleValuelists.setButtonStyleValuelist();
 	scopes.svyStyleValuelists.setLabelColorValuelist();
 	scopes.svyStyleValuelists.setFontSizeValuelist();
@@ -55,6 +64,48 @@ function onSolutionOpen(arg, queryParams) {
 		}
 	} catch (e) {
 		application.output(e, LOGGINGLEVEL.ERROR)
+	}
+
+	if (queryParams) {
+		
+		forms.main;
+		
+		if (queryParams.themeAndVariantsEditor) {
+			// default
+		} else if (queryParams.addVariantFor) {
+			var addVariant = queryParams.addVariantFor;
+
+			switch (addVariant) {
+			case VARIANT_CATEGORIES.BUTTON:
+				globals.showForm(forms.styleWizardButton);
+				break;
+			case VARIANT_CATEGORIES.LABEL:
+				globals.showForm(forms.styleWizardLabel);
+				break;
+			case VARIANT_CATEGORIES.INPUT:
+				// TODO input
+				break;
+			default:
+				break;
+			}
+
+		} else if (queryParams.editVariantsFor) {
+			var editVariantsFor = queryParams.editVariantsFor;
+
+			switch (editVariantsFor) {
+			case VARIANT_CATEGORIES.BUTTON:
+				globals.showForm(forms.styleButtons);
+				break;
+			case VARIANT_CATEGORIES.LABEL:
+				globals.showForm(forms.styleLabels);
+				break;
+			case VARIANT_CATEGORIES.INPUT:
+				// TODO input
+				break;
+			default:
+				break;
+			}
+		}
 	}
 }
 
