@@ -153,12 +153,17 @@ function getStyleVariants() {
 	fs.loadAllRecords();
 
 	var result = [];
-	result.push({
-		name: fs.style_name,
-		classes: fs.style_classes ? fs.style_classes.split(" ") : []
-	})
+	for (var index = 1; index <= fs.getSize(); index++) {
+		var record = fs.getRecord(index);
+		result.push({
+			name: record.style_name,
+			classes: record.style_classes ? record.style_classes.split(" ") : []
+		})
+		
+	}
 
-	return result;
+
+	return JSON.stringify(result);
 }
 
 /**
@@ -166,7 +171,8 @@ function getStyleVariants() {
  */
 function saveStylesToDeveloper() {
 	try {
-		servoyDeveloper.setVariantsFor("button", getStyleVariants());
+		application.output(getStyleVariants());
+		//servoyDeveloper.setVariantsFor("button", getStyleVariants());
 	} catch (e) {
 		application.output(e, LOGGINGLEVEL.ERROR)
 	}
