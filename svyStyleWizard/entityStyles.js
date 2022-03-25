@@ -96,6 +96,25 @@ function getStyleRecord(styleName, elementType) {
 }
 
 /**
+ * @param styleUUID
+ *
+ * @properties={typeid:24,uuid:"FDE1DD5E-7BE8-4FF8-AE03-A45453209C55"}
+ */
+function getStyleRecordByUUID(styleUUID) {
+
+	var q = datasources.mem.styles.createSelect();
+	q.where.add(q.columns.style_uuid.eq(application.getUUID(styleUUID)))
+
+	var fs = datasources.mem.styles.getFoundSet();
+	fs.loadRecords(q);
+	if (!fs.getSize()) {
+		return null;
+	}
+
+	return fs.getSelectedRecord();
+}
+
+/**
  * @param {JSEvent} event
  * @param {string} dataTarget
  *

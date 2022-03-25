@@ -64,6 +64,7 @@ function setStyle(record) {
 		styleUUID = null;
 		setStyleClasses(null);
 	}
+	updateElementStyle(getStyleClasses())
 	updateUI();
 }
 
@@ -91,6 +92,18 @@ function saveAsNew() {
 		return scopes.entityStyles.createStyle(name, getElementType(), getStyleClasses()) ? true : false;
 	}
 	return false;
+}
+
+/**
+ * @properties={typeid:24,uuid:"1E5E830C-E9AF-4462-BC85-F72141586C4E"}
+ */
+function cancel() {
+	if (styleUUID) {
+		var record = scopes.entityStyles.getStyleRecordByUUID(styleUUID);
+		setStyle(record);
+	} else {
+		setStyle();
+	}
 }
 
 /**

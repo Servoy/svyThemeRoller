@@ -324,11 +324,6 @@ function onActionCancel(event, dataTarget) {
 }
 
 /**
- * @properties={typeid:24,uuid:"07A8AAA2-E8BA-4AC7-A53A-F333FE617473"}
- */
-function cancel() { }
-
-/**
 
  * @protected
  *
