@@ -1,0 +1,40 @@
+customProperties:"formComponent:false,\
+useCssPosition:true",
+extendsID:"0D0F319E-39D7-4B37-8B67-18890A57640E",
+items:[
+{
+cssPosition:"61,10,10,10,180,29",
+extendsID:"B3133987-3628-4840-9B46-DC7EA8C72C9A",
+json:{
+columns:[
+{
+svyUUID:"3324A1DD-A1F2-4032-9F05-A2E9CDE4BEA5"
+}
+],
+cssPosition:{
+bottom:"10",
+height:"29",
+left:"10",
+right:"10",
+top:"61",
+width:"180"
+},
+rowHeight:70,
+styleClass:"ag-theme-servoy no-border"
+},
+styleClass:"ag-theme-servoy no-border",
+typeName:"aggrid-groupingtable",
+typeid:47,
+uuid:"204FA15E-7FB0-4348-ABE1-A6482909D718"
+},
+{
+cssPosition:"10,10,-1,10,180,42",
+extendsID:"7A53611C-3B62-4FC7-B951-DA5B8C8D42FC",
+typeid:4,
+uuid:"8ECCAC56-A214-4A86-9703-EA33C859FB81"
+}
+],
+name:"svyLookupStyleWizard",
+styleClass:"svy-lookup lookup-table-form svy-lookup-wizard",
+typeid:3,
+uuid:"B889DC7E-CC13-4F49-826B-A98A115E5DC1"

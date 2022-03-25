@@ -133,13 +133,16 @@ function updateUI() {
 		elements.labelBold.removeStyleClass("btn-primary")
 	}
 	
-	
 	if (styleUnderline) {
 		elements.labelUnderline.removeStyleClass("btn-outline-default")
 		elements.labelUnderline.addStyleClass("btn-primary")
 	} else {
 		elements.labelUnderline.addStyleClass("btn-outline-default")
 		elements.labelUnderline.removeStyleClass("btn-primary")
+	}
+	
+	if (buttonStyle) {
+		elements.labelButtonStyleSelected.addStyleClass(buttonStyle);
 	}
 }
 
@@ -184,6 +187,9 @@ function getStyleClasses() {
  * @properties={typeid:24,uuid:"BF6198A0-339F-4779-B87F-CE5D315F82D9"}
  */
 function setStyleClasses(classes) {
+	
+	elements.labelButtonStyleSelected.removeStyleClass(buttonStyle);
+
 	buttonStyle = "btn-default";
 	marginAll = "-1";
 	marginTop = "-1";
@@ -191,6 +197,8 @@ function setStyleClasses(classes) {
 	marginBottom = "-1";
 	marginLeft = "-1";
 	styleRoundedBorder = 0;
+	styleBold = false;
+	styleUnderline = false;
 	styleExtra = null;
 
 	if (!classes) {
@@ -199,7 +207,7 @@ function setStyleClasses(classes) {
 
 	var cls = classes.split(" ");
 
-	var buttonStyles = ["btn-default", "btn-primary", "btn-warning"]
+	var buttonStyles = scopes.svyStyleWizard.buttonStyles;
 	var marginAllStyles = ["margin-10", "margin-15", "margin-20", "margin-30"];
 	var marginTopStyles = ["margin-top-10", "margin-top-15", "margin-top-20", "margin-top-30"];
 	var marginRightStyles = ["margin-right-10", "margin-right-15", "margin-right-20", "margin-right-30"];
@@ -321,18 +329,6 @@ function onActionCancel(event, dataTarget) {
 function cancel() { }
 
 /**
- * @param {JSEvent} event
- * @param {string} dataTarget
- *
- * @protected
- *
- * @properties={typeid:24,uuid:"D95B71EB-8346-455A-95BC-8689F63B4CBF"}
- */
-function onActionButtonStyleDropdown(event, dataTarget) {
-	// TODO Auto-generated method stub
-}
-
-/**
 
  * @protected
  *
@@ -371,4 +367,71 @@ function onActionToggleUnderline(event, dataTarget) {
 	styleUnderline = !styleUnderline;
 	updateUI();
 	updateElementStyle(getStyleClasses());
+}
+
+/**
+ * @param {JSEvent} event
+ * @param {string} dataTarget
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"D95B71EB-8346-455A-95BC-8689F63B4CBF"}
+ */
+function onActionButtonStyleDropdown(event, dataTarget) {
+	  // create lookup object
+	var lookupObj = scopes.svyLookup.createValueListLookup("buttonStyles", "Choose a style");
+	lookupObj.setLookupForm(forms.svyLookupStyleWizard);
+	lookupObj.getField(0).setShowAs("html");
+	
+	// show pop-up
+	var component = elements.labelButtonStyle;
+
+	//var initialValue = application.getValueListDisplayValue(elements.productID.getValueListName());
+	lookupObj.showPopUp(onSelectButtonStyle, component, 400, 500, null);
+	// add fields
+	
+//	// related data is supported
+//	lookupObj.addField('products_to_categories.categoryname').setTitleText('Category');
+//	lookupObj.addField('productname').setTitleText('Product');
+//	lookupObj.addField('products_to_suppliers.companyname').setTitleText('Supplier');
+//	
+//	// Valuelists and non-searchable fields supported
+//	lookupObj.addField('discontinued')
+//		.setTitleText('Available')
+//		.setSearchable(false)
+//		.setValueListName('product_availability');
+//		
+//	// calculation, non-searchable fields example (if (discontinued) return 'Discontinued' else return 'Available')
+//	// lookupObj.addField('isDiscontinued')
+//	//	.setTitleText('Available')
+//	//	.setSearchable(false)
+//		
+//	// formatted, non-searchable field example
+//	lookupObj.addField('unitprice')
+//		.setSearchable(false)
+//		.setTitleText('Price')
+//		.setFormat('#,###.00')
+//	
+//	// show pop-up
+//	var component = elements.productID;
+//	var initialValue = application.getValueListDisplayValue(elements.productID.getValueListName(),selectedProductID);
+//	lookupObj.showPopUp(onSelect,component,null,null,initialValue);
+}
+
+/**
+ * @private
+ * @param {Array<JSRecord<db:/example_data/products>>} records
+ * @param {Array<String|Date|Number>} values
+ * @param {scopes.svyLookup.Lookup} lookup
+ * @properties={typeid:24,uuid:"41137C10-4C78-4622-BF06-EB058F1E09D1"}
+ */
+function onSelectButtonStyle(records, values, lookup) {
+	if (values && values[0]) {
+		
+		elements.labelButtonStyleSelected.removeStyleClass(buttonStyle);
+
+		buttonStyle = values[0];
+		updateElementStyle(getStyleClasses())
+		updateUI()
+	}
 }

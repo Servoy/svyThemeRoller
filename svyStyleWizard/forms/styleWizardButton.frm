@@ -579,11 +579,13 @@ size:{
 height:30,
 width:80
 },
+styleClass:"default-align subtitle",
 text:"Extra"
 },
 location:"1,1",
 name:"labelExtra",
 size:"80,30",
+styleClass:"default-align subtitle",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"3C3C4166-B1F4-4550-8645-BAF21312E1B1"
@@ -713,7 +715,7 @@ customProperties:"attributes:{\
 class:\"flex\",\
 data-align-items:\"center\",\
 data-direction:\"row\",\
-data-justify-content:\"space-between\"\
+data-justify-content:\"flex-start\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -732,41 +734,21 @@ specname:\"flexitem\"\
 items:[
 {
 json:{
-imageStyleClass:"fas fa-chevron-down fa-2x",
-location:{
-x:560,
-y:664
-},
-onActionMethodID:"D95B71EB-8346-455A-95BC-8689F63B4CBF",
-size:{
-height:30,
-width:80
-}
-},
-location:"560,664",
-name:"labelButtonStyleDropdown",
-size:"80,30",
-typeName:"bootstrapcomponents-label",
-typeid:47,
-uuid:"A9A14979-705B-4DDB-9105-BD9DDCF27283"
-},
-{
-json:{
 imageStyleClass:"fas fa-font",
 location:{
-x:559,
-y:663
+x:2,
+y:2
 },
 size:{
 height:30,
 width:80
 },
-styleClass:"btn-default btn-round padding-10"
+styleClass:"btn-default btn-round wizard-btn-styles-icon"
 },
-location:"559,663",
+location:"2,2",
 name:"labelButtonStyleSelected",
 size:"80,30",
-styleClass:"btn-default btn-round padding-10",
+styleClass:"btn-default btn-round wizard-btn-styles-icon",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"E64197E6-D570-45D4-AFC4-5B08504D0D61"
@@ -778,7 +760,8 @@ uuid:"4F49267F-16F7-451E-AF26-709857BA8E63"
 },
 {
 customProperties:"attributes:{\
-class:\"flex-item\"\
+class:\"flex-item\",\
+data-grow:\"1\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -821,11 +804,13 @@ size:{
 height:30,
 width:80
 },
+styleClass:"default-align subtitle",
 text:"Button Style"
 },
 location:"1,1",
 name:"labelButtonStyle",
 size:"80,30",
+styleClass:"default-align subtitle",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"F3B0D6B4-7F0C-4A30-BB47-1BDFF044C4D4"
@@ -834,6 +819,42 @@ uuid:"F3B0D6B4-7F0C-4A30-BB47-1BDFF044C4D4"
 location:"1,1",
 typeid:46,
 uuid:"AADF8723-DA5F-4A32-BFD2-B977ED59A1C2"
+},
+{
+customProperties:"attributes:{\
+class:\"flex-item\"\
+},\
+properties:{\
+packagename:\"12grid\",\
+specname:\"flexitem\"\
+}",
+items:[
+{
+json:{
+imageStyleClass:"fas fa-chevron-down",
+location:{
+x:1,
+y:1
+},
+onActionMethodID:"D95B71EB-8346-455A-95BC-8689F63B4CBF",
+size:{
+height:30,
+width:80
+},
+styleClass:"default-align padding-15 clickable"
+},
+location:"1,1",
+name:"labelButtonStyleDropdown",
+size:"80,30",
+styleClass:"default-align padding-15 clickable",
+typeName:"bootstrapcomponents-label",
+typeid:47,
+uuid:"A9A14979-705B-4DDB-9105-BD9DDCF27283"
+}
+],
+location:"3,3",
+typeid:46,
+uuid:"C7A69EC3-2B01-45FA-8D9E-2818731FBDAB"
 }
 ],
 location:"3,3",

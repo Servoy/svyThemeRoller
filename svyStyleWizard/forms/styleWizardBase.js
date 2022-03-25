@@ -64,9 +64,11 @@ function setStyle(record) {
 		styleUUID = null;
 		setStyleClasses(null);
 	}
+	updateUI();
 }
 
 /**
+ * @return {Boolean}
  * @protected
  * @properties={typeid:24,uuid:"A23B2D65-4E46-4D52-AC29-8420C1F574A2"}
  */
@@ -79,6 +81,7 @@ function save() {
 }
 
 /**
+ * @return {Boolean}
  * @protected
  * @properties={typeid:24,uuid:"6258F3A9-D662-4E1D-A4B5-B69D48860159"}
  */
@@ -89,3 +92,9 @@ function saveAsNew() {
 	}
 	return false;
 }
+
+/**
+ * @protected 
+ * @properties={typeid:24,uuid:"1A6248FC-68C5-4641-BFB3-2291AE490B27"}
+ */
+function updateUI() {}
