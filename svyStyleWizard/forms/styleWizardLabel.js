@@ -131,9 +131,9 @@ function updateUI() {
 	var showAllMaginSelectors = expandMarginSelector ? true : false;
 
 	elements.fcMarginMain.visible = !showAllMaginSelectors;
-	elements.fcMarginTop.visible = showAllMaginSelectors;
+	elements.fcMarginTop.visible = false;
 	elements.fcMarginRight.visible = showAllMaginSelectors;
-	elements.fcMarginBottom.visible = showAllMaginSelectors;
+	elements.fcMarginBottom.visible = false;
 	elements.fcMarginLeft.visible = showAllMaginSelectors;
 	elements.labelMarginAll.visible = !showAllMaginSelectors;
 	elements.labelMarginEqual.visible = showAllMaginSelectors;
