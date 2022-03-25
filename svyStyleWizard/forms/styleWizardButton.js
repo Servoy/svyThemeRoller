@@ -90,6 +90,7 @@ function onShow(firstShow, event) {
 }
 
 /**
+ * @return {Number}
  * @properties={typeid:24,uuid:"758C9E6F-6271-4846-BA0D-269C6A0F871B"}
  * @override
  */

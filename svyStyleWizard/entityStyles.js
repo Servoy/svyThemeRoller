@@ -158,7 +158,7 @@ function getStyleVariants() {
 		var classes = record.style_classes ? record.style_classes.split(" ") : [];
 		classes = classes.filter(function(val) {
 			// FIXME need to include font-style-italic
-			if (!val || val == "font-style-italic" || val == "default-align" || val == "btn") {
+			if (!val || val == "font-style-italic" || val == "default-align") {
 				return false;
 			} else {
 				return true;
