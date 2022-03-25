@@ -30,5 +30,15 @@ function onActionOpenLabel(event) {
  */
 function onActionOpenInput(event) {
 	// TODO Auto-generated method stub
+}
 
+/**
+ * @param {JSEvent} event
+ *
+ * @protected
+ *
+ * @properties={typeid:24,uuid:"969A3F21-C2A3-4284-97D0-808AD7E09A54"}
+ */
+function onActionOpenTheme(event) {
+	application.showURL("https://theme-dev.demo.servoy-cloud.eu");
 }
