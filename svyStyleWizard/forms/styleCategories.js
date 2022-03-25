@@ -18,8 +18,7 @@ function onActionOpenButton(event) {
  * @properties={typeid:24,uuid:"8CCC19A2-D019-46A7-91EB-212DFF645C6F"}
  */
 function onActionOpenLabel(event) {
-	// TODO Auto-generated method stub
-
+	globals.showForm(forms.styleWizardLabel)
 }
 
 /**
