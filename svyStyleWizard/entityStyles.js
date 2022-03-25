@@ -27,6 +27,10 @@ function createStyle(name, elementType, styleClasses) {
 	fs.style_classes = styleClasses;
 
 	if (databaseManager.saveData(fs)) {
+
+		// TODO shall i save the variant now ?
+		saveStylesToDeveloper();
+
 		return fs.getSelectedRecord();
 	} else {
 		databaseManager.revertEditedRecords(fs);
@@ -46,7 +50,10 @@ function createStyle(name, elementType, styleClasses) {
 function updateStyle(styleUUID, styleClasses) {
 
 	var fs = datasources.mem.styles.getFoundSet();
-	fs.loadRecords(styleUUID);
+	var q = datasources.mem.styles.createSelect();
+	q.where.add(q.columns.style_uuid.eq(application.getUUID(styleUUID)))
+	fs.loadRecords(q);
+	
 	if (!fs.getSize()) {
 		return false;
 	}
@@ -54,6 +61,10 @@ function updateStyle(styleUUID, styleClasses) {
 	fs.style_classes = styleClasses;
 
 	if (databaseManager.saveData(fs)) {
+
+		// TODO shall i save the variant now ?
+		saveStylesToDeveloper();
+
 		return true
 	} else {
 		databaseManager.revertEditedRecords(fs);
@@ -117,6 +128,35 @@ function onActionEdit(event, dataTarget) {
 	}
 
 	formWizard.setStyle(record);
+
 	globals.showForm(formWizard);
 }
 
+/**
+ * @public
+ * @properties={typeid:24,uuid:"1D23450B-9D81-427E-8EC9-8ED2BF4E0647"}
+ */
+function getStyleVariants() {
+
+	var fs = datasources.mem.styles.getFoundSet();
+	fs.loadAllRecords();
+
+	var result = [];
+	result.push({
+		name: fs.style_name,
+		classes: fs.style_classes ? fs.style_classes.split(" ") : []
+	})
+
+	return result;
+}
+
+/**
+ * @properties={typeid:24,uuid:"D8F78DCD-ED20-4CFF-8BD4-78F0782A68B4"}
+ */
+function saveStylesToDeveloper() {
+	try {
+		servoyDeveloper.setVariantsFor("button", getStyleVariants());
+	} catch (e) {
+		application.output(e, LOGGINGLEVEL.ERROR)
+	}
+}
