@@ -284,7 +284,7 @@ function setStyleClasses(classes) {
 	
 	// label size
 	for (i = 0; i < labelSizes.length; i++) {
-		key = labelColors[i]
+		key = labelSizes[i]
 		if (cls.indexOf(key) > -1) {
 			labelSize = key
 			break;
