@@ -49,7 +49,7 @@ function updateStyle(styleUUID, styleClasses) {
 	var q = datasources.mem.styles.createSelect();
 	q.where.add(q.columns.style_uuid.eq(application.getUUID(styleUUID)))
 	fs.loadRecords(q);
-	
+
 	if (!fs.getSize()) {
 		return false;
 	}
@@ -128,7 +128,7 @@ function onActionEdit(event, dataTarget) {
 		formWizard = forms.styleWizardButton
 		break;
 	case STYLE_ELEMENT_TYPES.LABEL:
-		throw "to be done"
+		formWizard = forms.styleWizardLabel
 		break;
 	case STYLE_ELEMENT_TYPES.INPUT:
 		throw "to be done"
@@ -156,7 +156,7 @@ function getStyleVariants() {
 	for (var index = 1; index <= fs.getSize(); index++) {
 		var record = fs.getRecord(index);
 		var classes = record.style_classes ? record.style_classes.split(" ") : [];
-		classes = classes.filter(function (val) {
+		classes = classes.filter(function(val) {
 			// FIXME need to include font-style-italic
 			if (!val || val == "font-style-italic" || val == "default-align" || val == "btn") {
 				return false;
@@ -164,15 +164,13 @@ function getStyleVariants() {
 				return true;
 			}
 		})
-		
-		
+
 		result.push({
 			name: record.style_name,
 			classes: classes
 		})
-		
-	}
 
+	}
 
 	return JSON.stringify(result);
 }
