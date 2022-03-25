@@ -501,7 +501,7 @@ width:80
 styleClass:"btn-default btn-round wizard-btn-styles-icon"
 },
 location:"2,2",
-name:"labelBorderColorSelected",
+name:"labelColorStyleSelected",
 size:"80,30",
 styleClass:"btn-default btn-round wizard-btn-styles-icon",
 typeName:"bootstrapcomponents-label",
@@ -529,7 +529,7 @@ location:{
 x:1,
 y:1
 },
-onActionMethodID:"D95B71EB-8346-455A-95BC-8689F63B4CBF",
+onActionMethodID:"E354A578-602C-4419-BD43-E2405E39BC3C",
 size:{
 height:30,
 width:80
@@ -537,7 +537,7 @@ width:80
 styleClass:"default-align padding-15 clickable"
 },
 location:"1,1",
-name:"labelBorderColorDropdown",
+name:"labelColorStyleDropdown",
 size:"80,30",
 styleClass:"default-align padding-15 clickable",
 typeName:"bootstrapcomponents-label",
@@ -582,10 +582,10 @@ height:30,
 width:80
 },
 styleClass:"default-align subtitle",
-text:"Button Style"
+text:"Label Color"
 },
 location:"1,1",
-name:"labelBorderColor",
+name:"labelColorStyle",
 size:"80,30",
 styleClass:"default-align subtitle",
 typeName:"bootstrapcomponents-label",
@@ -598,10 +598,10 @@ location:{
 x:3,
 y:3
 },
-text:"%%borderColor%%"
+text:"%%labelColor%%"
 },
 location:"3,3",
-name:"labelBorderColorSelection",
+name:"labelColorStyleSelection",
 typeName:"bootstrapcomponents-label",
 typeid:47,
 uuid:"C8D26654-CDE0-487F-905D-CF9E876ECE57"

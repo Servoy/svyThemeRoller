@@ -17,6 +17,12 @@ var buttonStyles = ["btn-default", "btn-primary", "btn-warning", "btn-danger", "
 	"btn-outline-default", "btn-outline-primary", "btn-outline-warning", "btn-outline-danger", "btn-outline-success", "btn-outline-info", "btn-outline-tertiary"]
 
 /**
+ * @properties={typeid:35,uuid:"B1C0C476-A7EF-449D-B895-CD0BE785104A",variableType:-4}
+ */
+var labelColors = ["text-default", "text-primary", "text-warning", "text-danger", "text-success", "text-info", "text-tertiary"]
+
+
+/**
  * Callback method for when solution is opened.
  * When deeplinking into solutions, the argument part of the deeplink url will be passed in as the first argument
  * All query parameters + the argument of the deeplink url will be passed in as the second argument
@@ -28,7 +34,9 @@ var buttonStyles = ["btn-default", "btn-primary", "btn-warning", "btn-danger", "
  * @properties={typeid:24,uuid:"27B3199B-2F1C-47DA-8C0A-04D821CCC875"}
  */
 function onSolutionOpen(arg, queryParams) {
+	
 	scopes.svyStyleValuelists.setButtonStyleValuelist();
+	scopes.svyStyleValuelists.setLabelColorValuelist();
 
 	try {
 		if (servoyDeveloper.getExistingVariants) {

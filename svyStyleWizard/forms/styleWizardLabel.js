@@ -80,6 +80,13 @@ var styleUnderline = false;
  */
 var styleItalic = false;
 
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"A851DDF6-060D-4DEF-A8CC-6F6FE6187D04"}
+ */
+var labelColor = "";
+
 
 /**
  * Callback method for when form is shown.
@@ -147,8 +154,8 @@ function updateUI() {
 		elements.labelUnderline.removeStyleClass("btn-primary")
 	}
 	
-	if (buttonStyle) {
-		elements.labelButtonStyleSelected.addStyleClass(buttonStyle);
+	if (labelColor) {
+		elements.labelColorStyleSelected.addStyleClass(labelColor);
 	}
 }
 
@@ -157,10 +164,10 @@ function updateUI() {
  * @properties={typeid:24,uuid:"8A9A6B5A-E35C-4301-872D-B4B59A54A326"}
  */
 function getStyleClasses() {
-	var classes = 'btn';
+	var classes = 'default-align';
 	
-	if (buttonStyle) {
-		classes = scopes.ngUtils.addStyleClass(classes, buttonStyle);
+	if (labelColor) {
+		classes = scopes.ngUtils.addStyleClass(classes, labelColor);
 	}
 
 	if (styleRoundedBorder) {
@@ -194,9 +201,9 @@ function getStyleClasses() {
  */
 function setStyleClasses(classes) {
 	
-	elements.labelButtonStyleSelected.removeStyleClass(buttonStyle);
+	elements.labelColorStyleSelected.removeStyleClass(labelColor);
 
-	buttonStyle = "btn-default";
+	labelColor = "";
 	marginAll = "-1";
 	marginTop = "-1";
 	marginRight = "-1";
@@ -213,7 +220,7 @@ function setStyleClasses(classes) {
 
 	var cls = classes.split(" ");
 
-	var buttonStyles = scopes.svyStyleWizard.buttonStyles;
+	var labelColors = scopes.svyStyleWizard.labelColors;
 	var marginAllStyles = ["margin-10", "margin-15", "margin-20", "margin-30"];
 	var marginTopStyles = ["margin-top-10", "margin-top-15", "margin-top-20", "margin-top-30"];
 	var marginRightStyles = ["margin-right-10", "margin-right-15", "margin-right-20", "margin-right-30"];
@@ -237,10 +244,10 @@ function setStyleClasses(classes) {
 
 	// button style
 	var key;
-	for (var i = 0; i < buttonStyles.length; i++) {
-		key = buttonStyles[i]
+	for (var i = 0; i < labelColors.length; i++) {
+		key = labelColors[i]
 		if (cls.indexOf(key) > -1) {
-			buttonStyle = key
+			labelColor = key
 			break;
 		}
 	}
@@ -301,7 +308,7 @@ function setStyleClasses(classes) {
  * @override
  */
 function updateElementStyle(classes) {
-	forms.styleResultButton.updateElementStyle(classes);
+	forms.styleResultLabel.updateElementStyle(classes);
 }
 
 /**
@@ -314,7 +321,7 @@ function updateElementStyle(classes) {
  */
 function onActionBack(event, dataTarget) {
 	cancel();
-	globals.showForm(forms.styleButtons)
+	globals.showForm(forms.styleLabels)
 }
 
 /**
@@ -342,7 +349,7 @@ function cancel() { }
  */
 function onActionSaveAsNew() {
 	if (saveAsNew()) {
-		globals.showForm(forms.styleButtons);
+		globals.showForm(forms.styleLabels);
 	}
 }
 
@@ -382,17 +389,17 @@ function onActionToggleUnderline(event, dataTarget) {
  *
  * @properties={typeid:24,uuid:"E354A578-602C-4419-BD43-E2405E39BC3C"}
  */
-function onActionButtonStyleDropdown(event, dataTarget) {
+function onActionLabelColorDropdown(event, dataTarget) {
 	  // create lookup object
-	var lookupObj = scopes.svyLookup.createValueListLookup("buttonStyles", "Choose a style");
+	var lookupObj = scopes.svyLookup.createValueListLookup("labelColors", "Choose a style");
 	lookupObj.setLookupForm(forms.svyLookupStyleWizard);
 	lookupObj.getField(0).setShowAs("html");
 	
 	// show pop-up
-	var component = elements.labelButtonStyle;
+	var component = elements.labelColorStyle;
 
 	//var initialValue = application.getValueListDisplayValue(elements.productID.getValueListName());
-	lookupObj.showPopUp(onSelectButtonStyle, component, 400, 500, null);
+	lookupObj.showPopUp(onSelectLabelColor, component, 400, 500, null);
 	// add fields
 	
 //	// related data is supported
@@ -430,12 +437,12 @@ function onActionButtonStyleDropdown(event, dataTarget) {
  * @param {scopes.svyLookup.Lookup} lookup
  * @properties={typeid:24,uuid:"534BF5B3-90D2-4C11-B12C-C2B6610283A6"}
  */
-function onSelectButtonStyle(records, values, lookup) {
+function onSelectLabelColor(records, values, lookup) {
 	if (values && values[0]) {
 		
-		elements.labelButtonStyleSelected.removeStyleClass(buttonStyle);
+		elements.labelColorStyleSelected.removeStyleClass(labelColor);
 
-		buttonStyle = values[0];
+		labelColor = values[0];
 		updateElementStyle(getStyleClasses())
 		updateUI()
 	}

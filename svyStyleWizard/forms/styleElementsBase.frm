@@ -94,7 +94,7 @@ top:"9",
 width:"455"
 },
 styleClass:"default-align h2",
-text:"Choose a Style to Edit"
+text:"Choose a Style Variant to Edit"
 },
 name:"labelTitle",
 styleClass:"default-align h2",

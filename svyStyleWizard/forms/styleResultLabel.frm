@@ -75,7 +75,7 @@ location:{
 x:2,
 y:2
 },
-text:"Label"
+text:"My Label"
 },
 location:"2,2",
 name:"label",
