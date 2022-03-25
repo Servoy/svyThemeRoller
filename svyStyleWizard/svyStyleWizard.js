@@ -56,11 +56,23 @@ function onSolutionOpen(arg, queryParams) {
 	try {
 		if (servoyDeveloper.getExistingVariants) {
 			var existingStyles = servoyDeveloper.getExistingVariants("button");
+			// application.output(existingStyles, LOGGINGLEVEL.ERROR);
+			
+			var style;
+			var classes;
 			for (var i = 0; i < existingStyles.length; i++) {
-				var style = existingStyles[i];
-				var classes = style.classes ? style.classes.join(" ") : "";
+				style = existingStyles[i];
+				classes = style.classes ? style.classes.join(" ") : "";
 				scopes.entityStyles.createStyle(style.name, scopes.entityStyles.STYLE_ELEMENT_TYPES.BUTTON, classes)
 			}
+			
+            existingStyles = servoyDeveloper.getExistingVariants("label");
+            for (i = 0; i < existingStyles.length; i++) {
+                style = existingStyles[i];
+                classes = style.classes ? style.classes.join(" ") : "";
+                scopes.entityStyles.createStyle(style.name, scopes.entityStyles.STYLE_ELEMENT_TYPES.LABEL, classes)
+            }
+			
 		}
 	} catch (e) {
 		application.output(e, LOGGINGLEVEL.ERROR)

@@ -147,10 +147,12 @@ function onActionEdit(event, dataTarget) {
  * @public
  * @properties={typeid:24,uuid:"1D23450B-9D81-427E-8EC9-8ED2BF4E0647"}
  */
-function getStyleVariants() {
+function getStyleVariants(elType) {
 
+	var q = datasources.mem.styles.createSelect()
+	q.where.add(q.columns.element_type.eq(elType))
 	var fs = datasources.mem.styles.getFoundSet();
-	fs.loadAllRecords();
+	fs.loadRecords(q);
 
 	var result = [];
 	for (var index = 1; index <= fs.getSize(); index++) {
@@ -181,7 +183,8 @@ function getStyleVariants() {
 function saveStylesToDeveloper() {
 	try {
 		//application.output(getStyleVariants());
-		servoyDeveloper.setVariantsFor("button", getStyleVariants());
+		servoyDeveloper.setVariantsFor("button", getStyleVariants(STYLE_ELEMENT_TYPES.BUTTON));
+		servoyDeveloper.setVariantsFor("label", getStyleVariants(STYLE_ELEMENT_TYPES.LABEL));
 	} catch (e) {
 		application.output(e, LOGGINGLEVEL.ERROR)
 	}
