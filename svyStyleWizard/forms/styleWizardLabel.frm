@@ -529,7 +529,7 @@ location:{
 x:1,
 y:1
 },
-onActionMethodID:"E354A578-602C-4419-BD43-E2405E39BC3C",
+onActionMethodID:"D95B71EB-8346-455A-95BC-8689F63B4CBF",
 size:{
 height:30,
 width:80
@@ -537,7 +537,7 @@ width:80
 styleClass:"default-align padding-15 clickable"
 },
 location:"1,1",
-name:"labelColorStyleDropdown",
+name:"labelButtonStyleDropdown_copy827",
 size:"80,30",
 styleClass:"default-align padding-15 clickable",
 typeName:"bootstrapcomponents-label",

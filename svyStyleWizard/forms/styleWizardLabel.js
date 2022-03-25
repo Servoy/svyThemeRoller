@@ -154,6 +154,14 @@ function updateUI() {
 		elements.labelUnderline.removeStyleClass("btn-primary")
 	}
 	
+	if (styleItalic) {
+		elements.labelItalic.removeStyleClass("btn-outline-default")
+		elements.labelItalic.addStyleClass("btn-primary")
+	} else {
+		elements.labelItalic.addStyleClass("btn-outline-default")
+		elements.labelItalic.removeStyleClass("btn-primary")
+	}
+	
 	if (labelColor) {
 		elements.labelColorStyleSelected.addStyleClass(labelColor);
 	}
@@ -189,6 +197,10 @@ function getStyleClasses() {
 	
 	if (styleUnderline) {
 		classes = scopes.ngUtils.addStyleClass(classes, "text-underline");
+	}
+	
+	if (styleItalic) {
+		classes = scopes.ngUtils.addStyleClass(classes, "font-italic");
 	}
 
 	return classes
