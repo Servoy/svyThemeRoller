@@ -105,7 +105,13 @@ function loadData() {
 	});
 
 	//parsing theme-servoy.less file
-	var media = solutionModel.getMedia('theme-servoy.less');
+	var media;
+	if (application.getClientProperty('NG2')) {
+		media = solutionModel.getMedia('theme-servoy-ng2.less'); // ng2 file
+	} else {
+		media = solutionModel.getMedia('theme-servoy.less'); // ng1 file
+	}
+	application.output(media);
 	var mediaCssText = media.getAsString();
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
