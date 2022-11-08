@@ -111,7 +111,7 @@ function loadData() {
 	} else {
 		media = solutionModel.getMedia('theme-servoy.less'); // ng1 file
 	}
-	application.output(media);
+
 	var mediaCssText = media.getAsString();
 	var mediaCssArr = mediaCssText.split('\n');
 	for (var i = 0; i < mediaCssArr.length; i++) {
