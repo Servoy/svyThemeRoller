@@ -2087,7 +2087,7 @@ data-servoyextra-fontawesome > div {
     background-color: @ngtable-row-group-bg-level-0;
 }
 
-.ag-table.ag-theme-servoy .ag-row-group > .ag-cell {
+.ag-table.ag-theme-servoy .ag-cell-wrapper.ag-row-group {
 	font-weight: @ngtable-row-group-cell-font-weight;
 }
 
@@ -2196,11 +2196,14 @@ data-servoyextra-fontawesome > div {
 /** AG Grid Theme Tool Panel & Side Bar **/
 /*****************************************/
 .ag-theme-servoy .ag-side-bar {
-	background-color: @ngtable-side-panel-bg;
 	color: @ngtable-side-panel-text-color;
 	border-radius: @table-border-radius;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+.ag-theme-servoy .ag-side-bar .ag-tool-panel-wrapper {
+    background-color: @ngtable-side-panel-bg;
 }
 
 .ag-theme-servoy .ag-side-bar .ag-side-buttons { 
