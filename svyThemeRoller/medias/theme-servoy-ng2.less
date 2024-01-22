@@ -1760,6 +1760,11 @@ data-servoyextra-fontawesome > div {
 	color: @table-row-selected-text-color;
 }
 
+.ag-table {
+	--ag-selected-row-background-color: @table-row-selected-bg-color;
+	--ag-row-hover-color: fadeout(@table-row-selected-bg-color, 50%);
+}
+
 .ag-table .ag-cell-inline-editing input,
 .ag-table .ag-cell-inline-editing .ag-table-typeahed-editor-input {
 	color: @field-color;
