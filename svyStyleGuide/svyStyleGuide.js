@@ -106,7 +106,7 @@ function loadData() {
 
 	//parsing theme-servoy.less file
 	var media;
-	if (application.getClientProperty('NG2')) {
+	if (scopes.svySystem.isTINGClient()) {
 		media = solutionModel.getMedia('theme-servoy-ng2.less'); // ng2 file
 	} else {
 		media = solutionModel.getMedia('theme-servoy.less'); // ng1 file
