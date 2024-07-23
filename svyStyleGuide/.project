@@ -4,7 +4,9 @@
 	<comment></comment>
 	<projects>
 		<project>resources</project>
-		<project>aggrid</project>
+		<project>svyThemeRoller</project>
+		<project>svyUtils</project>
+		<project>svyUtils$NGClient</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
