@@ -36,6 +36,7 @@ enableResize:false,
 enableRowGroup:false,
 enableSort:false,
 enableToolPanel:false,
+id:"select",
 svyUUID:"E2DFB31A-0E13-466C-B830-CCB6A9E09835",
 width:50
 },
@@ -84,6 +85,9 @@ svyUUID:"FF3A7717-E450-4A3A-9381-2DF79CE5EB51",
 width:50
 }
 ],
+columnsAutoSizingOn:{
+svyUUID:"C1F0D097-7FBD-4C52-977C-C9814EC33D45"
+},
 location:{
 x:1,
 y:1

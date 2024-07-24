@@ -9,15 +9,37 @@
  */
 function onLoad(event) {
 	elements.navbar.addMenuItem(createMenuItem('Label & Buttons', 'label'));
-	elements.navbar.addMenuItem(createMenuItem('Fields', 'fields'));
+
+	var menuItem = createMenuItem('Fields', 'menu-fields');
+	var subMenuItems = [];
+	subMenuItems.push(createSubMenuItem('TextBox', 'textbox'));
+	subMenuItems.push(createSubMenuItem('Calendar', 'calendar'));
+	subMenuItems.push(createSubMenuItem('Select', 'select'));
+	subMenuItems.push(createSubMenuItem('Typeahead', 'typeahead'));
+	subMenuItems.push(createSubMenuItem('TextArea', 'textarea'));
+	subMenuItems.push(createSubMenuItem('CheckBox', 'checkbox'));
+
+	menuItem.subMenuItems = subMenuItems;
+	elements.navbar.addMenuItem(menuItem);
 	elements.navbar.addMenuItem(createMenuItem('Tab Panel', 'tabpanel'));
 	elements.navbar.addMenuItem(createMenuItem('Grids', 'grids'));
 
+	/**
+	 * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
+	 * */
 	function createMenuItem(text, id) {
 		var item = elements.navbar.createMenuItem(text, id);
 		item.position = 'RIGHT'
 		item.displayType = 'MENU_ITEM'
 		item.styleClass = 'h4 margin-right-15 margin-left-15'
+		return item
+	}
+
+	/**
+	 * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
+	 * */
+	function createSubMenuItem(text, id) {
+		var item = elements.navbar.createMenuItem(text, id);
 		return item
 	}
 }
@@ -32,7 +54,9 @@ function onLoad(event) {
 function onActionThemeConfig(event) {
 	//application.showForm(forms.ThemeConfigurator);
 	var popup = plugins.window.createFormPopup(forms.ThemeConfigurator);
-	popup.width(application.getWindow().getWidth() - 1);
+	popup.width(application.getWindow().getWidth() - 350);
+	popup.height(application.getWindow().getHeight() - 1);
+
 	popup.x(1);
 	popup.y(1);
 	popup.showBackdrop(true);

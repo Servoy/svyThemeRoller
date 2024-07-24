@@ -8,15 +8,11 @@ function onActionResetStyle(event) {
 	scopes.svyStyleGuide.overrideCSS('');
 
 	//clear local storage
-	plugins.webstorageLocalstorage.removeItem('customCss');
+	application.removeUserProperty('customCss');
 
 	//reset form variables
-	foundset.deleteAllRecords();
-	var dataset = databaseManager.createEmptyDataSet();
 	var columns = ["property", "value", "units", "id", "category", "name", "type", "desc"];
-	columns.forEach(function(itm) {
-		dataset.addColumn(itm);
-	});
+	var dataset = databaseManager.createEmptyDataSet(0, columns);
 
 	var index = Object.keys(scopes.svyStyleGuide.defaultStyle);
 	for (var prop in scopes.svyStyleGuide.defaultStyle) {

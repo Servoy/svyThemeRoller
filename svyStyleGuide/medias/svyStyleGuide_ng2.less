@@ -3,6 +3,11 @@
 
 // Add your custom less/css to this file you can use the same less properties that are specified in the above properties.less 
 
+// TODO workaround for SVY-19457
+ngb-typeahead-window.dropdown-menu {
+	z-index: 1501 !important;
+}
+
 .row-title {
 	
 	> div {
@@ -103,8 +108,8 @@
 
 .float-bottom {
 	position: fixed;
-	bottom: 170px;
-	right: 20px;
+	bottom: 20px;
+    right: 380px;
 	z-index: 99999;
 	gap: 15px;	
 }
@@ -155,7 +160,7 @@ div.list-form-component-margin-5 > * {
 }
 
 .custom-height {
-	height: 819px;
+	height: 100%;
 }
 
 .units-disable span.btn.btn-default.form-control.ui-select-toggle {
@@ -178,4 +183,18 @@ div.list-form-component-margin-5 > * {
     font-size: 25px;
     box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, .2);
     text-align: center;
+}
+
+.lfc-themecards {
+	
+	/* Using this to let LFC increase in height automatically */
+	height: auto !important;
+	
+	.ag-root-wrapper-body.ag-layout-normal {
+		height: initial !important;
+	}
+	
+	.svy-listformcomponent-row {
+		margin: 15px;
+	}
 }

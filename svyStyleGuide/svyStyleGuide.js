@@ -98,11 +98,8 @@ function getDataSetForValueListVariables(displayValue, realValue, record, valueL
  */
 function loadData() {
 	var key, valueKey, objLocal = { };
-	var dataset = databaseManager.createEmptyDataSet();
 	var columns = ["property", "value", "units", "id", "category", "name", "type", "desc"];
-	columns.forEach(function(itm) {
-		dataset.addColumn(itm);
-	});
+	var dataset = databaseManager.createEmptyDataSet(0, columns);
 
 	//parsing theme-servoy.less file
 	var media;
@@ -138,7 +135,7 @@ function loadData() {
 	}
 
 	//get local storage
-	var objStr = plugins.webstorageLocalstorage.getItem('customCss');
+	var objStr = application.getUserProperty('customCss');
 	objStr && (objLocal = JSON.parse(objStr));
 
 	var index = Object.keys(scopes.svyStyleGuide.defaultStyle);
@@ -189,8 +186,8 @@ function applyStyle() {
 	
 	Object.keys(localStorageObj).length && overrideCSS(newCssText);
 	!Object.keys(localStorageObj).length && overrideCSS('');
-	Object.keys(localStorageObj).length && plugins.webstorageLocalstorage.setItem('customCss', JSON.stringify(localStorageObj));
-	!Object.keys(localStorageObj).length && plugins.webstorageLocalstorage.removeItem('customCss');
+	Object.keys(localStorageObj).length && application.setUserProperty('customCss', JSON.stringify(localStorageObj));
+	!Object.keys(localStorageObj).length && application.removeUserProperty('customCss');
 }
 
 /**

@@ -7,6 +7,13 @@ uuid:"CF5D82CE-8F08-46AB-B7DB-7E8100BC5954"
 },
 {
 encapsulation:0,
+mimeType:"image/png",
+name:"servoylogowhite.png",
+typeid:37,
+uuid:"5C52B9A9-6419-4551-A5CA-A67D5ADE3A06"
+},
+{
+encapsulation:0,
 mimeType:"text/css",
 name:"svyStyleGuide.less",
 typeid:37,

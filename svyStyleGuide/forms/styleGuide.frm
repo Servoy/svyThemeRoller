@@ -24,6 +24,7 @@ specname:\"div\"\
 items:[
 {
 json:{
+brandLogo:"5C52B9A9-6419-4551-A5CA-A67D5ADE3A06",
 location:{
 x:1,
 y:1
@@ -155,7 +156,8 @@ specname:\"row\"\
 items:[
 {
 customProperties:"attributes:{\
-class:\"col-md-6\"\
+class:\"col-md-6\",\
+id:\"textarea\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -188,7 +190,8 @@ uuid:"877A4F14-AFC6-495A-98B0-C4E722CF82DA"
 },
 {
 customProperties:"attributes:{\
-class:\"col-md-6\"\
+class:\"col-md-6\",\
+id:\"checkbox\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -469,7 +472,8 @@ specname:\"row\"\
 items:[
 {
 customProperties:"attributes:{\
-class:\"col-md-6\"\
+class:\"col-md-6\",\
+id:\"select\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -502,7 +506,8 @@ uuid:"4A18C893-E964-4E3F-847D-E8CB8D8E2343"
 },
 {
 customProperties:"attributes:{\
-class:\"col-md-6\"\
+class:\"col-md-6\",\
+id:\"typeahead\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -955,7 +960,8 @@ specname:\"row\"\
 items:[
 {
 customProperties:"attributes:{\
-class:\"col-md-6\"\
+class:\"col-md-6\",\
+id:\"calendar\"\
 },\
 properties:{\
 packagename:\"12grid\",\
@@ -988,7 +994,8 @@ uuid:"1884ADBE-3549-40D3-A65B-6AC6CE168223"
 },
 {
 customProperties:"attributes:{\
-class:\"col-md-6\"\
+class:\"col-md-6\",\
+id:\"textbox\"\
 },\
 properties:{\
 packagename:\"12grid\",\
