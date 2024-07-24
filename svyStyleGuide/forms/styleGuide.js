@@ -9,7 +9,9 @@
  */
 function onLoad(event) {
 
-	elements.navbar.addMenuItem(createMenuItem('Home', 'home'));
+	var navbarItem = createMenuItem('Navbar', 'home');
+	navbarItem.position = 'LEFT'
+	elements.navbar.addMenuItem(navbarItem);
 	elements.navbar.addMenuItem(createMenuItem('Label & Buttons', 'label'));
 
 	var menuItem = createMenuItem('Fields', 'menu-fields');
@@ -25,6 +27,10 @@ function onLoad(event) {
 
 	elements.navbar.addMenuItem(createMenuItem('Tab Panel', 'tabpanel'));
 	elements.navbar.addMenuItem(createMenuItem('Grids', 'grids'));
+	elements.navbar.addMenuItem(createMenuItem('Sidenav', 'sidenav'));
+	elements.navbar.addMenuItem(createMenuItem('Breadcrumb', 'sidenav'));
+
+
 
 	menuItem = createMenuItem('Windows', 'windows');
 	subMenuItems = [];
