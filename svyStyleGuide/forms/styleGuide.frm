@@ -225,7 +225,8 @@ uuid:"2C23FEDF-769E-4FB2-B6EA-793E13A5D0D8"
 },
 {
 customProperties:"attributes:{\
-class:\"row\"\
+class:\"row\",\
+id:\"home\"\
 },\
 properties:{\
 packagename:\"12grid\",\

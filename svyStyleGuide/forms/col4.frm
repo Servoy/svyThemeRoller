@@ -1,5 +1,6 @@
 customProperties:"formComponent:false,\
 useCssPosition:true",
+deprecated:"unused",
 encapsulation:108,
 items:[
 {

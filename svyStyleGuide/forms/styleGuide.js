@@ -8,6 +8,8 @@
  * @properties={typeid:24,uuid:"0FDBC4C6-C0AF-4D5C-A49D-2B95EE81D088"}
  */
 function onLoad(event) {
+
+	elements.navbar.addMenuItem(createMenuItem('Home', 'home'));
 	elements.navbar.addMenuItem(createMenuItem('Label & Buttons', 'label'));
 
 	var menuItem = createMenuItem('Fields', 'menu-fields');
@@ -18,11 +20,20 @@ function onLoad(event) {
 	subMenuItems.push(createSubMenuItem('Typeahead', 'typeahead'));
 	subMenuItems.push(createSubMenuItem('TextArea', 'textarea'));
 	subMenuItems.push(createSubMenuItem('CheckBox', 'checkbox'));
-
 	menuItem.subMenuItems = subMenuItems;
 	elements.navbar.addMenuItem(menuItem);
+
 	elements.navbar.addMenuItem(createMenuItem('Tab Panel', 'tabpanel'));
 	elements.navbar.addMenuItem(createMenuItem('Grids', 'grids'));
+
+	menuItem = createMenuItem('Windows', 'windows');
+	subMenuItems = [];
+	subMenuItems.push(createSubMenuItem('Window', 'window'));
+	subMenuItems.push(createSubMenuItem('Dialog', 'dialog'));
+	subMenuItems.push(createSubMenuItem('Input Dialog', 'dialog-input'));
+	subMenuItems.push(createSubMenuItem('Popup Menu', 'popup'));
+	menuItem.subMenuItems = subMenuItems;
+	elements.navbar.addMenuItem(menuItem);
 
 	/**
 	 * @return {CustomType<bootstrapextracomponents-navbar.menuItem>}
@@ -75,6 +86,41 @@ function onActionThemeConfig(event) {
  */
 function onMenuItemClicked(event, menuItem) {
 
-	plugins.ngclientutils.scrollIntoView('#' + menuItem.itemId)
+	switch (menuItem.itemId) {
+	case 'window':
+		var win = application.createWindow('window', JSWindow.MODAL_DIALOG);
+		win.show(forms.WindowForm);
+		break;
+	case 'dialog':
+		plugins.dialogs.showInfoDialog('Dialog', 'This is a dialog', 'Ok', 'Cancel')
+		break;
+	case 'dialog-input':
+		plugins.dialogs.showInputDialog('Input Dialog', 'Enter a value')
+		break;
+	case 'popup':
+		var menu = plugins.window.createPopupMenu();
+		var submenu0 = menu.addMenu(0);
+		submenu0.text = "submenu 0";
+		submenu0.addMenuItem("sub item 0 - 1");
+		
+		// add a first submenu
+		var submenu1 = menu.addMenu("submenu 1");
+		submenu1.addMenuItem("sub item 1 - 1");
+		// add a submenu as child of the first submenu
+		var submenu1_2 = submenu1.addMenu("submenu 1 - 2");
+		submenu1_2.addMenuItem("sub item 1 - 2 - 1");
+		// add another submenu as a child of the first submenu
+		var submenu1_3 = submenu1.addMenu("submenu 1 - 3");
+		submenu1_3.addMenuItem("sub item 1 - 3 - 1");
+		// add a submenu to the second submenu of the first submenu
+		//var submenu1_3_2 = submenu1_2.addMenu("submenu 1 - 2 - 2");
+		//submenu1_3_2.addMenuItem("sub item 1 - 2 - 2 - 1");
+		// add a submenu directly to the menu, at the first position
+		menu.show(event.getX(), event.getY())
+		break;
+	default:
+		plugins.ngclientutils.scrollIntoView('#' + menuItem.itemId)
+		break;
+	}
 
 }
